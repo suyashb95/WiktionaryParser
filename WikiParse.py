@@ -37,12 +37,12 @@ def getIDList(contents,contentType):
 	return IDList
 				
 def getWordData(soup):
-	contents = contents = soup.findAll('span',{'class':'toctext'})
+	contents = soup.findAll('span',{'class':'toctext'})
 	englishContents = []
 	if contents[0].text == 'English':
 		for content in contents:
-			index =  content.find_previous().text.split('.')
-			if index[0] == '1':
+			index =  content.find_previous().text
+			if index.startswith('1.'):
 				englishContents.append(content)
 	wordContents = []
 	for content in englishContents:
@@ -69,18 +69,30 @@ def parseData(soup, etymologyIDs = None, definitionIDs = None, relatedIDs = None
 	htmlParser.ignore_links = True
 	for etymologyIndex, etymologyID, _ in etymologyIDs:
 		spanTag = soup.findAll('span',{'id':etymologyID})[0]
-		etymologyText = htmlParser.handle(spanTag.parent.findNextSibling().text)
+		etymologyTag = spanTag.parent
+		while etymologyTag.name not in ['p','ul']:
+			etymologyTag = etymologyTag.findNextSibling()
+		if etymologyTag.name == 'p':
+			etymologyText = htmlParser.handle(etymologyTag.text)
+		else:
+			etymologyText = ''
+			for listTag in etymologyTag.findAll('li'):
+				etymologyText += htmlParser.handle(listTag.text)
 		etymologyList.append((etymologyIndex,etymologyText))
 	for definitionIndex, definitionID, definitionType in definitionIDs:
-		spanTag = soup.findAll('span',{'id':definitionID})[0]
-		table = spanTag.parent.findNextSibling().findNextSibling()
+		spanTag = soup.findAll('span',{'id':definitionID})[0]		
+		table = spanTag.parent
+		definitionTag = None
+		while table.name != 'ol':
+			definitionTag = table
+			table = table.findNextSibling()
 		for element in table.findAll('ul'):
 			element.clear()
 		for element in table.findAll('dd'):
 			if not (element.text.startswith('(') and element.text.endswith(')')):
 				examplesList.append((element.text,definitionType))
 			element.clear()
-		definitionText = htmlParser.handle(spanTag.parent.findNextSibling().text)
+		definitionText = htmlParser.handle(definitionTag.text)
 		for element in table.findAll('li'):
 			definitionText += element.text
 		definitionList.append((definitionIndex, definitionText, definitionType))
@@ -117,6 +129,7 @@ def makeClass(etymologyList, definitionList, examplesList, relatedWordsList):
 	else:
 		for etymologyIndex, etymologyText in etymologyList:
 			dataObj = data()
+			dataObj.etymology = etymologyText
 			for definitionIndex, definitionText, definitionType in definitionList:
 				if etymologyIndex in definitionIndex:
 					defObj = definition()
