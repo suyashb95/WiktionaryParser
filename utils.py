@@ -5,28 +5,29 @@ class data(object):
 	
 	def __init__(self,etymology = None,definitions = None):
 		self.etymology = etymology
-		self.definitions = definitions
-		
-		@property
-		def definitions(self):
-			return self._definitions 
-		
-		@definitions.setter
-		def definitions(self,definitions):
-			if definitions is None:
-				self._definitions = []
-				return
-			if not isinstance(definitions,list):
-				raise TypeError('Invalid type for relatedWord')
-			for element in definitions:
-				if not isinstance(element,definition):
-					raise TypeError('Invalid type for relatedWord')
-			else:
-				self._definitions = definitions
-				
-		def to_json(self):
-			return {'etymology': self.etymology if self.etymology else '',
-					'definitions': [definition.to_json() for definition in self.definitions] if self.definitions else []}
+		self.definitionList = definitions
+
+	@property
+	def definitionList(self):
+		return self._definitionList
+			
+	@definitionList.setter
+	def definitionList(self,definitions):
+		if definitions is None:
+			self._definitionList = []
+			return
+		elif not isinstance(definitions,list):
+			raise TypeError('Invalid type for definition')
+		for element in definitions:
+			if not isinstance(element,definition):
+				raise TypeError('Invalid type for definition')
+		else:
+			self._definitionList = definitions
+			
+	def to_json(self):
+		return {'etymology': self.etymology if self.etymology else '',
+				'definitions': [definition.to_json() for definition in self.definitionList] if self.definitionList else []
+				}
 			
 class definition(object):
 	

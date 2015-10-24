@@ -1,6 +1,6 @@
 import re,requests
 import html2text
-#from utils import data,definition,relatedWord
+from utils import data,definition,relatedWord
 from string import digits
 
 response = requests.get('https://en.wiktionary.org/w/index.php?title=test&printable=yes')
@@ -15,6 +15,10 @@ relations = ["synonyms","antonyms","hypernyms","hyponyms",
 unwantedList = ['English','Pronunciation','External links','Anagrams','References','Statistics','See also']
 			
 def getIDList(contents,contentType):
+	'''
+	Returns a list of IDs relating to the specific content type.
+	Text can be obtained by parsing the text within span tags having those IDs.
+	'''
 	if contentType == 'etymologies':
 		checkList = ['etymology']
 	elif contentType =='definitions':
@@ -58,6 +62,7 @@ def parseData(soup, etymologyIDs = None, definitionIDs = None, relatedIDs = None
 	etymologyList = []
 	definitionList = []
 	examplesList = []
+	relatedWordsList = []
 	htmlParser = html2text.HTML2Text()
 	htmlParser.ignore_links = True
 	for etymologyIndex, etymologyID, _ in etymologyIDs:
@@ -77,13 +82,50 @@ def parseData(soup, etymologyIDs = None, definitionIDs = None, relatedIDs = None
 		for element in table.findAll('li'):
 			definitionText += element.text
 		definitionList.append((definitionIndex, definitionText, definitionType))
+	'''
 	print etymologyList
 	print '\n\n'
 	print definitionList
 	print "\n\n"
 	print examplesList
+	'''
+	return etymologyList, definitionList, examplesList, relatedWordsList
+		
+def makeClass(etymologyList, definitionList, examplesList, relatedWordsList):
+	'''
+	Takes lists of etymologies, definitions, examples and relatedwords 
+	and makes classes.
+	'''
+	JSONObjList = []
+	if len(etymologyList) == 1:
+		dataObj = data()
+		dataObj.etymology = etymologyList[0][1]
+		if len(definitionList) == 1:
+			defObj = definition()
+			defObj.text = definitionList[0][1]
+			defObj.partOfSpeech = definitionList[0][2]
+		dataObj.defintionList.append(defObj)
+		else:
+			for definitionIndex, definitionText, definitionType in definitonList:
+				defObj = definition()
+				defObj.text = definitionText
+				defObj.partOfSpeech = definitionType
+				dataObj.defintionList.append(defObj)
+		JSONObjList.append(dataObj.to_json())
+	else:
+		for etymologyIndex, etymologyText in etymologyList:
+			dataObj = data()
+			for definitionIndex, definitionText, definitionType in definitonList:
+				if etymologyIndex in definitionIndex:
+					defObj = definition()
+					defObj.text = definitionText
+					defObj.partOfSpeech = definitionType
+					dataObj.defintionList.append(defObj)
+			JSONObjList.append(dataObj.to_json())
+	return JSONObjList				
 		
 		
+			
 		
 			
 						
