@@ -55,7 +55,7 @@ class definition(object):
 			
 	def to_json(self):
 		return {'partOfSpeech': self.partOfSpeech if self.partOfSpeech else '',
-				'text': self._text if self.text else '',
+				'text': self.text if self.text else '',
 				'relatedWords': [relatedWord.to_json() for relatedWord in self.relatedWords] if self.relatedWords else []
 				}
 		

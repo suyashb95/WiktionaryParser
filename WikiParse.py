@@ -52,7 +52,9 @@ def getWordData(soup):
 	definitionIDs = getIDList(wordContents,'definitions')
 	relatedIDs = getIDList(wordContents,'related')
 	#print etymologyIDs,definitionIDs,relatedIDs
-	parseData(soup,etymologyIDs,definitionIDs,relatedIDs)
+	etymologyList, definitionList, examplesList, relatedWordsList = parseData(soup,etymologyIDs,definitionIDs,relatedIDs)
+	JSONObjList = makeClass(etymologyList, definitionList, examplesList, relatedWordsList)
+	return JSONObjList
 	
 def parseData(soup, etymologyIDs = None, definitionIDs = None, relatedIDs = None):
 	'''
@@ -104,23 +106,23 @@ def makeClass(etymologyList, definitionList, examplesList, relatedWordsList):
 			defObj = definition()
 			defObj.text = definitionList[0][1]
 			defObj.partOfSpeech = definitionList[0][2]
-		dataObj.defintionList.append(defObj)
+			dataObj.definitionList.append(defObj)
 		else:
 			for definitionIndex, definitionText, definitionType in definitonList:
 				defObj = definition()
 				defObj.text = definitionText
 				defObj.partOfSpeech = definitionType
-				dataObj.defintionList.append(defObj)
+				dataObj.definitionList.append(defObj)
 		JSONObjList.append(dataObj.to_json())
 	else:
 		for etymologyIndex, etymologyText in etymologyList:
 			dataObj = data()
-			for definitionIndex, definitionText, definitionType in definitonList:
+			for definitionIndex, definitionText, definitionType in definitionList:
 				if etymologyIndex in definitionIndex:
 					defObj = definition()
 					defObj.text = definitionText
 					defObj.partOfSpeech = definitionType
-					dataObj.defintionList.append(defObj)
+					dataObj.definitionList.append(defObj)
 			JSONObjList.append(dataObj.to_json())
 	return JSONObjList				
 		
