@@ -7,7 +7,7 @@ response = requests.get('https://en.wiktionary.org/w/index.php?title=test&printa
 
 partsOfSpeech = ["noun","verb","adjective","adverb","determiner",
 				"article","preposition","conjunction","proper noun","letter",
-				"character","phrase","proverb","idiom","symbol","syllable"]
+				"character","phrase","proverb","idiom","symbol","syllable","numeral"]
 		
 relations = ["synonyms","antonyms","hypernyms","hyponyms",
 			"meronyms","holonyms","troponyms","related terms","derived terms","coordinate terms"]
@@ -37,6 +37,10 @@ def getIDList(contents,contentType):
 	return IDList
 				
 def getWordData(soup):
+	'''
+	Hardcoded to get Enlglish content.
+	Have to change later.
+	'''
 	contents = soup.findAll('span',{'class':'toctext'})
 	englishContents = []
 	if contents[0].text == 'English':
@@ -67,9 +71,14 @@ def parseData(soup, etymologyIDs = None, definitionIDs = None, relatedIDs = None
 	relatedWordsList = []
 	htmlParser = html2text.HTML2Text()
 	htmlParser.ignore_links = True
+	
 	for etymologyIndex, etymologyID, _ in etymologyIDs:
 		spanTag = soup.findAll('span',{'id':etymologyID})[0]
 		etymologyTag = spanTag.parent
+		'''
+		Word etymology is either a para or a list.
+		move forward till you find either.
+		'''
 		while etymologyTag.name not in ['p','ul']:
 			etymologyTag = etymologyTag.findNextSibling()
 		if etymologyTag.name == 'p':
@@ -79,23 +88,58 @@ def parseData(soup, etymologyIDs = None, definitionIDs = None, relatedIDs = None
 			for listTag in etymologyTag.findAll('li'):
 				etymologyText += htmlParser.handle(listTag.text)
 		etymologyList.append((etymologyIndex,etymologyText))
+		
 	for definitionIndex, definitionID, definitionType in definitionIDs:
 		spanTag = soup.findAll('span',{'id':definitionID})[0]		
 		table = spanTag.parent
 		definitionTag = None
+		'''
+		Definitions are ordered lists
+		Look for the first <ol> tag
+		The tag right before the <ol> tag has tenses and all. 
+		'''
 		while table.name != 'ol':
 			definitionTag = table
 			table = table.findNextSibling()
+		'''
+		<ul> tags have biblical references and quotes.
+		Removing them for now.
+		'''
 		for element in table.findAll('ul'):
 			element.clear()
+		'''
+		<dd> tags have examples, take them and clear.
+		'''
 		for element in table.findAll('dd'):
+			examples = []
 			if not (element.text.startswith('(') and element.text.endswith(')')):
-				examplesList.append((element.text,definitionType))
+				examples.append(element.text)
+			examplesList.append((definitionIndex, examples, definitionType))
 			element.clear()
+		'''
+		Add related text from the tag right befor the <ol>
+		and parse each <li> tag to get definitions.
+		'''
 		definitionText = htmlParser.handle(definitionTag.text)
 		for element in table.findAll('li'):
 			definitionText += element.text
 		definitionList.append((definitionIndex, definitionText, definitionType))
+		
+	'''
+	Look for parent tags with <li> tags, those are related words.
+	<li> tags can either be in tables or lists.
+	'''
+	for relatedIndex, relatedID, relationType in relatedIDs:
+		words = []
+		spanTag = soup.findAll('span', {'id':relatedID})[0]
+		parentTag = spanTag.parent
+		while not parentTag.findAll('li'):
+			parentTag = parentTag.findNextSibling()
+		for listTag in parentTag.findAll('li'):
+			words.append(listTag.text)
+		relatedWordsList.append((relatedIndex, words, relationType))
+	
+		
 	'''
 	print etymologyList
 	print '\n\n'
@@ -118,23 +162,58 @@ def makeClass(etymologyList, definitionList, examplesList, relatedWordsList):
 			defObj = definition()
 			defObj.text = definitionList[0][1]
 			defObj.partOfSpeech = definitionList[0][2]
+			defObj.exampleUses = examplesList[0][1]
+			for relatedIndex, relatedWords, relationType in relatedWordsList:
+				relatedWordObj = relatedWord()
+				relatedWordObj.relationshipType = relationType
+				relatedWordObj.words = relatedwords
+				defObj.relatedWords.append(relatedWordObj)
 			dataObj.definitionList.append(defObj)
 		else:
 			for definitionIndex, definitionText, definitionType in definitonList:
 				defObj = definition()
 				defObj.text = definitionText
 				defObj.partOfSpeech = definitionType
+				for relatedIndex, relatedWords, relationType in relatedWordsList:
+					if definitionIndex in relatedIndex:
+						relatedWordObj = relatedWord()
+						relatedWordObj.relationshipType = relationType
+						relatedWordObj.words = relatedwords
+						defObj.relatedWords.append(relatedWordObj)
+				for exampleIndex, examples, definitionType in examplesList:
+					if definitionIndex in exampleIndex:
+						defObj.exampleUses.append(examples)
 				dataObj.definitionList.append(defObj)
 		JSONObjList.append(dataObj.to_json())
 	else:
 		for etymologyIndex, etymologyText in etymologyList:
 			dataObj = data()
 			dataObj.etymology = etymologyText
-			for definitionIndex, definitionText, definitionType in definitionList:
-				if etymologyIndex in definitionIndex:
+			if len(definitionList) == 1:
+				defObj = definition()
+				defObj.text = definitionList[0][1]
+				defObj.partOfSpeech = definitionList[0][2]
+				defObj.exampleUses = examplesList[0][1]
+				for relatedIndex, relatedWords, relationType in relatedWordsList:
+					relatedWordObj = relatedWord()
+					relatedWordObj.relationshipType = relationType
+					relatedWordObj.words = relatedwords
+					defObj.relatedWords.append(relatedWordObj)
+				dataObj.definitionList.append(defObj)
+			else:
+				for definitionIndex, definitionText, definitionType in definitonList:
 					defObj = definition()
 					defObj.text = definitionText
 					defObj.partOfSpeech = definitionType
+					for relatedIndex, relatedWords, relationType in relatedWordsList:
+						if definitionIndex in relatedIndex:
+							relatedWordObj = relatedWord()
+							relatedWordObj.relationshipType = relationType
+							relatedWordObj.words = relatedwords
+							defObj.relatedWords.append(relatedWordObj)
+					for exampleIndex, examples, definitionType in examplesList:
+						if definitionIndex in exampleIndex:
+							defObj.exampleUses.append(examples)
 					dataObj.definitionList.append(defObj)
 			JSONObjList.append(dataObj.to_json())
 	return JSONObjList				

@@ -26,15 +26,16 @@ class data(object):
 			
 	def to_json(self):
 		return {'etymology': self.etymology if self.etymology else '',
-				'definitions': [definition.to_json() for definition in self.definitionList] if self.definitionList else []
+				'definitions': [definition.to_json() for definition in self.definitionList] if self.definitionList else [],
 				}
 			
 class definition(object):
 	
-	def __init__(self,partOfSpeech = None,text = None,relatedWords = None):
+	def __init__(self,partOfSpeech = None,text = None,relatedWords = None, exampleUses = None):
 		self.partOfSpeech = partOfSpeech
 		self.text = text
 		self.relatedWords = relatedWords
+		self.exampleUses = exampleUses
 
 	@property
 	def relatedWords(self):
@@ -56,7 +57,8 @@ class definition(object):
 	def to_json(self):
 		return {'partOfSpeech': self.partOfSpeech if self.partOfSpeech else '',
 				'text': self.text if self.text else '',
-				'relatedWords': [relatedWord.to_json() for relatedWord in self.relatedWords] if self.relatedWords else []
+				'relatedWords': [relatedWord.to_json() for relatedWord in self.relatedWords] if self.relatedWords else [],
+				'exampleUses': self.exampleUses if self.exampleUses else []
 				}
 		
 class relatedWord(object):
