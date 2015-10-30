@@ -36,7 +36,21 @@ class definition(object):
 		self.text = text
 		self.relatedWords = relatedWords
 		self.exampleUses = exampleUses
-
+	
+	@property
+	def exampleUses(self):
+		return self._exampleUses
+		
+	@exampleUses.setter
+	def exampleUses(self, exampleUses):
+		if exampleUses is None:
+			self._exampleUses = []
+			return
+		elif not isinstance(exampleUses,list):
+			raise TypeError('Invalid type for exampleUses')
+		else:
+			self._exampleUses = exampleUses
+			
 	@property
 	def relatedWords(self):
 		return self._relatedWords

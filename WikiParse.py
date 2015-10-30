@@ -2,6 +2,7 @@ import re,requests
 import html2text
 from utils import data,definition,relatedWord
 from string import digits
+import re
 
 response = requests.get('https://en.wiktionary.org/w/index.php?title=test&printable=yes')
 
@@ -110,12 +111,13 @@ def parseData(soup, etymologyIDs = None, definitionIDs = None, relatedIDs = None
 		'''
 		<dd> tags have examples, take them and clear.
 		'''
+		examples = []
 		for element in table.findAll('dd'):
-			examples = []
 			if not (element.text.startswith('(') and element.text.endswith(')')):
 				examples.append(element.text)
-			examplesList.append((definitionIndex, examples, definitionType))
 			element.clear()
+		examplesList.append((definitionIndex, examples, definitionType))
+		print examplesList
 		'''
 		Add related text from the tag right befor the <ol>
 		and parse each <li> tag to get definitions.
@@ -123,6 +125,7 @@ def parseData(soup, etymologyIDs = None, definitionIDs = None, relatedIDs = None
 		definitionText = htmlParser.handle(definitionTag.text)
 		for element in table.findAll('li'):
 			definitionText += element.text
+		definitionText = re.sub('(\\n+)', '\\n', definitionText).strip()
 		definitionList.append((definitionIndex, definitionText, definitionType))
 		
 	'''
@@ -163,10 +166,11 @@ def makeClass(etymologyList, definitionList, examplesList, relatedWordsList):
 			defObj.text = definitionList[0][1]
 			defObj.partOfSpeech = definitionList[0][2]
 			defObj.exampleUses = examplesList[0][1]
+			print examplesList
 			for relatedIndex, relatedWords, relationType in relatedWordsList:
 				relatedWordObj = relatedWord()
 				relatedWordObj.relationshipType = relationType
-				relatedWordObj.words = relatedwords
+				relatedWordObj.words = relatedWords
 				defObj.relatedWords.append(relatedWordObj)
 			dataObj.definitionList.append(defObj)
 		else:
@@ -201,7 +205,7 @@ def makeClass(etymologyList, definitionList, examplesList, relatedWordsList):
 					defObj.relatedWords.append(relatedWordObj)
 				dataObj.definitionList.append(defObj)
 			else:
-				for definitionIndex, definitionText, definitionType in definitonList:
+				for definitionIndex, definitionText, definitionType in definitionList:
 					defObj = definition()
 					defObj.text = definitionText
 					defObj.partOfSpeech = definitionType
@@ -209,7 +213,7 @@ def makeClass(etymologyList, definitionList, examplesList, relatedWordsList):
 						if definitionIndex in relatedIndex:
 							relatedWordObj = relatedWord()
 							relatedWordObj.relationshipType = relationType
-							relatedWordObj.words = relatedwords
+							relatedWordObj.words = relatedWords
 							defObj.relatedWords.append(relatedWordObj)
 					for exampleIndex, examples, definitionType in examplesList:
 						if definitionIndex in exampleIndex:
