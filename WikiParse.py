@@ -9,7 +9,7 @@ response = requests.get('https://en.wiktionary.org/w/index.php?title=test&printa
 
 partsOfSpeech = ["noun","verb","adjective","adverb","determiner",
 				"article","preposition","conjunction","proper noun","letter",
-				"character","phrase","proverb","idiom","symbol","syllable","numeral"]
+				"character","phrase","proverb","idiom","symbol","syllable","numeral", "initialism"]
 		
 relations = ["synonyms","antonyms","hypernyms","hyponyms",
 			"meronyms","holonyms","troponyms","related terms","derived terms","coordinate terms"]
@@ -42,6 +42,7 @@ def getWordData(soup):
 	'''
 	Hardcoded to get Enlglish content.
 	Have to change later.
+	Match language, get previous tag, get starting number.
 	'''
 	contents = soup.findAll('span',{'class':'toctext'})
 	englishContents = []
@@ -252,36 +253,39 @@ def makeClass(etymologyList, definitionsList, examplesList, relatedWordsList):
 	and makes classes.
 	'''
 	JSONObjList = []
-	if len(etymologyList) == 1:
+	if len(etymologyList) <= 1:
 		dataObj = data()
-		dataObj.etymology = etymologyList[0][1]
+		if etymologyList:
+			dataObj.etymology = etymologyList[0][1]
+		else:
+			dataObj.etymology = ''
 		if len(definitionsList) == 1:
 			defObj = definition()
 			defObj.text = definitionsList[0][1]
 			defObj.partOfSpeech = definitionsList[0][2]
 			defObj.exampleUses = examplesList[0][1]
-			print examplesList
 			for relatedIndex, relatedWords, relationType in relatedWordsList:
 				relatedWordObj = relatedWord()
 				relatedWordObj.relationshipType = relationType
 				relatedWordObj.words = relatedWords
 				defObj.relatedWords.append(relatedWordObj)
-			dataObj.definitionsList.append(defObj)
+			dataObj.definitionList.append(defObj)
 		else:
 			for definitionIndex, definitionText, definitionType in definitionsList:
-				defObj = definition()
-				defObj.text = definitionText
-				defObj.partOfSpeech = definitionType
-				for relatedIndex, relatedWords, relationType in relatedWordsList:
-					if definitionIndex in relatedIndex:
-						relatedWordObj = relatedWord()
-						relatedWordObj.relationshipType = relationType
-						relatedWordObj.words = relatedWords
-						defObj.relatedWords.append(relatedWordObj)
-				for exampleIndex, examples, definitionType in examplesList:
-					if definitionIndex in exampleIndex:
-						defObj.exampleUses.append(examples)
-				dataObj.definitionList.append(defObj)
+				if etymologyList[0][0] in definitionIndex:
+					defObj = definition()
+					defObj.text = definitionText
+					defObj.partOfSpeech = definitionType
+					for relatedIndex, relatedWords, relationType in relatedWordsList:
+						if definitionIndex in relatedIndex:
+							relatedWordObj = relatedWord()
+							relatedWordObj.relationshipType = relationType
+							relatedWordObj.words = relatedWords
+							defObj.relatedWords.append(relatedWordObj)
+					for exampleIndex, examples, definitionType in examplesList:
+						if definitionIndex in exampleIndex:
+							defObj.exampleUses.append(examples)
+					dataObj.definitionList.append(defObj)
 		JSONObjList.append(dataObj.to_json())
 	else:
 		for etymologyIndex, etymologyText in etymologyList:
@@ -300,19 +304,20 @@ def makeClass(etymologyList, definitionsList, examplesList, relatedWordsList):
 				dataObj.definitionList.append(defObj)
 			else:
 				for definitionIndex, definitionText, definitionType in definitionsList:
-					defObj = definition()
-					defObj.text = definitionText
-					defObj.partOfSpeech = definitionType
-					for relatedIndex, relatedWords, relationType in relatedWordsList:
-						if definitionIndex in relatedIndex:
-							relatedWordObj = relatedWord()
-							relatedWordObj.relationshipType = relationType
-							relatedWordObj.words = relatedWords
-							defObj.relatedWords.append(relatedWordObj)
-					for exampleIndex, examples, definitionType in examplesList:
-						if definitionIndex in exampleIndex:
-							defObj.exampleUses = examples
-					dataObj.definitionList.append(defObj)
+					if etymologyIndex in definitionIndex:
+						defObj = definition()
+						defObj.text = definitionText
+						defObj.partOfSpeech = definitionType
+						for relatedIndex, relatedWords, relationType in relatedWordsList:
+							if definitionIndex in relatedIndex:
+								relatedWordObj = relatedWord()
+								relatedWordObj.relationshipType = relationType
+								relatedWordObj.words = relatedWords
+								defObj.relatedWords.append(relatedWordObj)
+						for exampleIndex, examples, definitionType in examplesList:
+							if definitionIndex in exampleIndex:
+								defObj.exampleUses = examples
+						dataObj.definitionList.append(defObj)
 			JSONObjList.append(dataObj.to_json())
 	return JSONObjList				
 		

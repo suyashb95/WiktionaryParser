@@ -6,7 +6,21 @@ class data(object):
 	def __init__(self,etymology = None,definitions = None):
 		self.etymology = etymology
 		self.definitionList = definitions
-
+		
+	@property 
+	def etymology(self):
+		return self._etymology
+		
+	@etymology.setter
+	def etymology(self, etymology):
+		if etymology is None:
+			etymology = ''
+			return
+		elif not isinstance(etymology,str):
+			raise TypeError('Invalid type for etymology')
+		else:
+			self._etymology = etymology
+			
 	@property
 	def definitionList(self):
 		return self._definitionList
