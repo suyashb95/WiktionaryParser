@@ -5,8 +5,6 @@ from string import digits
 import re
 from bs4 import BeautifulSoup as BS
 
-response = requests.get('https://en.wiktionary.org/w/index.php?title=test&printable=yes')
-
 partsOfSpeech = ["noun","verb","adjective","adverb","determiner",
 				"article","preposition","conjunction","proper noun","letter",
 				"character","phrase","proverb","idiom","symbol","syllable","numeral", "initialism"]
@@ -55,15 +53,23 @@ def getWordData(soup):
 	for content in englishContents:
 		if content.text not in unwantedList:
 			wordContents.append(content)
+	'''
+	Get IDs for etymology, definitions, examples and related words.
+	'''
+	
 	etymologyIDs = getIDList(wordContents,'etymologies')
 	definitionIDs = getIDList(wordContents,'definitions')
 	relatedIDs = getIDList(wordContents,'related')
-	#print etymologyIDs,definitionIDs,relatedIDs
-	#etymologyList, definitionList, examplesList, relatedWordsList = parseData(soup,etymologyIDs,definitionIDs,relatedIDs)
+	
+	'''
+	Parse text from those tags.
+	Must call parseExamples before parseDefinitions.
+	'''
 	etymologyList = parseEtymologies(soup, etymologyIDs)
 	examplesList = parseExamples(soup, definitionIDs)
 	definitionsList = parseDefinitions(soup, definitionIDs)
 	relatedWordsList = parseRelatedWords(soup, relatedIDs)
+	
 	JSONObjList = makeClass(etymologyList, definitionsList, examplesList, relatedWordsList)
 	return JSONObjList
 
@@ -156,6 +162,121 @@ def parseRelatedWords(soup, relatedIDs = None):
 		relatedWordsList.append((relatedIndex, words, relationType))
 	return relatedWordsList
 	
+def makeClass(etymologyList, definitionsList, examplesList, relatedWordsList):
+	JSONObjList = []
+	for etymologyIndex, etymologyText in etymologyList:
+		dataObj = data()
+		dataObj.etymology = etymologyText
+		for definitionIndex, definitionText, definitionType in definitionsList:
+			if etymologyIndex in definitionIndex or definitionIndex.count('.') == 1:
+				defObj = definition()
+				defObj.text = definitionText
+				defObj.partOfSpeech = definitionType
+				for exampleIndex, examples, exampleType in examplesList:
+					if definitionIndex in exampleIndex:
+						defObj.exampleUses = examples
+				for relatedWordIndex, relatedWords, relationType in relatedWordsList:
+					if definitionIndex in relatedWordIndex or relatedWordIndex.count('.') == 2:
+						relatedWordObj = relatedWord()
+						relatedWordObj.words = relatedWords
+						relatedWordObj.relationshipType = relationType
+						defObj.relatedWords.append(relatedWordObj)
+				dataObj.definitionList.append(defObj)
+		JSONObjList.append(dataObj.to_json())
+	return JSONObjList
+		
+def main():
+	word = raw_input('Enter word: ')
+	base_url = 'https://en.wiktionary.org/wiki/'
+	response = requests.get(base_url + word + '?printable=yes')
+	soup = BS(response.text, 'html.parser')
+	return getWordData(soup)
+	
+		
+			
+						
+						
+						
+	
+		
+"""
+Old functions, to be used only if required.
+
+def makeClass(etymologyList, definitionsList, examplesList, relatedWordsList):
+	'''
+	Takes lists of etymologies, definitions, examples and relatedwords 
+	and makes classes.
+	'''
+	JSONObjList = []
+	if len(etymologyList) <= 1:
+		dataObj = data()
+		if etymologyList:
+			dataObj.etymology = etymologyList[0][1]
+		else:
+			dataObj.etymology = ''
+		if len(definitionsList) == 1:
+			defObj = definition()
+			defObj.text = definitionsList[0][1]
+			defObj.partOfSpeech = definitionsList[0][2]
+			defObj.exampleUses = examplesList[0][1]
+			for relatedIndex, relatedWords, relationType in relatedWordsList:
+				relatedWordObj = relatedWord()
+				relatedWordObj.relationshipType = relationType
+				relatedWordObj.words = relatedWords
+				defObj.relatedWords.append(relatedWordObj)
+			dataObj.definitionList.append(defObj)
+		else:
+			for definitionIndex, definitionText, definitionType in definitionsList:
+				if etymologyList[0][0] in definitionIndex:
+					defObj = definition()
+					defObj.text = definitionText
+					defObj.partOfSpeech = definitionType
+					for relatedIndex, relatedWords, relationType in relatedWordsList:
+						if definitionIndex in relatedIndex:
+							relatedWordObj = relatedWord()
+							relatedWordObj.relationshipType = relationType
+							relatedWordObj.words = relatedWords
+							defObj.relatedWords.append(relatedWordObj)
+					for exampleIndex, examples, definitionType in examplesList:
+						if definitionIndex in exampleIndex:
+							defObj.exampleUses.append(examples)
+					dataObj.definitionList.append(defObj)
+		JSONObjList.append(dataObj.to_json())
+	else:
+		for etymologyIndex, etymologyText in etymologyList:
+			dataObj = data()
+			dataObj.etymology = etymologyText
+			if len(definitionsList) == 1:
+				defObj = definition()
+				defObj.text = definitionsList[0][1]
+				defObj.partOfSpeech = definitionsList[0][2]
+				defObj.exampleUses = examplesList[0][1]
+				for relatedIndex, relatedWords, relationType in relatedWordsList:
+					relatedWordObj = relatedWord()
+					relatedWordObj.relationshipType = relationType
+					relatedWordObj.words = relatedWords
+					defObj.relatedWords.append(relatedWordObj)
+				dataObj.definitionList.append(defObj)
+			else:
+				for definitionIndex, definitionText, definitionType in definitionsList:
+					if etymologyIndex in definitionIndex:
+						defObj = definition()
+						defObj.text = definitionText
+						defObj.partOfSpeech = definitionType
+						for relatedIndex, relatedWords, relationType in relatedWordsList:
+							if definitionIndex in relatedIndex:
+								relatedWordObj = relatedWord()
+								relatedWordObj.relationshipType = relationType
+								relatedWordObj.words = relatedWords
+								defObj.relatedWords.append(relatedWordObj)
+						for exampleIndex, examples, definitionType in examplesList:
+							if definitionIndex in exampleIndex:
+								defObj.exampleUses = examples
+						dataObj.definitionList.append(defObj)
+			JSONObjList.append(dataObj.to_json())
+	return JSONObjList				
+			
+
 def parseData(soup, etymologyIDs = None, definitionIDs = None, relatedIDs = None):
 	'''
 	Parses data from the soup using IDs returned by getIDList
@@ -246,98 +367,4 @@ def parseData(soup, etymologyIDs = None, definitionIDs = None, relatedIDs = None
 	print examplesList
 	'''
 	return etymologyList, definitionList, examplesList, relatedWordsList
-		
-def makeClass(etymologyList, definitionsList, examplesList, relatedWordsList):
-	'''
-	Takes lists of etymologies, definitions, examples and relatedwords 
-	and makes classes.
-	'''
-	JSONObjList = []
-	if len(etymologyList) <= 1:
-		dataObj = data()
-		if etymologyList:
-			dataObj.etymology = etymologyList[0][1]
-		else:
-			dataObj.etymology = ''
-		if len(definitionsList) == 1:
-			defObj = definition()
-			defObj.text = definitionsList[0][1]
-			defObj.partOfSpeech = definitionsList[0][2]
-			defObj.exampleUses = examplesList[0][1]
-			for relatedIndex, relatedWords, relationType in relatedWordsList:
-				relatedWordObj = relatedWord()
-				relatedWordObj.relationshipType = relationType
-				relatedWordObj.words = relatedWords
-				defObj.relatedWords.append(relatedWordObj)
-			dataObj.definitionList.append(defObj)
-		else:
-			for definitionIndex, definitionText, definitionType in definitionsList:
-				if etymologyList[0][0] in definitionIndex:
-					defObj = definition()
-					defObj.text = definitionText
-					defObj.partOfSpeech = definitionType
-					for relatedIndex, relatedWords, relationType in relatedWordsList:
-						if definitionIndex in relatedIndex:
-							relatedWordObj = relatedWord()
-							relatedWordObj.relationshipType = relationType
-							relatedWordObj.words = relatedWords
-							defObj.relatedWords.append(relatedWordObj)
-					for exampleIndex, examples, definitionType in examplesList:
-						if definitionIndex in exampleIndex:
-							defObj.exampleUses.append(examples)
-					dataObj.definitionList.append(defObj)
-		JSONObjList.append(dataObj.to_json())
-	else:
-		for etymologyIndex, etymologyText in etymologyList:
-			dataObj = data()
-			dataObj.etymology = etymologyText
-			if len(definitionsList) == 1:
-				defObj = definition()
-				defObj.text = definitionsList[0][1]
-				defObj.partOfSpeech = definitionsList[0][2]
-				defObj.exampleUses = examplesList[0][1]
-				for relatedIndex, relatedWords, relationType in relatedWordsList:
-					relatedWordObj = relatedWord()
-					relatedWordObj.relationshipType = relationType
-					relatedWordObj.words = relatedWords
-					defObj.relatedWords.append(relatedWordObj)
-				dataObj.definitionList.append(defObj)
-			else:
-				for definitionIndex, definitionText, definitionType in definitionsList:
-					if etymologyIndex in definitionIndex:
-						defObj = definition()
-						defObj.text = definitionText
-						defObj.partOfSpeech = definitionType
-						for relatedIndex, relatedWords, relationType in relatedWordsList:
-							if definitionIndex in relatedIndex:
-								relatedWordObj = relatedWord()
-								relatedWordObj.relationshipType = relationType
-								relatedWordObj.words = relatedWords
-								defObj.relatedWords.append(relatedWordObj)
-						for exampleIndex, examples, definitionType in examplesList:
-							if definitionIndex in exampleIndex:
-								defObj.exampleUses = examples
-						dataObj.definitionList.append(defObj)
-			JSONObjList.append(dataObj.to_json())
-	return JSONObjList				
-		
-		
-def main():
-	word = raw_input('Enter word: ')
-	base_url = 'https://en.wiktionary.org/wiki/'
-	response = requests.get(base_url + word + '?printable=yes')
-	soup = BS(response.text, 'html.parser')
-	return getWordData(soup)
-	
-		
-			
-						
-						
-				
-		
-	
-		
-		
-		
-		
-	
+"""
