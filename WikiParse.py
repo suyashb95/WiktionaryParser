@@ -44,11 +44,14 @@ def getWordData(soup):
 	'''
 	contents = soup.findAll('span',{'class':'toctext'})
 	englishContents = []
-	if contents[0].text == 'English':
-		for content in contents:
-			index =  content.find_previous().text
-			if index.startswith('1.'):
-				englishContents.append(content)
+	startIndex = None
+	for content in contents:
+		if content.text == 'English':
+			startIndex = content.find_previous().text
+	for content in contents:
+		index =  content.find_previous().text
+		if index.startswith(startIndex):
+			englishContents.append(content)
 	wordContents = []
 	for content in englishContents:
 		if content.text not in unwantedList:
@@ -201,6 +204,7 @@ def main():
 		
 """
 Old functions, to be used only if required.
+Bad design, clunky. Won't use unless new ones fail.
 
 def makeClass(etymologyList, definitionsList, examplesList, relatedWordsList):
 	'''
