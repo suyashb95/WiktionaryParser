@@ -4,9 +4,10 @@ from json import JSONEncoder
 class data(object):
 	
 	def __init__(self,etymology = None,definitions = None):
-		self.etymology = etymology
+		self.etymology = etymology if etymology else ''
 		self.definitionList = definitions
-		
+	
+	'''	
 	@property 
 	def etymology(self):
 		return self._etymology
@@ -20,6 +21,7 @@ class data(object):
 			raise TypeError('Invalid type for etymology')
 		else:
 			self._etymology = etymology
+	'''
 			
 	@property
 	def definitionList(self):
@@ -46,8 +48,8 @@ class data(object):
 class definition(object):
 	
 	def __init__(self,partOfSpeech = None,text = None,relatedWords = None, exampleUses = None):
-		self.partOfSpeech = partOfSpeech
-		self.text = text
+		self.partOfSpeech = partOfSpeech if partOfSpeech else ''
+		self.text = text if text else ''
 		self.relatedWords = relatedWords
 		self.exampleUses = exampleUses
 	
@@ -63,6 +65,10 @@ class definition(object):
 		elif not isinstance(exampleUses,list):
 			raise TypeError('Invalid type for exampleUses')
 		else:
+			for example in exampleUses:
+				if not isinstance(example,str):
+					raise TypeError('Invalid type for exampleUses')
+					return
 			self._exampleUses = exampleUses
 			
 	@property
@@ -76,10 +82,11 @@ class definition(object):
 			return
 		elif not isinstance(relatedWords,list):
 			raise TypeError('Invalid type for relatedWord')
-		for element in relatedWords:
-			if not isinstance(element,relatedWord):
-				raise TypeError('Invalid type for relatedWord')
 		else:
+			for element in relatedWords:
+				if not isinstance(element,relatedWord):
+					raise TypeError('Invalid type for relatedWord')
+					return
 			self._relatedWords = relatedWords
 			
 	def to_json(self):
@@ -92,7 +99,7 @@ class definition(object):
 class relatedWord(object):
 	
 	def __init__(self,relationshipType = None,words = None):
-		self.relationshipType = relationshipType
+		self.relationshipType = relationshipType if relationshipType else ''
 		self.words = words
 	
 	@property
@@ -104,10 +111,15 @@ class relatedWord(object):
 		if words is None:
 			self._words = []
 			return
-		if isinstance(words,list):
-			self._words = words
-		else:
+		if not isinstance(words,list):
 			raise TypeError('Invalid type for words')
+		else:
+			for word in words:
+				if not isinstance(word,str):
+					raise TypeError('Invalid type for words.')
+					return
+			self._words = words
+
 			
 	def to_json(self):
 		return {'relationshipType': self.relationshipType if self.relationshipType else '',
