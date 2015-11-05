@@ -1,11 +1,12 @@
 from json import JSONEncoder
 
 
-class data(object):
+class WordData(object):
 	
-	def __init__(self,etymology = None,definitions = None):
+	def __init__(self,etymology = None,definitions = None, pronunciations = None):
 		self.etymology = etymology if etymology else ''
 		self.definitionList = definitions
+		self.pronunciations = pronunciations if pronunciations else []
 	
 	'''	
 	@property 
@@ -43,9 +44,10 @@ class data(object):
 	def to_json(self):
 		return {'etymology': self.etymology if self.etymology else '',
 				'definitions': [definition.to_json() for definition in self.definitionList] if self.definitionList else [],
+				'pronunciations': [pronunciation for pronunciation in self.pronunciations]
 				}
 			
-class definition(object):
+class Definition(object):
 	
 	def __init__(self,partOfSpeech = None,text = None,relatedWords = None, exampleUses = None):
 		self.partOfSpeech = partOfSpeech if partOfSpeech else ''
@@ -84,7 +86,7 @@ class definition(object):
 			raise TypeError('Invalid type for relatedWord')
 		else:
 			for element in relatedWords:
-				if not isinstance(element,relatedWord):
+				if not isinstance(element,RelatedWord):
 					raise TypeError('Invalid type for relatedWord')
 					return
 			self._relatedWords = relatedWords
@@ -96,7 +98,7 @@ class definition(object):
 				'exampleUses': self.exampleUses if self.exampleUses else []
 				}
 		
-class relatedWord(object):
+class RelatedWord(object):
 	
 	def __init__(self,relationshipType = None,words = None):
 		self.relationshipType = relationshipType if relationshipType else ''

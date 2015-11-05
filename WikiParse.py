@@ -1,6 +1,6 @@
 import re,requests
 import html2text
-from utils import data,definition,relatedWord
+from utils import WordData,Definition,RelatedWord
 from string import digits
 import re
 from bs4 import BeautifulSoup as BS
@@ -14,10 +14,9 @@ relations = ["synonyms", "antonyms", "hypernyms", "hyponyms",
             "meronyms", "holonyms", "troponyms", "related terms",
             "derived terms", "coordinate terms"]
 
-unwantedList = ['English', 'Pronunciation',
-                'External links', 'Anagrams',
-                'References', 'Statistics',
-                'See also']
+unwantedList = ['English','External links',
+                'Anagrams', 'References',
+                'Statistics','See also']
 
 def getIDList(contents, contentType):
     '''
@@ -26,6 +25,8 @@ def getIDList(contents, contentType):
     '''
     if contentType == 'etymologies':
         checkList = ['etymology']
+    elif contentType == 'pronunciation':
+        checkList = ['pronunciation']
     elif contentType =='definitions':
         checkList = partsOfSpeech
     elif contentType == 'related':
@@ -48,19 +49,22 @@ def getWordData(soup, language):
     Match language, get previous tag, get starting number.
     '''
     contents = soup.findAll('span',{'class':'toctext'})
-    englishContents = []
+    languageContents = []
     startIndex = None
     for content in contents:
         if content.text.lower() == language:
             startIndex = content.find_previous().text + '.'
+    if startIndex is None:
+        return []
     for content in contents:
         index =  content.find_previous().text
         if index.startswith(startIndex):
-            englishContents.append(content)
+            languageContents.append(content)
     wordContents = []
-    for content in englishContents:
+    for content in languageContents:
         if content.text not in unwantedList:
             wordContents.append(content)
+
     '''
     Get IDs for etymology, definitions, examples and related words.
     '''
@@ -68,7 +72,7 @@ def getWordData(soup, language):
     etymologyIDs = getIDList(wordContents,'etymologies')
     definitionIDs = getIDList(wordContents,'definitions')
     relatedIDs = getIDList(wordContents,'related')
-
+    pronunciationIDs = getIDList(wordContents,'pronunciation')
     '''
     Parse text from those tags.
     Must call parseExamples before parseDefinitions.
@@ -77,10 +81,35 @@ def getWordData(soup, language):
     examplesList = parseExamples(soup, definitionIDs)
     definitionsList = parseDefinitions(soup, definitionIDs)
     relatedWordsList = parseRelatedWords(soup, relatedIDs)
-
-    JSONObjList = makeClass(etymologyList, definitionsList, examplesList, relatedWordsList)
+    pronunciationList = parsePronunciations(soup, pronunciationIDs)
+    
+    JSONObjList = makeClass(etymologyList, 
+                            definitionsList, 
+                            examplesList, 
+                            relatedWordsList,
+                            pronunciationList)
     return JSONObjList
 
+def parsePronunciations(soup, pronunciationIDs = None):
+    pronunciationList = []
+    for pronunciationIndex, pronunciationID, _ in pronunciationIDs:
+        spanTag = soup.findAll('span', {'id':pronunciationID})[0]
+        listTag = spanTag.parent
+        while listTag.name != 'ul':
+            listTag = listTag.findNextSibling()
+        for supTag in listTag.findAll('sup'):
+            supTag.clear()
+        audioLinks = []
+        pronunciationText = []
+        for listElement in listTag.findAll('li'):
+            for audioTag in listElement.findAll('div', {'class':'mediaContainer'}):
+                audioLinks.append(audioTag.find('source')['src'])
+                listElement.clear()
+            if(listElement.text):
+                pronunciationText.append(listElement.text.encode('utf-8'))
+        pronunciationList.append((pronunciationIndex, pronunciationText, audioLinks))
+    return pronunciationList
+    
 def parseDefinitions(soup, definitionIDs = None):
     definitionsList = []
     for definitionIndex, definitionID, definitionType in definitionIDs:
@@ -127,11 +156,12 @@ def parseExamples(soup, definitionIDs = None):
         '''
         examples = []
         for element in table.findAll('dd'):
-            if not (element.text.startswith('(') and element.text.endswith(')')):
-                examples.append(element.text.encode('utf-8'))
+            exampleText = element.text.strip()
+            if exampleText and not (exampleText.startswith('(') and exampleText.endswith(')')):
+                examples.append(exampleText.encode('utf-8'))
             element.clear()
         examplesList.append((definitionIndex, examples, definitionType))
-        return examplesList
+    return examplesList
 
 def parseEtymologies(soup, etymologyIDs = None):
     etymologyList = []
@@ -170,22 +200,29 @@ def parseRelatedWords(soup, relatedIDs = None):
         relatedWordsList.append((relatedIndex, words, relationType))
     return relatedWordsList
 
-def makeClass(etymologyList, definitionsList, examplesList, relatedWordsList):
+def makeClass(etymologyList, 
+                definitionsList,
+                examplesList, 
+                relatedWordsList,
+                pronunciationList):
     JSONObjList = []
     for etymologyIndex, etymologyText in etymologyList:
-        dataObj = data()
+        dataObj = WordData()
         dataObj.etymology = etymologyText
+        for pronunciationIndex, pronunciations, _ in pronunciationList:
+            if pronunciationIndex.startswith(etymologyIndex) or pronunciationIndex.count('.') == 1:
+                dataObj.pronunciations = pronunciations
         for definitionIndex, definitionText, definitionType in definitionsList:
-            if etymologyIndex in definitionIndex or definitionIndex.count('.') == 1:
-                defObj = definition()
+            if definitionIndex.startswith(etymologyIndex) or definitionIndex.count('.') == 1:
+                defObj = Definition()
                 defObj.text = definitionText
                 defObj.partOfSpeech = definitionType
                 for exampleIndex, examples, exampleType in examplesList:
-                    if definitionIndex in exampleIndex:
+                    if exampleIndex.startswith(definitionIndex):
                         defObj.exampleUses = examples
                 for relatedWordIndex, relatedWords, relationType in relatedWordsList:
-                    if definitionIndex in relatedWordIndex or relatedWordIndex.count('.') == 2:
-                        relatedWordObj = relatedWord()
+                    if relatedWordIndex.startswith(definitionIndex) or relatedWordIndex.count('.') == 2:
+                        relatedWordObj = RelatedWord()
                         relatedWordObj.words = relatedWords
                         relatedWordObj.relationshipType = relationType
                         defObj.relatedWords.append(relatedWordObj)
