@@ -147,15 +147,14 @@ def parseExamples(soup, definition_id_list=None):
         span_tag = soup.findAll('span', {'id':definition_id})[0]
         table = span_tag.parent
         while table.name != 'ol':
-            definition_tag = table
             table = table.findNextSibling()
         for element in table.findAll('ul'):
             element.clear()
         examples = []
         for element in table.findAll('dd'):
-            exampleText = element.text.strip()
-            if exampleText and not (exampleText.startswith('(') and exampleText.endswith(')')):
-                examples.append(exampleText.encode('utf-8'))
+            example_text = element.text.strip()
+            if example_text and not (example_text.startswith('(') and example_text.endswith(')')):
+                examples.append(example_text.encode('utf-8'))
             element.clear()
         example_list.append((definition_index, examples, definition_type))
     return example_list
