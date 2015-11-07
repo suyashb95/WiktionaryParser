@@ -5,9 +5,9 @@ class WordData(object):
 	
 	def __init__(self,etymology = None,definitions = None, pronunciations = None, audioLinks = None):
 		self.etymology = etymology if etymology else ''
-		self.definitionList = definitions
+		self.definition_list = definitions
 		self.pronunciations = pronunciations if pronunciations else []
-		self.audioLinks = audioLinks if audioLinks else []
+		self.audio_links = audioLinks if audioLinks else []
 	
 	'''	
 	@property 
@@ -26,13 +26,13 @@ class WordData(object):
 	'''
 			
 	@property
-	def definitionList(self):
-		return self._definitionList
+	def definition_list(self):
+		return self._definition_list
 			
-	@definitionList.setter
-	def definitionList(self,definitions):
+	@definition_list.setter
+	def definition_list(self,definitions):
 		if definitions is None:
-			self._definitionList = []
+			self._definition_list = []
 			return
 		elif not isinstance(definitions,list):
 			raise TypeError('Invalid type for definition')
@@ -40,70 +40,70 @@ class WordData(object):
 			if not isinstance(element,definition):
 				raise TypeError('Invalid type for definition')
 		else:
-			self._definitionList = definitions
+			self._definition_list = definitions
 			
-	def to_json(self):
+	def toJSON(self):
 		return {'etymology': self.etymology,
-				'definitions': [definition.to_json() for definition in self.definitionList],
+				'definitions': [definition.toJSON() for definition in self._definition_list],
 				'pronunciations': self.pronunciations,
-				'audioLinks': self.audioLinks
+				'audioLinks': self.audio_links
 				}
 			
 class Definition(object):
 	
-	def __init__(self,partOfSpeech = None,text = None,relatedWords = None, exampleUses = None):
-		self.partOfSpeech = partOfSpeech if partOfSpeech else ''
+	def __init__(self,part_of_speech = None,text = None,related_words = None, example_uses = None):
+		self.part_of_speech = part_of_speech if part_of_speech else ''
 		self.text = text if text else ''
-		self.relatedWords = relatedWords
-		self.exampleUses = exampleUses
+		self.related_words = related_words
+		self.example_uses = example_uses
 	
 	@property
-	def exampleUses(self):
-		return self._exampleUses
+	def examle_uses(self):
+		return self._example_uses
 		
-	@exampleUses.setter
-	def exampleUses(self, exampleUses):
-		if exampleUses is None:
-			self._exampleUses = []
+	@examle_uses.setter
+	def examle_uses(self, examle_uses):
+		if examle_uses is None:
+			self._example_uses = []
 			return
-		elif not isinstance(exampleUses,list):
-			raise TypeError('Invalid type for exampleUses')
+		elif not isinstance(examle_uses,list):
+			raise TypeError('Invalid type for examle_uses')
 		else:
-			for example in exampleUses:
+			for example in examle_uses:
 				if not isinstance(example,str):
-					raise TypeError('Invalid type for exampleUses')
+					raise TypeError('Invalid type for examle_uses')
 					return
-			self._exampleUses = exampleUses
+			self._example_uses = examle_uses
 			
 	@property
-	def relatedWords(self):
-		return self._relatedWords
+	def related_words(self):
+		return self._related_words
 			
-	@relatedWords.setter
-	def relatedWords(self,relatedWords):
-		if relatedWords is None:
-			self._relatedWords = []
+	@related_words.setter
+	def related_words(self,related_words):
+		if related_words is None:
+			self._related_words = []
 			return
-		elif not isinstance(relatedWords,list):
+		elif not isinstance(related_words,list):
 			raise TypeError('Invalid type for relatedWord')
 		else:
-			for element in relatedWords:
+			for element in related_words:
 				if not isinstance(element,RelatedWord):
 					raise TypeError('Invalid type for relatedWord')
 					return
-			self._relatedWords = relatedWords
+			self._related_words = related_words
 			
-	def to_json(self):
-		return {'partOfSpeech': self.partOfSpeech if self.partOfSpeech else '',
+	def toJSON(self):
+		return {'partOfSpeech': self.part_of_speech if self.part_of_speech else '',
 				'text': self.text if self.text else '',
-				'relatedWords': [relatedWord.to_json() for relatedWord in self.relatedWords] if self.relatedWords else [],
-				'exampleUses': self.exampleUses if self.exampleUses else []
+				'relatedWords': [relatedWord.toJSON() for relatedWord in self.related_words] if self.related_words else [],
+				'exampleUses': self.examle_uses if self.examle_uses else []
 				}
 		
 class RelatedWord(object):
 	
-	def __init__(self,relationshipType = None,words = None):
-		self.relationshipType = relationshipType if relationshipType else ''
+	def __init__(self,relationship_type = None,words = None):
+		self.relationship_type = relationship_type if relationship_type else ''
 		self.words = words
 	
 	@property
@@ -125,7 +125,7 @@ class RelatedWord(object):
 			self._words = words
 
 			
-	def to_json(self):
-		return {'relationshipType': self.relationshipType if self.relationshipType else '',
+	def toJSON(self):
+		return {'relationshipType': self.relationship_type if self.relationship_type else '',
 				'words': self.words if self.words else []
 				}
