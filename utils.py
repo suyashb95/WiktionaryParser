@@ -3,10 +3,11 @@ from json import JSONEncoder
 
 class WordData(object):
 	
-	def __init__(self,etymology = None,definitions = None, pronunciations = None):
+	def __init__(self,etymology = None,definitions = None, pronunciations = None, audioLinks = None):
 		self.etymology = etymology if etymology else ''
 		self.definitionList = definitions
 		self.pronunciations = pronunciations if pronunciations else []
+		self.audioLinks = audioLinks if audioLinks else []
 	
 	'''	
 	@property 
@@ -42,9 +43,10 @@ class WordData(object):
 			self._definitionList = definitions
 			
 	def to_json(self):
-		return {'etymology': self.etymology if self.etymology else '',
-				'definitions': [definition.to_json() for definition in self.definitionList] if self.definitionList else [],
-				'pronunciations': [pronunciation for pronunciation in self.pronunciations]
+		return {'etymology': self.etymology,
+				'definitions': [definition.to_json() for definition in self.definitionList],
+				'pronunciations': self.pronunciations,
+				'audioLinks': self.audioLinks
 				}
 			
 class Definition(object):

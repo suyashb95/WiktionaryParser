@@ -18,6 +18,7 @@ unwantedList = ['English','External links',
                 'Anagrams', 'References',
                 'Statistics','See also']
 
+
 def getIDList(contents, contentType):
     '''
     Returns a list of IDs relating to the specific content type.
@@ -209,9 +210,10 @@ def makeClass(etymologyList,
     for etymologyIndex, etymologyText in etymologyList:
         dataObj = WordData()
         dataObj.etymology = etymologyText
-        for pronunciationIndex, pronunciations, _ in pronunciationList:
+        for pronunciationIndex, pronunciations, audioLinks in pronunciationList:
             if pronunciationIndex.startswith(etymologyIndex) or pronunciationIndex.count('.') == 1:
                 dataObj.pronunciations = pronunciations
+                dataObj.audioLinks = audioLinks
         for definitionIndex, definitionText, definitionType in definitionsList:
             if definitionIndex.startswith(etymologyIndex) or definitionIndex.count('.') == 1:
                 defObj = Definition()
