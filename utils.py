@@ -58,22 +58,22 @@ class Definition(object):
 		self.example_uses = example_uses
 	
 	@property
-	def examle_uses(self):
+	def example_uses(self):
 		return self._example_uses
 		
-	@examle_uses.setter
-	def examle_uses(self, examle_uses):
-		if examle_uses is None:
+	@example_uses.setter
+	def example_uses(self, example_uses):
+		if example_uses is None:
 			self._example_uses = []
 			return
-		elif not isinstance(examle_uses,list):
+		elif not isinstance(example_uses,list):
 			raise TypeError('Invalid type for examle_uses')
 		else:
-			for example in examle_uses:
+			for example in example_uses:
 				if not isinstance(example,str):
 					raise TypeError('Invalid type for examle_uses')
 					return
-			self._example_uses = examle_uses
+			self._example_uses = example_uses
 			
 	@property
 	def related_words(self):
@@ -96,8 +96,8 @@ class Definition(object):
 	def toJSON(self):
 		return {'partOfSpeech': self.part_of_speech if self.part_of_speech else '',
 				'text': self.text if self.text else '',
-				'relatedWords': [relatedWord.toJSON() for relatedWord in self.related_words] if self.related_words else [],
-				'exampleUses': self.examle_uses if self.examle_uses else []
+				'relatedWords': [related_word.toJSON() for related_word in self.related_words] if self.related_words else [],
+				'exampleUses': self.example_uses if self.example_uses else []
 				}
 		
 class RelatedWord(object):
