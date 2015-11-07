@@ -168,19 +168,23 @@ def parseEtymologies(soup, etymologyIDs = None):
     etymologyList = []
     for etymologyIndex, etymologyID, _ in etymologyIDs:
         spanTag = soup.findAll('span', {'id':etymologyID})[0]
-        etymologyTag = spanTag.parent
+        etymologyTag = None
         '''
         Word etymology is either a para or a list.
         move forward till you find either.
         '''
-        while etymologyTag.name not in ['p', 'ul']:
-            etymologyTag = etymologyTag.findNextSibling()
-        if etymologyTag.name == 'p':
+        nextTag = spanTag.parent.findNextSibling()
+        while nextTag.name not in ['h3', 'h4']:
+            etymologyTag = nextTag
+            nextTag = nextTag.findNextSibling()
+        if etymologyTag is None:
+            etymologyText = ''
+        elif etymologyTag.name == 'p':
             etymologyText = (etymologyTag.text)
         else:
             etymologyText = ''
             for listTag in etymologyTag.findAll('li'):
-                etymologyText += (listTag.text)
+                etymologyText += (listTag.text) + '\n'
         etymologyList.append((etymologyIndex, etymologyText.encode('utf-8')))
     return etymologyList
 
