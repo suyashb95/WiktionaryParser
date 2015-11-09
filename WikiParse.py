@@ -19,7 +19,7 @@ RELATIONS = [
     ]
 
 UNWANTED_LIST = [
-    'English', 'External links',
+    'External links',
     'Anagrams', 'References',
     'Statistics', 'See also'
     ]
