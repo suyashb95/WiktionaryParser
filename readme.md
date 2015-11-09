@@ -8,18 +8,18 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 
 ```json
 [{
-    "pronunciations": [list of pronunciations],
+    "pronunciations": ["list of pronunciations"],
     "definitions": [{
         "relatedWords": [{
             "relationshipType": "word relationship type",
-            "words": [list of related words]
+            "words": ["list of related words"]
         }],
         "text": "definition text",
         "partOfSpeech": "part of speech",
-        "exampleUses": [list of examples]
+        "exampleUses": ["list of examples"]
     }],
     "etymology": "etymology text",
-    "audioLinks": [list of audio pronunciation links]
+    "audioLinks": ["list of audio pronunciation links"]
 }]
 ```
 
