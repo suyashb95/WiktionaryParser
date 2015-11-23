@@ -28,13 +28,26 @@ class WiktionaryParser(object):
     '''
     Final class for Wiktionary parser.
     '''
-
+    
     def __init__(self):
         self.url = "https://en.wiktionary.org/wiki/"
         self.soup = None
         self.session = requests.Session()
         self.session.mount("http://", requests.adapters.HTTPAdapter(max_retries=2))
         self.session.mount("https://", requests.adapters.HTTPAdapter(max_retries=2))
+        self.language = 'english'
+    def setDefaultLanguage(self, language=None):
+        '''
+        Sets the default language of the parser object.
+        '''
+        if language is not None:
+            self.language = language
+        return
+    def getDefaultLanguage(self):
+        '''
+        returns the default language of the object.
+        '''
+        return self.language
     @staticmethod
     def getIDList(contents, content_type):
         '''
@@ -219,6 +232,8 @@ class WiktionaryParser(object):
         Takes all the data and makes classes.
         '''
         json_obj_list = []
+        if not etymology_list:
+            etymology_list = [('','')]
         for etymology_index, etymology_text in etymology_list:
             data_obj = WordData()
             data_obj.etymology = etymology_text
@@ -245,11 +260,12 @@ class WiktionaryParser(object):
                     data_obj.definition_list.append(def_obj)
             json_obj_list.append(data_obj.toJSON())
         return json_obj_list
-    def fetch(self, word, language="english"):
+    def fetch(self, word, language=None):
         '''
         main function.
         subject to change.
         '''
+        language = self.language if not language else language
         response = self.session.get(self.url + word + '?printable=yes')
         self.soup = BS(response.text, 'html.parser')
         return self.getWordData(language.lower())
