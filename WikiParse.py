@@ -152,9 +152,7 @@ class WiktionaryParser(object):
                 table = table.findNextSibling()
             definition_text = (definition_tag.text) + '\n'
             for element in table.findAll('li'):
-                definition_text += element.text
-            definition_text = re.sub('(\\n+)', '\\n', \
-            definition_text).strip()
+                definition_text += re.sub('(\\n+)', '', element.text.strip()) + '\n'
             definition_list.append((definition_index, \
             definition_text.encode('utf-8'), definition_type))
         return definition_list
