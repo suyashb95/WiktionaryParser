@@ -237,11 +237,11 @@ class WiktionaryParser(object):
             data_obj.etymology = etymology_text
             for pronunciation_index, pronunciations, audio_links in pronunciation_list:
                 if pronunciation_index.startswith(etymology_index) \
-                or pronunciation_index.count('.') == 1:
+                or pronunciation_index.count('.') >= etymology_index.count('.'):
                     data_obj.pronunciations = pronunciations
                     data_obj.audio_links = audio_links
             for definition_index, definition_text, definition_type in definition_list:
-                if definition_index.startswith(etymology_index) or definition_index.count('.') == 1:
+                if definition_index.startswith(etymology_index) or definition_index.count('.') == etymology_index.count('.'):
                     def_obj = Definition()
                     def_obj.text = definition_text
                     def_obj.part_of_speech = definition_type
@@ -250,7 +250,16 @@ class WiktionaryParser(object):
                             def_obj.example_uses = examples
                     for related_word_index, related_words, relation_type in related_words_list:
                         if related_word_index.startswith(definition_index) \
-                        or related_word_index.count('.') == 2:
+                        or (related_word_index.startswith(etymology_index) \
+                        and related_word_index.count('.') == definition_index.count('.')) :
+                            words = None
+                            try:
+                                words = (item.words for item in def_obj.related_words if item.relationship_type == relation_type).next()
+                            except:
+                                pass
+                            if words is not None:
+                                words += related_words
+                                break
                             related_word_obj = RelatedWord()
                             related_word_obj.words = related_words
                             related_word_obj.relationship_type = relation_type
