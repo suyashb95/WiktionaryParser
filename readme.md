@@ -30,6 +30,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
  - Import the WiktionaryParser class from WikiParse
  - Initialize an object and use the fetch("word", "language") method.
  - The default language is English.
+ - The default language can be changed using the setDefaultLanguage method.
 
 ####Examples
 
@@ -38,6 +39,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 >>> parser = WiktionaryParser()
 >>> word = parser.fetch('test')
 >>> another_word = parser.fetch('test','french')
+>>> parser.setDefaultLanguage('french')
 ```
 
 ####Requirements
