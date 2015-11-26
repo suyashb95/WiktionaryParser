@@ -12,7 +12,7 @@ class LengthTest(unittest.TestCase):
 		1) Etymology as a list or paragraph.
 		2) Related words common to all definitions.
 		3) Multiple etymologies and definitions with no related words.
-		4) Pronunciations and audiolinks common to all etymologies.
+		4) Pronunciations and audio links common to all etymologies.
 		'''
 		word = parser.fetch('set')
 		self.assertTrue(len(word) == 2)
@@ -67,6 +67,17 @@ class LengthTest(unittest.TestCase):
 		self.assertTrue(len(word) == 2)
 		self.assertTrue(len(word[0]['pronunciations']) == 4)
 		self.assertTrue(len(word[1]['pronunciations']) == 0)
+	
+	def test_r(self):
+		'''
+		1) Testing in different languages.
+		'''
+		word = parser.fetch('house','swedish')
+		self.assertTrue(len(word) == 1)
+		self.assertTrue(word[0]['etymology'] == '')
+		self.assertTrue(len(word[0]['definitions']) == 1)
+		self.assertTrue(word[0]['pronunciations'] == [])
+		self.assertTrue(word[0]['audioLinks'] == [])
 		
 if __name__ == '__main__':
 	unittest.main()
