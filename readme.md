@@ -23,10 +23,15 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 }]
 ```
 
+####Installation
+
+* Clone the repo or download the zip
+* Make sure you have pip installed
+* `cd` to the folder
+* run `pip -install -r "requirements.txt"`
+
 ####Usage
 
- - Download the zip or clone the repo.
- - `cd` to the folder.
  - Import the WiktionaryParser class from WikiParse
  - Initialize an object and use the fetch("word", "language") method.
  - The default language is English.
