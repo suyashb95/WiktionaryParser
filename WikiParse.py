@@ -1,58 +1,67 @@
-'''
+"""
 Final code for wiktionary parser.
-'''
-import requests, re
+"""
+import re
+import requests
 from utils import WordData, Definition, RelatedWord
-from bs4 import BeautifulSoup as BS
+from bs4 import BeautifulSoup
+
 PARTS_OF_SPEECH = [
     "noun", "verb", "adjective", "adverb", "determiner",
     "article", "preposition", "conjunction", "proper noun",
     "letter", "character", "phrase", "proverb", "idiom",
     "symbol", "syllable", "numeral", "initialism", "interjection"
-    ]
+]
 
 RELATIONS = [
     "synonyms", "antonyms", "hypernyms", "hyponyms",
     "meronyms", "holonyms", "troponyms", "related terms",
     "derived terms", "coordinate terms"
-    ]
+]
 
 UNWANTED_LIST = [
     'External links',
     'Anagrams', 'References',
     'Statistics', 'See also'
-    ]
+]
+
 
 class WiktionaryParser(object):
-    '''
+    """
     Final class for Wiktionary parser.
-    '''
-    
+    """
+
     def __init__(self):
         self.url = "https://en.wiktionary.org/wiki/"
         self.soup = None
         self.session = requests.Session()
-        self.session.mount("http://", requests.adapters.HTTPAdapter(max_retries=2))
-        self.session.mount("https://", requests.adapters.HTTPAdapter(max_retries=2))
+        self.session.mount("http://",
+                           requests.adapters.HTTPAdapter(max_retries=2))
+        self.session.mount("https://",
+                           requests.adapters.HTTPAdapter(max_retries=2))
         self.language = 'english'
-    def setDefaultLanguage(self, language=None):
-        '''
+
+    def set_default_language(self, language=None):
+        """
         Sets the default language of the parser object.
-        '''
+        """
         if language is not None:
             self.language = language.lower()
         return
-    def getDefaultLanguage(self):
-        '''
+
+    def get_default_language(self):
+        """
         returns the default language of the object.
-        '''
+        """
         return self.language
+
     @staticmethod
-    def getIDList(contents, content_type):
-        '''
+    def get_id_list(contents, content_type):
+        """
         Returns a list of IDs relating to the specific content type.
-        Text can be obtained by parsing the text within span tags having those IDs.
-        '''
+        Text can be obtained by parsing the text within span tags
+        having those IDs.
+        """
         if content_type == 'etymologies':
             checklist = ['etymology']
         elif content_type == 'pronunciation':
@@ -63,22 +72,23 @@ class WiktionaryParser(object):
             checklist = RELATIONS
         else:
             return None
-        IDList = []
+        id_list = []
         for content_tag in contents:
             content_index = content_tag.find_previous().text
-            text_to_check = ''.join([i for i in content_tag.text \
-            if not i.isdigit()]).strip().lower()
+            text_to_check = ''.join(i for i in content_tag.text
+                                    if not i.isdigit()).strip().lower()
             if text_to_check in checklist:
                 content_id = content_tag.parent['href'].replace('#', '')
-                IDList.append((content_index, content_id, text_to_check))
-        return IDList
-    def getWordData(self, language):
-        '''
-        Hardcoded to get Enlglish content.
+                id_list.append((content_index, content_id, text_to_check))
+        return id_list
+
+    def get_word_data(self, language):
+        """
+        Hardcoded to get English content.
         Have to change later.
         Match language, get previous tag, get starting number.
-        '''
-        contents = self.soup.findAll('span', {'class':'toctext'})
+        """
+        contents = self.soup.find_all('span', {'class': 'toctext'})
         language_contents = []
         start_index = None
         for content in contents:
@@ -94,154 +104,167 @@ class WiktionaryParser(object):
         for content in language_contents:
             if content.text not in UNWANTED_LIST:
                 word_contents.append(content)
-        etymology_id_list = self.getIDList(word_contents, 'etymologies')
-        definition_id_list = self.getIDList(word_contents, 'definitions')
-        relation_id_list = self.getIDList(word_contents, 'related')
-        pronunciation_id_list = self.getIDList(word_contents, 'pronunciation')
-        etymology_list = self.parseEtymologies(etymology_id_list)
-        example_list = self.parseExamples(definition_id_list)
-        definition_list = self.parseDefinitions(definition_id_list)
-        related_words_list = self.parseRelatedWords(relation_id_list)
-        pronunciation_list = self.parsePronunciations(pronunciation_id_list)
-        json_obj_list = self.makeClass(
+        etymology_id_list = self.get_id_list(word_contents, 'etymologies')
+        definition_id_list = self.get_id_list(word_contents, 'definitions')
+        relation_id_list = self.get_id_list(word_contents, 'related')
+        pronunciation_id_list = self.get_id_list(word_contents, 'pronunciation')
+        etymology_list = self.parse_etymologies(etymology_id_list)
+        example_list = self.parse_examples(definition_id_list)
+        definition_list = self.parse_definitions(definition_id_list)
+        related_words_list = self.parse_related_words(relation_id_list)
+        pronunciation_list = self.parse_pronunciations(pronunciation_id_list)
+        json_obj_list = self.make_class(
             etymology_list,
             definition_list,
             example_list,
             related_words_list,
             pronunciation_list
-            )
+        )
         return json_obj_list
-    def parsePronunciations(self, pronunciation_id_list=None):
-        '''
+
+    def parse_pronunciations(self, pronunciation_id_list=None):
+        """
         Parse pronunciations from their IDs.
         clear supertext tags first.
         separate audio links.
-        '''
+        """
         pronunciation_list = []
         for pronunciation_index, pronunciation_id, _ in pronunciation_id_list:
-            span_tag = self.soup.findAll('span', {'id':pronunciation_id})[0]
+            span_tag = self.soup.find_all('span', {'id': pronunciation_id})[0]
             list_tag = span_tag.parent
             while list_tag.name != 'ul':
-                list_tag = list_tag.findNextSibling()
-            for super_tag in list_tag.findAll('sup'):
+                list_tag = list_tag.find_next_sibling()
+            for super_tag in list_tag.find_all('sup'):
                 super_tag.clear()
             audio_links = []
             pronunciation_text = []
-            for list_element in list_tag.findAll('li'):
-                for audio_tag in list_element.findAll('div', {'class':'mediaContainer'}):
+            for list_element in list_tag.find_all('li'):
+                for audio_tag in list_element.find_all(
+                        'div', {'class': 'mediaContainer'}):
                     audio_links.append(audio_tag.find('source')['src'])
                     list_element.clear()
                 if list_element.text:
                     pronunciation_text.append(list_element.text.encode('utf-8'))
-            pronunciation_list.append((pronunciation_index, pronunciation_text, audio_links))
+            pronunciation_list.append(
+                (pronunciation_index, pronunciation_text, audio_links))
         return pronunciation_list
-    def parseDefinitions(self, definition_id_list=None):
-        '''
+
+    def parse_definitions(self, definition_id_list=None):
+        """
         Definitions are ordered lists
         Look for the first <ol> tag
         The tag right before the <ol> tag has tenses and all.
-        '''
+        """
         definition_list = []
-        for definition_index, definition_id, definition_type in definition_id_list:
-            span_tag = self.soup.findAll('span', {'id':definition_id})[0]
+        for def_index, def_id, def_type in definition_id_list:
+            span_tag = self.soup.find_all('span', {'id': def_id})[0]
             table = span_tag.parent
             definition_tag = None
             while table.name != 'ol':
                 definition_tag = table
-                table = table.findNextSibling()
-            definition_text = (definition_tag.text) + '\n'
-            for element in table.findAll('li'):
-                definition_text += re.sub('(\\n+)', '', element.text.strip()) + '\n'
-            definition_list.append((definition_index, \
-            definition_text.encode('utf-8'), definition_type))
+                table = table.find_next_sibling()
+            definition_text = definition_tag.text + '\n'
+            for element in table.find_all('li'):
+                definition_text += re.sub('(\\n+)', '',
+                                          element.text.strip()) + '\n'
+            definition_list.append((def_index,
+                                    definition_text.encode('utf-8'),
+                                    def_type))
         return definition_list
-    def parseExamples(self, definition_id_list=None):
-        '''
+
+    def parse_examples(self, definition_id_list=None):
+        """
         Definitions are ordered lists
         Look for the first <ol> tag
         The tag right before the <ol> tag has tenses and all.
         <ul> tags have biblical references, remove them.
-        '''
+        """
         example_list = []
-        for definition_index, definition_id, definition_type in definition_id_list:
-            span_tag = self.soup.findAll('span', {'id':definition_id})[0]
+        for def_index, def_id, def_type in definition_id_list:
+            span_tag = self.soup.find_all('span', {'id': def_id})[0]
             table = span_tag.parent
             while table.name != 'ol':
-                table = table.findNextSibling()
-            for element in table.findAll('ul'):
+                table = table.find_next_sibling()
+            for element in table.find_all('ul'):
                 element.clear()
             examples = []
-            for element in table.findAll('dd'):
+            for element in table.find_all('dd'):
                 example_text = element.text.strip()
-                if example_text and not (example_text.startswith('(') \
-                and example_text.endswith(')')):
+                if example_text and not (example_text.startswith('(') and
+                                         example_text.endswith(')')):
                     examples.append(example_text.encode('utf-8'))
                 element.clear()
-            example_list.append((definition_index, examples, definition_type))
+            example_list.append((def_index, examples, def_type))
         return example_list
-    def parseEtymologies(self, etymology_id_list=None):
-        '''
+
+    def parse_etymologies(self, etymology_id_list=None):
+        """
         Word etymology is either a para or a list.
         move forward till you find either.
-        '''
+        """
         etymology_list = []
         for etymology_index, etymology_id, _ in etymology_id_list:
-            span_tag = self.soup.findAll('span', {'id':etymology_id})[0]
+            span_tag = self.soup.find_all('span', {'id': etymology_id})[0]
             etymology_tag = None
-            next_tag = span_tag.parent.findNextSibling()
+            next_tag = span_tag.parent.find_next_sibling()
             while next_tag.name not in ['h3', 'h4']:
                 etymology_tag = next_tag
-                next_tag = next_tag.findNextSibling()
+                next_tag = next_tag.find_next_sibling()
             if etymology_tag is None:
                 etymology_text = ''
             elif etymology_tag.name == 'p':
-                etymology_text = (etymology_tag.text)
+                etymology_text = etymology_tag.text
             else:
                 etymology_text = ''
-                for list_tag in etymology_tag.findAll('li'):
-                    etymology_text += (list_tag.text) + '\n'
-            etymology_list.append((etymology_index, etymology_text.encode('utf-8')))
+                for list_tag in etymology_tag.find_all('li'):
+                    etymology_text += list_tag.text + '\n'
+            etymology_list.append(
+                (etymology_index, etymology_text.encode('utf-8')))
         return etymology_list
-    def parseRelatedWords(self, relation_id_list=None):
-        '''
+
+    def parse_related_words(self, relation_id_list=None):
+        """
         Look for parent tags with <li> tags, those are related words.
         <li> tags can either be in tables or lists.
-        '''
+        """
         related_words_list = []
         for related_index, related_id, relation_type in relation_id_list:
             words = []
-            span_tag = self.soup.findAll('span', {'id':related_id})[0]
+            span_tag = self.soup.find_all('span', {'id': related_id})[0]
             parent_tag = span_tag.parent
-            while not parent_tag.findAll('li'):
-                parent_tag = parent_tag.findNextSibling()
-            for list_tag in parent_tag.findAll('li'):
+            while not parent_tag.find_all('li'):
+                parent_tag = parent_tag.find_next_sibling()
+            for list_tag in parent_tag.find_all('li'):
                 words.append(list_tag.text.encode('utf-8'))
             related_words_list.append((related_index, words, relation_type))
         return related_words_list
+
     @staticmethod
-    def makeClass(etymology_list,
-                  definition_list,
-                  example_list,
-                  related_words_list,
-                  pronunciation_list
-                 ):
-        '''
+    def make_class(etymology_list,
+                   definition_list,
+                   example_list,
+                   related_words_list,
+                   pronunciation_list
+                   ):
+        """
         Takes all the data and makes classes.
-        '''
+        """
         json_obj_list = []
         if not etymology_list:
-            etymology_list = [('','')]
+            etymology_list = [('', '')]
         for etymology_index, etymology_text in etymology_list:
             data_obj = WordData()
             data_obj.etymology = etymology_text
             for pronunciation_index, pronunciations, audio_links in pronunciation_list:
                 if pronunciation_index.startswith(etymology_index) \
-                or pronunciation_index.count('.') == etymology_index.count('.'):
+                        or pronunciation_index.count(
+                            '.') == etymology_index.count('.'):
                     data_obj.pronunciations = pronunciations
                     data_obj.audio_links = audio_links
             for definition_index, definition_text, definition_type in definition_list:
                 if definition_index.startswith(etymology_index) \
-                or definition_index.count('.') == etymology_index.count('.'):
+                        or definition_index.count('.') == etymology_index.count(
+                            '.'):
                     def_obj = Definition()
                     def_obj.text = definition_text
                     def_obj.part_of_speech = definition_type
@@ -250,14 +273,17 @@ class WiktionaryParser(object):
                             def_obj.example_uses = examples
                     for related_word_index, related_words, relation_type in related_words_list:
                         if related_word_index.startswith(definition_index) \
-                        or (related_word_index.startswith(etymology_index) \
-                        and related_word_index.count('.') == definition_index.count('.')) :
+                                or (related_word_index.startswith(
+                                    etymology_index) and
+                                    related_word_index.count(
+                                    '.') == definition_index.count('.')):
                             words = None
                             try:
-                                words = (item.words for item in def_obj.related_words \
-                                if item.relationship_type == relation_type).next()
-                            except:
-                                pass
+                                words = next(
+                                    item.words for item in def_obj.related_words
+                                    if item.relationship_type == relation_type)
+                            except:  # this should catch specific exception(s)
+                                pass  # maybe StopIteration?
                             if words is not None:
                                 words += related_words
                                 break
@@ -266,14 +292,15 @@ class WiktionaryParser(object):
                             related_word_obj.relationship_type = relation_type
                             def_obj.related_words.append(related_word_obj)
                     data_obj.definition_list.append(def_obj)
-            json_obj_list.append(data_obj.toJSON())
+            json_obj_list.append(data_obj.to_json())
         return json_obj_list
+
     def fetch(self, word, language=None):
-        '''
+        """
         main function.
         subject to change.
-        '''
+        """
         language = self.language if not language else language
         response = self.session.get(self.url + word + '?printable=yes')
-        self.soup = BS(response.text, 'html.parser')
-        return self.getWordData(language.lower())
+        self.soup = BeautifulSoup(response.text, 'html.parser')
+        return self.get_word_data(language.lower())
