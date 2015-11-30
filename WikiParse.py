@@ -207,7 +207,7 @@ class WiktionaryParser(object):
             span_tag = self.soup.find_all('span', {'id': etymology_id})[0]
             etymology_tag = None
             next_tag = span_tag.parent.find_next_sibling()
-            while next_tag.name not in ['h3', 'h4','div']:
+            while next_tag.name not in ['h3', 'h4', 'div']:
                 etymology_tag = next_tag
                 next_tag = next_tag.find_next_sibling()
             if etymology_tag is None:
@@ -245,7 +245,7 @@ class WiktionaryParser(object):
                    example_list,
                    related_words_list,
                    pronunciation_list
-                   ):
+                  ):
         """
         Takes all the data and makes classes.
         """
@@ -257,14 +257,12 @@ class WiktionaryParser(object):
             data_obj.etymology = etymology_text
             for pronunciation_index, pronunciations, audio_links in pronunciation_list:
                 if pronunciation_index.startswith(etymology_index) \
-                        or pronunciation_index.count(
-                            '.') == etymology_index.count('.'):
+                or pronunciation_index.count('.') == etymology_index.count('.'):
                     data_obj.pronunciations = pronunciations
                     data_obj.audio_links = audio_links
             for definition_index, definition_text, definition_type in definition_list:
                 if definition_index.startswith(etymology_index) \
-                        or definition_index.count('.') == etymology_index.count(
-                            '.'):
+                or definition_index.count('.') == etymology_index.count('.'):
                     def_obj = Definition()
                     def_obj.text = definition_text
                     def_obj.part_of_speech = definition_type
@@ -273,17 +271,15 @@ class WiktionaryParser(object):
                             def_obj.example_uses = examples
                     for related_word_index, related_words, relation_type in related_words_list:
                         if related_word_index.startswith(definition_index) \
-                                or (related_word_index.startswith(
-                                    etymology_index) and
-                                    related_word_index.count(
-                                    '.') == definition_index.count('.')):
+                        or (related_word_index.startswith(etymology_index) \
+                        and related_word_index.count('.') == definition_index.count('.')):
                             words = None
                             try:
                                 words = next(
                                     item.words for item in def_obj.related_words
                                     if item.relationship_type == relation_type)
-                            except:  # this should catch specific exception(s)
-                                pass  # maybe StopIteration?
+                            except StopIteration:
+                                pass  
                             if words is not None:
                                 words += related_words
                                 break
