@@ -84,8 +84,6 @@ class WiktionaryParser(object):
 
     def get_word_data(self, language):
         """
-        Hardcoded to get English content.
-        Have to change later.
         Match language, get previous tag, get starting number.
         """
         contents = self.soup.find_all('span', {'class': 'toctext'})
@@ -153,7 +151,7 @@ class WiktionaryParser(object):
         """
         Definitions are ordered lists
         Look for the first <ol> tag
-        The tag right before the <ol> tag has tenses and all.
+        The tag right before the <ol> tag has tenses.
         """
         definition_list = []
         for def_index, def_id, def_type in definition_id_list:
@@ -174,10 +172,8 @@ class WiktionaryParser(object):
 
     def parse_examples(self, definition_id_list=None):
         """
-        Definitions are ordered lists
-        Look for the first <ol> tag
-        The tag right before the <ol> tag has tenses and all.
-        <ul> tags have biblical references, remove them.
+        look for <dd> tags inside <ol> tags.
+        remove data in <ul> tags.
         """
         example_list = []
         for def_index, def_id, def_type in definition_id_list:
