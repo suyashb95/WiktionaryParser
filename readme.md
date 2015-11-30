@@ -28,7 +28,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 * Clone the repo or download the zip
 * Make sure you have pip installed
 * `cd` to the folder
-* run `pip -install -r "requirements.txt"`
+* run `pip install -r "requirements.txt"`
 
 ####Usage
 

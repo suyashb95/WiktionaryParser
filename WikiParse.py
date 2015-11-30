@@ -1,8 +1,8 @@
 """
 Final code for wiktionary parser.
 """
-import re
-import requests
+from __future__ import unicode_literals
+import re, requests
 from utils import WordData, Definition, RelatedWord
 from bs4 import BeautifulSoup
 
@@ -144,7 +144,7 @@ class WiktionaryParser(object):
                     audio_links.append(audio_tag.find('source')['src'])
                     list_element.clear()
                 if list_element.text:
-                    pronunciation_text.append(list_element.text.encode('utf-8'))
+                    pronunciation_text.append(list_element.text)
             pronunciation_list.append(
                 (pronunciation_index, pronunciation_text, audio_links))
         return pronunciation_list
@@ -168,7 +168,7 @@ class WiktionaryParser(object):
                 definition_text += re.sub('(\\n+)', '',
                                           element.text.strip()) + '\n'
             definition_list.append((def_index,
-                                    definition_text.encode('utf-8'),
+                                    definition_text,
                                     def_type))
         return definition_list
 
@@ -192,7 +192,7 @@ class WiktionaryParser(object):
                 example_text = element.text.strip()
                 if example_text and not (example_text.startswith('(') and
                                          example_text.endswith(')')):
-                    examples.append(example_text.encode('utf-8'))
+                    examples.append(example_text)
                 element.clear()
             example_list.append((def_index, examples, def_type))
         return example_list
@@ -207,7 +207,7 @@ class WiktionaryParser(object):
             span_tag = self.soup.find_all('span', {'id': etymology_id})[0]
             etymology_tag = None
             next_tag = span_tag.parent.find_next_sibling()
-            while next_tag.name not in ['h3', 'h4']:
+            while next_tag.name not in ['h3', 'h4','div']:
                 etymology_tag = next_tag
                 next_tag = next_tag.find_next_sibling()
             if etymology_tag is None:
@@ -219,7 +219,7 @@ class WiktionaryParser(object):
                 for list_tag in etymology_tag.find_all('li'):
                     etymology_text += list_tag.text + '\n'
             etymology_list.append(
-                (etymology_index, etymology_text.encode('utf-8')))
+                (etymology_index, etymology_text))
         return etymology_list
 
     def parse_related_words(self, relation_id_list=None):
@@ -235,7 +235,7 @@ class WiktionaryParser(object):
             while not parent_tag.find_all('li'):
                 parent_tag = parent_tag.find_next_sibling()
             for list_tag in parent_tag.find_all('li'):
-                words.append(list_tag.text.encode('utf-8'))
+                words.append(list_tag.text)
             related_words_list.append((related_index, words, relation_type))
         return related_words_list
 
