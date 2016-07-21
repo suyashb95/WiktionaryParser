@@ -27,6 +27,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 
 #####Using pip 
 * run `pip install WiktionaryParser`
+
 #####From Source
 * Clone the repo or download the zip
 * Make sure you have pip installed
