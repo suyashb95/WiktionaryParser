@@ -36,7 +36,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 
 ####Usage
 
- - Import the WiktionaryParser class from WikiParse
+ - Import the WiktionaryParser class.
  - Initialize an object and use the fetch("word", "language") method.
  - The default language is English.
  - The default language can be changed using the set_default_language method.
@@ -44,7 +44,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 ####Examples
 
 ```python
->>> from WikiParse import WiktionaryParser
+>>> from wiktionaryparser import WiktionaryParser
 >>> parser = WiktionaryParser()
 >>> word = parser.fetch('test')
 >>> another_word = parser.fetch('test','french')
