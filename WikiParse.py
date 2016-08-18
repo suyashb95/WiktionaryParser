@@ -2,8 +2,9 @@
 Final code for wiktionary parser.
 """
 from __future__ import unicode_literals
+from __future__ import absolute_import
 import re, requests
-from utils import WordData, Definition, RelatedWord
+from .utils import WordData, Definition, RelatedWord
 from bs4 import BeautifulSoup
 
 PARTS_OF_SPEECH = [
