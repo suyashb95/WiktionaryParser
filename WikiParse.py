@@ -32,7 +32,7 @@ INFLECTIONS_FORMS = {
 }
 
 TRANSLATIONS_LIST = {
-    "en": ["Translations"]
+    "en": "Translations"
 }
 
 class WiktionaryParser(object):
@@ -273,12 +273,16 @@ class WiktionaryParser(object):
         return inflections
 
     def parse_translations(self, pos_list):
-        for pos in pos_list:
-            for trans in TRANSLATIONS_LIST["en"]:
-                transHeader = self.soup.find_all("span", {'id': trans})
-                if len(transHeader) > 0:
-                    break
-            nextTag = transHeader[0].parent.next_sibling#.next_sibling
+        translations = dict()
+        for i, pos in enumerate(pos_list):
+            idTrans = TRANSLATIONS_LIST["en"] if i==0 else TRANSLATIONS_LIST["en"]+"_{}".format(i+1)
+            transHeader = self.soup.find_all("span", {'id': idTrans})
+            print "I've {} tables".format(len(transHeader))
+            try:
+                nextTag = transHeader[0].parent.next_sibling#.next_sibling
+            except IndexError:
+                # There is not translations in da page
+                continue
             while True:
                 try:
                     if nextTag.name == "div":
@@ -289,11 +293,9 @@ class WiktionaryParser(object):
                 except TypeError as ex:
                     # If catched is because there is not a proper object
                     pass
-
                 nextTag = nextTag.next_sibling
-
-            # print "I've got the table!", transTable
-            translations = dict()
+            translations[pos] = dict()
+            # print "For pos {} I have:".format(pos.decode('utf-8')), transTable
             for li in transTable.find_all("li"):
                 for span in li.find_all("span"):
                     try:
@@ -301,13 +303,13 @@ class WiktionaryParser(object):
                         text = span.a.text.decode('utf-8')
                         # print lang.encode('utf-8'), text.encode('utf-8')
                         if lang in translations:
-                            translations[lang].append(text)
+                            translations[pos][lang].append(text)
                         else:
-                            translations[lang] = [text]
+                            translations[pos][lang] = [text]
                         # break
                     except:
                         pass
-            return translations
+        return translations
 
     @staticmethod
     def make_class(etymology_list,
@@ -389,7 +391,7 @@ class TestConjugationParsing(unittest.TestCase):
 
     def test_getTranslations(self):
         parser = WiktionaryParser()
-        word = parser.fetch("car")
+        word = parser.fetch("pick")
         print word[0]["translations"]
 
 if __name__ == '__main__':
