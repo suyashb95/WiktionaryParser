@@ -290,7 +290,7 @@ class WiktionaryParser(object):
                         if nextTag['class'] == [u'NavFrame']:
                             transTable = nextTag.find("table")
                             break
-                except TypeError as ex:
+                except Exception as ex:
                     # If catched is because there is not a proper object
                     pass
                 nextTag = nextTag.next_sibling
