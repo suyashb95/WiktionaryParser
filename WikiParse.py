@@ -277,7 +277,7 @@ class WiktionaryParser(object):
         for i, pos in enumerate(pos_list):
             idTrans = TRANSLATIONS_LIST["en"] if i==0 else TRANSLATIONS_LIST["en"]+"_{}".format(i+1)
             transHeader = self.soup.find_all("span", {'id': idTrans})
-            print "I've {} tables".format(len(transHeader))
+            # print "I've {} tables".format(len(transHeader))
             try:
                 nextTag = transHeader[0].parent.next_sibling#.next_sibling
             except IndexError:
