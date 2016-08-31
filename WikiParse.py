@@ -2,10 +2,11 @@
 Final code for wiktionary parser.
 """
 from __future__ import unicode_literals
-from __future__ import absolute_import
-import re, requests
-from .utils import WordData, Definition, RelatedWord
+import re, requests, sys
+sys.path.append(".")
+from utils import WordData, Definition, RelatedWord
 from bs4 import BeautifulSoup
+import unittest
 
 PARTS_OF_SPEECH = [
     "noun", "verb", "adjective", "adverb", "determiner",
@@ -25,6 +26,10 @@ UNWANTED_LIST = [
     'Anagrams', 'References',
     'Statistics', 'See also'
 ]
+
+INFLECTIONS_FORMS = {
+    "en": ["infinitive", "present participle", "past participle"]
+}
 
 
 class WiktionaryParser(object):
@@ -112,13 +117,17 @@ class WiktionaryParser(object):
         definition_list = self.parse_definitions(definition_id_list)
         related_words_list = self.parse_related_words(relation_id_list)
         pronunciation_list = self.parse_pronunciations(pronunciation_id_list)
+        inflection_list = self.parse__inflections() # Being test
+
         json_obj_list = self.make_class(
             etymology_list,
             definition_list,
             example_list,
             related_words_list,
-            pronunciation_list
+            pronunciation_list,
+            inflection_list
         )
+
         return json_obj_list
 
     def parse_pronunciations(self, pronunciation_id_list=None):
@@ -236,12 +245,34 @@ class WiktionaryParser(object):
             related_words_list.append((related_index, words, relation_type))
         return related_words_list
 
+    def parse__inflections(self):
+        """
+        Look for conjugation table and try to parse it getting inflected forms
+        """
+        infTable = self.soup.find("table", {"class": "inflection-table"})
+        if infTable is None:
+            return {}
+        inflections = dict()
+        for tr in infTable.find_all("tr"):
+            try:
+                form = tr.find_all("th")[0].text
+                if form in INFLECTIONS_FORMS["en"]:
+                    inflections[form] = tr.find_all("td")[0].text
+            except:
+                pass
+        print "Inflection list: ", inflections
+        return inflections
+        # print infTable.find_all("tr")[0].find_all("th")[0].text
+
+
+
     @staticmethod
     def make_class(etymology_list,
                    definition_list,
                    example_list,
                    related_words_list,
-                   pronunciation_list
+                   pronunciation_list,
+                   inflection_list
                   ):
         """
         Takes all the data and makes classes.
@@ -276,7 +307,7 @@ class WiktionaryParser(object):
                                     item.words for item in def_obj.related_words
                                     if item.relationship_type == relation_type)
                             except StopIteration:
-                                pass  
+                                pass
                             if words is not None:
                                 words += related_words
                                 break
@@ -285,6 +316,7 @@ class WiktionaryParser(object):
                             related_word_obj.relationship_type = relation_type
                             def_obj.related_words.append(related_word_obj)
                     data_obj.definition_list.append(def_obj)
+                    data_obj.inflections = inflection_list # Being test
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
@@ -297,3 +329,21 @@ class WiktionaryParser(object):
         response = self.session.get(self.url + word + '?printable=yes')
         self.soup = BeautifulSoup(response.text, 'html.parser')
         return self.get_word_data(language.lower())
+
+
+class TestConjugationParsing(unittest.TestCase):
+
+    def test_basicFormsInflections(self):
+        parser = WiktionaryParser()
+        print parser.fetch("hi")
+
+    def test_basicFormsInflections2(self):
+        parser = WiktionaryParser()
+        print parser.fetch("eat")[0]["partOfSpeech"]
+
+if __name__ == '__main__':
+
+    if sys.argv[1] == 'test':
+        print "Running in test mode"
+        sys.argv = sys.argv[:1]
+        unittest.main()
