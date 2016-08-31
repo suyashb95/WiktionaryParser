@@ -4,12 +4,13 @@ class WordData(object):
     """
 
     def __init__(self, etymology=None, definitions=None, pronunciations=None,
-                 audio_links=None, inflections=None):
+                 audio_links=None, inflections=None, translations=None):
         self.etymology = etymology if etymology else ''
         self.definition_list = definitions
         self.pronunciations = pronunciations if pronunciations else []
         self.audio_links = audio_links if audio_links else []
         self.inflections = inflections if inflections else []
+        self.translations = translations if translations else []
 
     @property
     def definition_list(self):
@@ -38,7 +39,8 @@ class WordData(object):
                             self._definition_list],
             'pronunciations': self.pronunciations,
             'audioLinks': self.audio_links,
-            'inflections': self.inflections
+            'inflections': self.inflections,
+            'translations': self.translations
         }
 
 

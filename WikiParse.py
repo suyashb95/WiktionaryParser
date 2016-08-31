@@ -31,6 +31,9 @@ INFLECTIONS_FORMS = {
     "en": ["infinitive", "present participle", "past participle"]
 }
 
+TRANSLATIONS_LIST = {
+    "en": ["Translations"]
+}
 
 class WiktionaryParser(object):
     """
@@ -117,7 +120,13 @@ class WiktionaryParser(object):
         definition_list = self.parse_definitions(definition_id_list)
         related_words_list = self.parse_related_words(relation_id_list)
         pronunciation_list = self.parse_pronunciations(pronunciation_id_list)
-        inflection_list = self.parse__inflections() # Being test
+        inflection_list = self.parse__inflections() # AM 2016-08-31: Added inflections
+        posList = []
+        for d in definition_list:
+            for pos in d:
+                if pos in PARTS_OF_SPEECH:
+                    posList.append(pos)
+        translation_list = self.parse_translations(posList) # and translations by PoS
 
         json_obj_list = self.make_class(
             etymology_list,
@@ -125,7 +134,8 @@ class WiktionaryParser(object):
             example_list,
             related_words_list,
             pronunciation_list,
-            inflection_list
+            inflection_list,
+            translation_list
         )
 
         return json_obj_list
@@ -260,11 +270,44 @@ class WiktionaryParser(object):
                     inflections[form] = tr.find_all("td")[0].text
             except:
                 pass
-        print "Inflection list: ", inflections
         return inflections
-        # print infTable.find_all("tr")[0].find_all("th")[0].text
 
+    def parse_translations(self, pos_list):
+        for pos in pos_list:
+            for trans in TRANSLATIONS_LIST["en"]:
+                transHeader = self.soup.find_all("span", {'id': trans})
+                if len(transHeader) > 0:
+                    break
+            nextTag = transHeader[0].parent.next_sibling#.next_sibling
+            while True:
+                try:
+                    if nextTag.name == "div":
+                        nextTag.get('class')
+                        if nextTag['class'] == [u'NavFrame']:
+                            transTable = nextTag.find("table")
+                            break
+                except TypeError as ex:
+                    # If catched is because there is not a proper object
+                    pass
 
+                nextTag = nextTag.next_sibling
+
+            # print "I've got the table!", transTable
+            translations = dict()
+            for li in transTable.find_all("li"):
+                for span in li.find_all("span"):
+                    try:
+                        lang = span['lang'].decode('utf-8')
+                        text = span.a.text.decode('utf-8')
+                        # print lang.encode('utf-8'), text.encode('utf-8')
+                        if lang in translations:
+                            translations[lang].append(text)
+                        else:
+                            translations[lang] = [text]
+                        # break
+                    except:
+                        pass
+            return translations
 
     @staticmethod
     def make_class(etymology_list,
@@ -272,7 +315,8 @@ class WiktionaryParser(object):
                    example_list,
                    related_words_list,
                    pronunciation_list,
-                   inflection_list
+                   inflection_list,
+                   translation_list
                   ):
         """
         Takes all the data and makes classes.
@@ -316,7 +360,8 @@ class WiktionaryParser(object):
                             related_word_obj.relationship_type = relation_type
                             def_obj.related_words.append(related_word_obj)
                     data_obj.definition_list.append(def_obj)
-                    data_obj.inflections = inflection_list # Being test
+                    data_obj.inflections = inflection_list # AM: 31/08/16 - Added inflection list to object
+                    data_obj.translations = translation_list # and translations by PoS
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
@@ -333,13 +378,19 @@ class WiktionaryParser(object):
 
 class TestConjugationParsing(unittest.TestCase):
 
-    def test_basicFormsInflections(self):
-        parser = WiktionaryParser()
-        print parser.fetch("hi")
+    # def test_posExtractoin(self):
+    #     parser = WiktionaryParser()
+    #     word = parser.fetch("pick")
+    #     pos = [d["partOfSpeech"] for d in word[0]["definitions"]]
+    #     self.assertEqual([u'noun', u'verb'], pos)
+    #     word = parser.fetch("eat")
+    #     pos = [d["partOfSpeech"] for d in word[0]["definitions"]]
+    #     self.assertEqual([u'verb'], pos)
 
-    def test_basicFormsInflections2(self):
+    def test_getTranslations(self):
         parser = WiktionaryParser()
-        print parser.fetch("eat")[0]["partOfSpeech"]
+        word = parser.fetch("car")
+        print word[0]["translations"]
 
 if __name__ == '__main__':
 
