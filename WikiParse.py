@@ -293,6 +293,8 @@ class WiktionaryParser(object):
                 except Exception as ex:
                     # If catched is because there is not a proper object
                     pass
+                except AttributeError:
+                    pass
                 nextTag = nextTag.next_sibling
             translations[pos] = dict()
             # print "For pos {} I have:".format(pos.decode('utf-8')), transTable
