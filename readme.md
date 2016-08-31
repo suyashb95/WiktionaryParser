@@ -20,6 +20,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
     }],
     "etymology": "etymology text",
     "audioLinks": ["list of audio pronunciation links"]
+    "inflections": ["list of inflected forms"]
 }]
 ```
 
