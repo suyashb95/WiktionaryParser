@@ -19,7 +19,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
         "exampleUses": ["list of examples"]
     }],
     "etymology": "etymology text",
-    "audioLinks": ["list of audio pronunciation links"]
+    "audioLinks": ["list of audio pronunciation links"],
     "inflections": ["list of inflected forms"]
 }]
 ```
