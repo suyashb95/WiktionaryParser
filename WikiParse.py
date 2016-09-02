@@ -378,27 +378,3 @@ class WiktionaryParser(object):
         response = self.session.get(self.url + word + '?printable=yes')
         self.soup = BeautifulSoup(response.text, 'html.parser')
         return self.get_word_data(language.lower())
-
-
-class TestConjugationParsing(unittest.TestCase):
-
-    # def test_posExtractoin(self):
-    #     parser = WiktionaryParser()
-    #     word = parser.fetch("pick")
-    #     pos = [d["partOfSpeech"] for d in word[0]["definitions"]]
-    #     self.assertEqual([u'noun', u'verb'], pos)
-    #     word = parser.fetch("eat")
-    #     pos = [d["partOfSpeech"] for d in word[0]["definitions"]]
-    #     self.assertEqual([u'verb'], pos)
-
-    def test_getTranslations(self):
-        parser = WiktionaryParser()
-        word = parser.fetch("pick")
-        print word[0]["translations"]
-
-if __name__ == '__main__':
-
-    if sys.argv[1] == 'test':
-        print "Running in test mode"
-        sys.argv = sys.argv[:1]
-        unittest.main()
