@@ -33,10 +33,14 @@ class WordData(object):
         """
         return {
             'etymology': self.etymology,
-            'definitions': [definition.to_json() for definition in
-                            self._definition_list],
-            'pronunciations': self.pronunciations,
-            'audioLinks': self.audio_links
+            'definitions': [
+                definition.to_json() for definition in
+                self._definition_list
+            ],
+            'pronunciations': {
+                'text': self.pronunciations,
+                'audio': self.audio_links
+            }
         }
 
 
@@ -77,9 +81,10 @@ class Definition(object):
             'partOfSpeech': self.part_of_speech if self.part_of_speech else '',
             'text': self.text if self.text else '',
             'relatedWords': [
-                related_word.to_json() for related_word in self.related_words]
+                related_word.to_json() for related_word in self.related_words
+            ]
             if self.related_words else [],
-            'exampleUses': self.example_uses if self.example_uses else []
+            'examples': self.example_uses if self.example_uses else []
         }
 
 

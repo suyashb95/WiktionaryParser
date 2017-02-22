@@ -8,7 +8,10 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 
 ```json
 [{
-    "pronunciations": ["list of pronunciations"],
+    "pronunciations": {
+        "text": "pronunciation text",
+        "audio": "pronunciation audio"
+    },
     "definitions": [{
         "relatedWords": [{
             "relationshipType": "word relationship type",
@@ -16,10 +19,9 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
         }],
         "text": "definition text",
         "partOfSpeech": "part of speech",
-        "exampleUses": ["list of examples"]
+        "examples": ["list of examples"]
     }],
     "etymology": "etymology text",
-    "audioLinks": ["list of audio pronunciation links"]
 }]
 ```
 
@@ -30,7 +32,6 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 
 #####From Source
 * Clone the repo or download the zip
-* Make sure you have pip installed
 * `cd` to the folder
 * run `pip install -r "requirements.txt"`
 
@@ -47,7 +48,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 >>> from wiktionaryparser import WiktionaryParser
 >>> parser = WiktionaryParser()
 >>> word = parser.fetch('test')
->>> another_word = parser.fetch('test','french')
+>>> another_word = parser.fetch('test', 'french')
 >>> parser.set_default_language('french')
 ```
 
