@@ -11,13 +11,13 @@ PARTS_OF_SPEECH = [
     "noun", "verb", "adjective", "adverb", "determiner",
     "article", "preposition", "conjunction", "proper noun",
     "letter", "character", "phrase", "proverb", "idiom",
-    "symbol", "syllable", "numeral", "initialism", "interjection"
+    "symbol", "syllable", "numeral", "initialism", "interjection",
 ]
 
 RELATIONS = [
     "synonyms", "antonyms", "hypernyms", "hyponyms",
     "meronyms", "holonyms", "troponyms", "related terms",
-    "derived terms", "coordinate terms"
+    "derived terms", "coordinate terms", "translations"
 ]
 
 UNWANTED_LIST = [
