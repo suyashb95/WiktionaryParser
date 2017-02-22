@@ -9,8 +9,8 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 ```json
 [{
     "pronunciations": {
-        "text": "pronunciation text",
-        "audio": "pronunciation audio"
+        "text": ["pronunciation text"],
+        "audio": ["pronunciation audio"]
     },
     "definitions": [{
         "relatedWords": [{
