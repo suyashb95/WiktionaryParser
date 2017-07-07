@@ -11,19 +11,19 @@ PARTS_OF_SPEECH = [
     "noun", "verb", "adjective", "adverb", "determiner",
     "article", "preposition", "conjunction", "proper noun",
     "letter", "character", "phrase", "proverb", "idiom",
-    "symbol", "syllable", "numeral", "initialism", "interjection",
+    "symbol", "syllable", "numeral", "initialism", "interjection", "definitions"
 ]
 
 RELATIONS = [
     "synonyms", "antonyms", "hypernyms", "hyponyms",
     "meronyms", "holonyms", "troponyms", "related terms",
-    "derived terms", "coordinate terms", "translations"
+    "derived terms", "coordinate terms", "translations",
 ]
 
 UNWANTED_LIST = [
-    'External links',
+    'External links', 'Compounds', 
     'Anagrams', 'References',
-    'Statistics', 'See also'
+    'Statistics', 'See also', 'Usage notes',
 ]
 
 
@@ -45,6 +45,7 @@ class WiktionaryParser(object):
             requests.adapters.HTTPAdapter(max_retries=2)
         )
         self.language = 'english'
+        self.current_word = None
 
     def set_default_language(self, language=None):
         """
@@ -71,7 +72,9 @@ class WiktionaryParser(object):
         elif content_type == 'pronunciation':
             checklist = ['pronunciation']
         elif content_type == 'definitions':
-            checklist = PARTS_OF_SPEECH
+            checklist = list(PARTS_OF_SPEECH)
+            if self.language == 'chinese':
+                checklist += self.current_word
         elif content_type == 'related':
             checklist = RELATIONS
         else:
@@ -90,6 +93,10 @@ class WiktionaryParser(object):
         """
         Match language, get previous tag, get starting number.
         """
+        try:
+        	self.soup.find('div',{'class': 'sister-wikipedia sister-project noprint floatright'}).decompose()	
+        except:
+        	pass
         contents = self.soup.find_all('span', {'class': 'toctext'})
         language_contents = []
         start_index = None
@@ -129,6 +136,8 @@ class WiktionaryParser(object):
             list_tag = span_tag.parent
             while list_tag.name != 'ul':
                 list_tag = list_tag.find_next_sibling()
+                if list_tag.name == 'div' and 'mw-collapsible' in list_tag['class']:
+                    break
             for super_tag in list_tag.find_all('sup'):
                 super_tag.clear()
             audio_links = []
@@ -163,9 +172,13 @@ class WiktionaryParser(object):
             for element in table.find_all('li'):
                 definition_text += re.sub('(\\n+)', '',
                                           element.text.strip()) + '\n'
-            definition_list.append((def_index,
-                                    definition_text,
-                                    def_type))
+            if def_type == 'definitions':
+                def_type = ''
+            definition_list.append((
+                def_index,
+                definition_text,
+                def_type
+            ))
         return definition_list
 
     def parse_examples(self, word_contents):
@@ -291,4 +304,5 @@ class WiktionaryParser(object):
         language = self.language if not language else language
         response = self.session.get(self.url + word + '?printable=yes')
         self.soup = BeautifulSoup(response.text, 'html.parser')
+        self.current_word = word
         return self.get_word_data(language.lower())
