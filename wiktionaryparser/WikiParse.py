@@ -21,7 +21,7 @@ RELATIONS = [
 ]
 
 UNWANTED_LIST = [
-    'External links', 'Compounds', 
+    'External links', 'Compounds',
     'Anagrams', 'References',
     'Statistics', 'See also', 'Usage notes',
 ]
@@ -94,9 +94,9 @@ class WiktionaryParser(object):
         Match language, get previous tag, get starting number.
         """
         try:
-        	self.soup.find('div',{'class': 'sister-wikipedia sister-project noprint floatright'}).decompose()	
+            self.soup.find('div', {'class': 'sister-wikipedia sister-project noprint floatright'}).decompose()
         except:
-        	pass
+            pass
         contents = self.soup.find_all('span', {'class': 'toctext'})
         language_contents = []
         start_index = None
@@ -146,7 +146,9 @@ class WiktionaryParser(object):
                 for audio_tag in list_element.find_all(
                         'div', {'class': 'mediaContainer'}):
                     audio_links.append(audio_tag.find('source')['src'])
-                    list_element.clear()
+                    audio_tag.extract()
+                for nested_list_element in list_element.find_all('ul'):
+                    nested_list_element.extract()
                 if list_element.text:
                     pronunciation_text.append(list_element.text)
             pronunciation_list.append(
@@ -284,7 +286,7 @@ class WiktionaryParser(object):
                                     if item.relationship_type == relation_type
                                 )
                             except StopIteration:
-                                pass  
+                                pass
                             if words is not None:
                                 words += related_words
                                 break
@@ -303,6 +305,6 @@ class WiktionaryParser(object):
         """
         language = self.language if not language else language
         response = self.session.get(self.url + word + '?printable=yes')
-        self.soup = BeautifulSoup(response.text, 'html.parser')
+        self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.current_word = word
         return self.get_word_data(language.lower())
