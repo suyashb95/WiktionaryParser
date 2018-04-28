@@ -221,16 +221,16 @@ class WiktionaryParser(object):
             while next_tag.name not in ['h3', 'h4', 'div']:
                 etymology_tag = next_tag
                 next_tag = next_tag.find_next_sibling()
-            if etymology_tag is None:
-                etymology_text = ''
-            elif etymology_tag.name == 'p':
-                etymology_text = etymology_tag.text
-            else:
-                etymology_text = ''
-                for list_tag in etymology_tag.find_all('li'):
-                    etymology_text += list_tag.text + '\n'
-            etymology_list.append(
-                (etymology_index, etymology_text))
+                if etymology_tag is None:
+                    etymology_text = ''
+                elif etymology_tag.name == 'p':
+                    etymology_text = etymology_tag.text
+                else:
+                    etymology_text = ''
+                    for list_tag in etymology_tag.find_all('li'):
+                        etymology_text += list_tag.text + '\n'
+                etymology_list.append(
+                    (etymology_index, etymology_text))
         return etymology_list
 
     def parse_related_words(self, word_contents):
