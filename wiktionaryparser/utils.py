@@ -1,8 +1,4 @@
 class WordData(object):
-    """
-    Class for etymology, definitions, pronunciations and audio links
-    """
-
     def __init__(self, etymology=None, definitions=None, pronunciations=None,
                  audio_links=None):
         self.etymology = etymology if etymology else ''
@@ -28,15 +24,9 @@ class WordData(object):
             self._definition_list = definitions
 
     def to_json(self):
-        """
-        converts to JSON
-        """
         return {
             'etymology': self.etymology,
-            'definitions': [
-                definition.to_json() for definition in
-                self._definition_list
-            ],
+            'definitions': [definition.to_json() for definition in self._definition_list],
             'pronunciations': {
                 'text': self.pronunciations,
                 'audio': self.audio_links
@@ -45,15 +35,10 @@ class WordData(object):
 
 
 class Definition(object):
-    """
-    container class for definitions.
-    """
-
-    def __init__(self, part_of_speech=None, text=None, related_words=None,
-                 example_uses=None):
+    def __init__(self, part_of_speech = None, text = None, related_words = None, example_uses = None):
         self.part_of_speech = part_of_speech if part_of_speech else ''
         self.text = text if text else ''
-        self.related_words = related_words
+        self.related_words = related_words if related_words else []
         self.example_uses = example_uses if example_uses else []
 
     @property
@@ -74,35 +59,21 @@ class Definition(object):
             self._related_words = related_words
 
     def to_json(self):
-        """
-        converts to json.
-        """
         return {
-            'partOfSpeech': self.part_of_speech if self.part_of_speech else '',
-            'text': self.text if self.text else '',
-            'relatedWords': [
-                related_word.to_json() for related_word in self.related_words
-            ]
-            if self.related_words else [],
-            'examples': self.example_uses if self.example_uses else []
+            'partOfSpeech': self.part_of_speech,
+            'text': self.text,
+            'relatedWords': [related_word.to_json() for related_word in self.related_words],
+            'examples': self.example_uses 
         }
 
 
 class RelatedWord(object):
-    """
-    container class for related words.
-    """
-
     def __init__(self, relationship_type=None, words=None):
         self.relationship_type = relationship_type if relationship_type else ''
         self.words = words if words else []
 
     def to_json(self):
-        """
-        converts to JSON.
-        """
         return {
-            'relationshipType': self.relationship_type if
-            self.relationship_type else '',
-            'words': self.words if self.words else []
+            'relationshipType': self.relationship_type,
+            'words': self.words
         }

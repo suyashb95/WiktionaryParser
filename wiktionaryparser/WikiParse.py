@@ -6,6 +6,7 @@ from __future__ import absolute_import
 import re, requests
 from wiktionaryparser.utils import WordData, Definition, RelatedWord
 from bs4 import BeautifulSoup
+from itertools import zip_longest
 
 PARTS_OF_SPEECH = [
     "noun", "verb", "adjective", "adverb", "determiner",
@@ -17,7 +18,7 @@ PARTS_OF_SPEECH = [
 RELATIONS = [
     "synonyms", "antonyms", "hypernyms", "hyponyms",
     "meronyms", "holonyms", "troponyms", "related terms",
-    "derived terms", "coordinate terms", "translations",
+    "derived terms", "coordinate terms",
 ]
 
 UNWANTED_LIST = [
@@ -28,51 +29,30 @@ UNWANTED_LIST = [
 
 
 class WiktionaryParser(object):
-    """
-    Final class for Wiktionary parser.
-    """
-
     def __init__(self):
-        self.url = "https://en.wiktionary.org/wiki/"
+        self.url = "https://en.wiktionary.org/wiki/{}?printable=yes"
         self.soup = None
         self.session = requests.Session()
-        self.session.mount(
-            "http://",
-            requests.adapters.HTTPAdapter(max_retries=2)
-        )
-        self.session.mount(
-            "https://",
-            requests.adapters.HTTPAdapter(max_retries=2)
-        )
+        self.session.mount("http://", requests.adapters.HTTPAdapter(max_retries = 2))
+        self.session.mount("https://", requests.adapters.HTTPAdapter(max_retries = 2))
         self.language = 'english'
         self.current_word = None
 
     def set_default_language(self, language=None):
-        """
-        Sets the default language of the parser object.
-        """
         if language is not None:
             self.language = language.lower()
         return
 
     def get_default_language(self):
-        """
-        returns the default language of the object.
-        """
         return self.language
 
     def get_id_list(self, contents, content_type):
-        """
-        Returns a list of IDs relating to the specific content type.
-        Text can be obtained by parsing the text within span tags
-        having those IDs.
-        """
         if content_type == 'etymologies':
             checklist = ['etymology']
         elif content_type == 'pronunciation':
             checklist = ['pronunciation']
         elif content_type == 'definitions':
-            checklist = list(PARTS_OF_SPEECH)
+            checklist = PARTS_OF_SPEECH
             if self.language == 'chinese':
                 checklist += self.current_word
         elif content_type == 'related':
@@ -80,19 +60,17 @@ class WiktionaryParser(object):
         else:
             return None
         id_list = []
+        if len(contents) == 0:
+            return []
         for content_tag in contents:
             content_index = content_tag.find_previous().text
-            text_to_check = ''.join(i for i in content_tag.text
-                                    if not i.isdigit()).strip().lower()
+            text_to_check = ''.join(i for i in content_tag.text if not i.isdigit()).strip().lower()
             if text_to_check in checklist:
                 content_id = content_tag.parent['href'].replace('#', '')
                 id_list.append((content_index, content_id, text_to_check))
         return id_list
 
     def get_word_data(self, language):
-        """
-        Match language, get previous tag, get starting number.
-        """
         try:
             self.soup.find('div', {'class': 'sister-wikipedia sister-project noprint floatright'}).decompose()
         except:
@@ -118,30 +96,29 @@ class WiktionaryParser(object):
             'etymologies': self.parse_etymologies(word_contents),
             'related': self.parse_related_words(word_contents),
             'pronunciations': self.parse_pronunciations(word_contents),
-            'examples': self.parse_examples(word_contents)
+            'examples': self.parse_examples(word_contents),
         }
-        json_obj_list = self.make_class(word_data)
+        json_obj_list = self.map_to_object
+        (word_data)
         return json_obj_list
 
     def parse_pronunciations(self, word_contents):
-        """
-        Parse pronunciations from their IDs.
-        clear supertext tags first.
-        separate audio links.
-        """
         pronunciation_id_list = self.get_id_list(word_contents, 'pronunciation')
         pronunciation_list = []
+        audio_links = []
+        pronunciation_text = []
         for pronunciation_index, pronunciation_id, _ in pronunciation_id_list:
             span_tag = self.soup.find_all('span', {'id': pronunciation_id})[0]
             list_tag = span_tag.parent
             while list_tag.name != 'ul':
                 list_tag = list_tag.find_next_sibling()
+                if list_tag.name == 'p':
+                    pronunciation_text.append(list_tag.text)
+                    break
                 if list_tag.name == 'div' and 'mw-collapsible' in list_tag['class']:
                     break
             for super_tag in list_tag.find_all('sup'):
                 super_tag.clear()
-            audio_links = []
-            pronunciation_text = []
             for list_element in list_tag.find_all('li'):
                 for audio_tag in list_element.find_all(
                         'div', {'class': 'mediaContainer'}):
@@ -151,16 +128,10 @@ class WiktionaryParser(object):
                     nested_list_element.extract()
                 if list_element.text:
                     pronunciation_text.append(list_element.text)
-            pronunciation_list.append(
-                (pronunciation_index, pronunciation_text, audio_links))
+            pronunciation_list.append((pronunciation_index, pronunciation_text, audio_links))
         return pronunciation_list
 
     def parse_definitions(self, word_contents):
-        """
-        Definitions are ordered lists
-        Look for the first <ol> tag
-        The tag right before the <ol> tag has tenses.
-        """
         definition_id_list = self.get_id_list(word_contents, 'definitions')
         definition_list = []
         for def_index, def_id, def_type in definition_id_list:
@@ -172,22 +143,13 @@ class WiktionaryParser(object):
                 table = table.find_next_sibling()
             definition_text = definition_tag.text + '\n'
             for element in table.find_all('li'):
-                definition_text += re.sub('(\\n+)', '',
-                                          element.text.strip()) + '\n'
+                definition_text += re.sub('(\\n+)', '', element.text.strip()) + '\n'
             if def_type == 'definitions':
                 def_type = ''
-            definition_list.append((
-                def_index,
-                definition_text,
-                def_type
-            ))
+            definition_list.append((def_index, definition_text, def_type))
         return definition_list
 
     def parse_examples(self, word_contents):
-        """
-        look for <dd> tags inside <ol> tags.
-        remove data in <ul> tags.
-        """
         definition_id_list = self.get_id_list(word_contents, 'definitions')
         example_list = []
         for def_index, def_id, def_type in definition_id_list:
@@ -198,20 +160,17 @@ class WiktionaryParser(object):
             for element in table.find_all('ul'):
                 element.clear()
             examples = []
-            for element in table.find_all('dd'):
-                example_text = element.text.strip()
-                if example_text and not (example_text.startswith('(') and
-                                         example_text.endswith(')')):
-                    examples.append(example_text)
-                element.clear()
-            example_list.append((def_index, examples, def_type))
+            while table.name == 'ol':
+                for element in table.find_all('dd'):
+                    example_text = element.text.strip()
+                    if example_text and not (example_text.startswith('(') and example_text.endswith(')')):
+                        examples.append(example_text)
+                    element.clear()
+                example_list.append((def_index, examples, def_type))
+                table = table.find_next_sibling()
         return example_list
 
     def parse_etymologies(self, word_contents):
-        """
-        Word etymology is either a para or a list.
-        move forward till you find either.
-        """
         etymology_id_list = self.get_id_list(word_contents, 'etymologies')
         etymology_list = []
         for etymology_index, etymology_id, _ in etymology_id_list:
@@ -234,10 +193,6 @@ class WiktionaryParser(object):
         return etymology_list
 
     def parse_related_words(self, word_contents):
-        """
-        Look for parent tags with <li> tags, those are related words.
-        <li> tags can either be in tables or lists.
-        """
         relation_id_list = self.get_id_list(word_contents, 'related')
         related_words_list = []
         for related_index, related_id, relation_type in relation_id_list:
@@ -247,28 +202,24 @@ class WiktionaryParser(object):
             while not parent_tag.find_all('li'):
                 parent_tag = parent_tag.find_next_sibling()
             for list_tag in parent_tag.find_all('li'):
+                print(list_tag.text)
                 words.append(list_tag.text)
             related_words_list.append((related_index, words, relation_type))
         return related_words_list
 
-    def make_class(self, word_data):
-        """
-        Takes all the data and makes classes.
-        """
+    def map_to_object(self, word_data):
         json_obj_list = []
         if not word_data['etymologies']:
             word_data['etymologies'] = [('', '')]
-        for etymology_index, etymology_text in word_data['etymologies']:
+        for (current_etymology, next_etymology) in zip_longest(word_data['etymologies'], word_data['etymologies'][1:], fillvalue='999'):
             data_obj = WordData()
-            data_obj.etymology = etymology_text
+            data_obj.etymology = current_etymology[1]
             for pronunciation_index, text, audio_links in word_data['pronunciations']:
-                if pronunciation_index.startswith(etymology_index) \
-                or pronunciation_index.count('.') == etymology_index.count('.'):
+                if current_etymology[0] < pronunciation_index < next_etymology[0]:
                     data_obj.pronunciations = text
                     data_obj.audio_links = audio_links
             for definition_index, definition_text, definition_type in word_data['definitions']:
-                if definition_index.startswith(etymology_index) \
-                or definition_index.count('.') == etymology_index.count('.'):
+                if current_etymology[0] < definition_index < next_etymology[0]:
                     def_obj = Definition()
                     def_obj.text = definition_text
                     def_obj.part_of_speech = definition_type
@@ -276,35 +227,15 @@ class WiktionaryParser(object):
                         if example_index.startswith(definition_index):
                             def_obj.example_uses = examples
                     for related_word_index, related_words, relation_type in word_data['related']:
-                        if related_word_index.startswith(definition_index) \
-                        or (related_word_index.startswith(etymology_index) \
-                        and related_word_index.count('.') == definition_index.count('.')):
-                            words = None
-                            try:
-                                words = next(
-                                    item.words for item in def_obj.related_words
-                                    if item.relationship_type == relation_type
-                                )
-                            except StopIteration:
-                                pass
-                            if words is not None:
-                                words += related_words
-                                break
-                            related_word_obj = RelatedWord()
-                            related_word_obj.words = related_words
-                            related_word_obj.relationship_type = relation_type
-                            def_obj.related_words.append(related_word_obj)
+                        if current_etymology[0] < related_word_index < next_etymology[0]:
+                            def_obj.related_words.append(RelatedWord(relation_type, related_words))
                     data_obj.definition_list.append(def_obj)
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
     def fetch(self, word, language=None):
-        """
-        main function.
-        subject to change.
-        """
         language = self.language if not language else language
-        response = self.session.get(self.url + word + '?printable=yes')
+        response = self.session.get(self.url.format(word))
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.current_word = word
         return self.get_word_data(language.lower())
