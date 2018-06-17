@@ -23,10 +23,9 @@ RELATIONS = [
 
 UNWANTED_LIST = [
     'External links', 'Compounds',
-    'Anagrams', 'References',
+    'Anagrams', 'References', "Further reading"
     'Statistics', 'See also', 'Usage notes',
 ]
-
 
 class WiktionaryParser(object):
     def __init__(self):
@@ -41,7 +40,6 @@ class WiktionaryParser(object):
     def set_default_language(self, language=None):
         if language is not None:
             self.language = language.lower()
-        return
 
     def get_default_language(self):
         return self.language
@@ -61,7 +59,7 @@ class WiktionaryParser(object):
             return None
         id_list = []
         if len(contents) == 0:
-            return []
+            return [('1', x.title(), x) for x in checklist if self.soup.find('span', {'id': x.title()})]
         for content_tag in contents:
             content_index = content_tag.find_previous().text
             text_to_check = ''.join(i for i in content_tag.text if not i.isdigit()).strip().lower()
@@ -81,8 +79,6 @@ class WiktionaryParser(object):
         for content in contents:
             if content.text.lower() == language:
                 start_index = content.find_previous().text + '.'
-        if start_index is None:
-            return []
         for content in contents:
             index = content.find_previous().text
             if index.startswith(start_index):
@@ -92,14 +88,13 @@ class WiktionaryParser(object):
             if content.text not in UNWANTED_LIST:
                 word_contents.append(content)
         word_data = {
+            'examples': self.parse_examples(word_contents),
             'definitions': self.parse_definitions(word_contents),
             'etymologies': self.parse_etymologies(word_contents),
             'related': self.parse_related_words(word_contents),
             'pronunciations': self.parse_pronunciations(word_contents),
-            'examples': self.parse_examples(word_contents),
         }
-        json_obj_list = self.map_to_object
-        (word_data)
+        json_obj_list = self.map_to_object(word_data)
         return json_obj_list
 
     def parse_pronunciations(self, word_contents):
@@ -157,11 +152,9 @@ class WiktionaryParser(object):
             table = span_tag.parent
             while table.name != 'ol':
                 table = table.find_next_sibling()
-            for element in table.find_all('ul'):
-                element.clear()
             examples = []
-            while table.name == 'ol':
-                for element in table.find_all('dd'):
+            while table and table.name == 'ol':
+                for element in table.find_all(['dd', 'ul']):
                     example_text = element.text.strip()
                     if example_text and not (example_text.startswith('(') and example_text.endswith(')')):
                         examples.append(example_text)
@@ -202,7 +195,6 @@ class WiktionaryParser(object):
             while not parent_tag.find_all('li'):
                 parent_tag = parent_tag.find_next_sibling()
             for list_tag in parent_tag.find_all('li'):
-                print(list_tag.text)
                 words.append(list_tag.text)
             related_words_list.append((related_index, words, relation_type))
         return related_words_list
