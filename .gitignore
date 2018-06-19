@@ -1,3 +1,6 @@
 *.pyc
 wiktionaryparser/notes.txt
 notes.txt
+build/
+dist/
+*.egg-info/
