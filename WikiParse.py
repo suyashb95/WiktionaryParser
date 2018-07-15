@@ -16,7 +16,7 @@ PARTS_OF_SPEECH = [
 RELATIONS = [
     "synonyms", "antonyms", "hypernyms", "hyponyms",
     "meronyms", "holonyms", "troponyms", "related terms",
-    "derived terms", "coordinate terms",
+    "coordinate terms",
 ]
 
 UNWANTED_LIST = [
@@ -74,11 +74,11 @@ class WiktionaryParser(object):
         contents = self.soup.find_all('span', {'class': 'toctext'})
         language_contents = []
         start_index = None
-        if not start_index:
-            return []
         for content in contents:
             if content.text.lower() == language:
                 start_index = content.find_previous().text + '.'
+        if len(contents) != 0 and not start_index:
+            return []
         for content in contents:
             index = content.find_previous().text
             if index.startswith(start_index):
