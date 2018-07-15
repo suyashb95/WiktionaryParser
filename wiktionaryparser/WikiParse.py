@@ -79,6 +79,8 @@ class WiktionaryParser(object):
         for content in contents:
             if content.text.lower() == language:
                 start_index = content.find_previous().text + '.'
+        if not start_index:
+            return []
         for content in contents:
             index = content.find_previous().text
             if index.startswith(start_index):
