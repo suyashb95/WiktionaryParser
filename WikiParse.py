@@ -131,12 +131,14 @@ class WiktionaryParser(object):
         definition_list = []
         for def_index, def_id, def_type in definition_id_list:
             span_tag = self.soup.find_all('span', {'id': def_id})[0]
-            table = span_tag.parent
+            table = span_tag.parent.find_next_sibling()
             definition_tag = None
-            while table.name != 'ol':
+            definition_text = ''
+            while table.name not in ['ol', 'h3', 'h4']:
                 definition_tag = table
+                if definition_tag.name == 'p':
+                    definition_text += definition_tag.text + '\n'
                 table = table.find_next_sibling()
-            definition_text = definition_tag.text + '\n'
             for element in table.find_all('li'):
                 definition_text += re.sub('(\\n+)', '', element.text.strip()) + '\n'
             if def_type == 'definitions':
