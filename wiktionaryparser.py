@@ -1,10 +1,5 @@
-"""
-Final code for wiktionary parser.
-"""
-from __future__ import unicode_literals
-from __future__ import absolute_import
 import re, requests
-from wiktionaryparser.utils import WordData, Definition, RelatedWord
+from .utils import WordData, Definition, RelatedWord
 from bs4 import BeautifulSoup
 from itertools import zip_longest
 
@@ -12,13 +7,14 @@ PARTS_OF_SPEECH = [
     "noun", "verb", "adjective", "adverb", "determiner",
     "article", "preposition", "conjunction", "proper noun",
     "letter", "character", "phrase", "proverb", "idiom",
-    "symbol", "syllable", "numeral", "initialism", "interjection", "definitions"
+    "symbol", "syllable", "numeral", "initialism", "interjection", 
+    "definitions", "pronoun",
 ]
 
 RELATIONS = [
     "synonyms", "antonyms", "hypernyms", "hyponyms",
     "meronyms", "holonyms", "troponyms", "related terms",
-    "derived terms", "coordinate terms",
+    "coordinate terms",
 ]
 
 UNWANTED_LIST = [
@@ -79,7 +75,7 @@ class WiktionaryParser(object):
         for content in contents:
             if content.text.lower() == language:
                 start_index = content.find_previous().text + '.'
-        if not start_index:
+        if len(contents) != 0 and not start_index:
             return []
         for content in contents:
             index = content.find_previous().text
@@ -133,12 +129,14 @@ class WiktionaryParser(object):
         definition_list = []
         for def_index, def_id, def_type in definition_id_list:
             span_tag = self.soup.find_all('span', {'id': def_id})[0]
-            table = span_tag.parent
+            table = span_tag.parent.find_next_sibling()
             definition_tag = None
-            while table.name != 'ol':
+            definition_text = ''
+            while table.name not in ['ol', 'h3', 'h4']:
                 definition_tag = table
+                if definition_tag.name == 'p':
+                    definition_text += definition_tag.text + '\n'
                 table = table.find_next_sibling()
-            definition_text = definition_tag.text + '\n'
             for element in table.find_all('li'):
                 definition_text += re.sub('(\\n+)', '', element.text.strip()) + '\n'
             if def_type == 'definitions':
@@ -172,19 +170,19 @@ class WiktionaryParser(object):
             span_tag = self.soup.find_all('span', {'id': etymology_id})[0]
             etymology_tag = None
             next_tag = span_tag.parent.find_next_sibling()
+            etymology_text = ''
             while next_tag.name not in ['h3', 'h4', 'div']:
                 etymology_tag = next_tag
                 next_tag = next_tag.find_next_sibling()
                 if etymology_tag is None:
                     etymology_text = ''
                 elif etymology_tag.name == 'p':
-                    etymology_text = etymology_tag.text
+                    etymology_text += etymology_tag.text
                 else:
                     etymology_text = ''
                     for list_tag in etymology_tag.find_all('li'):
                         etymology_text += list_tag.text + '\n'
-                etymology_list.append(
-                    (etymology_index, etymology_text))
+            etymology_list.append((etymology_index, etymology_text))
         return etymology_list
 
     def parse_related_words(self, word_contents):
@@ -205,15 +203,15 @@ class WiktionaryParser(object):
         json_obj_list = []
         if not word_data['etymologies']:
             word_data['etymologies'] = [('', '')]
-        for (current_etymology, next_etymology) in zip_longest(word_data['etymologies'], word_data['etymologies'][1:], fillvalue='999'):
+        for (current_etymology, next_etymology) in zip_longest(word_data['etymologies'], word_data['etymologies'][1:], fillvalue=('999', '')):
             data_obj = WordData()
             data_obj.etymology = current_etymology[1]
             for pronunciation_index, text, audio_links in word_data['pronunciations']:
-                if current_etymology[0] < pronunciation_index < next_etymology[0]:
+                if current_etymology[0] <= pronunciation_index < next_etymology[0]:
                     data_obj.pronunciations = text
                     data_obj.audio_links = audio_links
             for definition_index, definition_text, definition_type in word_data['definitions']:
-                if current_etymology[0] < definition_index < next_etymology[0]:
+                if current_etymology[0] <= definition_index < next_etymology[0]:
                     def_obj = Definition()
                     def_obj.text = definition_text
                     def_obj.part_of_speech = definition_type
@@ -221,7 +219,7 @@ class WiktionaryParser(object):
                         if example_index.startswith(definition_index):
                             def_obj.example_uses = examples
                     for related_word_index, related_words, relation_type in word_data['related']:
-                        if current_etymology[0] < related_word_index < next_etymology[0]:
+                        if current_etymology[0] <= related_word_index < next_etymology[0]:
                             def_obj.related_words.append(RelatedWord(relation_type, related_words))
                     data_obj.definition_list.append(def_obj)
             json_obj_list.append(data_obj.to_json())

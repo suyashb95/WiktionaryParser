@@ -1,5 +1,5 @@
-from WikiParse import WiktionaryParser
 import unittest
+from ..wiktionaryparser import WiktionaryParser
 
 parser = WiktionaryParser()
 
@@ -86,6 +86,17 @@ class LengthTest(unittest.TestCase):
         self.assertTrue(word[0]['pronunciations'] == [])
         self.assertTrue(word[0]['audioLinks'] == [])
 
+    def test_all_words(self):
+        test_dict = {
+            'English': ['patronise', 'test', 'abiologically', 'alexin'],
+            'Latin': ['video'],
+            'Norwegian Bokmål': ['seg', 'aldersblandet', 'by', 'for', 'admiral']
+        }
+
+        for lang, words in test_dict.items():
+            parser.set_default_language(lang)
+            for word in words:
+                print(parser.fetch(word))    
 
 if __name__ == '__main__':
     unittest.main()
