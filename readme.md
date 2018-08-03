@@ -41,6 +41,8 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
  - Initialize an object and use the fetch("word", "language") method.
  - The default language is English.
  - The default language can be changed using the set_default_language method.
+ - Include/exclude parts of speech to be parsed using `include_part_of_speech(part_of_speech)` and `exclude_part_of_speech(part_of_speech)`
+ - Include/exclude relationsto be parsed using `include_relation(relation)` and `exclude_relation(relation)`
 
 #### Examples
 
@@ -50,6 +52,8 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 >>> word = parser.fetch('test')
 >>> another_word = parser.fetch('test', 'french')
 >>> parser.set_default_language('french')
+>>> parser.exclude_part_of_speech('noun')
+>>> parser.include_relation('Alternative forms')
 ```
 
 #### Requirements
