@@ -33,20 +33,24 @@ class WiktionaryParser(object):
         self.INCLUDED_ITEMS = self.RELATIONS + self.PARTS_OF_SPEECH + ['etymology', 'pronunciation']
 
     def include_part_of_speech(self, part_of_speech):
+        part_of_speech = part_of_speech.lower()
         if part_of_speech not in self.PARTS_OF_SPEECH:
             self.PARTS_OF_SPEECH.append(part_of_speech)
             self.INCLUDED_ITEMS.append(part_of_speech)
 
     def exclude_part_of_speech(self, part_of_speech):
+        part_of_speech = part_of_speech.lower()
         self.PARTS_OF_SPEECH.remove(part_of_speech)
         self.INCLUDED_ITEMS.remove(part_of_speech)        
 
     def include_relation(self, relation):
+        relation = relation.lower()
         if relation not in self.RELATIONS:
             self.RELATIONS.append(relation)
             self.INCLUDED_ITEMS.append(relation)
 
     def exclude_relation(self, relation):
+        relation = relation.lower()
         self.RELATIONS.remove(relation)
         self.INCLUDED_ITEMS.remove(relation)
 
