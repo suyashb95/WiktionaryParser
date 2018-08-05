@@ -150,8 +150,8 @@ class WiktionaryParser(object):
         definition_id_list = self.get_id_list(word_contents, 'definitions')
         definition_list = []
         definition_tag = None
-        definition_text = ''
         for def_index, def_id, def_type in definition_id_list:
+            definition_text = ''
             span_tag = self.soup.find_all('span', {'id': def_id})[0]
             table = span_tag.parent.find_next_sibling()
             while table.name not in ['ol', 'h3', 'h4']:
@@ -189,8 +189,8 @@ class WiktionaryParser(object):
         etymology_id_list = self.get_id_list(word_contents, 'etymologies')
         etymology_list = []
         etymology_tag = None
-        etymology_text = ''
         for etymology_index, etymology_id, _ in etymology_id_list:
+            etymology_text = ''
             span_tag = self.soup.find_all('span', {'id': etymology_id})[0]
             next_tag = span_tag.parent.find_next_sibling()
             while next_tag.name not in ['h3', 'h4', 'div']:
