@@ -62,7 +62,7 @@ class WiktionaryParser(object):
         return self.language
 
     def clean_html(self):
-        unwanted_div_classes = ['sister-wikipedia', 'thumb']
+        unwanted_div_classes = ['sister-wikipedia', 'thumb', 'reference']
         for tag in self.soup.find_all('div', {'class': unwanted_div_classes}):
             tag.extract()
 
@@ -151,16 +151,17 @@ class WiktionaryParser(object):
         definition_list = []
         definition_tag = None
         for def_index, def_id, def_type in definition_id_list:
-            definition_text = ''
+            definition_text = []
             span_tag = self.soup.find_all('span', {'id': def_id})[0]
             table = span_tag.parent.find_next_sibling()
-            while table.name not in ['ol', 'h3', 'h4']:
+            while table and table.name not in ['h3', 'h4', 'h5']:
                 definition_tag = table
                 table = table.find_next_sibling()
                 if definition_tag.name == 'p':
-                    definition_text += definition_tag.text + '\n'
-            for element in table.find_all('li'):
-                definition_text += re.sub('(\\n+)', '', element.text.strip()) + '\n'
+                    definition_text.append(definition_tag.text.strip().replace('\\n', ''))
+                if definition_tag.name in ['ol', 'ul']:
+                    for element in definition_tag.find_all('li'):
+                        definition_text.append(element.text.strip().replace('\\n', ''))
             if def_type == 'definitions':
                 def_type = ''
             definition_list.append((def_index, definition_text, def_type))
@@ -193,7 +194,7 @@ class WiktionaryParser(object):
             etymology_text = ''
             span_tag = self.soup.find_all('span', {'id': etymology_id})[0]
             next_tag = span_tag.parent.find_next_sibling()
-            while next_tag.name not in ['h3', 'h4', 'div']:
+            while next_tag.name not in ['h3', 'h4', 'div', 'h5']:
                 etymology_tag = next_tag
                 next_tag = next_tag.find_next_sibling()
                 if etymology_tag.name == 'p':
