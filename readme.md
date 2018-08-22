@@ -17,7 +17,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
             "relationshipType": "word relationship type",
             "words": ["list of related words"]
         }],
-        "text": "definition text",
+        "text": ["list of definitions"],
         "partOfSpeech": "part of speech",
         "examples": ["list of examples"]
     }],
