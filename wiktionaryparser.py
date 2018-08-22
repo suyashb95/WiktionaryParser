@@ -122,6 +122,7 @@ class WiktionaryParser(object):
         pronunciation_list = []
         audio_links = []
         pronunciation_text = []
+        pronunciation_div_classes = ['mw-collapsible', 'vsSwitcher']
         for pronunciation_index, pronunciation_id, _ in pronunciation_id_list:
             span_tag = self.soup.find_all('span', {'id': pronunciation_id})[0]
             list_tag = span_tag.parent
@@ -130,18 +131,17 @@ class WiktionaryParser(object):
                 if list_tag.name == 'p':
                     pronunciation_text.append(list_tag.text)
                     break
-                if list_tag.name == 'div' and 'mw-collapsible' in list_tag['class']:
+                if list_tag.name == 'div' and any(_ in pronunciation_div_classes for _ in list_tag['class']):
                     break
             for super_tag in list_tag.find_all('sup'):
                 super_tag.clear()
             for list_element in list_tag.find_all('li'):
-                for audio_tag in list_element.find_all(
-                        'div', {'class': 'mediaContainer'}):
+                for audio_tag in list_element.find_all('div', {'class': 'mediaContainer'}):
                     audio_links.append(audio_tag.find('source')['src'])
                     audio_tag.extract()
                 for nested_list_element in list_element.find_all('ul'):
                     nested_list_element.extract()
-                if list_element.text:
+                if list_element.text and not list_element.find('table', {'class': 'audiotable'}):
                     pronunciation_text.append(list_element.text)
             pronunciation_list.append((pronunciation_index, pronunciation_text, audio_links))
         return pronunciation_list

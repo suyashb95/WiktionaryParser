@@ -1,4 +1,33 @@
 {
+    "Ancient Greek": {
+        "\u1f00\u03b3\u03b3\u03b5\u03bb\u03af\u03b1": {
+            "definitions": [
+                {
+                    "examples": [],
+                    "partOfSpeech": "noun",
+                    "relatedWords": [],
+                    "text": [
+                        "\u1f00\u03b3\u03b3\u03b5\u03bb\u1fd0\u0301\u1fb1 \u2022 (angel\u00ed\u0101)\u00a0f (genitive \u1f00\u03b3\u03b3\u03b5\u03bb\u1fd0\u0301\u1fb1\u03c2); first declension",
+                        "message, news, report",
+                        "Also, the substance or means of such communication",
+                        "instruction, command"
+                    ]
+                }
+            ],
+            "etymology": "From \u1f04\u03b3\u03b3\u03b5\u03bb\u03bf\u03c2 (\u00e1ngelos, \u201cmessenger\u201d) +\u200e -\u1fd0\u0301\u1fb1 (-\u00ed\u0101, abstract noun suffix).\n",
+            "pronunciations": {
+                "audio": [],
+                "text": [
+                    "IPA: /a\u014b.\u0261e.l\u00ed.a\u02d0/ \u2192 /a\u014b.\u0261e\u02c8li.a/ \u2192 /a\u0272.\u025fe\u02c8li.a/",
+                    "(5 BCE Attic) IPA: /a\u014b.\u0261e.l\u00ed.a\u02d0/",
+                    "(1 CE Egyptian) IPA: /a\u014b.\u0261\u025b\u02c8li.a/",
+                    "(4 CE Koine) IPA: /a\u014b.\u0261e\u02c8li.a/",
+                    "(10 CE Byzantine) IPA: /a\u0272.\u025fe\u02c8li.a/",
+                    "(15 CE Constantinopolitan) IPA: /a\u0272.\u025fe\u02c8li.a/"
+                ]
+            }
+        }
+    },
     "English": {
         "abiologically": {
             "definitions": [
@@ -342,11 +371,8 @@
                     "(noun):",
                     "enPR: hous, IPA: /ha\u028as/",
                     "(Canada) IPA: /h\u028c\u028as/",
-                    "Audio (US)(file)",
-                    "Audio (UK)(file)",
                     "(verb):",
                     "enPR: houz, IPA: /ha\u028az/",
-                    "Audio (US)(file)",
                     "Rhymes: -a\u028as, -a\u028az",
                     "Homophone: how's (verb)"
                 ]
@@ -415,7 +441,6 @@
                 "text": [
                     "(UK) IPA: /s\u0252\u014b/",
                     "(US) IPA: /s\u0254\u014b/, /s\u0251\u014b/",
-                    "Audio (US)(file)",
                     "Rhymes: -\u0252\u014b"
                 ]
             }
@@ -605,8 +630,7 @@
                     "//upload.wikimedia.org/wikipedia/commons/4/4c/La-cls-video.ogg"
                 ],
                 "text": [
-                    "(Classical) IPA: /\u02c8wi.de.o\u02d0/, [\u02c8w\u026a.de.o\u02d0]",
-                    "Audio (Classical)(file)"
+                    "(Classical) IPA: /\u02c8wi.de.o\u02d0/, [\u02c8w\u026a.de.o\u02d0]"
                 ]
             }
         }
@@ -736,6 +760,61 @@
                 }
             ],
             "etymology": "From Latin concursus",
+            "pronunciations": {
+                "audio": [],
+                "text": []
+            }
+        },
+        "maldivisk": {
+            "definitions": [
+                {
+                    "examples": [],
+                    "partOfSpeech": "adjective",
+                    "relatedWords": [
+                        {
+                            "relationshipType": "synonyms",
+                            "words": [
+                                "(language) dhivehi"
+                            ]
+                        },
+                        {
+                            "relationshipType": "related terms",
+                            "words": [
+                                "Maldivene",
+                                "maldiver"
+                            ]
+                        }
+                    ],
+                    "text": [
+                        "maldivisk (neuter singular maldivisk, definite singular and plural maldiviske)",
+                        "Maldivian (relating to the Maldives and Maldivians)"
+                    ]
+                },
+                {
+                    "examples": [],
+                    "partOfSpeech": "noun",
+                    "relatedWords": [
+                        {
+                            "relationshipType": "synonyms",
+                            "words": [
+                                "(language) dhivehi"
+                            ]
+                        },
+                        {
+                            "relationshipType": "related terms",
+                            "words": [
+                                "Maldivene",
+                                "maldiver"
+                            ]
+                        }
+                    ],
+                    "text": [
+                        "maldivisk\u00a0m (definite singular maldivisken, uncountable)",
+                        "Maldivian or Dhivehi (language)"
+                    ]
+                }
+            ],
+            "etymology": "",
             "pronunciations": {
                 "audio": [],
                 "text": []

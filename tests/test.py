@@ -12,8 +12,9 @@ class TestParser(unittest.TestCase):
         words_to_test = {
             'English': ['patronise', 'test', 'abiologically', 'alexin', 'song', 'house'],
             'Latin': ['video'],
-            'Norwegian Bokmål': ['seg', 'aldersblandet', 'by', 'for', 'admiral', 'heis', 'konkurs', 'pantergaupe'],
-            'Swedish': ['house']
+            'Norwegian Bokmål': ['seg', 'aldersblandet', 'by', 'for', 'admiral', 'heis', 'konkurs', 'pantergaupe', 'maldivisk'],
+            'Swedish': ['house'],
+            'Ancient Greek': ['ἀγγελία']
         }
         for lang, words in words_to_test.items():
             parser.set_default_language(lang)
@@ -21,6 +22,5 @@ class TestParser(unittest.TestCase):
                 parsed_word = parser.fetch(word)[0]
                 print("Testing \"{}\" in {}".format(word, lang))
                 self.assertEqual(DeepDiff(parsed_word, sample_output[lang][word], ignore_order=True), {})
-                
 if __name__ == '__main__':
     unittest.main()
