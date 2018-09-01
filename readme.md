@@ -3,7 +3,7 @@
 A python project which parses word content from Wiktionary in an easy to use JSON format.
 Right now, it parses etymologies, definitions, pronunciations, examples, audio links and related words.
 
-![Downloads](http://pepy.tech/badge/wiktionaryparser)
+[![Downloads](http://pepy.tech/badge/wiktionaryparser)](http://pepy.tech/project/wiktionaryparser)
 
 #### JSON structure
 
