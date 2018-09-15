@@ -62,12 +62,15 @@ class WiktionaryParser(object):
         return self.language
 
     def clean_html(self):
-        unwanted_div_classes = ['sister-wikipedia', 'thumb', 'reference']
-        for tag in self.soup.find_all('div', {'class': unwanted_div_classes}):
+        unwanted_classes = ['sister-wikipedia', 'thumb', 'reference', 'cited-source']
+        for tag in self.soup.find_all(True, {'class': unwanted_classes}):
             tag.extract()
 
     def remove_digits(self, string):
         return string.translate(str.maketrans('', '', digits)).strip()
+
+    def count_digits(self, string):
+        return len(list(filter(str.isdigit, string)))
 
     def get_id_list(self, contents, content_type):
         if content_type == 'etymologies':
@@ -142,7 +145,7 @@ class WiktionaryParser(object):
                 for nested_list_element in list_element.find_all('ul'):
                     nested_list_element.extract()
                 if list_element.text and not list_element.find('table', {'class': 'audiotable'}):
-                    pronunciation_text.append(list_element.text)
+                    pronunciation_text.append(list_element.text.strip())
             pronunciation_list.append((pronunciation_index, pronunciation_text, audio_links))
         return pronunciation_list
 
@@ -158,10 +161,11 @@ class WiktionaryParser(object):
                 definition_tag = table
                 table = table.find_next_sibling()
                 if definition_tag.name == 'p':
-                    definition_text.append(definition_tag.text.strip().replace('\\n', ''))
+                    definition_text.append(definition_tag.text.strip())
                 if definition_tag.name in ['ol', 'ul']:
-                    for element in definition_tag.find_all('li'):
-                        definition_text.append(element.text.strip().replace('\\n', ''))
+                    for element in definition_tag.find_all('li', recursive=False):
+                        if element.text:
+                            definition_text.append(element.text.strip())
             if def_type == 'definitions':
                 def_type = ''
             definition_list.append((def_index, definition_text, def_type))
@@ -177,12 +181,14 @@ class WiktionaryParser(object):
                 table = table.find_next_sibling()
             examples = []
             while table and table.name == 'ol':
-                for element in table.find_all(['dd', 'ul']):
-                    example_text = element.text.strip()
-                    if example_text and not (example_text.startswith('(') and example_text.endswith(')')):
+                for element in table.find_all('dd'):
+                    example_text = re.sub(r'\([^)]*\)', '', element.text.strip())
+                    if example_text:
                         examples.append(example_text)
                     element.clear()
                 example_list.append((def_index, examples, def_type))
+                for quot_list in table.find_all(['ul', 'ol']):
+                    quot_list.clear()
                 table = table.find_next_sibling()
         return example_list
 
@@ -227,7 +233,7 @@ class WiktionaryParser(object):
             data_obj = WordData()
             data_obj.etymology = current_etymology[1]
             for pronunciation_index, text, audio_links in word_data['pronunciations']:
-                if current_etymology[0] <= pronunciation_index < next_etymology[0]:
+                if (self.count_digits(current_etymology[0]) == self.count_digits(pronunciation_index)) or (current_etymology[0] <= pronunciation_index < next_etymology[0]):
                     data_obj.pronunciations = text
                     data_obj.audio_links = audio_links
             for definition_index, definition_text, definition_type in word_data['definitions']:
@@ -239,7 +245,7 @@ class WiktionaryParser(object):
                         if example_index.startswith(definition_index):
                             def_obj.example_uses = examples
                     for related_word_index, related_words, relation_type in word_data['related']:
-                        if current_etymology[0] <= related_word_index < next_etymology[0]:
+                        if related_word_index.startswith(definition_index):
                             def_obj.related_words.append(RelatedWord(relation_type, related_words))
                     data_obj.definition_list.append(def_obj)
             json_obj_list.append(data_obj.to_json())

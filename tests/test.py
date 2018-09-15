@@ -10,7 +10,7 @@ class TestParser(unittest.TestCase):
         with open('tests/testOutput.json', 'r') as f:
             sample_output = json.load(f)
         words_to_test = {
-            'English': ['patronise', 'test', 'abiologically', 'alexin', 'song', 'house'],
+            'English': ['grapple', 'test', 'patronise', 'abiologically', 'alexin', 'song', 'house'],
             'Latin': ['video'],
             'Norwegian Bokmål': ['seg', 'aldersblandet', 'by', 'for', 'admiral', 'heis', 'konkurs', 'pantergaupe', 'maldivisk'],
             'Swedish': ['house'],
