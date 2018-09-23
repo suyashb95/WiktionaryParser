@@ -16,7 +16,7 @@ PARTS_OF_SPEECH = [
 RELATIONS = [
     "synonyms", "antonyms", "hypernyms", "hyponyms",
     "meronyms", "holonyms", "troponyms", "related terms",
-    "coordinate terms",
+    "coordinate terms", "derived terms"
 ]
 
 class WiktionaryParser(object):
