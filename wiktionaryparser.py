@@ -253,7 +253,7 @@ class WiktionaryParser(object):
 
     def fetch(self, word, language=None, old_id=None):
         language = self.language if not language else language
-        response = self.session.get(self.url, params={'oldid': old_id})
+        response = self.session.get(self.url.format(word), params={'oldid': old_id})
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.current_word = word
         self.clean_html()
