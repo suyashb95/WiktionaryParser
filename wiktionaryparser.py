@@ -72,12 +72,6 @@ class WiktionaryParser(object):
     def count_digits(self, string):
         return len(list(filter(str.isdigit, string)))
 
-    def get_url(self, word, oldid):
-        url_ = self.url.format(word)
-        if oldid:
-            url_ += '&oldid={}'.format(oldid)
-        return url_
-
     def get_id_list(self, contents, content_type):
         if content_type == 'etymologies':
             checklist = ['etymology']
@@ -257,10 +251,9 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
-    def fetch(self, word, language=None, oldid=None):
+    def fetch(self, word, language=None, old_id=None):
         language = self.language if not language else language
-        url_ = self.get_url(word, oldid)
-        response = self.session.get(url_)
+        response = self.session.get(self.url, params={'oldid': old_id})
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.current_word = word
         self.clean_html()

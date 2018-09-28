@@ -18,15 +18,10 @@ class TestParser(unittest.TestCase):
         }
         for lang, words in words_to_test.items():
             parser.set_default_language(lang)
-            for word, oldid in words.items():
-                parsed_word = parser.fetch(word, oldid=oldid)
+            for word, old_id in words.items():
+                parsed_word = parser.fetch(word, old_id=old_id)
                 print("Testing \"{}\" in {}".format(word, lang))
                 self.assertEqual(DeepDiff(parsed_word, sample_output[lang][word], ignore_order=True), {})
-
-    def test_actual_or_archived(self):
-        self.assertEqual(parser.get_url('grapple', None), 'https://en.wiktionary.org/wiki/grapple?printable=yes')
-        self.assertEqual(parser.get_url('grapple', 50080840), 'https://en.wiktionary.org/wiki/grapple?printable=yes&oldid=50080840')
-        self.assertNotEqual(parser.fetch('grapple'), parser.fetch('grapple', oldid=50080840))
 
 if __name__ == '__main__':
     unittest.main()
