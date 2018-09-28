@@ -9,7 +9,7 @@ PARTS_OF_SPEECH = [
     "noun", "verb", "adjective", "adverb", "determiner",
     "article", "preposition", "conjunction", "proper noun",
     "letter", "character", "phrase", "proverb", "idiom",
-    "symbol", "syllable", "numeral", "initialism", "interjection", 
+    "symbol", "syllable", "numeral", "initialism", "interjection",
     "definitions", "pronoun",
 ]
 
@@ -41,7 +41,7 @@ class WiktionaryParser(object):
     def exclude_part_of_speech(self, part_of_speech):
         part_of_speech = part_of_speech.lower()
         self.PARTS_OF_SPEECH.remove(part_of_speech)
-        self.INCLUDED_ITEMS.remove(part_of_speech)        
+        self.INCLUDED_ITEMS.remove(part_of_speech)
 
     def include_relation(self, relation):
         relation = relation.lower()
@@ -71,6 +71,12 @@ class WiktionaryParser(object):
 
     def count_digits(self, string):
         return len(list(filter(str.isdigit, string)))
+
+    def get_url(self, word, oldid):
+        url_ = self.url.format(word)
+        if oldid:
+            url_ += '&oldid={}'.format(oldid)
+        return url_
 
     def get_id_list(self, contents, content_type):
         if content_type == 'etymologies':
@@ -251,9 +257,10 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
-    def fetch(self, word, language=None):
+    def fetch(self, word, language=None, oldid=None):
         language = self.language if not language else language
-        response = self.session.get(self.url.format(word))
+        url_ = self.get_url(word, oldid)
+        response = self.session.get(url_)
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.current_word = word
         self.clean_html()
