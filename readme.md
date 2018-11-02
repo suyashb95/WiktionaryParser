@@ -58,7 +58,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 
 #### Requirements
 
- - requests==2.7.0
+ - requests==2.20.0
  - beautifulsoup4==4.4.0
 
 #### Contributions
