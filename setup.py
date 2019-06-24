@@ -19,5 +19,6 @@ setup(
   install_requires = ['beautifulsoup4','requests'],
   classifiers=[
    'Development Status :: 5 - Production/Stable',
+   'License :: OSI Approved :: MIT License',
   ],
 )
