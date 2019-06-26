@@ -64,3 +64,7 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 #### Contributions
 
 If you want to add features/improvement or report issues, feel free to send a pull request!
+
+#### License
+
+Wiktionary Parser is licensed under [MIT](LICENSE.txt).
