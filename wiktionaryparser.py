@@ -10,7 +10,7 @@ PARTS_OF_SPEECH = [
     "article", "preposition", "conjunction", "proper noun",
     "letter", "character", "phrase", "proverb", "idiom",
     "symbol", "syllable", "numeral", "initialism", "interjection",
-    "definitions", "pronoun",
+    "definitions", "pronoun", "particle", "predicative",
 ]
 
 RELATIONS = [
@@ -200,7 +200,7 @@ class WiktionaryParser(object):
             etymology_text = ''
             span_tag = self.soup.find_all('span', {'id': etymology_id})[0]
             next_tag = span_tag.parent.find_next_sibling()
-            while next_tag.name not in ['h3', 'h4', 'div', 'h5']:
+            while next_tag and next_tag.name not in ['h3', 'h4', 'div', 'h5']:
                 etymology_tag = next_tag
                 next_tag = next_tag.find_next_sibling()
                 if etymology_tag.name == 'p':
@@ -218,10 +218,11 @@ class WiktionaryParser(object):
             words = []
             span_tag = self.soup.find_all('span', {'id': related_id})[0]
             parent_tag = span_tag.parent
-            while not parent_tag.find_all('li'):
+            while parent_tag and not parent_tag.find_all('li'):
                 parent_tag = parent_tag.find_next_sibling()
-            for list_tag in parent_tag.find_all('li'):
-                words.append(list_tag.text)
+            if parent_tag:
+                for list_tag in parent_tag.find_all('li'):
+                    words.append(list_tag.text)
             related_words_list.append((related_index, words, relation_type))
         return related_words_list
 
