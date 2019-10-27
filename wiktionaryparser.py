@@ -10,7 +10,8 @@ PARTS_OF_SPEECH = [
     "article", "preposition", "conjunction", "proper noun",
     "letter", "character", "phrase", "proverb", "idiom",
     "symbol", "syllable", "numeral", "initialism", "interjection",
-    "definitions", "pronoun", "particle", "predicative",
+    "definitions", "pronoun", "particle", "predicative", "participle",
+    "suffix",
 ]
 
 RELATIONS = [
@@ -18,6 +19,16 @@ RELATIONS = [
     "meronyms", "holonyms", "troponyms", "related terms",
     "coordinate terms",
 ]
+
+def is_subheading(child, parent):
+    child_headings = child.split(".")
+    parent_headings = parent.split(".")
+    if len(child_headings) <= len(parent_headings):
+        return False
+    for child_heading, parent_heading in zip(child_headings, parent_headings):
+        if child_heading != parent_heading:
+            return False
+    return True
 
 class WiktionaryParser(object):
     def __init__(self):
@@ -238,7 +249,8 @@ class WiktionaryParser(object):
                     data_obj.pronunciations = text
                     data_obj.audio_links = audio_links
             for definition_index, definition_text, definition_type in word_data['definitions']:
-                if current_etymology[0] <= definition_index < next_etymology[0]:
+                if current_etymology[0] <= definition_index < next_etymology[0] \
+                        or is_subheading(current_etymology, definition_index):
                     def_obj = Definition()
                     def_obj.text = definition_text
                     def_obj.part_of_speech = definition_type
