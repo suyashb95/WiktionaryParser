@@ -250,7 +250,7 @@ class WiktionaryParser(object):
                     data_obj.audio_links = audio_links
             for definition_index, definition_text, definition_type in word_data['definitions']:
                 if current_etymology[0] <= definition_index < next_etymology[0] \
-                        or is_subheading(current_etymology, definition_index):
+                        or is_subheading(current_etymology[0], definition_index):
                     def_obj = Definition()
                     def_obj.text = definition_text
                     def_obj.part_of_speech = definition_type
