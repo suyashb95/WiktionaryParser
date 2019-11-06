@@ -10,7 +10,8 @@ PARTS_OF_SPEECH = [
     "article", "preposition", "conjunction", "proper noun",
     "letter", "character", "phrase", "proverb", "idiom",
     "symbol", "syllable", "numeral", "initialism", "interjection",
-    "definitions", "pronoun",
+    "definitions", "pronoun", "particle", "predicative", "participle",
+    "suffix",
 ]
 
 RELATIONS = [
@@ -18,6 +19,16 @@ RELATIONS = [
     "meronyms", "holonyms", "troponyms", "related terms",
     "coordinate terms",
 ]
+
+def is_subheading(child, parent):
+    child_headings = child.split(".")
+    parent_headings = parent.split(".")
+    if len(child_headings) <= len(parent_headings):
+        return False
+    for child_heading, parent_heading in zip(child_headings, parent_headings):
+        if child_heading != parent_heading:
+            return False
+    return True
 
 class WiktionaryParser(object):
     def __init__(self):
@@ -200,7 +211,7 @@ class WiktionaryParser(object):
             etymology_text = ''
             span_tag = self.soup.find_all('span', {'id': etymology_id})[0]
             next_tag = span_tag.parent.find_next_sibling()
-            while next_tag.name not in ['h3', 'h4', 'div', 'h5']:
+            while next_tag and next_tag.name not in ['h3', 'h4', 'div', 'h5']:
                 etymology_tag = next_tag
                 next_tag = next_tag.find_next_sibling()
                 if etymology_tag.name == 'p':
@@ -218,10 +229,11 @@ class WiktionaryParser(object):
             words = []
             span_tag = self.soup.find_all('span', {'id': related_id})[0]
             parent_tag = span_tag.parent
-            while not parent_tag.find_all('li'):
+            while parent_tag and not parent_tag.find_all('li'):
                 parent_tag = parent_tag.find_next_sibling()
-            for list_tag in parent_tag.find_all('li'):
-                words.append(list_tag.text)
+            if parent_tag:
+                for list_tag in parent_tag.find_all('li'):
+                    words.append(list_tag.text)
             related_words_list.append((related_index, words, relation_type))
         return related_words_list
 
@@ -237,7 +249,8 @@ class WiktionaryParser(object):
                     data_obj.pronunciations = text
                     data_obj.audio_links = audio_links
             for definition_index, definition_text, definition_type in word_data['definitions']:
-                if current_etymology[0] <= definition_index < next_etymology[0]:
+                if current_etymology[0] <= definition_index < next_etymology[0] \
+                        or is_subheading(current_etymology[0], definition_index):
                     def_obj = Definition()
                     def_obj.text = definition_text
                     def_obj.part_of_speech = definition_type
