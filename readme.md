@@ -2,6 +2,7 @@
 
 A python project which parses word content from Wiktionary in an easy to use JSON format.
 Right now, it parses etymologies, definitions, pronunciations, examples, audio links and related words.
+Only English and French Wiktionaries are supported.
 
 [![Downloads](http://pepy.tech/badge/wiktionaryparser)](http://pepy.tech/project/wiktionaryparser)
 
@@ -54,6 +55,10 @@ Right now, it parses etymologies, definitions, pronunciations, examples, audio l
 >>> parser.set_default_language('french')
 >>> parser.exclude_part_of_speech('noun')
 >>> parser.include_relation('alternative forms')
+
+>>> parser_fr = WiktionaryParser(language="français")
+>>> word = parser_fr.fetch('test')
+>>> word = parser_fr.fetch('test', 'anglais')
 ```
 
 #### Requirements
@@ -67,4 +72,4 @@ If you want to add features/improvement or report issues, feel free to send a pu
 
 #### License
 
-Wiktionary Parser is licensed under [MIT](LICENSE.txt).
+    Wiktionary Parser is licensed under [MIT](LICENSE.txt).
