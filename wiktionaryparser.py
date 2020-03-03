@@ -1,24 +1,45 @@
-import re, requests
+import re
+import requests
 from utils import WordData, Definition, RelatedWord
 from bs4 import BeautifulSoup
 from itertools import zip_longest
 from copy import copy
 from string import digits
 
-PARTS_OF_SPEECH = [
-    "noun", "verb", "adjective", "adverb", "determiner",
-    "article", "preposition", "conjunction", "proper noun",
-    "letter", "character", "phrase", "proverb", "idiom",
-    "symbol", "syllable", "numeral", "initialism", "interjection",
-    "definitions", "pronoun", "particle", "predicative", "participle",
-    "suffix",
-]
+PARTS_OF_SPEECH = {
+    "english": [
+        "noun", "verb", "adjective", "adverb", "determiner",
+        "article", "preposition", "conjunction", "proper noun",
+        "letter", "character", "phrase", "proverb", "idiom",
+        "symbol", "syllable", "numeral", "initialism", "interjection",
+        "definitions", "pronoun", "particle", "predicative", "participle",
+        "suffix"
+    ],
+    "français": [
+        "nom commun", "verbe", "adjectif", "adverbe", "déterminant",
+        "article", "preposition", "conjonction", "nom propre",
+        "lettre", "caractère", "expression", "proverbe", "idiome",
+        "symbole", "syllabe", "nombre", "acronyme", "interjection",
+        "définitions", "pronom", "particule", "prédicat", "participe",
+        "suffixe", "locution nominale"
+    ],
+}
 
-RELATIONS = [
-    "synonyms", "antonyms", "hypernyms", "hyponyms",
-    "meronyms", "holonyms", "troponyms", "related terms",
-    "coordinate terms",
-]
+RELATIONS = {
+    "english": [
+        "synonyms", "antonyms", "hypernyms", "hyponyms",
+        "meronyms", "holonyms", "troponyms", "related terms",
+        "coordinate terms",
+    ],
+    "français": [
+        "synonymes", "antonymes", "hypéronymes", "hyponymes",
+        "méronymes", "holonymes", "paronymes", "troponymes",
+        "vocabulaire apparenté par le sens", "dérivés",
+        "anagrammes", "proverbes et phrases toutes faites",
+        "apparentés étymologiques", "quasi-synonymes"
+    ]
+}
+
 
 def is_subheading(child, parent):
     child_headings = child.split(".")
@@ -30,18 +51,27 @@ def is_subheading(child, parent):
             return False
     return True
 
+
 class WiktionaryParser(object):
-    def __init__(self):
-        self.url = "https://en.wiktionary.org/wiki/{}?printable=yes"
+    def __init__(self, language="français"):
         self.soup = None
         self.session = requests.Session()
-        self.session.mount("http://", requests.adapters.HTTPAdapter(max_retries = 2))
-        self.session.mount("https://", requests.adapters.HTTPAdapter(max_retries = 2))
-        self.language = 'english'
+        self.session.mount("http://", requests.adapters.HTTPAdapter(max_retries=2))
+        self.session.mount("https://", requests.adapters.HTTPAdapter(max_retries=2))
         self.current_word = None
-        self.PARTS_OF_SPEECH = copy(PARTS_OF_SPEECH)
-        self.RELATIONS = copy(RELATIONS)
-        self.INCLUDED_ITEMS = self.RELATIONS + self.PARTS_OF_SPEECH + ['etymology', 'pronunciation']
+
+        if language == "français":
+            self.language = 'français'
+            self.url = "https://fr.wiktionary.org/wiki/{}?printable=yes"
+            self.PARTS_OF_SPEECH = copy(PARTS_OF_SPEECH["français"])
+            self.RELATIONS = copy(RELATIONS["français"])
+            self.INCLUDED_ITEMS = self.RELATIONS + self.PARTS_OF_SPEECH + ['étymologie', 'prononciation']
+        else:
+            self.language = 'english'
+            self.url = "https://en.wiktionary.org/wiki/{}?printable=yes"
+            self.PARTS_OF_SPEECH = copy(PARTS_OF_SPEECH["english"])
+            self.RELATIONS = copy(RELATIONS["english"])
+            self.INCLUDED_ITEMS = self.RELATIONS + self.PARTS_OF_SPEECH + ['etymology', 'pronunciation']
 
     def include_part_of_speech(self, part_of_speech):
         part_of_speech = part_of_speech.lower()
@@ -86,8 +116,12 @@ class WiktionaryParser(object):
     def get_id_list(self, contents, content_type):
         if content_type == 'etymologies':
             checklist = ['etymology']
+            if self.language == "français":
+                checklist = ['étymologie']
         elif content_type == 'pronunciation':
             checklist = ['pronunciation']
+            if self.language == "français":
+                checklist = ['prononciation']
         elif content_type == 'definitions':
             checklist = self.PARTS_OF_SPEECH
             if self.language == 'chinese':
@@ -192,7 +226,10 @@ class WiktionaryParser(object):
                 table = table.find_next_sibling()
             examples = []
             while table and table.name == 'ol':
-                for element in table.find_all('dd'):
+                example_delim = 'dd'
+                if self.language == "français":
+                    example_delim = 'i'
+                for element in table.find_all(example_delim):
                     example_text = re.sub(r'\([^)]*\)', '', element.text.strip())
                     if example_text:
                         examples.append(example_text)
