@@ -55,7 +55,7 @@ Only English and French Wiktionaries are supported.
 >>> parser.set_default_language('french')
 >>> parser.exclude_part_of_speech('noun')
 >>> parser.include_relation('alternative forms')
->>> 
+
 >>> parser_fr = WiktionaryParser(language="français")
 >>> word = parser_fr.fetch('test')
 >>> word = parser_fr.fetch('test', 'anglais')
@@ -72,4 +72,4 @@ If you want to add features/improvement or report issues, feel free to send a pu
 
 #### License
 
-Wiktionary Parser is licensed under [MIT](LICENSE.txt).
+    Wiktionary Parser is licensed under [MIT](LICENSE.txt).
