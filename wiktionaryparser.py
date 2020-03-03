@@ -53,7 +53,7 @@ def is_subheading(child, parent):
 
 
 class WiktionaryParser(object):
-    def __init__(self, language="français"):
+    def __init__(self, language="english"):
         self.soup = None
         self.session = requests.Session()
         self.session.mount("http://", requests.adapters.HTTPAdapter(max_retries=2))
@@ -67,6 +67,8 @@ class WiktionaryParser(object):
             self.RELATIONS = copy(RELATIONS["français"])
             self.INCLUDED_ITEMS = self.RELATIONS + self.PARTS_OF_SPEECH + ['étymologie', 'prononciation']
         else:
+            if language != "english":
+                print("language unsupported, switched to english")
             self.language = 'english'
             self.url = "https://en.wiktionary.org/wiki/{}?printable=yes"
             self.PARTS_OF_SPEECH = copy(PARTS_OF_SPEECH["english"])
