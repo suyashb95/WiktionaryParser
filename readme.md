@@ -1,7 +1,6 @@
 ### Wiktionary Parser
 
-A python project which parses word content from Wiktionary in an easy to use JSON format.
-Right now, it parses etymologies, definitions, pronunciations, examples, audio links and related words.
+A python project which downloads words from English Wiktionary ([en.wiktionary.org](https://en.wiktionary.org)) and parses articles' content in an easy to use JSON format. Right now, it parses etymologies, definitions, pronunciations, examples, audio links and related words.
 
 [![Downloads](http://pepy.tech/badge/wiktionaryparser)](http://pepy.tech/project/wiktionaryparser)
 
