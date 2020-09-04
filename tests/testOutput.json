@@ -33,123 +33,235 @@
     "English": {
         "abiologically": [
             {
+                "etymology": "Lua error in Module:compound/templates at line 63: The |lang= parameter is not used by this template. Place the language code in parameter 1 instead.",
                 "definitions": [
                     {
-                        "examples": [
-                            "a natural mechanism for abiologically producing some of the needed structural components of life"
-                        ],
                         "partOfSpeech": "adverb",
-                        "relatedWords": [],
                         "text": [
                             "abiologically (not comparable)",
                             "(biology) In an abiological manner. [Late 19th century.]"
+                        ],
+                        "relatedWords": [],
+                        "examples": [
+                            "a natural mechanism for abiologically producing some of the needed structural components of life"
                         ]
                     }
                 ],
-                "etymology": "abiological +\u200e -ly",
                 "pronunciations": {
-                    "audio": [],
                     "text": [
-                        "(US) IPA(key): /\u02cce\u026a.ba\u026a.\u0259\u02c8l\u0251d\u0292.\u026a.k\u0259.li/, /\u02cce\u026a.ba\u026a.\u0259\u02c8l\u0251d\u0292.\u026a.kli/, /\u02cce\u026a.ba\u026a.\u0259\u02c8l\u0251d\u0292.\u0259.k\u0259.li/, /\u02cce\u026a.ba\u026a.\u0259\u02c8l\u0251d\u0292.\u0259.kli/"
-                    ]
+                        "(US) "
+                    ],
+                    "audio": []
                 }
             }
         ],
         "alexin": [
             {
+                "etymology": "(This etymology is missing or incomplete. Please add to it, or discuss it at the Etymology scriptorium.)",
                 "definitions": [
                     {
-                        "examples": [
-                            "The seed of our destruction will blossom in the desert, the alexin of our cure grows by a mountain rock  [\u2026]"
-                        ],
                         "partOfSpeech": "noun",
-                        "relatedWords": [],
                         "text": [
                             "alexin (plural alexins)",
                             "(biochemistry, dated) A protective substance that exists in the serum or other bodily fluid and is capable of killing microorganisms; complement."
+                        ],
+                        "relatedWords": [],
+                        "examples": [
+                            "The seed of our destruction will blossom in the desert, the alexin of our cure grows by a mountain rock  [\u2026]"
                         ]
                     }
                 ],
-                "etymology": "",
                 "pronunciations": {
-                    "audio": [],
-                    "text": []
+                    "text": [],
+                    "audio": []
                 }
             }
         ],
         "grapple": [
             {
+                "etymology": "From Middle English *grapplen (\u201cto seize, lay hold of\u201d), from Old English *gr\u00e6pplian (\u201cto seize\u201d) (compare Old English \u0121egr\u00e6ppian (\u201cto seize\u201d)), from Proto-Germanic *graipil\u014dn\u0105, *grabbal\u014dn\u0105 (\u201cto seize\u201d), from Proto-Indo-European *ghreb(h)-, *ghrab(h)- (\u201cto take, seize, rake\u201d), equivalent to grab +\u200e -le. Cognate with Dutch grabbelen (\u201cto grope, scramble, scrabble\u201d), German grabbeln (\u201cto rummage, grope about\u201d) and grapsen, grapschen (\u201cto seize, grasp, grabble\u201d). Influenced in some senses by grapple (\u201ctool with claws or hooks\u201d, noun) (see below). See further at grasp.\n",
                 "definitions": [
                     {
+                        "partOfSpeech": "verb",
+                        "text": [
+                            "grapple (third-person singular simple present grapples, present participle grappling, simple past and past participle grappled)",
+                            "(transitive) To seize something and hold it firmly.",
+                            "(transitive, figurative) Normally used with with: to ponder and intensely evaluate a problem.",
+                            "(transitive) To fasten, as with a grapple; to fix; to join indissolubly.",
+                            "(intransitive) To use a grapple.",
+                            "(intransitive) To wrestle or tussle."
+                        ],
+                        "relatedWords": [],
                         "examples": [
                             "to grapple with one's conscience",
                             "The gallies were grappled to the Centurion.",
                             "Grapple them to thy soul with hoops of steel."
-                        ],
-                        "partOfSpeech": "verb",
-                        "relatedWords": [],
-                        "text": [
-                            "grapple (third-person singular simple present grapples, present participle grappling, simple past and past participle grappled)",
-                            "(transitive) To seize something and hold it firmly.",
-                            "(transitive, figuratively) Normally used with with: to ponder and intensely evaluate a problem.",
-                            "(transitive) To fasten, as with a grapple; to fix; to join indissolubly.",
-                            "(intransitive) To use a grapple.",
-                            "(intransitive) To wrestle or tussle."
                         ]
                     }
                 ],
-                "etymology": "From Middle English *grapplen (\u201cto seize, lay hold of\u201d), from Old English *gr\u00e6pplian (\u201cto seize\u201d) (compare Old English \u0121egr\u00e6ppian (\u201cto seize\u201d)), from Proto-Germanic *graipil\u014dn\u0105, *grabbal\u014dn\u0105 (\u201cto seize\u201d), from Proto-Indo-European *ghreb(h)-, *ghrab(h)- (\u201cto take, seize, rake\u201d), equivalent to grab +\u200e -le. Cognate with Dutch grabbelen (\u201cto grope, scramble, scrabble\u201d), German grabbeln (\u201cto rummage, grope about\u201d) and grapsen, grapschen (\u201cto seize, grasp, grabble\u201d). Influenced in some senses by grapple (\u201ctool with claws or hooks\u201d, noun) (see below). See further at grasp.\n",
                 "pronunciations": {
+                    "text": [
+                        "(Received Pronunciation) (deprecated use of |lang= parameter) IPA: /\u02c8\u0261\u0279\u00e6p.\u0259l/",
+                        "(deprecated use of |lang= parameter) Rhymes: -\u00e6p\u0259l",
+                        "(deprecated use of |lang= parameter) Hyphenation: grap\u2027ple"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/8/8d/En-ca-grapple.oga"
-                    ],
-                    "text": [
-                        "(Received Pronunciation) IPA: /\u02c8\u0261\u0279\u00e6p.\u0259l/",
-                        "Rhymes: -\u00e6p\u0259l",
-                        "Hyphenation: grap\u2027ple"
                     ]
                 }
             },
             {
+                "etymology": "From Middle English *grapple, *graple, from Old French grappil (\u201ca ship's grapple\u201d) (compare Old French grappin (\u201chook\u201d)), from Old French grape, grappe, crape (\u201chook\u201d), of Germanic origin, from Old Frankish *krapp\u014d (\u201chook\u201d), from Proto-Germanic *krapp\u00f4, *krapp\u0105 (\u201chook\u201d), from Proto-Indo-European *grep- (\u201chook\u201d), *gremb- (\u201ccrooked, uneven\u201d), from Proto-Indo-European *ger- (\u201cto turn, bend, twist\u201d). See further at grape.\n",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "noun",
-                        "relatedWords": [],
                         "text": [
                             "grapple (countable and uncountable, plural grapples)",
                             "A tool with claws or hooks which is used to catch or hold something.",
                             "A close hand-to-hand struggle.",
                             "(uncountable) The act of grappling."
-                        ]
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     },
                     {
-                        "examples": [],
                         "partOfSpeech": "verb",
-                        "relatedWords": [],
                         "text": [
                             "grapple (third-person singular simple present grapples, present participle grappling, simple past and past participle grappled)",
                             "(transitive or intransitive) To climb."
-                        ]
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     }
                 ],
-                "etymology": "From Middle English *grapple, *graple, from Old French grappil (\u201ca ship's grapple\u201d) (compare Old French grappin (\u201chook\u201d)), from Old French grape, grappe, crape (\u201chook\u201d), of Germanic origin, from Old Frankish *krapp\u014d (\u201chook\u201d), from Proto-Germanic *krapp\u00f4, *krapp\u0105 (\u201chook\u201d), from Proto-Indo-European *grep- (\u201chook\u201d), *gremb- (\u201ccrooked, uneven\u201d), from Proto-Indo-European *ger- (\u201cto turn, bend, twist\u201d). See further at grape.\n",
                 "pronunciations": {
+                    "text": [
+                        "(Received Pronunciation) (deprecated use of |lang= parameter) IPA: /\u02c8\u0261\u0279\u00e6p.\u0259l/",
+                        "(deprecated use of |lang= parameter) Rhymes: -\u00e6p\u0259l",
+                        "(deprecated use of |lang= parameter) Hyphenation: grap\u2027ple"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/8/8d/En-ca-grapple.oga"
-                    ],
-                    "text": [
-                        "(Received Pronunciation) IPA: /\u02c8\u0261\u0279\u00e6p.\u0259l/",
-                        "Rhymes: -\u00e6p\u0259l",
-                        "Hyphenation: grap\u2027ple"
                     ]
                 }
             }
         ],
         "house": [
             {
+                "etymology": "From Middle English hous, hus, from Old English h\u016bs (\u201cdwelling, shelter, house\u201d), from Proto-Germanic *h\u016bs\u0105 (compare Scots hoose, West Frisian h\u00fbs, Dutch huis, Low German Huus, German Haus, Danish hus, Norwegian Bokm\u00e5l hus and Swedish hus possibly from Proto-Indo-European *(s)kews-, from *(s)kew- (\u201cto cover, hide\u201d). More at hose.\n",
                 "definitions": [
                     {
+                        "partOfSpeech": "noun",
+                        "text": [
+                            "house (countable and uncountable, plural houses or (dialectal) housen or (chiefly humorous) hice)",
+                            "A structure built or serving as an abode of human beings. [from 9thc.]",
+                            "The people who live in a house; a household. [from 9thc.]",
+                            "A building used for something other than a residence (typically with qualifying word). [from 10thc.]",
+                            "The audience for a live theatrical or similar performance. [from 10thc.]",
+                            "(politics) A building where a deliberative assembly meets; whence the assembly itself, particularly a component of a legislature. [from 10thc.]",
+                            "A dynasty; a family with its ancestors and descendants, especially a royal or noble one. [from 10thc.]",
+                            "(figurative) a place of rest or repose. [from 9thc.]",
+                            "A grouping of schoolchildren for the purposes of competition in sports and other activities. [from 19thc.]",
+                            "An animal's shelter or den, or the shell of an animal such as a snail, used for protection. [from 10thc.]",
+                            "(astrology) One of the twelve divisions of an astrological chart. [from 14thc.]",
+                            "(cartomancy) The fourth Lenormand card.",
+                            "(chess, now rare) A square on a chessboard, regarded as the proper place of a piece. [from 16thc.]",
+                            "(curling) The four concentric circles where points are scored on the ice. [from 19thc.]",
+                            "Lotto; bingo. [from 20thc.]",
+                            "(uncountable) A children's game in which the players pretend to be members of a household.",
+                            "(US, dialect) A small stand of trees in a swamp."
+                        ],
+                        "relatedWords": [
+                            {
+                                "relationshipType": "synonyms",
+                                "words": [
+                                    "(establishment): shop",
+                                    "(company or organisation): shop"
+                                ]
+                            },
+                            {
+                                "relationshipType": "hypernyms",
+                                "words": [
+                                    "building"
+                                ]
+                            },
+                            {
+                                "relationshipType": "hyponyms",
+                                "words": [
+                                    "alehouse",
+                                    "backhouse",
+                                    "birdhouse",
+                                    "boathouse",
+                                    "boghouse",
+                                    "bookhouse",
+                                    "bring down the house",
+                                    "doghouse",
+                                    "dosshouse",
+                                    "draught-house",
+                                    "flophouse",
+                                    "get on like a house on fire",
+                                    "glasshouse",
+                                    "greenhouse",
+                                    "guesthouse",
+                                    "hice",
+                                    "house arrest",
+                                    "houseboat",
+                                    "housebreaker",
+                                    "housecoat",
+                                    "house detective",
+                                    "household",
+                                    "householder",
+                                    "housekeeper",
+                                    "housekeeping",
+                                    "house leader",
+                                    "house lights",
+                                    "housemaid",
+                                    "house mouse",
+                                    "house music",
+                                    "houseplant",
+                                    "house poor",
+                                    "house slave",
+                                    "house-to-house",
+                                    "house-train",
+                                    "house warming",
+                                    "housewife",
+                                    "house wine",
+                                    "housework",
+                                    "housing",
+                                    "housy-housy",
+                                    "it takes a heap of living to make a house a home",
+                                    "jakeshouse",
+                                    "lighthouse",
+                                    "longhouse",
+                                    "long house",
+                                    "long-house",
+                                    "lower house",
+                                    "meeting house",
+                                    "meetinghouse",
+                                    "move house",
+                                    "on the house",
+                                    "outhouse",
+                                    "penthouse",
+                                    "petty-house",
+                                    "playhouse",
+                                    "poorhouse",
+                                    "prisonhouse",
+                                    "pumphouse",
+                                    "put one's house in order",
+                                    "safehouse",
+                                    "schoolhouse",
+                                    "shithouse",
+                                    "shophouse",
+                                    "shouse",
+                                    "sickhouse",
+                                    "siegehouse",
+                                    "storehouse",
+                                    "warehouse",
+                                    "whorehouse",
+                                    "wirehouse"
+                                ]
+                            }
+                        ],
                         "examples": [
                             "This is my house and my family's ancestral home.",
                             "The big houses, and there are a good many of them, lie for the most part in what may be called by courtesy the valleys. You catch a glimpse of them sometimes at a little distance from the [railway] line, which seems to have shown some ingenuity in avoiding them,\u00a0[\u2026].",
@@ -170,144 +282,10 @@
                             "I was a member of Spenser house when I was at school.",
                             "Since there was a limited number of planets, houses and signs of the zodiac, the astrologers tended to reduce human potentialities to a set of fixed types and to postulate only a limited number of possible variations.",
                             "As the babysitter, Emma always acted as the mother whenever the kids demanded to play house."
-                        ],
-                        "partOfSpeech": "noun",
-                        "relatedWords": [
-                            {
-                                "relationshipType": "synonyms",
-                                "words": [
-                                    "(establishment): shop",
-                                    "(company or organisation): shop"
-                                ]
-                            },
-                            {
-                                "relationshipType": "hypernyms",
-                                "words": [
-                                    "building"
-                                ]
-                            },
-                            {
-                                "relationshipType": "hyponyms",
-                                "words": [
-                                    "alehouse",
-                                    "auction house",
-                                    "backhouse",
-                                    "basket house",
-                                    "birdhouse",
-                                    "boathouse",
-                                    "boghouse",
-                                    "chapter house",
-                                    "coffee house",
-                                    "common house",
-                                    "cophouse",
-                                    "country house",
-                                    "doghouse",
-                                    "doll's house",
-                                    "dosshouse",
-                                    "flophouse",
-                                    "frame house",
-                                    "full house",
-                                    "glasshouse",
-                                    "Government House",
-                                    "Greek house",
-                                    "greenhouse",
-                                    "grow house",
-                                    "guest house",
-                                    "guesthouse",
-                                    "halfway house",
-                                    "haunted house",
-                                    "house of assembly",
-                                    "House of Commons",
-                                    "house of correction",
-                                    "house of detention",
-                                    "house of God",
-                                    "house of ill fame",
-                                    "house of ill repute",
-                                    "House of Lords",
-                                    "house of office",
-                                    "house of worship",
-                                    "Houses of Parliament",
-                                    "jakeshouse",
-                                    "lighthouse",
-                                    "little house",
-                                    "long house",
-                                    "longhouse",
-                                    "lower house",
-                                    "meetinghouse",
-                                    "meeting house",
-                                    "move house",
-                                    "outhouse",
-                                    "playhouse",
-                                    "play house",
-                                    "poorhouse",
-                                    "prisonhouse",
-                                    "privy house",
-                                    "public house",
-                                    "publishing house",
-                                    "pump house",
-                                    "pumphouse",
-                                    "royal house",
-                                    "safehouse",
-                                    "schoolhouse",
-                                    "school house",
-                                    "shithouse",
-                                    "shophouse",
-                                    "siegehouse",
-                                    "storehouse",
-                                    "tea house",
-                                    "tiny house",
-                                    "town house",
-                                    "tribal house",
-                                    "upper house",
-                                    "warehouse",
-                                    "wartime house",
-                                    "weather house",
-                                    "Wendy house",
-                                    "White House",
-                                    "whorehouse"
-                                ]
-                            }
-                        ],
-                        "text": [
-                            "house (countable and uncountable, plural houses or (dialectal) housen or (chiefly humorous) hice)",
-                            "A structure built or serving as an abode of human beings. [from 9thc.]",
-                            "The people who live in a house; a household. [from 9thc.]",
-                            "A building used for something other than a residence (typically with qualifying word). [from 10thc.]",
-                            "The audience for a live theatrical or similar performance. [from 10thc.]",
-                            "(politics) A building where a deliberative assembly meets; whence the assembly itself, particularly a component of a legislature. [from 10thc.]",
-                            "A dynasty; a family with its ancestors and descendants, especially a royal or noble one. [from 10thc.]",
-                            "(figuratively) a place of rest or repose. [from 9thc.]",
-                            "A grouping of schoolchildren for the purposes of competition in sports and other activities. [from 19thc.]",
-                            "An animal's shelter or den, or the shell of an animal such as a snail, used for protection. [from 10thc.]",
-                            "(astrology) One of the twelve divisions of an astrological chart. [from 14thc.]",
-                            "(cartomancy) The fourth Lenormand card.",
-                            "(chess, now rare) A square on a chessboard, regarded as the proper place of a piece. [from 16thc.]",
-                            "(curling) The four concentric circles where points are scored on the ice. [from 19thc.]",
-                            "Lotto; bingo. [from 20thc.]",
-                            "(uncountable) A children's game in which the players pretend to be members of a household.",
-                            "(US, dialect) A small stand of trees in a swamp."
                         ]
                     },
                     {
-                        "examples": [
-                            "The car is housed in the garage.",
-                            "House your choicest carnations, or rather set them under a penthouse.",
-                            "Palladius wished him to house all the Helots.",
-                            "You shall not house with me.",
-                            "Where Saturn houses.",
-                            "to house the upper spars"
-                        ],
                         "partOfSpeech": "verb",
-                        "relatedWords": [
-                            {
-                                "relationshipType": "synonyms",
-                                "words": [
-                                    "(keep within a structure or container): store",
-                                    "(admit to residence): accommodate, harbor/harbour, host, put up",
-                                    "(contain or enclose mechanical parts): enclose"
-                                ]
-                            }
-                        ],
                         "text": [
                             "house (third-person singular simple present houses, present participle housing, simple past and past participle housed)",
                             "(transitive) To keep within a structure or container.",
@@ -318,90 +296,95 @@
                             "(obsolete) To drive to a shelter.",
                             "(obsolete) To deposit and cover, as in the grave.",
                             "(nautical) To stow in a safe place; to take down and make safe."
+                        ],
+                        "relatedWords": [
+                            {
+                                "relationshipType": "synonyms",
+                                "words": [
+                                    "(keep within a structure or container): store",
+                                    "(admit to residence): accommodate, harbor/harbour, host, put up",
+                                    "(contain or enclose mechanical parts): enclose"
+                                ]
+                            }
+                        ],
+                        "examples": [
+                            "The car is housed in the garage.",
+                            "House your choicest carnations, or rather set them under a penthouse.",
+                            "Palladius wished him to house all the Helots.",
+                            "You shall not house with me.",
+                            "Where Saturn houses.",
+                            "Lua error in Module:utilities at line 145: The language code \"Shakespeare\" is not valid.",
+                            "Lua error in Module:utilities at line 145: The language code \"Sandys\" is not valid.",
+                            "to house the upper spars"
                         ]
                     }
                 ],
-                "etymology": "From Middle English hous, hus, from Old English h\u016bs (\u201cdwelling, shelter, house\u201d), from Proto-Germanic *h\u016bs\u0105 (compare Scots hoose, West Frisian h\u00fbs, Dutch huis, Low German Huus, German Haus, Danish hus, Norwegian Bokm\u00e5l hus and Swedish hus possibly from Proto-Indo-European *(s)kews-, from *(s)kew- (\u201cto cover, hide\u201d). More at hose.\n",
                 "pronunciations": {
+                    "text": [
+                        "(noun):",
+                        "enPR: hous, (deprecated use of |lang= parameter) IPA: /ha\u028as/",
+                        "(Canada) (deprecated use of |lang= parameter) IPA: /h\u028c\u028as/",
+                        "(verb):",
+                        "enPR: houz, (deprecated use of |lang= parameter) IPA: /ha\u028az/",
+                        "(deprecated use of |lang= parameter) Rhymes: -a\u028as, -a\u028az",
+                        "(deprecated use of |lang= parameter) Homophone: how's (verb)"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/5/55/En-us-house-noun.ogg",
                         "//upload.wikimedia.org/wikipedia/commons/d/d1/En-uk-house.ogg",
                         "//upload.wikimedia.org/wikipedia/commons/1/10/En-us-house-verb.ogg"
-                    ],
-                    "text": [
-                        "(noun):",
-                        "enPR: hous, IPA: /ha\u028as/",
-                        "(Canada) IPA: /h\u028c\u028as/",
-                        "(verb):",
-                        "enPR: houz, IPA: /ha\u028az/",
-                        "Rhymes: -a\u028as, -a\u028az",
-                        "Homophone: how's (verb)"
                     ]
                 }
             },
             {
+                "etymology": "Probably from The Warehouse, a nightclub in Chicago, Illinois, USA, where the music became popular around 1985.\n",
                 "definitions": [
                     {
+                        "partOfSpeech": "noun",
+                        "text": [
+                            "house (uncountable)",
+                            "(music) House music."
+                        ],
+                        "relatedWords": [],
                         "examples": [
                             "[\u2026]  their music is influenced as much by Roxy Music and the Ramones as it is by house and techno pioneers.",
                             "And while hard, minimal techno has become increasingly influenced by house and Oval-esque \"glitch\" stylistics, Exos keeps it old school on Strength, infusing his own style with the force of hard techno purists Surgeon and Oliver Ho.",
                             "The first genre of American dance music to become popular in the United Kingdom was Chicago house. Although music from Detroit was soon imported as well, it was often treated as subcategory of house, and for many years the most common English term for electronic dance music in general was \"house\" or \"acid house\".  [\u2026]  During the formative years of techno and house, the musicians involved interacted in various ways."
-                        ],
-                        "partOfSpeech": "noun",
-                        "relatedWords": [],
-                        "text": [
-                            "house (uncountable)",
-                            "(music) House music."
                         ]
                     }
                 ],
-                "etymology": "Probably from The Warehouse, a nightclub in Chicago, Illinois, USA, where the music became popular around 1985.\n",
                 "pronunciations": {
-                    "audio": [],
-                    "text": []
+                    "text": [],
+                    "audio": []
                 }
             }
         ],
         "patronise": [
             {
+                "etymology": "",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "verb",
-                        "relatedWords": [],
                         "text": [
                             "patronise (third-person singular simple present patronises, present participle patronising, simple past and past participle patronised)",
-                            "(British) Alternative form of patronize"
-                        ]
+                            "(British spelling) (deprecated use of |lang= parameter) Alternative form of patronize"
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     }
                 ],
-                "etymology": "",
                 "pronunciations": {
-                    "audio": [],
-                    "text": []
+                    "text": [],
+                    "audio": []
                 }
             }
         ],
         "song": [
             {
+                "etymology": "From Middle English song, sang, from Old English song, sang (\u201cnoise, song, singing, chanting; poetry; a poem to be sung or recited, psalm, lay\u201d), from Proto-Germanic *sangwaz (\u201csinging, song\u201d), from Proto-Indo-European *seng\u02b7\u02b0- (\u201cto sing\u201d). Cognate with Scots sang, song (\u201csinging, song\u201d), Saterland Frisian Song (\u201csong\u201d), West Frisian sang (\u201csong\u201d), Dutch zang (\u201csong\u201d), Low German sang (\u201csong\u201d), German Sang (\u201csinging, song\u201d), Swedish s\u00e5ng (\u201csong\u201d), Norwegian Bokm\u00e5l sang (\u201csong\u201d), Norwegian Nynorsk song (\u201csong\u201d), Icelandic s\u00f6ngur (\u201csong\u201d), Ancient Greek \u1f40\u03bc\u03c6\u03ae (omph\u1e17, \u201cvoice, oracle\u201d). More at sing.\n",
                 "definitions": [
                     {
-                        "examples": [
-                            "Thomas listened to his favorite song on the radio yesterday.",
-                            "The Harpe.  [\u2026]  A harper with his wre\u017ft maye tune the harpe wrong / Mys tunying of an In\u017ftrument \u017fhal hurt a true \u017fonge",
-                            "In the lightness of my heart I sang catches of songs as my horse gayly bore me along the well-remembered road.",
-                            "He was thinking; but the glory of the song, the swell from the great organ, the clustered lights,\u00a0[\u2026], the height and vastness of this noble fane, its antiquity and its strength\u2014all these things seemed to have their part as causes of the thrilling emotion that accompanied his thoughts.",
-                            "This subject for heroic song.",
-                            "The bard that first adorned our native tongue / Tuned to his British lyre this ancient song.",
-                            "I love hearing the song of canary birds.",
-                            "That most ethereal of all sounds, the song of crickets.",
-                            "He bought that car for a song.",
-                            "The soldier's pay is a song.",
-                            "Thus the red damask curtains which now shut out the fog-laden, drizzling atmosphere of the Marylebone Road, had cost a mere song, and yet they might have been warranted to last another thirty years. A great bargain also had been the excellent Axminster carpet which covered the floor;\u00a0[\u2026].",
-                            "And now am I their song, yea, I am their byword."
-                        ],
                         "partOfSpeech": "noun",
-                        "relatedWords": [],
                         "text": [
                             "song (plural songs)",
                             "A musical composition with lyrics for voice or voices, performed by singing.",
@@ -412,36 +395,58 @@
                             "(ornithology) The distinctive sound that a male bird utters to attract a mate or to protect his territory; contrasts with call",
                             "Something that cost only a little; chiefly in for a song.",
                             "An object of derision; a laughing stock."
+                        ],
+                        "relatedWords": [],
+                        "examples": [
+                            "Thomas listened to his favorite song on the radio yesterday.",
+                            "The Harpe.  [\u2026]  A harper with his wre\u017ft maye tune the harpe wrong / Mys tunying of an In\u017ftrument \u017fhal hurt a true \u017fonge",
+                            "Lua error in Module:usex/templates at line 47: Please enter a language code in the first parameter. The value \"1852\" is not valid.",
+                            "He was thinking; but the glory of the song, the swell from the great organ, the clustered lights,\u00a0[\u2026], the height and vastness of this noble fane, its antiquity and its strength\u2014all these things seemed to have their part as causes of the thrilling emotion that accompanied his thoughts.",
+                            "This subject for heroic song.",
+                            "The bard that first adorned our native tongue / Tuned to his British lyre this ancient song.",
+                            "I love hearing the song of canary birds.",
+                            "That most ethereal of all sounds, the song of crickets.",
+                            "He bought that car for a song.",
+                            "The soldier's pay is a song.",
+                            "Thus the red damask curtains which now shut out the fog-laden, drizzling atmosphere of the Marylebone Road, had cost a mere song, and yet they might have been warranted to last another thirty years. A great bargain also had been the excellent Axminster carpet which covered the floor;\u00a0[\u2026].",
+                            "And now am I their song, yea, I am their byword."
                         ]
                     }
                 ],
-                "etymology": "From Middle English song, sang, from Old English song, sang (\u201cnoise, song, singing, chanting; poetry; a poem to be sung or recited, psalm, lay\u201d), from Proto-Germanic *sangwaz (\u201csinging, song\u201d), from Proto-Indo-European *seng\u02b7\u02b0- (\u201cto sing\u201d). Cognate with Scots sang, song (\u201csinging, song\u201d), Saterland Frisian Song (\u201csong\u201d), West Frisian sang (\u201csong\u201d), Dutch zang (\u201csong\u201d), Low German sang (\u201csong\u201d), German Sang (\u201csinging, song\u201d), Swedish s\u00e5ng (\u201csong\u201d), Norwegian Bokm\u00e5l sang (\u201csong\u201d), Norwegian Nynorsk song (\u201csong\u201d), Icelandic s\u00f6ngur (\u201csong\u201d), Ancient Greek \u1f40\u03bc\u03c6\u03ae (omph\u1e17, \u201cvoice, oracle\u201d). More at sing.\n",
                 "pronunciations": {
+                    "text": [
+                        "(UK) (deprecated use of |lang= parameter) IPA: /s\u0252\u014b/",
+                        "(US) (deprecated use of |lang= parameter) IPA: /s\u0254\u014b/, /s\u0251\u014b/",
+                        "(deprecated use of |lang= parameter) Rhymes: -\u0252\u014b"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/f/f1/En-us-song.ogg"
-                    ],
-                    "text": [
-                        "(UK) IPA: /s\u0252\u014b/",
-                        "(US) IPA: /s\u0254\u014b/, /s\u0251\u014b/",
-                        "Rhymes: -\u0252\u014b"
                     ]
                 }
             }
         ],
         "test": [
             {
+                "etymology": "From Middle English test, teste, from Old French test, teste (\u201can earthen vessel, especially a pot in which metals were tried\u201d), from Latin testum (\u201cthe lid of an earthen vessel, an earthen vessel, an earthen pot\u201d), from *terstus, past participle of the root *tersa (\u201cdry land\u201d). See terra, thirst.\n",
                 "definitions": [
                     {
-                        "examples": [
-                            "Numerous experimental tests and other observations have been offered in favor of animal mind reading, and although many scientists are skeptical, others assert that humans are not the only species capable of representing what others do and don\u2019t perceive and know.",
-                            "Who would excel, when few can make a test / Betwixt indifferent writing and the best?"
-                        ],
                         "partOfSpeech": "noun",
+                        "text": [
+                            "test (plural tests)",
+                            "A challenge, trial.",
+                            "A cupel or cupelling hearth in which precious metals are melted for trial and refinement.",
+                            "(academia) An examination, given often during the academic term.",
+                            "A session in which a product or piece of equipment is examined under everyday or extreme conditions to evaluate its durability, etc.",
+                            "(cricket, normally \u201cTest\u201d) A Test match.",
+                            "(marine biology) The external calciferous shell, or endoskeleton, of an echinoderm, e.g. sand dollars and sea urchins.",
+                            "(botany) Testa; seed coat.",
+                            "(obsolete) Judgment; distinction; discrimination."
+                        ],
                         "relatedWords": [
                             {
                                 "relationshipType": "synonyms",
                                 "words": [
-                                    "(challenge, trial): For semantic relationships of this term, see test\u00a0in the Thesaurus.",
+                                    "(challenge, trial): See [[Thesaurus:test#Lua error in Module:languages at line 451: The language code \"test\" is not valid.|Thesaurus:test]]",
                                     "(academics: examination): examination, quiz"
                                 ]
                             },
@@ -454,50 +459,22 @@
                             {
                                 "relationshipType": "hyponyms",
                                 "words": [
-                                    "acid test",
-                                    "babysitter test",
-                                    "blood test",
-                                    "duck test",
-                                    "field test",
-                                    "flame test",
-                                    "inkblot test",
-                                    "litmus test",
-                                    "multiple-choice test",
-                                    "nose test",
-                                    "Rorschach test",
-                                    "single-choice test",
-                                    "smell test",
-                                    "smoke test",
-                                    "sniff test",
-                                    "software test",
-                                    "stress test"
+                                    "foretest",
+                                    "test case",
+                                    "test drive",
+                                    "tester",
+                                    "test flight",
+                                    "test run",
+                                    "test tube"
                                 ]
                             }
                         ],
-                        "text": [
-                            "test (plural tests)",
-                            "A challenge, trial.",
-                            "A cupel or cupelling hearth in which precious metals are melted for trial and refinement.",
-                            "(academia) An examination, given often during the academic term.",
-                            "A session in which a product or piece of equipment is examined under everyday or extreme conditions to evaluate its durability, etc.",
-                            "(cricket, normally \u201cTest\u201d) A Test match.",
-                            "(marine biology) The external calciferous shell, or endoskeleton, of an echinoderm, e.g. sand dollars and sea urchins.",
-                            "(botany) Testa; seed coat.",
-                            "(obsolete) Judgment; distinction; discrimination."
+                        "examples": [
+                            "Who would excel, when few can make a test / Betwixt indifferent writing and the best?"
                         ]
                     },
                     {
-                        "examples": [
-                            "Climbing the mountain tested our stamina.",
-                            "to test the soundness of a principle; to test the validity of an argument",
-                            "Experience is the surest standard by which to test the real tendency of the existing constitution.",
-                            "Similar studies of rats have employed four different intracranial resorbable, slow sustained release systems\u2014\u00a0[\u2026]. Such a slow-release device containing angiogenic factors could be placed on the pia mater covering the cerebral cortex and tested in persons with senile dementia in long term studies.",
-                            "He tested positive for cancer.",
-                            "It is probable that children who test above 180 IQ are actually present in our juvenile population in greater frequency than at the rate of one in a million.",
-                            "to test a solution by litmus paper"
-                        ],
                         "partOfSpeech": "verb",
-                        "relatedWords": [],
                         "text": [
                             "test (third-person singular simple present tests, present participle testing, simple past and past participle tested)",
                             "To challenge.",
@@ -507,38 +484,51 @@
                             "To place a product or piece of equipment under everyday and/or extreme conditions and examine it for its durability, etc.",
                             "(copulative) To be shown to be by test.",
                             "(chemistry) To examine or try, as by the use of some reagent."
+                        ],
+                        "relatedWords": [],
+                        "examples": [
+                            "Climbing the mountain tested our stamina.",
+                            "to test the soundness of a principle; to test the validity of an argument",
+                            "Experience is the surest standard by which to test the real tendency of the existing constitution.",
+                            "He tested positive for cancer.",
+                            "It is probable that children who test above 180 IQ are actually present in our juvenile population in greater frequency than at the rate of one in a million.",
+                            "to test a solution by litmus paper"
                         ]
                     }
                 ],
-                "etymology": "From Middle English test, teste, from Old French test, teste (\u201can earthen vessel, especially a pot in which metals were tried\u201d), from Latin testum (\u201cthe lid of an earthen vessel, an earthen vessel, an earthen pot\u201d), from *terstus, past participle of the root *tersa (\u201cdry land\u201d). See terra, thirst.\n",
                 "pronunciations": {
+                    "text": [
+                        "(deprecated use of |lang= parameter) IPA: /t\u025bst/",
+                        "(deprecated use of |lang= parameter) Rhymes: -\u025bst",
+                        "(South African) (deprecated use of |lang= parameter) IPA: /test/"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/9/9c/En-us-test.ogg",
                         "//upload.wikimedia.org/wikipedia/commons/d/d5/En-uk-a_test.ogg"
-                    ],
-                    "text": [
-                        "IPA: /t\u025bst/",
-                        "Rhymes: -\u025bst",
-                        "(South African) IPA: /test/"
                     ]
                 }
             },
             {
+                "etymology": "From Middle English teste, from Old French teste, test and Latin testis (\u201cone who attests, a witness\u201d).\n",
                 "definitions": [
                     {
-                        "examples": [
-                            "Prelates and great lords of England, who were for the more surety tests of that deed."
-                        ],
                         "partOfSpeech": "noun",
-                        "relatedWords": [],
                         "text": [
                             "test (plural tests)",
                             "(obsolete) A witness."
+                        ],
+                        "relatedWords": [],
+                        "examples": [
+                            "Prelates and great lords of England, who were for the more surety tests of that deed."
                         ]
                     },
                     {
-                        "examples": [],
                         "partOfSpeech": "verb",
+                        "text": [
+                            "test (third-person singular simple present tests, present participle testing, simple past and past participle tested)",
+                            "(obsolete, transitive) To attest (a document) legally, and date it.",
+                            "(obsolete, intransitive) To make a testament, or will."
+                        ],
                         "relatedWords": [
                             {
                                 "relationshipType": "related terms",
@@ -550,48 +540,43 @@
                                 ]
                             }
                         ],
-                        "text": [
-                            "test (third-person singular simple present tests, present participle testing, simple past and past participle tested)",
-                            "(obsolete, transitive) To attest (a document) legally, and date it.",
-                            "(obsolete, intransitive) To make a testament, or will."
-                        ]
+                        "examples": []
                     }
                 ],
-                "etymology": "From Middle English teste, from Old French teste, test and Latin testis (\u201cone who attests, a witness\u201d).\n",
                 "pronunciations": {
+                    "text": [
+                        "(deprecated use of |lang= parameter) IPA: /t\u025bst/",
+                        "(deprecated use of |lang= parameter) Rhymes: -\u025bst",
+                        "(South African) (deprecated use of |lang= parameter) IPA: /test/"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/9/9c/En-us-test.ogg",
                         "//upload.wikimedia.org/wikipedia/commons/d/d5/En-uk-a_test.ogg"
-                    ],
-                    "text": [
-                        "IPA: /t\u025bst/",
-                        "Rhymes: -\u025bst",
-                        "(South African) IPA: /test/"
                     ]
                 }
             },
             {
+                "etymology": "Lua error in Module:etymology/templates at line 601: The parameter \"lang\" is not used by this template..\n",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "noun",
-                        "relatedWords": [],
                         "text": [
                             "test (uncountable)",
                             "(informal, slang, body building) testosterone"
-                        ]
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     }
                 ],
-                "etymology": "Clipping of  testosterone.\n",
                 "pronunciations": {
+                    "text": [
+                        "(deprecated use of |lang= parameter) IPA: /t\u025bst/",
+                        "(deprecated use of |lang= parameter) Rhymes: -\u025bst",
+                        "(South African) (deprecated use of |lang= parameter) IPA: /test/"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/9/9c/En-us-test.ogg",
                         "//upload.wikimedia.org/wikipedia/commons/d/d5/En-uk-a_test.ogg"
-                    ],
-                    "text": [
-                        "IPA: /t\u025bst/",
-                        "Rhymes: -\u025bst",
-                        "(South African) IPA: /test/"
                     ]
                 }
             }
@@ -600,20 +585,20 @@
     "Latin": {
         "video": [
             {
+                "etymology": "From Proto-Italic *wid\u0113\u014d, from Proto-Indo-European *weyd- (\u201cto know; see\u201d).\nCognates include Ancient Greek \u03b5\u1f34\u03b4\u03c9 (e\u00edd\u014d), Mycenaean Greek \ud800\udc39\ud800\udc06 (wi-de), Sanskrit \u0935\u0947\u0924\u094d\u0924\u093f (v\u00e9tti), Russian \u0432\u0438\u0301\u0434\u0435\u0442\u044c (v\u00eddet\u02b9), Old English witan (English wit), German wissen, Bulgarian \u0432\u0438\u0434\u0438 (vidi), Swedish veta.\n",
                 "definitions": [
                     {
-                        "examples": [
-                            "Videsne eum venire? Do you see him coming?",
-                            "Do you see him coming?",
-                            "Nihil agis, nihil moliris, nihil cogitas quod non ego non modo audiam sed etiam videam planeque sentiam.You do nothing, you plan nothing, you think of nothing which I not only do not hear, but which I do not see and know every particular of.",
-                            "You do nothing, you plan nothing, you think of nothing which I not only do not hear, but which I do not see and know every particular of.",
-                            "O tempora, o mores! Senatus haec intellegit, consul videt; hic tamen vivit. Vivit?Shame on the age and on its principles! The senate is aware of these things; the consul sees them; and yet this man lives. Lives!",
-                            "Shame on the age and on its principles! The senate is aware of these things; the consul sees them; and yet this man lives. Lives!",
-                            "44 BCE, Cicero, Laelius de Amicitia 98Virtute enim ipsa non tam multi praediti esse quam videri voluntFor as to virtue itself, many want not so much as to be endowed with it as to seem so.",
-                            "Virtute enim ipsa non tam multi praediti esse quam videri voluntFor as to virtue itself, many want not so much as to be endowed with it as to seem so.",
-                            "For as to virtue itself, many want not so much as to be endowed with it as to seem so."
-                        ],
                         "partOfSpeech": "verb",
+                        "text": [
+                            "Lua error in Module:la-verb at line 747: The parameter \"conj\" is not used by this template.",
+                            "I see, perceive; look (at)",
+                            "I observe, note",
+                            "I understand, perceive, comprehend",
+                            "I look (at), consider, reflect (upon)",
+                            "I look out for, see to, care for, provide, make sure",
+                            "(passive) I am regarded, seem, appear",
+                            "(passive, used impersonally) It seems proper or right"
+                        ],
                         "relatedWords": [
                             {
                                 "relationshipType": "synonyms",
@@ -634,25 +619,26 @@
                                 ]
                             }
                         ],
-                        "text": [
-                            "vide\u014d (present infinitive vid\u0113re, perfect active v\u012bd\u012b, supine v\u012bsum); second conjugation",
-                            "I see, perceive; look (at)",
-                            "I observe, note",
-                            "I understand, perceive, comprehend",
-                            "I look (at), consider, reflect (upon)",
-                            "I look out for, see to, care for, provide, make sure",
-                            "(passive) I am regarded, seem, appear",
-                            "(passive, used impersonally) It seems proper or right"
+                        "examples": [
+                            "Videsne eum venire?Do you see him coming?",
+                            "Do you see him coming?",
+                            "Nihil agis, nihil moliris, nihil cogitas quod non ego non modo audiam sed etiam videam planeque sentiam.You do nothing, you plan nothing, you think of nothing which I not only do not hear, but which I do not see and know every particular of.",
+                            "You do nothing, you plan nothing, you think of nothing which I not only do not hear, but which I do not see and know every particular of.",
+                            "O tempora, o mores! Senatus haec intellegit, consul videt; hic tamen vivit. Vivit?Shame on the age and on its principles! The senate is aware of these things; the consul sees them; and yet this man lives. Lives!",
+                            "Shame on the age and on its principles! The senate is aware of these things; the consul sees them; and yet this man lives. Lives!",
+                            "44 BCE, Cicero, Laelius de Amicitia 98:Virtute enim ipsa non tam multi praediti esse quam videri voluntFor as to virtue itself, many want not so much as to be endowed with it as to seem so.",
+                            "Virtute enim ipsa non tam multi praediti esse quam videri voluntFor as to virtue itself, many want not so much as to be endowed with it as to seem so.",
+                            "For as to virtue itself, many want not so much as to be endowed with it as to seem so."
                         ]
                     }
                 ],
-                "etymology": "From Proto-Italic *wid\u0113\u014d, from Proto-Indo-European *weyd- (\u201cto know; see\u201d).\nCognates include Ancient Greek \u03b5\u1f34\u03b4\u03c9 (e\u00edd\u014d), Mycenaean Greek \ud800\udc39\ud800\udc06 (wi-de), Sanskrit \u0935\u0947\u0924\u094d\u0924\u093f (v\u00e9tti), Russian \u0432\u0438\u0301\u0434\u0435\u0442\u044c (v\u00eddet\u02b9), Old English witan (English wit), German wissen, Bulgarian \u0432\u0438\u0434\u0438 (vidi), Swedish veta.\n",
                 "pronunciations": {
+                    "text": [
+                        "(Classical) IPA: /\u02c8wi.de.o\u02d0/, [\u02c8w\u026a.d\u032ae.o\u02d0]",
+                        "(Ecclesiastical) IPA: /\u02c8vi.de.o/, [\u02c8vi\u02d0.d\u032a\u025b.\u0254]"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/4/4c/La-cls-video.ogg"
-                    ],
-                    "text": [
-                        "(Classical) IPA: /\u02c8wi.de.o\u02d0/, [\u02c8w\u026a.de.o\u02d0]"
                     ]
                 }
             }
@@ -701,57 +687,58 @@
         ],
         "by": [
             {
+                "etymology": "From Old Norse b\u00fdr (\u201cplace (to camp or settle), land, property, lot; and later settlement\u201d).\n",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "noun",
-                        "relatedWords": [],
                         "text": [
                             "by\u00a0m (definite singular byen, indefinite plural byer, definite plural byene)",
                             "town, city (regardless of population size or land area)"
-                        ]
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     }
                 ],
-                "etymology": "From Old Norse b\u00fdr (\u201cplace (to camp or settle), land, property, lot; and later settlement\u201d).\n",
                 "pronunciations": {
-                    "audio": [],
                     "text": [
-                        "IPA: /by\u02d0/, [by\u02d0]"
-                    ]
+                        "(deprecated use of |lang= parameter) IPA: /by\u02d0/, [by\u02d0]"
+                    ],
+                    "audio": []
                 }
             },
             {
+                "etymology": "From byde, from Old Norse bj\u00f3\u00f0a, from Proto-Germanic *beudan\u0105 (\u201cto offer\u201d), from Proto-Indo-European *b\u02b0ewd\u02b0- (\u201cto wake, rise up\u201d).\n",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "verb",
-                        "relatedWords": [],
                         "text": [
                             "by (imperative by, present tense byr, simple past b\u00f8d or b\u00f8y or bydde, past participle budt or bydd)",
                             "to bid; offer",
                             "to ask; invite",
                             "to command; order"
-                        ]
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     }
                 ],
-                "etymology": "From byde, from Old Norse bj\u00f3\u00f0a, from Proto-Germanic *beudan\u0105 (\u201cto offer\u201d), from Proto-Indo-European *b\u02b0ewd\u02b0- (\u201cto wake, rise up\u201d).\n",
                 "pronunciations": {
-                    "audio": [],
                     "text": [
-                        "IPA: /by\u02d0/, [by\u02d0]"
-                    ]
+                        "(deprecated use of |lang= parameter) IPA: /by\u02d0/, [by\u02d0]"
+                    ],
+                    "audio": []
                 }
             }
         ],
         "for": [
             {
+                "etymology": "",
                 "definitions": [
                     {
-                        "examples": [
-                            "for ung  \u2015 too young",
-                            "for langt  \u2015 too far"
-                        ],
                         "partOfSpeech": "adverb",
+                        "text": [
+                            "for",
+                            "too"
+                        ],
                         "relatedWords": [
                             {
                                 "relationshipType": "synonyms",
@@ -760,28 +747,31 @@
                                 ]
                             }
                         ],
-                        "text": [
-                            "for",
-                            "too"
+                        "examples": [
+                            "for ung \u2015 too young",
+                            "for langt \u2015 too far"
                         ]
                     }
                 ],
-                "etymology": "",
                 "pronunciations": {
+                    "text": [
+                        "(deprecated use of |lang= parameter) IPA: /\u02c8f\u0254r\u02d0/ (unstressed)",
+                        "(deprecated use of |lang= parameter) IPA: /f\u0254/ (unstressed)"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/transcoded/b/b2/No-for.ogg/No-for.ogg.mp3"
-                    ],
-                    "text": [
-                        "IPA: /\u02c8f\u0254r\u02d0/ (unstressed)",
-                        "IPA: /f\u0254/ (unstressed)"
                     ]
                 }
             },
             {
+                "etymology": "",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "conjunction",
+                        "text": [
+                            "for",
+                            "for"
+                        ],
                         "relatedWords": [
                             {
                                 "relationshipType": "synonyms",
@@ -790,89 +780,85 @@
                                 ]
                             }
                         ],
-                        "text": [
-                            "for",
-                            "for"
-                        ]
+                        "examples": []
                     }
                 ],
-                "etymology": "",
                 "pronunciations": {
+                    "text": [
+                        "(deprecated use of |lang= parameter) IPA: /\u02c8f\u0254r\u02d0/ (unstressed)",
+                        "(deprecated use of |lang= parameter) IPA: /f\u0254/ (unstressed)"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/transcoded/b/b2/No-for.ogg/No-for.ogg.mp3"
-                    ],
-                    "text": [
-                        "IPA: /\u02c8f\u0254r\u02d0/ (unstressed)",
-                        "IPA: /f\u0254/ (unstressed)"
                     ]
                 }
             },
             {
+                "etymology": "From Old Norse f\u00f3\u00f0r",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "noun",
-                        "relatedWords": [],
                         "text": [
                             "for\u00a0n (definite singular foret, indefinite plural for, definite plural fora or forene)",
-                            "alternative form of f\u00f4r"
-                        ]
+                            "(deprecated use of |lang= parameter) alternative form of f\u00f4r"
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     }
                 ],
-                "etymology": "From Old Norse f\u00f3\u00f0r",
                 "pronunciations": {
+                    "text": [
+                        "(deprecated use of |lang= parameter) IPA: /\u02c8f\u0254r\u02d0/ (unstressed)",
+                        "(deprecated use of |lang= parameter) IPA: /f\u0254/ (unstressed)"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/transcoded/b/b2/No-for.ogg/No-for.ogg.mp3"
-                    ],
-                    "text": [
-                        "IPA: /\u02c8f\u0254r\u02d0/ (unstressed)",
-                        "IPA: /f\u0254/ (unstressed)"
                     ]
                 }
             },
             {
+                "etymology": "",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "preposition",
-                        "relatedWords": [],
                         "text": [
                             "for",
                             "for"
-                        ]
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     }
                 ],
-                "etymology": "",
                 "pronunciations": {
+                    "text": [
+                        "(deprecated use of |lang= parameter) IPA: /\u02c8f\u0254r\u02d0/ (unstressed)",
+                        "(deprecated use of |lang= parameter) IPA: /f\u0254/ (unstressed)"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/transcoded/b/b2/No-for.ogg/No-for.ogg.mp3"
-                    ],
-                    "text": [
-                        "IPA: /\u02c8f\u0254r\u02d0/ (unstressed)",
-                        "IPA: /f\u0254/ (unstressed)"
                     ]
                 }
             },
             {
+                "etymology": "",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "verb",
-                        "relatedWords": [],
                         "text": [
                             "for",
-                            "past tense of fare."
-                        ]
+                            "(deprecated use of |lang= parameter) past tense of fare."
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     }
                 ],
-                "etymology": "",
                 "pronunciations": {
+                    "text": [
+                        "(deprecated use of |lang= parameter) IPA: /\u02c8f\u0254r\u02d0/ (unstressed)",
+                        "(deprecated use of |lang= parameter) IPA: /f\u0254/ (unstressed)"
+                    ],
                     "audio": [
                         "//upload.wikimedia.org/wikipedia/commons/transcoded/b/b2/No-for.ogg/No-for.ogg.mp3"
-                    ],
-                    "text": [
-                        "IPA: /\u02c8f\u0254r\u02d0/ (unstressed)",
-                        "IPA: /f\u0254/ (unstressed)"
                     ]
                 }
             }
@@ -897,21 +883,21 @@
                 }
             },
             {
+                "etymology": "",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "verb",
-                        "relatedWords": [],
                         "text": [
                             "heis",
-                            "imperative of heise"
-                        ]
+                            "(deprecated use of |lang= parameter) imperative of heise"
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     }
                 ],
-                "etymology": "",
                 "pronunciations": {
-                    "audio": [],
-                    "text": []
+                    "text": [],
+                    "audio": []
                 }
             }
         ],
@@ -991,10 +977,14 @@
         ],
         "pantergaupe": [
             {
+                "etymology": "Lua error in Module:compound/templates at line 63: The |lang= parameter is not used by this template. Place the language code in parameter 1 instead.",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "noun",
+                        "text": [
+                            "pantergaupe\u00a0f or m (definite singular pantergaupa or pantergaupen, indefinite plural pantergauper, definite plural pantergaupene)",
+                            "Iberian lynx; Lynx pardinus"
+                        ],
                         "relatedWords": [
                             {
                                 "relationshipType": "synonyms",
@@ -1004,58 +994,54 @@
                                 ]
                             }
                         ],
-                        "text": [
-                            "pantergaupe\u00a0f, m (definite singular pantergaupa or pantergaupen, indefinite plural pantergauper, definite plural pantergaupene)",
-                            "Iberian lynx; Lynx pardinus"
-                        ]
+                        "examples": []
                     }
                 ],
-                "etymology": "panter +\u200e gaupe",
                 "pronunciations": {
-                    "audio": [],
                     "text": [
-                        "IPA: /pan.ter.\u0261\u00e6\u0289.pe/, [\u02c8p\u0251n.t\u0259\u027e.\u02cc\u0261\u00e6\u0289\u032f\u02d0.p\u0259]"
-                    ]
+                        "(deprecated use of |lang= parameter) IPA: /pan.ter.\u0261\u00e6\u0289.pe/, [\u02c8p\u0251n.t\u0259\u027e.\u02cc\u0261\u00e6\u0289\u032f\u02d0.p\u0259]"
+                    ],
+                    "audio": []
                 }
             }
         ],
         "seg": [
             {
+                "etymology": "",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "pronoun",
-                        "relatedWords": [],
                         "text": [
                             "seg - reflexive pronoun",
                             "(with verb) oneself; itself; himself/herself",
                             "(with verb) one, him, her, it, them",
                             "(with verb) themselves"
-                        ]
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     }
                 ],
-                "etymology": "",
                 "pronunciations": {
-                    "audio": [],
-                    "text": []
+                    "text": [],
+                    "audio": []
                 }
             },
             {
+                "etymology": "",
                 "definitions": [
                     {
-                        "examples": [],
                         "partOfSpeech": "verb",
-                        "relatedWords": [],
                         "text": [
                             "seg",
-                            "simple past of sige"
-                        ]
+                            "(deprecated use of |lang= parameter) simple past of sige"
+                        ],
+                        "relatedWords": [],
+                        "examples": []
                     }
                 ],
-                "etymology": "",
                 "pronunciations": {
-                    "audio": [],
-                    "text": []
+                    "text": [],
+                    "audio": []
                 }
             }
         ]
