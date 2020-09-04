@@ -79,6 +79,8 @@ class TestParser(unittest.TestCase):
         if diff != {}:
             print("Found mismatch in \"{}\" in \"{}\"".format(word, lang))
             print(json.dumps(json.loads(diff.json), indent=4))
+            print("Actual result:")
+            print(json.dumps(fetched_word, indent=4))
 
         self.assertEqual(diff, {})
 
