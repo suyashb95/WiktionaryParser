@@ -8,16 +8,11 @@ from typing import Dict
 parser = WiktionaryParser()
 
 
-class TestParser(unittest.TestCase):
-    def __init__(self, *args, **kwargs):
-        self.expected_results = {}
-
-        with open('tests/testOutput.json', 'r') as f:
-            self.expected_results = json.load(f)
-
-        super(TestParser, self).__init__(*args, **kwargs)
-
-    @parameterized.expand([
+test_words_dict = {
+    'Ancient Greek': [
+        ('ἀγγελία', 47719496),
+    ],
+    'English': [
         ('grapple', 50080840),
         ('test', 50342756),
         ('patronise', 49023308),
@@ -25,17 +20,11 @@ class TestParser(unittest.TestCase):
         ('alexin', 50152026),
         ('song', 50235564),
         ('house', 50356446),
-    ])
-    def test_words_from_english(self, word: str, old_id: int):
-        self.__test_word(word, old_id, 'English')
-
-    @parameterized.expand([
+    ],
+    'Latin': [
         ('video', 50291344),
-    ])
-    def test_words_from_latin(self, word: str, old_id: int):
-        self.__test_word(word, old_id, 'Latin')
-
-    @parameterized.expand([
+    ],
+    'Norwegian Bokmål': [
         ('seg', 50359832),
         ('aldersblandet', 38616917),
         ('by', 50399022),
@@ -45,27 +34,38 @@ class TestParser(unittest.TestCase):
         ('konkurs', 48269433),
         ('pantergaupe', 46717478),
         ('maldivisk', 49859434),
-    ])
-    def test_words_from_norwegian_bokmal(self, word: str, old_id: int):
-        self.__test_word(word, old_id, 'Norwegian Bokmål')
-
-    @parameterized.expand([
+    ],
+    'Swedish': [
         ('house', 50356446)
-    ])
-    def test_words_from_swedish(self, word: str, old_id: int):
-        self.__test_word(word, old_id, 'Swedish')
+    ]
+}
 
-    @parameterized.expand([
-        ('ἀγγελία', 47719496)
-    ])
-    def test_words_from_ancient_greek(self, word: str, old_id: int):
-        self.__test_word(word, old_id, 'Ancient Greek')
 
-    def __test_words(self, words_and_ids: Dict[str, int], lang: str):
-        for word, old_id in words_and_ids.items():
-            self.__test_word(word, old_id, lang)
+def get_test_words_table():
+    """Convert the test words dict to an array of three element tuples."""
+    result = []
 
-    def __test_word(self, word: str, old_id: int, lang: str):
+    for lang, word_and_old_ids in test_words_dict.items():
+        for word, old_id in word_and_old_ids:
+            result.append((lang, word, old_id))
+
+    return result
+
+
+class TestParser(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        self.expected_results = {}
+
+        with open('tests/testOutput.json', 'r') as f:
+            self.expected_results = json.load(f)
+
+        super(TestParser, self).__init__(*args, **kwargs)
+
+    @parameterized.expand(get_test_words_table())
+    def test_fetch(self, language: str, word: str, old_id: int):
+        self.__test_fetch(language, word, old_id)
+
+    def __test_fetch(self, lang: str, word: str, old_id: int):
         parser.set_default_language(lang)
         fetched_word = parser.fetch(word, old_id=old_id)
 
@@ -87,4 +87,3 @@ class TestParser(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
- 	
