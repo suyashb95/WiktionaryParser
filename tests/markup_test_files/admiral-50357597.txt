@@ -1,0 +1,288 @@
+{{also|Admiral|admirál}}
+==English==
+
+===Etymology===
+From {{der|en|fro|amirail}}, {{m|fro|amiral}} (modern French {{m|fr|amiral}}), from {{der|en|ar|أَمِيرُ البَحْر||commander of the fleet}}. Later associated with {{m|en|admirable}}. Akin to {{m|en|amir}}, {{m|en|Amir}} and {{m|en|emir}}.
+
+First recorded in English September, 1300, to refer to Gerard Allard of {{w|Winchelsea}}, referred to as “Admiral of the Fleet of the {{w|Cinque Ports}}”.<ref>The Mastery of the Sea, by Cyril Field, [http://books.google.com/books?id=rCWEeUgtXp0C&pg=PA234&dq=%22Gervase+Allard%22+admiral page 234]</ref><ref>{{R:Online Etymology Dictionary}}</ref>
+
+===Pronunciation===
+* {{a|UK}} {{IPA|/ˈæd.mə.ɹəl/|lang=en}}
+* {{a|US}} {{IPA|/ˈæd.mə.ɹəl/|/ˈæd.mɚl̩/|lang=en}}
+* {{audio|en-us-admiral.ogg|Audio (US)|lang=en}}
+
+===Noun===
+{{en-noun}}
+
+# A naval officer of the highest rank; the commander of a country's naval forces.
+# A naval officer of high rank, immediately below [[Admiral of the Fleet]]; the commander of a fleet or squadron.
+# A [[flag officer]] in the [[United States Navy]] or [[United States Coast Guard|Coast Guard]] of a grade superior to [[vice admiral]] and junior to [[admiral of the fleet]] (when that grade is used). An admiral is equal in grade or rank to a four star [[general]].
+# The ship which carries the admiral, the [[flagship]]; also, the most considerable ship of a fleet.
+# {{lb|en|obsolete}} A prince or Saracen leader under the Sultan.
+# Any of various nymphalid [[butterflies]] of Europe and America, especially a [[red admiral]] or [[white admiral]].
+
+====Derived terms====
+{{der-top}}
+* {{l|en|admiralcy}}
+* {{l|en|admiralship}}
+* {{l|en|Lord High Admiral}}
+* {{l|en|Admiral of the Fleet}}
+* {{l|en|admiralty}}
+{{der-mid}}
+* {{l|en|vice admiral}}
+* {{l|en|rear admiral}}
+
+{{der-bottom}}
+
+====Translations====
+{{trans-top|naval officer of the highest rank}}
+* Albanian: {{t+|sq|admiral}}
+* Arabic: {{t|ar|أَمِيرُ البَحْر|m}}, {{t|ar|أَدْمِيرَال|m}}
+* Armenian: {{t+|hy|ծովակալ}}
+* Azerbaijani: {{t+|az|admiral}}
+* Belarusian: {{t|be|адміра́л|m}}
+* Bulgarian: {{t+|bg|адмирал}}
+* Catalan: {{t|ca|almirall}}
+* Chinese:
+*: Mandarin: {{t|cmn|海軍上將|sc=Hani}}, {{t|cmn|海军上将|tr=hǎijūn shàngjiàng|sc=Hani}}
+* Czech: {{t+|cs|admirál|m}}
+* Danish: {{t|da|admiral|c}}
+* Dutch: {{t+|nl|admiraal|m}}
+* Esperanto: {{t|eo|admiralo}}, {{t|eo|ŝiparestro}}
+* Estonian: {{t+|et|admiral}}
+* Faroese: {{t|fo|admirálur|m}}
+* Finnish: {{t+|fi|amiraali}}, {{t+|fi|suuramiraali}}, {{t+|fi|laivastoamiraali}}
+* French: {{t+|fr|amiral|m}}
+* Georgian: {{t|ka|ადმირალი}}
+* German: {{t+|de|Admiral|m}}
+* Greek: {{t+|el|ναύαρχος|m|sc=Grek}}
+*: Ancient Greek: {{t|grc|ναύαρχος|m}}
+* Hebrew: {{t+|he|אַדְמִירָל|m|tr=admirál}}
+* Hindi: {{t+|hi|ऐडमिरल|m}}
+* Hungarian: {{t+|hu|tengernagy}}, {{t+|hu|admirális}}
+* Icelandic: {{t|is|aðmíráll|m}}
+* Irish: {{t|ga|aimiréal|m}}
+* Italian: {{t+|it|ammiraglio}}
+* Japanese: {{t|ja|海軍大将|tr=かいぐんたいしょう, kaigun taishō}}, {{t+|ja|提督|tr=ていとく, teitoku}}
+* Kazakh: {{t|kk|адмирал}}
+* Korean: {{t+|ko|제독}} ({{t+|ko|提督}})
+* Kyrgyz: {{t+|ky|адмирал}}
+* Latvian: {{t|lv|admirālis|m}}
+{{trans-mid}}
+* Lithuanian: {{t+|lt|admirolas|m}}
+* Macedonian: {{t|mk|адмирал|m}}
+* Malay: {{t|ms|laksamana}}
+* Manx: {{t|gv|ard-marragh|m}}
+* Maori: {{t|mi|ātamira}}
+* Norman: {{t|nrf|amitha|m}}
+* Northern Sami: {{t|se|admirála}}
+* Norwegian:
+*: Bokmål: {{t+|nb|admiral|m}}
+*: Nynorsk: {{t|nn|admiral|m}}
+* Persian: {{t|fa|دریابد|tr=daryâbod|sc=fa-Arab}}
+* Polish: {{t+|pl|admirał|m}}
+* Portuguese: {{t+|pt|almirante|m}}
+* Romanian: {{t+|ro|amiral|m}}
+* Russian: {{t+|ru|адмира́л|m}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|адмирал|m}}
+*: Roman: {{t+|sh|admiral|m}}
+* Sicilian: {{t|scn|ammiragghiu|m}}
+* Slovak: {{t|sk|admirál|m}}
+* Slovene: {{t|sl|admiral|m}}
+* Spanish: {{t+|es|almirante|m}}
+* Swedish: {{t+|sv|amiral|c}}
+* Tagalog: {{t|tl|laksamana}}
+* Tajik: {{t+|tg|адмирал}}
+* Thai: {{t+|th|พลเรือเอก}}
+* Turkish: {{t+|tr|oramiral}}
+* Turkmen: {{t+|tk|admiral}}
+* Ukrainian: {{t+|uk|адміра́л|m}}
+* Urdu: {{t|ur|امیر البحر|m|tr=amīr al-bahr}}, {{t|ur|ایڈمرل|m|tr=aiḍmiral}}
+* Uyghur: {{t|ug|ئادمىرال|sc=ug-Arab}}
+* Uzbek: {{t+|uz|admiral}}
+* Vietnamese: {{t|vi|đô đốc}}
+* Welsh: {{t|cy|llyngesydd|m}}
+{{trans-bottom}}
+
+{{trans-top|a naval officer of high rank, immediately below Admiral of the Fleet}}
+* Albanian: {{t+|sq|admiral}}
+* Armenian: {{t+|hy|ծովակալ}}
+* Chinese:
+*: Mandarin: {{t|cmn|海軍上將|sc=Hani}}, {{t|cmn|海军上将|tr=hǎijūn shàngjiàng|sc=Hani}}
+* Czech: {{t+|cs|admirál|m}}
+* Danish: {{t|da|admiral|c}}
+* Finnish: {{t+|fi|amiraali}}
+* French: {{t+|fr|amiral|m}}
+* Greek: {{t+|el|ναύαρχος}}
+* Hungarian: {{t+|hu|tengernagy}}, {{t+|hu|admirális}}
+{{trans-mid}}
+* Irish: {{t|ga|aimiréal|m}}
+* Japanese: {{t|ja|海軍大将|tr=kaigun taishō}}
+* Manx: {{t|gv|ard-marragh|m}}
+* Northern Sami: {{t|se|admirála}}
+* Norwegian: {{t-needed|no}}
+* Persian: {{t+|fa|دریاسالار|tr=daryâsâlâr|sc=fa-Arab}}
+* Portuguese: {{t+|pt|almirante|m}}
+* Russian: {{t+|ru|адмира́л|m}}
+* Spanish: {{t+|es|almirante|m}}
+* Swedish: {{t-needed|sv}}
+* Turkish: {{t+|tr|amiral}}
+* Urdu: {{t|ur|امیر البحر|m}}
+{{trans-bottom}}
+
+{{trans-top|the ship which carries the admiral, the flagship}}
+* Bulgarian: {{t|bg|флагман}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Danish: {{t|da|flagskib|n}}
+* Finnish: {{t+|fi|lippulaiva}}
+{{trans-mid}}
+* Greek: {{t+|el|ναυαρχίδα|f|sc=Grek}}
+* Latvian: {{t|lv|admirāļa kuģis|m}}
+* Russian: {{t+|ru|фла́гман|m}}
+* Spanish: {{t-needed|es}}
+{{trans-bottom}}
+
+{{trans-top|prince or Saracen leader under the Sultan}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+{{trans-mid}}
+* Finnish: {{t+|fi|amiraali}}
+* Spanish: {{t-needed|es}}
+{{trans-bottom}}
+
+{{trans-top|butterfly}}
+* Bulgarian: {{t+|bg|адмирал}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Czech: {{t|cs|babočka admirál|f|m}}
+* Danish: {{t|da|admiral|c}}
+{{trans-mid}}
+* Finnish: {{t+|fi|amiraali}}
+* Irish: {{t|ga|aimiréal|m}}
+* Portuguese: {{t+|pt|almirante|m}}
+* Russian: {{t+|ru|адмира́л|m}}
+* Spanish: {{t-needed|es}}
+{{trans-bottom}}
+
+{{checktrans-top}}
+* {{ttbc|lt}}: {{t+check|lt|admirolas|m}} (1, 3); {{t+check|lt|flagmanas|m}} (2)
+{{trans-mid}}
+{{trans-bottom}}
+
+===References===
+<references/>
+
+===Anagrams===
+* {{anagrams|en|amildar}}
+
+[[Category:en:Butterflies]]
+[[Category:en:Military ranks]]
+[[Category:en:People]]
+
+----
+
+==Cebuano==
+
+===Etymology===
+From {{der|ceb|en|admiral}}, from {{der|ceb|fro|amirail}}, {{m|fro|amiral}} (modern French {{m|fr|amiral}}), from {{der|ceb|ar|أَمِيرُ البَحْر||commander of the fleet}}.
+
+===Pronunciation===
+* {{hyph|ad|mi|ral|lang=ceb}}
+
+===Noun===
+{{head|ceb|noun}}
+
+# {{lb|ceb|military}} an {{l|ceb|admiral}}
+
+{{C|ceb|People|Military ranks}}
+
+----
+
+==Indonesian==
+
+===Etymology===
+From {{der|id|nl|admiraal}}
+
+===Noun===
+{{head|id|noun|g=m}}
+
+# [[#English|admiral]]
+
+----
+
+==Norwegian Bokmål==
+{{wikipedia|lang=no}}
+
+===Etymology===
+From {{der|nb|ar|أَمِير الْبَحْر||commander of the fleet}}, via {{der|nb|fr|amiral}}
+
+===Noun===
+{{nb-noun-m1}}
+
+{{lb|nb|military|nautical}} an {{l|en|admiral}}
+
+===References===
+* {{R:The Bokmål Dictionary}}
+
+----
+
+==Norwegian Nynorsk==
+{{wikipedia|lang=nn}}
+
+===Etymology===
+From {{der|nn|ar|أَمِير الْبَحْر||commander of the fleet}}, via {{der|nn|fr|amiral}}
+
+===Noun===
+{{nn-noun-m1}}
+
+{{lb|nn|military|nautical}} an {{l|en|admiral}}
+
+===References===
+* {{R:The Nynorsk Dictionary}}
+
+----
+
+==Serbo-Croatian==
+
+===Etymology===
+From {{der|sh|ar|اَمِير||commander}} + {{m|sh|-al}}.
+
+===Pronunciation===
+* {{IPA|/admǐraːl/|lang=sh}}
+* {{hyphenation|ad|mi|ral|lang=sh}}
+
+===Noun===
+{{sh-noun|g=m|head=admìrāl}}
+
+# [[#English|admiral]]
+
+====Declension====
+{{sh-decl-noun|admìrāl|admirali
+|admirála|admirala
+|admiralu|admiralima
+|admirala|admirale
+|admirale|admirali
+|admiralu|admiralima
+|admiralom|admiralima
+}}
+
+----
+
+==Tagalog==
+
+===Etymology===
+Borrowed from {{bor|tl|en|admiral}}.
+
+===Noun===
+{{tl-noun|ádmirál}}
+
+# {{lb|tl|military}} {{l|en|admiral}}
+
+====Synonyms====
+* {{l|tl|almirante}}
+* {{l|tl|laksamana}}
+
+===References===
+* ''The [http://tagalog.pinoydictionary.com/word/admiral/ Tagalog Pinoy Dictionary]''

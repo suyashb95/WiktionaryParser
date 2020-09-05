@@ -1,0 +1,9 @@
+==Norwegian Bokmål==
+
+===Etymology===
+From {{affix|nb|alder|-s-|blandet}} {{qual|past participle of {{l|nb|blande}}}}.
+
+===Adjective===
+{{head|nb|adjective|neuter singular|aldersblandet|definite singular and plural|aldersblandede|or|aldersblandete}}
+
+# [[mixed]]-[[age]] {{qual|attributive}}, of [[mixed]] [[age]]

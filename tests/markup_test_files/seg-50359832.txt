@@ -1,0 +1,203 @@
+{{also|SEG|-ség}}
+==English==
+
+===Pronunciation===
+* {{rhymes|ɛɡ|lang=en}}
+
+===Etymology 1===
+From {{der|en|enm|segge}}, from {{der|en|ang|secg||man, warrior, hero}}, from {{der|en|gem-pro|*sagjaz||follower, retainer, warrior}}, from {{der|en|ine-pro|*sekʷ-||to follow, accompany}}. Cognate with {{cog|no|segg}}, {{cog|is|seggur||bully}}.
+
+====Alternative forms====
+* {{l|en|segge}} {{q|obsolete}}
+
+====Noun====
+{{en-noun}}
+
+# {{lb|en|archaic}} A [[man]]; [[warrior]]; [[hero]].
+# {{lb|en|UK|_|dialectal}} A man; [[fellow]].
+
+===Etymology 2===
+Probably from the root of {{lena}} {{der|en|la|secare||to cut}}.
+
+====Noun====
+{{en-noun}}
+
+# {{lb|en|UK|Scotland|dialect}} A [[castrate]]d [[bull]].
+#: {{rfquotek|Halliwell}}
+
+{{Webster 1913}}
+
+===Etymology 3===
+{{clipping|segregation|lang=en}}
+
+====Noun====
+{{en-noun|-}}
+
+# {{lb|en|US|_|prison slang}} [[segregation|Segregation]]
+#* {{quote-journal|1988|July 15|Albert Williams|Prison Drama|Chicago Reader|url=https://securesite.chireader.com/cgi-bin/Archive/abridged2.bat?path=1988/880715/GEESE
+|passage={{...|Rehearsal time for a Con-Artistes show can run anywhere from three to nine months;}} when a prisoner is transferred or paroled or sent to "'''seg'''" (segregation) or hauled back into court, they don't ask if he's busy with a lead role in a play.}}
+
+===Etymology 4===
+
+====Noun====
+{{en-noun}}
+
+# A metal [[stud]] or [[plate]] fixed to the [[sole]] or [[heel]] of a shoe to prevent excessive wear. Also known as a [[blakey]].
+# {{lb|en|dialect}} A [[callus]], an area of hardened skin.
+
+===Etymology 5===
+See {{m|en|sedge}}.
+
+====Noun====
+{{en-noun|?}}
+
+# [[sedge]]
+# [[gladen]], or other species of ''[[Iris]]''
+#: {{rfquotek|Prior}}
+
+===Anagrams===
+* {{anagrams|en|GSE|gEs}}
+
+[[Category:en:Cattle]]
+
+----
+
+==Afrikaans==
+
+===Verb===
+{{af-verb|seggende|gesê}}
+
+# {{obsolete form of|sê|lang=af}}
+
+----
+
+==Faroese==
+
+===Etymology===
+From {{der|fo|non|sik}}, from {{der|fo|gem-pro|*sek}}, from {{der|fo|ine-pro|*se}}.
+
+===Pronunciation===
+* {{IPA|/seː/|lang=fo}}
+*: {{rhymes|eː|lang=fo}}
+
+===Pronoun===
+{{head|fo|pronoun|accusative reflexive}}
+
+# [[oneself]], [[himself]], [[herself]], [[itself]], [[themselves]]
+#* ''[[seta]] '''seg''' [[niður]]''
+#*: to sit down
+
+====Declension====
+{{fo-decl-refl-pron}}
+
+===References===
+* {{fo-lit-RG|p. ., 325 ff.}}
+
+----
+
+==Middle English==
+
+===Etymology 1===
+From {{inh|enm|ang|seċġ|t=sedge}}.
+
+====Noun====
+{{head|enm|noun}}
+
+# {{alt form|lang=enm|segge|t=sedge|id=sedge}}
+
+===Etymology 2===
+From {{inh|enm|ang|seċġ|t=man}}.
+
+====Noun====
+{{head|enm|noun}}
+
+# {{alt form|lang=enm|segge|t=man|id=man}}
+
+----
+
+==Norwegian Bokmål==
+
+===Etymology 1===
+====Pronoun====
+{{head|nb|pronoun}} - ''[[reflexive pronoun]]''
+
+# (''with verb'') [[oneself]]; [[itself]]; [[himself]]/[[herself]]
+# (''with verb'') [[one]], [[him]], [[her]], [[it]], [[them]]
+# (''with verb'') [[themselves]]
+
+=====Derived terms=====
+* {{l|nb|hver for seg}}
+* {{l|nb|være for seg selv}}
+
+===Etymology 2===
+====Alternative forms====
+* {{l|nb|seig}}
+
+====Verb====
+{{nb-verb-form}}
+
+# {{form of|simple past|sige|lang=nb}}
+
+----
+
+==Norwegian Nynorsk==
+
+===Etymology===
+From {{der|nn|non|sik}}.
+
+===Pronunciation===
+* {{IPA|/seːɡ/|lang=nn}} {{nn-pronu-note}}
+
+===Pronoun===
+{{head|nn|pronoun}} - ''[[reflexive pronoun]]''
+
+# (''with verb'') [[oneself]]; [[itself]]; [[himself]]/[[herself]]
+# (''with verb'') [[one]], [[him]], [[her]], [[it]], [[them]]
+# (''with verb'') [[themselves]]
+
+====Derived terms====
+* [[kvar for seg]]
+* [[vera for seg sjølv]]
+
+===References===
+* {{R:Dokpro|lang=nn}}
+
+----
+
+==Westrobothnian==
+
+===Etymology 1===
+From {{inh|gmq-bot|non|sik}}, from {{inh|gmq-bot|gem-pro|*sek}}, from {{der|gmq-bot|ine-pro|*se}}.
+
+====Pronunciation====
+* {{IPA|[séːɣ]|[se̞]|[se]|[sɪ]|lang=gmq-bot}}
+*: {{sense|stressed}} {{rhymes|éːɣ|ɪɣ|ɪ|lang=gmq-bot}}
+*: {{sense|unstressed}} {{rhymes|ɪɣ|e|ɪ|lang=gmq-bot}}
+
+====Pronoun====
+{{head|gmq-bot|pronoun}} - ''[[reflexive pronoun]]''
+
+# (''[[reflexive pronoun|reflexive]]'') accusative and dative third person reflexive pronoun meaning [[oneself]] (and also depending on context [[himself]], [[herself]], [[itself]] and [[themselves]])
+#: ''tvill bórt '''sä''' i skogjen''
+#:: to get '''oneself''' lost in the forest
+# {{lb|gmq-bot|referring to the subject of the main clause}} [[him]], [[her]], [[it]], [[them]]
+#: ''haimfålke fik en til [[fåli]] ve '''si'''''
+#:: the home folks got him to accompany '''them'''
+
+=====Alternative forms=====
+* {{l|gmq-bot|sä}}
+* {{l|gmq-bot|säg}}
+* {{l|gmq-bot|se}}
+* {{l|gmq-bot|si}}
+
+===Etymology 2===
+Singular of {{m|gmq-bot|saaij||say}}.
+
+====Pronunciation====
+* {{IPA|[séːɣ]|[si]|lang=gmq-bot}}
+*: {{rhymes|éːɣ|ɪɣ|ɪ|lang=gmq-bot}}
+
+====Verb====
+{{head|gmq-bot|verb form}}
+
+# I, thou, he, she, it says

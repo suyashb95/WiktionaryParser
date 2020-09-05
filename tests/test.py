@@ -8,46 +8,36 @@ from typing import Dict
 parser = WiktionaryParser()
 
 
-test_words_dict = {
-    'Ancient Greek': [
-        ('ἀγγελία', 47719496),
-    ],
-    'English': [
-        ('grapple', 50080840),
-        ('test', 50342756),
-        ('patronise', 49023308),
-        ('abiologically', 43781266),
-        ('alexin', 50152026),
-        ('song', 50235564),
-        ('house', 50356446),
-    ],
-    'Latin': [
-        ('video', 50291344),
-    ],
-    'Norwegian Bokmål': [
-        ('seg', 50359832),
-        ('aldersblandet', 38616917),
-        ('by', 50399022),
-        ('for', 50363295),
-        ('admiral', 50357597),
-        ('heis', 49469949),
-        ('konkurs', 48269433),
-        ('pantergaupe', 46717478),
-        ('maldivisk', 49859434),
-    ],
-    'Swedish': [
-        ('house', 50356446)
-    ]
-}
+test_words = [
+    ('ἀγγελία', 47719496, ['Ancient Greek']),
+    ('grapple', 50080840, ['English']),
+    ('test', 50342756, ['English']),
+    ('patronise', 49023308, ['English']),
+    ('abiologically', 43781266, ['English']),
+    ('alexin', 50152026, ['English']),
+    ('song', 50235564, ['English']),
+    ('house', 50356446, ['English']),
+    ('video', 50291344, ['Latin']),
+    ('seg', 50359832, ['Norwegian Bokmål']),
+    ('aldersblandet', 38616917, ['Norwegian Bokmål']),
+    ('by', 50399022, ['Norwegian Bokmål']),
+    ('for', 50363295, ['Norwegian Bokmål']),
+    ('admiral', 50357597, ['Norwegian Bokmål']),
+    ('heis', 49469949, ['Norwegian Bokmål']),
+    ('konkurs', 48269433, ['Norwegian Bokmål']),
+    ('pantergaupe', 46717478, ['Norwegian Bokmål']),
+    ('maldivisk', 49859434, ['Norwegian Bokmål']),
+    ('house', 50356446, ['Swedish'])
+]
 
 
 def get_test_words_table():
-    """Convert the test words dict to an array of three element tuples."""
+    """Convert the test_words array to an array of three element tuples."""
     result = []
 
-    for lang, word_and_old_ids in test_words_dict.items():
-        for word, old_id in word_and_old_ids:
-            result.append((lang, word, old_id))
+    for word, old_id, languages in test_words:
+        for language in languages:
+            result.append((language, word, old_id))
 
     return result
 
@@ -62,10 +52,7 @@ class TestParser(unittest.TestCase):
         super(TestParser, self).__init__(*args, **kwargs)
 
     @parameterized.expand(get_test_words_table())
-    def test_fetch(self, language: str, word: str, old_id: int):
-        self.__test_fetch(language, word, old_id)
-
-    def __test_fetch(self, lang: str, word: str, old_id: int):
+    def test_fetch(self, lang: str, word: str, old_id: int):
         parser.set_default_language(lang)
         fetched_word = parser.fetch(word, old_id=old_id)
 

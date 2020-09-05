@@ -1,0 +1,24 @@
+==English==
+
+===Etymology===
+{{rfe|en}}
+
+===Noun===
+{{en-noun}}
+{{wikipedia}}
+
+# {{lb|en|biochemistry|dated}} A [[protective]] [[substance]] that exists in the [[serum]] or other [[bodily fluid]] and is capable of killing [[microorganism]]s; [[complement]].
+#* '''1929''', {{w|Thomas Wolfe}}, ''{{w|Look Homeward, Angel}}'', New York: Scribner, Part One, Chapter 1, p. 3,<sup>[https://archive.org/details/in.ernet.dli.2015.184897]</sup>
+#*: The seed of our destruction will blossom in the desert, the '''alexin''' of our cure grows by a mountain rock {{...}}
+
+====Translations====
+{{trans-top|protective substance that exists in the serum}}
+* Portuguese: {{t|pt|alexina|f}}
+{{trans-mid}}
+{{trans-bottom}}
+
+===Anagrams===
+* {{anagrams|en|exinal|xenial}}
+
+[[Category:English 3-syllable words]]
+[[Category:English words suffixed with -in]]

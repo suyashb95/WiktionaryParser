@@ -1,0 +1,97 @@
+{{also|heiš}}
+==English==
+
+===Noun===
+{{head|en|noun plural form}}
+
+# {{plural of|hei|lang=en}}
+
+===Anagrams===
+* {{anagrams|en|HIES|Hise|eish|hies|shie}}
+
+----
+
+==Middle English==
+
+===Determiner===
+{{head|enm|determiner}}
+
+# {{alt form|his|lang=enm}}
+
+===Pronoun===
+{{head|enm|pronoun}}
+
+# {{alt form|his|lang=enm}}
+
+===References===
+* {{R:MED Online|entry= his, (pron.1) |id=MED20878 |accessdate=8 May 2018}}
+* {{R:MED Online|entry= his, (pron.2) |id=MED20879 |accessdate=9 May 2018}}
+
+
+----
+
+==Norwegian Bokmål==
+{{wikipedia|lang=no}}
+
+===Etymology 1===
+From the verb {{m|nb|heise}}
+
+====Noun====
+{{nb-noun-m1}}
+
+# {{l|en|elevator}} (US), {{l|en|lift}} (UK)
+
+=====Derived terms=====
+* {{l|nb|heissjakt}}
+* {{l|nb|stolheis}}
+
+===Etymology 2===
+====Verb====
+{{nb-verb-form}}
+
+# {{imperative of|heise|lang=nb}}
+
+===References===
+* {{R:The Bokmål Dictionary}}
+
+----
+
+==Norwegian Nynorsk==
+
+===Etymology===
+From the verb {{m|nn|heise}}
+
+===Noun===
+{{nn-noun-m1}}
+
+# {{l|en|elevator}} (US), {{l|en|lift}} (UK)
+
+====Derived terms====
+* {{l|nn|heisesjakt}}, {{l|nn|heissjakt}}
+
+===References===
+* {{R:The Nynorsk Dictionary}}
+
+----
+
+==Old High German==
+
+===Etymology===
+From {{inh|goh|gem-pro|*haisaz}}, whence also Old English ''[[has#Old English|hās]]'', Old Norse ''[[hás]]''
+
+===Adjective===
+{{head|goh|adjectives}}
+
+# [[hoarse]]
+
+----
+
+==Portuguese==
+
+===Alternative forms===
+* {{l|pt|haveis}}
+
+===Verb===
+{{head|pt|verb form}}
+
+# {{inflection of|haver||2|p|pres|ind|lang=pt}}

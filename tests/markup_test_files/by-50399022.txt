@@ -1,0 +1,893 @@
+{{also|BY|bý|by-|by.|-by|.by|b'y}}
+==English==
+{{wikipedia}}
+
+===Alternative forms===
+* {{l|en|bye}} (''archaic'' for preposition and adverb, not used for abbreviation, preferred for noun and interjection)
+
+===Etymology===
+From {{inh|en|enm|by}}, {{m|enm|bi}}, from {{inh|en|ang|bī||by; near; around}}, from {{inh|en|gem-pro|*bi||near; by; around; about}}. Cognate with West Frisian {{m|fy|by||by; near}}, Afrikaans {{m|af|by||at; by; near}}, Saterland Frisian {{m|stq|bie||near; by}}, Dutch {{m|nl|bij||near; by}}, German Low German {{m|nds-de|bi||by; near; at}}, German {{m|de|bei||by; near; at}}.
+
+===Pronunciation===
+* {{a|UK|US}} {{IPA|/baɪ/|lang=en}}
+* {{audio|en-us-by.ogg|Audio (US)|lang=en}}
+* {{rhymes|aɪ|lang=en}}
+* {{homophones|lang=en|bi|bye|buy}}
+
+===Preposition===
+{{en-prep}}
+
+# [[near|Near]] or [[next]] to.
+#: {{ux|en|The mailbox is '''by''' the bus stop.}}
+# At some time before (the given time), or before the end of a given time interval.
+#: {{ux|en|Be back '''by''' ten o'clock!&emsp; We will send it '''by''' the first week of July.}}
+# {{non-gloss definition|Indicates the actor in a clause with its verb in the [[passive voice]]}}: Through the action or presence of.
+#: {{ux|en|The matter was decided '''by''' the chairman.&emsp; The boat was swamped '''by''' the water.&emsp; He was protected '''by''' his body armour.}}
+#* {{quote-journal|date=September 28, 2011|author=Jon Smith|work=BBC Sport
+|title=[http://news.bbc.co.uk/sport2/hi/football/europe/14998331.stm Valencia 1-1 Chelsea]
+|passage=Valencia threatened sporadically in the first half with Miguel having a decent effort deflected wide by Ashley Cole, while Jordi Alba's near-post cross was flicked into the sidenetting '''by''' Pablo Hernandez.}}
+# {{non-gloss definition|Indicates the creator of a work}}: Existing through the authorship etc. of.
+#: {{ux|en|There are many well-known plays '''by''' William Shakespeare}}
+# {{non-gloss definition|Indicates the cause of a condition or event}}: Through the action of, caused by, responsibility for; [[by dint of]].
+#* '''1874''', {{w|Thomas Hardy}}, ''{{w|Far from the Madding Crowd}}'', 2005 Barnes & Noble Classics publication of 1912 Wessex edition, p.109:
+#*: In other directions the fields and sky were so much of one colour '''by''' the snow that it was difficult in a hasty glance to tell whereabouts the horizon occurred{{nb...}}.
+# {{non-gloss definition|Indicates a [[means]]}}: Involving/using the means of.
+#: {{ux|en|I avoided the guards '''by''' moving only when they weren't looking.}}
+#* {{RQ:Mrxl SqrsDghtr|II}}
+#*: "I don't want to spoil any comparison you are going to make," said Jim, "but I was at Winchester and New College." ¶ "That will do," said Mackenzie. "I was dragged up at the workhouse school till I was twelve. Then I ran away and sold papers in the streets, and anything else that I could pick up a few coppers '''by'''—except steal.{{nb...}}"
+# {{non-gloss definition|Indicates a [[source]] of [[light]] used as illumination.}}
+#: ''The electricity was cut off, so we had to read '''by''' candlelight.''
+#* '''1945''', Neva L. Boyd, ''Handbook of Recreational Games'', 1975 [[w:Dover Publications|Dover]] edition, {{ISBN|0486232042}}, [http://books.google.com/books?id=12qZwZpIwCIC&pg=PA16&dq=candlelight p.16]:
+#*: Players: Can we get there '''by''' candlelight? ¶ Gatekeepers: Yes and back again.
+#* '''1960''', {{w|Dr. Seuss}}, ''{{w|One Fish Two Fish Red Fish Blue Fish}}''
+#*: '''By''' the light of the moon,&nbsp;/ '''by''' the light of a star&nbsp;/ they walked all night
+# {{senseid|en|authority}}{{non-gloss definition|Indicates an authority, rule, or permission followed}}.
+#: {{ux|en|I sorted the items '''by''' category.&emsp; '''By''' the power vested in me, I now pronounce you man and wife.}}
+# {{non-gloss definition|Indicates the amount of some progression}}: With a change of.
+#: {{ux|en|Our stock is up '''by''' ten percent.}}
+# {{non-gloss definition|In the formulae ''X by X'' and ''by Xs'', indicates a steady progression, one ''X'' after another.}}
+#: {{ux|en|We went through the book page '''by''' page.&emsp; We crawled forward '''by''' inches.}}
+# {{non-gloss definition|Indicates a referenced source}}: According to.
+#: {{ux|en|He cheated '''by''' his own admission.}}
+# {{non-gloss definition|Indicates an [[oath]]}}: With the authority of.
+#: {{ux|en|'''By''' Jove! I think she's got it!&emsp; '''By''' all that is holy, I'll put an end to this.}}
+#* '''1596-99''', Shakespeare, {{w|The Merchant of Venice}}, Act V, scene i:
+#*: '''By''' [[yonder]] moon I swear you do me wrong
+#* '''1863''', Sheridan Le Fanu, ''{{w|The House by the Churchyard}}''
+#*: ''''By''' my soul! I believe something bad has happened me,' he muttered, and popped up his window, and looked out, half dreaming over the church-yard on the park beyond {{...}}
+# {{non-gloss definition|Used to separate dimensions when describing the size of something.}}
+#: {{ux|en|It is easy to invert a 2-'''by'''-2 matrix.&emsp; The room was about 4 foot '''by''' 6 foot.&emsp; The bricks used to build the wall measured 10 '''by''' 20 '''by''' {{nowrap|30 cm.}}}}
+
+====Derived terms====
+{{der4|title=Terms derived from ''by'' (preposition)
+|bit by bit
+|by degrees
+|by dint of
+|by one's lonesome
+|by oneself
+|by means of
+|by rights
+|by the book
+|by the by
+|by the bye
+|by the way
+|by your leave
+|by way of
+|do good by
+|do right by
+|hard by
+|off-by-one
+|secure by design
+|side by side
+|lang=en}}
+
+====Translations====
+{{trans-top|near, or next to}}
+* Afrikaans: {{t-needed|af}}
+* Albanian: {{t-needed|sq}}
+* Arabic: {{t+|ar|بِجَانِب|tr=bi-jānib}}
+*: Egyptian Arabic: {{t|arz|جنب|tr=ganb|sc=Arab}}
+*: Hijazi Arabic: {{t|acw|جنب|tr=janb|sc=Arab}}
+* Armenian: {{t+|hy|մոտ|sc=Armn}}, {{t|hy|կողքին|sc=Armn}}
+* Bashkir: {{t|ba|янында}}
+* Bavarian: {{t|bar|ba}}
+* Breton: {{t-needed|br}}
+* Chinese:
+*: Mandarin: {{t+|cmn|旁|alt=在……旁|tr=zāi … pang|sc=Hani}}
+* Czech: {{t+|cs|u}}
+* Danish: {{t+|da|ved}}
+* Dutch: {{t+|nl|bij}}
+* Esperanto: {{t+|eo|apud}}
+* Finnish: {{t+|fi|vieressä}}
+* French: {{t+|fr|côté|alt=à côté de}}, {{t+|fr|au bord de}}
+* German: {{t+|de|bei}}, {{t+|de|neben}}
+* Hawaiian: {{t|haw|kokoke}}, {{t|haw|hiʻialo}}
+* Hebrew: {{t+|he|עד}}
+* Hungarian: [[-nál]]/[[-nél]] ([[allative case]])
+* Icelandic: {{t+|is|við}}
+* Ido: {{t+|io|apud}}
+* Indonesian: {{t+|id|sebelah|alt=di sebelah ...}}
+* Italian: {{t+|it|vicino}}, {{t+|it|accanto}}, {{t+|it|ravvicinato}}
+{{trans-mid}}
+* Japanese: {{t+|ja|側|alt=…の側に|tr=のそばに,no sobani|sc=Jpan}}, {{t+|ja|側|alt=…の側で|tr=のそばで,no sobade|sc=Jpan}}
+* Javanese: {{t-needed|jv}}
+* Kashmiri: {{t-needed|ks}}
+* Kazakh: {{t-needed|kk}}
+* Korean: {{t|ko|[[옆]]에}}, {{t|ko|[[곁]]에}}
+* Kurdish: {{t+|ku|li}}, {{t+|ku|li rex}}, {{t|ku|li nêzî}}, li [[kêlek]]a, [[li tenişt]]a
+* Latin: {{t+|la|apud}}, {{t|la|aput}}
+* Lithuanian: {{t-needed|lt}}
+* Macedonian: {{t|mk|до}}, {{t|mk|кај}}
+* Malay: {{t|ms|di sebelah}}
+* Maore Comorian: {{t|swb|wangoni mwa}}
+* Maori: {{t|mi|i te taha o}}, {{t+|mi|i}}
+* Norwegian: {{t+|no|ved}}
+* Novial: {{t|nov|proxim}}
+* Polish: {{t+|pl|przy}}, {{t+|pl|obok}}
+* Portuguese: {{t+|pt|perto}}, {{t+|pt|próximo|m}}
+* Romanian: {{t+|ro|lângă}}
+* Russian: {{t+|ru|о́коло}}, {{t|ru|[[ря́дом]] [[с]]}}, {{t+|ru|у}}
+* Slovene: {{t+|sl|pri}}
+* Sorbian:
+*: Lower Sorbian: {{t|dsb|pla}}, {{t|dsb|pśi}}
+* Spanish: {{t+|es|por}}, [[cerca]] [[de]]
+* Swedish: {{t+|sv|vid}}, {{t+|sv|intill}} {{qualifier|close to}}
+* Thai: {{t+|th|เคียง|tr=kiang}}, {{t|th|ติดกับ|tr=dtìt gàp}}, {{t+|th|ข้าง}}
+* Vietnamese: {{t+|vi|bên cạnh}}, {{t+|vi|gần}}, {{t+|vi|cạnh}}, {{t+|vi|kề}}, {{t+|vi|bên}}
+{{trans-bottom}}
+
+{{trans-top|not later than}}
+* Afrikaans: {{t-needed|af}}
+* Arabic: {{t|ar|عِنْدَ}}, {{t+|ar|فِي}}
+*: Egyptian Arabic: {{t|arz|حوالي|tr=ḥawalī|sc=Arab}}
+* Catalan: {{t|ca|per a}}
+* Chinese:
+*: Cantonese: {{t|yue|之前|tr=...zi1 cin4|alt=……之前|sc=Hani}}
+*: Mandarin: {{t+|cmn|之前|alt=……之前|tr=...zhīqián|sc=Hani}}
+* Czech: {{t+|cs|do}}
+* Danish: {{t+|da|ved}} (''ved 10-tiden''), {{t+|da|omkring}} (''omkring kl. 10'')
+* Dutch: {{t+|nl|tegen}}
+* Finnish: {{t+|fi|mennessä}}
+* French: {{t+|fr|avant}}
+* German: {{t+|de|bis}}
+* Hebrew: {{t+|he|עד}}
+* Hindi: {{t+|hi|तक|sc=Deva}}
+* Hungarian: [[-ra]]/[[-re]] ([[sublative case]]), [[-ig]] ([[terminative case]])
+* Icelandic: {{t+|is|fyrir}}
+* Indonesian: {{t-needed|id}}
+* Italian: {{t+|it|entro}}
+{{trans-mid}}
+* Japanese: {{t+|ja|まで|alt=…までに|tr=…madeni|sc=Jpan}}
+* Javanese: {{t-needed|jv}}
+* Korean: {{t+|ko|까지|alt=...까지}}
+* Kurdish: {{t+|ku|ta}}, {{t+|ku|heta}}
+* Malay: {{t|ms|menjelang}}
+* Maltese: {{t+|mt|bi}}
+* Norwegian: {{t+|no|innen}}
+* Novial: {{t|nov|ante}}
+* Persian: {{t+|fa|تا|tr=tâ|sc=fa-Arab}}
+* Polish: {{t+|pl|do}}
+* Portuguese: {{t+|pt|até}}
+* Romanian: [[înainte]] [[de]]
+* Russian: {{t+|ru|к}}, {{t+|ru|до}}
+* Slovene: {{t+|sl|do}}
+* Spanish: {{t+|es|para}}
+* Swedish: {{t+|sv|vid}}
+* Ukrainian: {{t+|uk|до}}
+* Urdu: {{t|ur|تك|tr=tak|sc=ur-Arab}}
+* Vietnamese: {{t+|vi|vào}} {{qualifier|in conjunction with đã}}
+{{trans-bottom}}
+
+{{trans-top|indication of passive voice}}
+* Arabic: {{t|ar|مِن قِبَل}}, {{t|ar|بِوَاسِطَّة|tr=bi-wāsiṭa}}, {{t+|ar|بِـ|tr=bi-}}
+*: Egyptian Arabic: {{t|arz|بـ|tr=be|sc=Arab}}, {{t|arz|من|tr=min|sc=Arab}}
+* Azerbaijani: {{t|az|tərəfindən}}, {{t|az|vasitəsilə}}
+* Bashkir: {{t|ba|тарафынан}} {{qualifier|used in postposition}}
+* Catalan: {{t+|ca|per}}
+* Chinese:
+*: Mandarin: {{t+|cmn|被|tr=bèi|sc=Hani}}, {{t+|cmn|由|tr=yóu|sc=Hani}}, {{t+|cmn|讓|sc=Hani}}, {{t+|cmn|让|tr=ràng|sc=Hani}}, {{t+|cmn|給|sc=Hani}}, {{t+|cmn|给|tr=gěi|sc=Hani}}, {{t+|cmn|叫|tr=jiào|sc=Hani}}
+* Danish: {{t+|da|af}}
+* Dutch: {{t+|nl|door}}
+* Egyptian: {{t-egy|jn|h=i-n}}
+* Esperanto: {{t+|eo|de}}
+* Finnish: {{qualifier|not used}}
+* French: {{t+|fr|par}}
+* Galician: {{t|gl|por}}
+* German: {{t+|de|von}}
+* Greek:
+*: Ancient: {{t|grc|ῠ̔πό}} (+ gen.) {{qualifier|animate agent}}, {{t|grc|ἐν}} (+ dat.) {{qualifier|inanimate instrument}}
+* Hebrew: {{t|he|על ידי|tr='al yadei}}, {{t|he|באמצעות|tr=be'emtza'ut}}
+* Hindi: {{t+|hi|से|alt=...से}}
+* Hungarian: {{t+|hu|által}}
+* Indonesian: {{t+|id|oleh}}
+* Italian: {{t+|it|da}}
+{{trans-mid}}
+* Japanese: {{t+|ja|に|alt=…に|tr=…ni|sc=Jpan}}, {{t|ja|により|alt=…により|tr=…niyori|sc=Jpan}}, {{t+|ja|によって|alt=…によって|tr=…niyotte|sc=Jpan}}
+* Korean: {{t+|ko|에|alt=…에}}, {{t+|ko|로|alt=...로}}, {{t+|ko|로써|alt=...로써}}, {{t+|ko|로서|alt=...로서}}, {{t+|ko|의하다|alt=...에 의해}}
+* Kurdish: {{t|ku|ji alî}}, [[ji aliyê]] ... ve
+* Latin: {{t+|la|ab}}, {{t+|la|a}}
+* Malay: {{t|ms|oleh}}
+* Ngazidja Comorian: {{t|zdj|ni}}
+* Norwegian: {{t+|no|av}}
+* Novial: {{t|nov|da}}
+* Polish: {{t+|pl|przez}}
+* Portuguese: {{t+|pt|por}}
+* Russian: {{qualifier|use the instrumental case of the noun}}
+* Slovene: {{t+|sl|od}}
+* Spanish: {{t+|es|por}}
+* Swahili: {{t|sw|na}}
+* Swedish: {{t+|sv|av}}
+* Thai: {{t+|th|โดย|tr=doy}}
+* Turkish: {{t+|tr|tarafından}}, {{t|tr|tamanından}}
+* Urdu: {{t|ur|سے|alt=...سے|tr=...se}}
+* Vietnamese: {{t+|vi|bởi}}
+* Welsh: {{t|cy|gan}}
+* West Frisian: {{t|fy|troch}}
+{{trans-bottom}}
+
+{{trans-top|indicates creator of a work}}
+* Arabic: {{t|ar|بِوَاسِطَّة|tr=bi-wāsiṭa}}, {{t+|ar|لِـ|tr=li-}}
+* Catalan: {{t+|ca|per}}
+* Czech: {{t+|cs|od}}
+* Danish: {{t+|da|af}}
+* Dutch: {{t+|nl|door}}, {{t+|nl|vanwege}}
+* Esperanto: {{t+|eo|de}}, {{t+|eo|far}}
+* Finnish: ''genitive of the name of author''
+* French: {{t+|fr|de}}, {{t+|fr|par}}
+* German: {{t+|de|von}}
+* Hebrew: {{t|he|מאת|tr=mi'et}}
+* Hindi: {{t-needed|hi}}
+* Hungarian: [[-tól]]/[[-től]] ([[ablative case]])
+* Icelandic: {{t+|is|eftir}}
+* Ido: {{t+|io|da}}
+* Italian: {{t+|it|da}}, {{t+|it|di}}
+* Japanese: {{t+|ja|作|alt=作…}}, {{t+|ja|作|alt=…作}}
+* Korean: {{t+|ko|의|alt=...의}}
+* Kurdish: {{t|ku|bi destê}}, ji [[alî]]
+{{trans-mid}}
+* Latin: {{t+|la|ab}}, {{t+|la|a}}
+* Malay: {{t|ms|oleh}}
+* Maltese: {{t+|mt|bi}}
+* Maori: {{t|mi|nā}}
+* Norwegian: {{t+|no|av}}, {{t+|no|ved}}
+* Novial: {{t|nov|da}}
+* Polish: {{t+|pl|przez}}
+* Portuguese: {{t+|pt|por}}, {{t+|pt|de}}
+* Romanian: {{t+|ro|de}}
+* Russian: {{qualifier|use the instrumental case of the noun}}
+* Scottish Gaelic: {{t|gd|le}}
+* Slovene: {{t+|sl|od}} (rarely used)
+* Spanish: {{t+|es|por}}
+* Swedish: {{t+|sv|av}}
+* Thai: {{t+|th|โดย|tr=doy}}
+* Turkish: {{t|tr|tarafindan}}
+* Vietnamese: {{t+|vi|của}}
+* West Frisian: {{t|fy|troch}}
+{{trans-bottom}}
+
+{{trans-top|indicates a means}}
+* Afrikaans: {{t-needed|af}}
+* Arabic: {{t+|ar|بِـ|tr=bi-}}
+* Chinese:
+*: Cantonese: {{t-needed|yue}}
+*: Mandarin: {{t+|cmn|用|alt=用…|tr=yòng|sc=Hani}}, {{t+|cmn|由|alt=由…|tr=yóu|sc=Hani}}
+* Czech: {{t+|cs|pomocí}}, {{t+|cs|prostřednictvím}}
+* Danish: {{t+|da|ved}}, {{t|da|ved at}}
+* Dutch: {{t+|nl|door}}, {{t+|nl|op}}, {{t+|nl|per}}
+* Esperanto: {{t+|eo|per}}
+* Finnish: ''adessive of the means''
+* French: {{t+|fr|par}}, {{t+|fr|en}} (+ present participle), au {{t+|fr|moyen}} de
+* German: {{t+|de|mit}}, {{t+|de|mittels}}, {{t+|de|durch}}, {{t+|de|indem}}
+* Greek: {{t+|el|διά}}, {{t+|el|από}}
+* Hebrew: {{t|he|על ידי|tr=al yedey}}
+* Hindi: {{t-needed|hi}}
+* Ido: {{t+|io|per}}
+* Indonesian: {{t+|id|kena}}
+* Italian: {{t+|it|con}}
+* Japanese: {{t+|ja|で|alt=…で|sc=Jpan}}, {{t|ja|により|alt=…により|sc=Jpan}}, {{t+|ja|によって|alt=…によって|tr=…niyotte|sc=Jpan}}
+* Javanese: {{t-needed|jv}}
+* Korean: {{t+|ko|로써|alt=...로써}}, {{t+|ko|로|alt=...로}}
+{{trans-mid}}
+* Kurdish: {{t+|ku|bi}}
+* Latin: {{t+|la|per}}, {{t+|la|ab}}
+* Malay: {{t|ms|dengan}}
+* Maltese: {{t+|mt|bi}}
+* Maori: {{t|mi|nā}}, {{t|mi|ki}} {{qualifier|shows an instrument or tool}}
+* Ngazidja Comorian: {{t|zdj|ha}} (+ infinitive)
+* Norwegian: {{t+|no|med}}
+* Novial: {{t|nov|per}}
+* Portuguese: {{t+|pt|por}}, {{t+|pt|a}}
+* Romanian: {{t+|ro|cu}}
+* Russian: {{t+|ru|с по́мощью}} ''or'' use the instrumental case
+* Slovak: use the instrumental case ''or'' {{t+|sk|s}}/{{t|sk|so}} ''or'' {{t|sk|pomocou}}
+* Slovene: {{t+|sl|s}}, {{t+|sl|z}}
+* Spanish: {{t+|es|por}}
+* Swedish: {{t|sv|genom att}}
+* Thai: {{t+|th|โดย|tr=doy}}
+* Turkish: {{t+|tr|tarafından}}
+* Ukrainian: {{t|uk|за допомогою}}
+* Vietnamese: {{t|vi|bằng cách}}, {{t|vi|theo cách}}
+* Welsh: {{t|cy|â}}
+{{trans-bottom}}
+
+{{trans-top|indicates a rule followed}}
+* Czech: {{t+|cs|podle}}
+* Danish: {{t+|da|efter}}
+* Finnish: {{t+|fi|mukaisesti}}, {{t+|fi|mukaan}}
+* German: {{t+|de|nach}}
+* Hebrew: {{t|he|לפי|tr=lefy}}
+* Hungarian: {{t+|hu|szerint}} {{qualifier|according to}}
+* Italian: {{t+|it|per}}, {{t+|it|dal}}
+* Japanese: {{t+|ja|従う|alt=…に従って|sc=Jpan}}
+* Korean: {{t+|ko|따르다|alt=...에 따라}}, {{t+|ko|로|alt=...로}}
+* Kurdish: li [[gor]], li [[dû]]
+* Latin: {{t|la|cata}}
+{{trans-mid}}
+* Malay: {{t|ms|mengikut}}
+* Norwegian: {{t+|no|etter}}
+* Novial: {{t|nov|segun}}
+* Polish: {{t+|pl|według}}
+* Portuguese: {{t+|pt|por}}
+* Russian: {{t+|ru|по}}
+* Scots: {{t|sco|bi}}
+* Slovene: {{t+|sl|po}}
+* Spanish: {{t+|es|por}}
+* Swedish: {{t+|sv|efter}}
+* Ukrainian: {{t+|uk|по}}
+* Vietnamese: {{t+|vi|theo}}, {{t+|vi|theo như}}, {{t|vi|tuân theo}}
+* Yiddish: {{t|yi|לויט}}
+{{trans-bottom}}
+
+{{trans-top|indicating amount of progression}}
+* Czech: {{t+|cs|o}}
+* Danish: {{t+|da|med}}
+* Dutch: {{t+|nl|met}}
+* German: {{t+|de|um}}
+* Hebrew: {{t+|he|ב־|tr=be-}} {{qualifier|prefix}}
+* Hungarian: [[-val]]/[[-vel]]
+* Italian: {{t+|it|del}}, {{t+|it|di}}
+* Japanese: {{t+|ja|に|alt=…に|tr=ni|sc=Jpan}}
+* Kurdish: {{t+|ku|bi}}
+* Norwegian: {{t+|no|med}}
+{{trans-mid}}
+* Novial: {{t|nov|po}}
+* Polish: {{t+|pl|o}}
+* Portuguese: {{t+|pt|em}}
+* Russian: {{t+|ru|на}}
+* Slovene: {{t+|sl|za}}
+* Sorbian:
+*: Lower Sorbian: {{t|dsb|wó}}
+* Swedish: {{t+|sv|med}}
+* Ukrainian: {{t+|uk|на}}
+* Vietnamese: {{qualifier|not translated}}
+{{trans-bottom}}
+
+{{trans-top|steady progression}}
+* Armenian: {{t+|hy|առ}}
+* Czech: {{t+|cs|za}}, {{t+|cs|po}}
+* Danish: {{t+|da|efter}}
+* Dutch: {{t+|nl|per}}
+* Finnish: ''nominative + ablative'' (e.g. ''talo talo'''lta''''' "house by house")
+* French: {{t+|fr|par}}
+* German: {{t+|de|um}}
+* Italian: {{t+|it|per}}, {{t+|it|di}}
+* Kurdish: {{t+|ku|bi}}
+* Malay: {{t|ms|demi}}, {{t|ms|per}}
+{{trans-mid}}
+* Norwegian: {{t+|no|etter}}, {{t+|no|for}}
+* Novial: {{t|nov|per}}
+* Polish: {{t+|pl|po}}, {{t+|pl|za}}
+* Portuguese: {{t+|pt|por}}
+* Russian: {{t+|ru|за}}
+* Spanish: {{t+|es|por}}
+* Swedish: {{t+|sv|efter}}
+* Ukrainian: {{t+|uk|за}}
+* Vietnamese: {{t+|vi|từng}} {{qualifier|optionally: + unit + một}}
+{{trans-bottom}}
+
+{{trans-top|with the authority of}}
+* Arabic: {{t+|ar|بِـ|tr=bi-}}
+* Bavarian: {{t|bar|ba}}
+* Esperanto: {{t+|eo|de}}
+* Finnish: {{t+|fi|kautta}}
+* French: {{t+|fr|par}}
+* German: {{t+|de|bei}}
+* Greek: {{t+|el|μα}}
+*: Ancient Greek: {{t|grc|νή}} (+ acc.)
+* Italian: {{t+|it|per}}
+{{trans-mid}}
+* Japanese: {{t+|ja|著|alt=著…|sc=Jpan}}, {{t+|ja|著|alt=…著|sc=Jpan}}
+* Maori: {{t|mi|nā}}
+* Norwegian: {{t+|no|ved}}
+* Polish: {{t+|pl|na}}
+* Portuguese: {{t+|pt|por}}
+* Russian: {{t|ru|[[от]] [[имя|и́мени]]}}, {{t|ru|[[во]] [[и́мя]]}}
+* Swedish: {{t+|sv|vid}}
+* Vietnamese: {{t+|vi|trước}}
+{{trans-bottom}}
+
+{{checktrans-top}}
+* Indonesian: {{t+check|id|oleh}}
+* Lao: {{t-check|lo|ນຳ}}
+{{trans-mid}}
+* Vietnamese: {{t+check|vi|bằng}}
+{{trans-bottom}}
+
+===Adverb===
+{{en-adv|-}}
+
+# Along a path which runs by the speaker.
+#: ''I watched as it passed '''by'''.''
+# In the [[vicinity]], [[near]].
+#: ''There was a shepherd close '''by'''.''
+#: ''The shop is hard '''by''' the High Street.''
+#* Joseph Conrad, ''Heart of Darkness''
+#*: [The helmsman] steered with no end of a swagger while you were '''by'''; but if he lost sight of you, he became instantly the prey of an abject funk {{...}}
+# To or at a place, as a residence or place of business.
+#: ''I'll stop '''by''' on my way home from work.''
+#: ''We're right near the lifeguard station. Come '''by''' before you leave.''
+# Aside, away.
+#: ''The women spent much time after harvest putting jams '''by''' for winter and spring.''
+
+====Derived terms====
+{{rel-top4|terms derived from by (adverb)}}
+* {{l|en|by the by}}
+* {{l|en|drop by}}
+* {{l|en|full and by}}
+{{rel-mid4}}
+* {{l|en|nearby}}
+* {{l|en|pass by}}
+* {{l|en|passerby}}
+{{rel-mid4}}
+* {{l|en|put by}}
+* {{l|en|right by}}
+* {{l|en|stand by}}
+{{rel-mid4}}
+* {{l|en|stop by}}
+* {{l|en|bypass}}
+{{rel-bottom}}
+
+====Translations====
+{{trans-top|along a path}}
+* Danish: {{t+|da|forbi}}
+* Dutch: {{t+|nl|langs}}
+* Finnish: {{t+|fi|ohi}}
+* German: {{t+|de|längs}}
+* Japanese: {{t+|ja|沿う|alt=道に沿って|tr=みちにそって, michi ni sotte}}
+* Kurdish: {{t+|ku|tê re}}, {{t+|ku|di ber re}}
+* Malay: {{t|ms|di sepanjang}}
+{{trans-mid}}
+* Portuguese: {{t|pt|[[por]] [[mim]]|s}}, {{t|pt|[[por]] [[nós]]|p}}
+* Scottish Gaelic: {{t|gd|seachad}}
+* Spanish: {{t+|es|por}}
+* Swedish: {{t+|sv|längs}}, {{t+|sv|längs med}}
+* Ukrainian: {{t|uk|повз}}
+* Vietnamese: {{t+|vi|qua}}
+{{trans-bottom}}
+
+===Adjective===
+{{en-adj|-}}
+
+# Out of the way, subsidiary.
+{{rfex|en|standalone usage, please}}
+
+====Antonyms====
+* {{l|en|main}}, {{l|en|principal}}
+
+====Derived terms====
+* {{l|en|bypass}}
+* {{l|en|byroad}}
+* {{l|en|bystander}}
+* {{l|en|byway}}
+
+===Noun===
+{{en-noun}}
+
+# {{lb|en|card games}} A [[pass]]
+
+===Interjection===
+{{en-interj}}
+
+# {{alternative spelling of|bye|lang=en}}
+
+===Anagrams===
+* {{anagrams|en|yb}}
+
+[[Category:English basic words]]
+[[Category:English two-letter words]]
+
+----
+
+==Afrikaans==
+
+===Pronunciation===
+* {{IPA|/bəi/|[bə̟i̯]|lang=af}}
+
+===Etymology 1===
+From {{inh|af|nl|bij}}, from {{inh|af|dum|bi}}, from {{inh|af|odt|bī}}.
+
+====Preposition====
+{{head|af|preposition}}
+
+# {{l|en|at}}
+# [[to]]
+# [[by]]
+
+===Etymology 2===
+From {{inh|af|nl|bij}}, from {{inh|af|dum|bie}}, from {{inh|af|odt|*bīa}}.
+
+====Noun====
+{{af-noun|e}}
+
+# [[bee]]
+
+=====Derived terms=====
+* {{l|af|heuningby}}
+* {{l|af|hommelby}}
+
+[[Category:af:Insects]]
+
+----
+
+==Czech==
+
+===Pronunciation===
+* {{IPA|/bɪ/|lang=cs}}
+* {{audio|Cs-by.ogg|Audio|lang=cs}}
+
+===Particle===
+{{cs-part}}
+
+# [[would]]
+#: {{ux|cs|Vstával '''by''' dřív, ale to '''by''' si napřed musel koupit budík.|translation=He would be getting up earlier, but then he would have to buy an alarm clock first.}}
+
+====Usage notes====
+* In formal language, it is used for the the [[third person]] of the infinitive {{m|cs|být}}, both [[singular]] and [[plural]] and with the [[second person]] of the verb {{l|cs|být}}.
+*: {{ux|cs|Zahrál '''by''' [[sis]] jednu hru?|translation=Would you [like to] play one game?}}
+* In colloquial Czech, ''by'' is commonly used in place of other conditional forms of ''být'' in both singular and plural. That is, ''by'' is a shared shorthand for {{m|cs|bych}}, {{m|cs|bys}}, {{m|cs|bychom}}, {{m|cs|bysme}} and {{m|cs|byste}}.
+
+====Related terms====
+* {{l|cs|aby}}
+* {{l|cs|bych}}
+* {{l|cs|bychom}}
+* {{l|cs|bys}}
+* {{l|cs|byste}}
+* {{l|cs|kdyby}}
+
+----
+
+==Danish==
+
+===Etymology===
+From {{der|da|non|býr||settlement}}. Related to the element -by in English place names, such as {{l|en|Whitby}}.
+
+===Pronunciation===
+* {{IPA|/byː/|[b̥yːˀ]|lang=da}}
+
+===Noun===
+{{da-noun|en|er}}
+
+# [[town]], [[city]]
+
+====Inflection====
+{{da-noun-infl|en|er}}
+
+====Related terms====
+{{rel-top}}
+* [[bydel]] {{g|c}}
+* [[bymidte]] {{g|c}}
+* [[bymæssig]] {{pos a}}
+* [[byområde]] {{g|n}}
+* [[byorkester]] {{g|n}}
+* [[byplanlægning]] {{g|c}}
+{{rel-mid}}
+* [[byret]] {{g|c}}
+* [[byråd]] {{g|n}}
+* [[byvåben]] {{g|n}}
+* [[byzone]] {{g|c}}
+* [[landsby]] {{g|c}}
+{{rel-bottom}}
+
+----
+
+==Japanese==
+
+===Etymology===
+Borrowed from {{bor|ja|en|by}}.
+
+===Pronunciation===
+{{ja-pron|バイ}}
+
+===Particle===
+{{head|ja|particle}}
+
+# {{lb|ja|informal}} {{n-g|Used to sign off a message/attribute a text.}}
+#* '''2002''', [https://tcrf.net/Super_Monkey_Ball_2#Test_Level_Messages]
+#*: {{lang|ja|ココにはバッファから生成したMAPのTEXTURE希望　by JAMAD}}
+#* '''2007''', {{w2|ja|さよなら絶望先生|pref=『|suf=』}} {{lang|ja|第5話}}<sup>[http://mackenzie.up.n.seesaa.net/mackenzie/image/zetubo5-3.jpg]</sup>
+#*: {{lang|ja|己を知らされば、戦う毎に必ず殆し。by 孫子}}
+#* '''2009''', {{w2|ja|けいおん!|けいおん！|pref=『|suf=』}} {{lang|ja|第4話}}<sup>[https://twitter.com/keion_tv/status/666692287246819329]</sup>
+#*: {{lang|ja|めざせ武道館！！　by 軽音部！}}
+
+----
+
+==Lower Sorbian==
+
+===Pronunciation===
+* {{IPA|[bɨ]|lang=dsb}}
+
+===Verb===
+{{head|dsb|verb|defective||invariable|cat2=defective verbs}}
+
+# [[would]] {{qualifier|used with the past active participle to form a conditional}}
+#: {{ux|dsb|Njecynimy to, dokulaž '''by''' jim škóźeło.|We don’t do that because it would hurt them.}}
+
+====Usage notes====
+This verb may be omitted before the past active participles of {{m|dsb|móc||be able to}}, {{m|dsb|kśěś||want to}}, and {{m|dsb|dejaś||ought to}}.
+
+====Derived terms====
+* {{l|cy|aby||that...would}}
+* {{l|cy|gaby||if...would}}
+* {{l|cy|gdyby||if...would}}
+* {{l|cy|njeby||would not}}
+
+----
+
+==Manx==
+
+===Alternative forms===
+* {{l|gv|b'}}
+* {{l|gv|b-}}
+
+===Particle===
+{{head|gv|particle}} {{qualifier|triggers lenition}}
+
+# {{non-gloss definition|Past and conditional form of {{m|gv|s'}}}}
+#: {{ux|gv|{{m|gv|by vie lesh|'''By''' vie lhiam}} goll {{m|gv|myrgeddin}}.|I want to go as well.}}
+#: {{ux|gv|{{m|gv|b'laik lesh|'''B''''laik lhiam}} briaght jiu c'red '''{{m|gv|bare}}''' lhiu jannoo jiu.|I'd like to ask you what you'd prefer to do today.}}
+# {{lb|gv|dated}} {{non-gloss definition|Past and conditional form of {{m|gv|s'}}}} {{qualifier|used to introduce the comparative and superlative form of adjectives}}
+#: {{ux|gv|yn dooinney '''by''' hroshey|the man who was the strongest|inline=1}}
+
+----
+
+==Middle English==
+
+===Verb===
+{{head|enm|verb}}
+
+# [[be]]
+
+----
+
+==Norwegian Bokmål==
+{{wikipedia|lang=no}}
+
+===Pronunciation===
+* {{IPA|/byː/|[byː]|lang=nb}}
+
+===Etymology 1===
+From {{der|nb|non|býr||place (to camp or settle), land, property, lot; ''and later'' settlement}}.
+
+====Noun====
+{{nb-noun-m1}}
+
+# {{l|en|town}}, {{l|en|city}} (regardless of population size or land area)
+
+=====Derived terms=====
+{{der3-u|lang=nb
+|bydel
+|{{l|nb|byfornyelse}}, {{l|nb|byfornying}}
+|bygdeby
+|bymessig
+|bystat
+|bystatus
+|drabantby
+|ferieby
+|gamleby
+|havneby
+|hjemby
+|landsby
+|Mexico by
+|naboby
+|spøkelsesby
+|storby
+}}
+
+===Etymology 2===
+{{PIE root|nb|bʰewdʰ}}
+From {{m|nb|byde}}, from {{der|nb|non|bjóða}}, from {{der|nb|gem-pro|*beudaną||to offer}}, from {{der|nb|ine-pro|*bʰewdʰ-||to wake, rise up}}.
+
+====Alternative forms====
+* {{l|nb|byde}}
+
+====Verb====
+{{head|nb|verb|imperative|by|present tense|byr|simple past|bød|or|bøy|or|bydde|past participle|budt|or|bydd}}
+
+# to {{l|en|bid}}; {{l|en|offer}}
+# to {{l|en|ask}}; {{l|en|invite}}
+# to {{l|en|command}}; {{l|en|order}}
+
+===References===
+* {{R:The Bokmål Dictionary}}
+
+----
+
+==Norwegian Nynorsk==
+
+===Pronunciation===
+* {{IPA|/byː/|lang=no}}
+
+===Etymology 1===
+From {{der|nn|non|býr||place (to camp or settle), land, property, lot; ''and later'' settlement}}.
+
+====Noun====
+{{nn-noun-m1}}
+
+#  {{l|en|town}}, {{l|en|city}} (regardless of population size or land area)
+
+=====Derived terms=====
+{{der3-u|lang=nn
+|bydel
+|byfornying
+|bygdeby
+|bystat
+|bystatus
+|drabantby
+|ferieby
+|gamleby
+|landsby
+|Mexico by
+|naboby
+|[[spøkelsesby]], [[spøkjelsesby]]
+|storby
+}}
+
+===Etymology 2===
+{{PIE root|nn|bʰewdʰ}}
+From {{der|nn|non|bjóða}}, from {{der|nn|gem-pro|*beudaną||to offer}}, from {{der|nn|ine-pro|*bʰewdʰ-||to wake, rise up}}. Akin to {{cog|en|bid}}
+
+====Alternative forms====
+* {{l|nn|byde}}
+* {{l|nn|byda}}
+
+====Verb====
+{{head|nn|verb|present tense|byr|past tense|baud|or|bydde|past participle|bode|or|bydd|or|bydt|present participle|bydande|imperative|by}}
+
+# to {{l|en|command}}, {{l|en|order}}
+#: ''Eg '''byd''' deg å stoppe.''
+#:: I '''command''' you to stop.
+# to {{l|en|bid}}, {{l|en|offer}}
+#: ''Eg '''byd''' deg 100 kroner.''
+#:: I '''offer''' you a 100 NOK.
+# to {{l|en|offer}}
+#: ''Bestemor '''baud''' på småkaker.''
+#:: Granny '''offered''' us cookies.
+
+===References===
+* {{R:The Nynorsk Dictionary}}
+
+----
+
+==Polish==
+
+===Pronunciation===
+* {{pl-IPA}}
+* {{audio|Pl-by.ogg|Audio|lang=pl}}
+
+===Particle===
+{{head|pl|particle}}
+
+# (always before a verb) a particle used to make conditional mood; [[would]], [[should]]
+#: ''On '''by''' tam nie poszedł.'' = ''On nie poszedł'''by''' tam.'' — He would not go there.
+
+{|class="wikitable"
+|-
+|
+!singular
+!plural
+|-
+!1st person
+|align="center"|[[bym]]
+|align="center"|[[byśmy]]
+|-
+!2nd person
+|align="center"|[[byś#Polish|byś]]
+|align="center"|[[byście]]
+|-
+!3rd person
+|align="center"|by
+|align="center"|by
+|}
+
+====Synonyms====
+* {{l|pl|-by}} (suffix)
+
+===Conjunction===
+{{head|pl|conjunction}}
+
+# [[in order to]], [[so that]]
+
+====Synonyms====
+* {{l|pl|aby}}, {{l|pl|żeby}}
+
+===Further reading===
+* {{R:PWN}}
+
+----
+
+==Swedish==
+
+===Etymology===
+From {{der|sv|non|býr||place (to camp or settle), land, property, lot; ''and later'' settlement}}.
+
+===Pronunciation===
+* {{audio|Sv-by.ogg|audio|lang=sv}}
+
+===Noun===
+{{sv-noun|c}}
+
+# [[village]]
+# {{lb|sv|obsolete}} [[farm]]
+# [[gust]], rush of wind
+
+====Declension====
+{{sv-noun-irreg-c|2=byn|3=byar}}
+
+====Related terms====
+; {{sense|village}}
+{|
+|- valign=top
+|
+* {{l|sv|byalag}}
+* {{l|sv|byallmänning}}
+* {{l|sv|byamål}}
+* {{l|sv|bybo}}
+* {{l|sv|bydåre}}
+|
+* {{l|sv|byfåne}}
+* {{l|sv|bygata}}
+* {{l|sv|byhåla}}
+* {{l|sv|byoriginal}}
+* {{l|sv|bypolitik}}
+|
+* {{l|sv|bypolitiker}}
+* {{l|sv|byracka}}
+* {{l|sv|bysamfällighet}}
+* {{l|sv|byskola}}
+* {{l|sv|byskvaller}}
+|
+* {{l|sv|byslagsmål}}
+* {{l|sv|bysnille}}
+* {{l|sv|bystämma}}
+* {{l|sv|bytänkande}}
+* {{l|sv|byväg}}
+|
+* {{l|sv|Ekeby}}
+* {{l|sv|hemby}}
+* {{l|sv|kyrkby}}
+* {{l|sv|Täby}}
+* {{l|sv|Viby}}
+|}
+; {{sense|breeze}}
+* {{l|sv|byig}}
+* {{l|sv|bymoln}}
+* {{l|sv|kastby}}
+* {{l|sv|regnby}}
+* {{l|sv|stormby}}
+
+===References===
+* {{R:SAOL}}
+
+----
+
+==West Frisian==
+
+===Pronunciation===
+* {{IPA|/bɛɪ/|lang=fy}}
+
+===Preposition===
+{{head|fy|preposition}}
+
+# [[near]] to
+# [[in relation to]]
+#: {{ux|fy|'''By''' âlds|t=In the olden days}}
