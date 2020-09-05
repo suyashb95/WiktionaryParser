@@ -83,10 +83,6 @@ class TestParser(unittest.TestCase):
     def test_fetch_using_mock_session(self, lang: str, word: str, old_id: int, mock_get):
         self.__test_fetch(lang, word, old_id)
 
-    @parameterized.expand(get_test_words_table('ἀγγελία', 'test'))
-    def test_fetch_using_actual_session(self, lang: str, word: str, old_id: int):
-        self.__test_fetch(lang, word, old_id)
-
     def __test_fetch(self, lang: str, word: str, old_id: int):
         parser.set_default_language(lang)
         fetched_word = parser.fetch(word, old_id=old_id)

@@ -1,9 +1,0 @@
-==English==
-
-===Verb===
-{{en-verb|patronis}}
-
-# {{lb|en|British spelling}} {{altform|patronize|lang=en}}
-
-===Anagrams===
-* {{anagrams|en|apertions|atropines|isopteran}}

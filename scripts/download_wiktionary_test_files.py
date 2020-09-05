@@ -120,9 +120,6 @@ def download_test_html_and_markup(words_and_old_ids: List[Set]):
             futures.append(create_html_request(word,
                                                old_id,
                                                session))
-            futures.append(create_markup_request( word,
-                                                 old_id,
-                                                 session))
 
         as_completed(futures)
 
