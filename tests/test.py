@@ -3,10 +3,17 @@ import unittest
 import json
 from .context import WiktionaryParser
 from deepdiff import DeepDiff
-from typing import Dict
+from typing import Dict, List
+import mock
+from urllib import parse
+import os
 
 parser = WiktionaryParser()
 
+
+tests_dir = os.path.dirname(__file__)
+html_test_files_dir = os.path.join(tests_dir, 'html_test_files')
+markup_test_files_dir = os.path.join(tests_dir, 'markup_test_files')
 
 test_words = [
     ('ἀγγελία', 47719496, ['Ancient Greek']),
@@ -31,15 +38,35 @@ test_words = [
 ]
 
 
-def get_test_words_table():
+def get_test_words_table(*allowed_words):
     """Convert the test_words array to an array of three element tuples."""
     result = []
 
     for word, old_id, languages in test_words:
         for language in languages:
-            result.append((language, word, old_id))
+            if len(allowed_words) == 0 or (word in allowed_words):
+                result.append((language, word, old_id))
 
     return result
+
+
+class MockResponse:
+    def __init__(self, text: str):
+        self.text = text
+
+
+def mocked_requests_get(*args, **kwargs):
+    url = args[0]
+    parsed_url = parse.urlparse(url)
+    params = kwargs['params']
+
+    word = parsed_url.path.split('/')[-1]
+    filepath = os.path.join(html_test_files_dir,
+                            f'{word}-{params["oldid"]}.html')
+    with open(filepath, 'r', encoding='utf-8') as f:
+        text = f.read()
+
+    return MockResponse(text)
 
 
 class TestParser(unittest.TestCase):
@@ -52,7 +79,15 @@ class TestParser(unittest.TestCase):
         super(TestParser, self).__init__(*args, **kwargs)
 
     @parameterized.expand(get_test_words_table())
-    def test_fetch(self, lang: str, word: str, old_id: int):
+    @mock.patch("requests.Session.get", side_effect=mocked_requests_get)
+    def test_fetch_using_mock_session(self, lang: str, word: str, old_id: int, mock_get):
+        self.__test_fetch(lang, word, old_id)
+
+    @parameterized.expand(get_test_words_table('ἀγγελία', 'test'))
+    def test_fetch_using_actual_session(self, lang: str, word: str, old_id: int):
+        self.__test_fetch(lang, word, old_id)
+
+    def __test_fetch(self, lang: str, word: str, old_id: int):
         parser.set_default_language(lang)
         fetched_word = parser.fetch(word, old_id=old_id)
 
