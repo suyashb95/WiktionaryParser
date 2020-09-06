@@ -6,7 +6,8 @@ words to be used in offline testing.
 import requests
 import os
 from typing import List, Set
-from tests import test
+# pylint: disable=F0401
+from tests import test_core as test
 from concurrent.futures import as_completed
 from requests_futures.sessions import FuturesSession
 
