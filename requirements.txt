@@ -3,3 +3,5 @@ beautifulsoup4==4.4.0
 deepdiff==3.3.0
 parameterized==0.7.4
 requests-futures==1.0.0
+mock==4.0.2
+pylint==2.6.0

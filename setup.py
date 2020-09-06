@@ -9,7 +9,7 @@ setup(
   description = 'A tool to parse word data from wiktionary.com into a JSON object',
   long_description = long_desc,
   long_description_content_type='text/markdown',
-  packages = ['', 'tests', 'utils'],
+  packages = ['wiktionaryparser', 'tests'],
   data_files=[('testOutput', ['tests/testOutput.json']), ('readme', ['readme.md']), ('requirements', ['requirements.txt'])],
   author = 'Suyash Behera',
   author_email = 'sne9x@outlook.com',

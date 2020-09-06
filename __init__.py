@@ -1,1 +1,0 @@
-from .wiktionaryparser import WiktionaryParser
