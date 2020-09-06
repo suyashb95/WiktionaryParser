@@ -3,9 +3,70 @@ import unittest
 import json
 from .context import WiktionaryParser
 from deepdiff import DeepDiff
-from typing import Dict
+from typing import Dict, List
+import mock
+from urllib import parse
+import os
 
 parser = WiktionaryParser()
+
+
+tests_dir = os.path.dirname(__file__)
+html_test_files_dir = os.path.join(tests_dir, 'html_test_files')
+markup_test_files_dir = os.path.join(tests_dir, 'markup_test_files')
+
+test_words = [
+    ('ἀγγελία', 47719496, ['Ancient Greek']),
+    ('grapple', 50080840, ['English']),
+    ('test', 50342756, ['English']),
+    ('patronise', 49023308, ['English']),
+    ('abiologically', 43781266, ['English']),
+    ('alexin', 50152026, ['English']),
+    ('song', 50235564, ['English']),
+    ('house', 50356446, ['English']),
+    ('video', 50291344, ['Latin']),
+    ('seg', 50359832, ['Norwegian Bokmål']),
+    ('aldersblandet', 38616917, ['Norwegian Bokmål']),
+    ('by', 50399022, ['Norwegian Bokmål']),
+    ('for', 50363295, ['Norwegian Bokmål']),
+    ('admiral', 50357597, ['Norwegian Bokmål']),
+    ('heis', 49469949, ['Norwegian Bokmål']),
+    ('konkurs', 48269433, ['Norwegian Bokmål']),
+    ('pantergaupe', 46717478, ['Norwegian Bokmål']),
+    ('maldivisk', 49859434, ['Norwegian Bokmål']),
+    ('house', 50356446, ['Swedish'])
+]
+
+
+def get_test_words_table(*allowed_words):
+    """Convert the test_words array to an array of three element tuples."""
+    result = []
+
+    for word, old_id, languages in test_words:
+        for language in languages:
+            if len(allowed_words) == 0 or (word in allowed_words):
+                result.append((language, word, old_id))
+
+    return result
+
+
+class MockResponse:
+    def __init__(self, text: str):
+        self.text = text
+
+
+def mocked_requests_get(*args, **kwargs):
+    url = args[0]
+    parsed_url = parse.urlparse(url)
+    params = kwargs['params']
+
+    word = parsed_url.path.split('/')[-1]
+    filepath = os.path.join(html_test_files_dir,
+                            f'{word}-{params["oldid"]}.html')
+    with open(filepath, 'r', encoding='utf-8') as f:
+        text = f.read()
+
+    return MockResponse(text)
 
 
 class TestParser(unittest.TestCase):
@@ -17,55 +78,12 @@ class TestParser(unittest.TestCase):
 
         super(TestParser, self).__init__(*args, **kwargs)
 
-    @parameterized.expand([
-        ('grapple', 50080840),
-        ('test', 50342756),
-        ('patronise', 49023308),
-        ('abiologically', 43781266),
-        ('alexin', 50152026),
-        ('song', 50235564),
-        ('house', 50356446),
-    ])
-    def test_words_from_english(self, word: str, old_id: int):
-        self.__test_word(word, old_id, 'English')
+    @parameterized.expand(get_test_words_table())
+    @mock.patch("requests.Session.get", side_effect=mocked_requests_get)
+    def test_fetch_using_mock_session(self, lang: str, word: str, old_id: int, mock_get):
+        self.__test_fetch(lang, word, old_id)
 
-    @parameterized.expand([
-        ('video', 50291344),
-    ])
-    def test_words_from_latin(self, word: str, old_id: int):
-        self.__test_word(word, old_id, 'Latin')
-
-    @parameterized.expand([
-        ('seg', 50359832),
-        ('aldersblandet', 38616917),
-        ('by', 50399022),
-        ('for', 50363295),
-        ('admiral', 50357597),
-        ('heis', 49469949),
-        ('konkurs', 48269433),
-        ('pantergaupe', 46717478),
-        ('maldivisk', 49859434),
-    ])
-    def test_words_from_norwegian_bokmal(self, word: str, old_id: int):
-        self.__test_word(word, old_id, 'Norwegian Bokmål')
-
-    @parameterized.expand([
-        ('house', 50356446)
-    ])
-    def test_words_from_swedish(self, word: str, old_id: int):
-        self.__test_word(word, old_id, 'Swedish')
-
-    @parameterized.expand([
-        ('ἀγγελία', 47719496)
-    ])
-    def test_words_from_ancient_greek(self, word: str, old_id: int):
-        self.__test_word(word, old_id, 'Ancient Greek')
-
-    def __test_words(self, words_and_ids: Dict[str, int], lang: str):
-        for word, old_id in words_and_ids.items():
-            self.__test_word(word, old_id, lang)
-
-    def __test_word(self, word: str, old_id: int, lang: str):
+    def __test_fetch(self, lang: str, word: str, old_id: int):
         parser.set_default_language(lang)
         fetched_word = parser.fetch(word, old_id=old_id)
 
@@ -87,4 +105,3 @@ class TestParser(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
- 	
