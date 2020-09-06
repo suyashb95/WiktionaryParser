@@ -1,6 +1,6 @@
 requests==2.20.0
-beautifulsoup4==4.4.0
-deepdiff==3.3.0
+beautifulsoup4==4.9.1
+deepdiff==5.0.2
 parameterized==0.7.4
 requests-futures==1.0.0
 mock==4.0.2
