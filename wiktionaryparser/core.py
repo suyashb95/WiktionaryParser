@@ -176,7 +176,14 @@ class WiktionaryParser(object):
                 if definition_tag.name in ['ol', 'ul']:
                     for element in definition_tag.find_all('li', recursive=False):
                         if element.text:
-                            definition_text.append(element.text.strip())
+                            sub_definitions = element.find_all("li")
+                            if sub_definitions:
+                                top_definition = element.text.split('\n')[0].strip()
+                                definitions_list = [sub_definition.text.strip() for sub_definition in sub_definitions]
+                                definitions_list.insert(0, top_definition)
+                                definition_text.append(definitions_list)
+                            else:
+                                definition_text.append(element.text.strip())
             if def_type == 'definitions':
                 def_type = ''
             definition_list.append((def_index, definition_text, def_type))
