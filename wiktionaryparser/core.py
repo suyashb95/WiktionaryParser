@@ -198,7 +198,7 @@ class WiktionaryParser(object):
                         examples.append(example_text)
                     element.clear()
                 example_list.append((def_index, examples, def_type))
-                for quot_list in table.find_all(['ul', 'ol']):
+                for quot_list in table.find_all("ul", recursive=True):
                     quot_list.clear()
                 table = table.find_next_sibling()
         return example_list
