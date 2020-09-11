@@ -178,10 +178,11 @@ class WiktionaryParser(object):
                         if element.text:
                             sub_definitions = element.find_all("li")
                             if sub_definitions:
-                                top_definition = element.text.split('\n')[0].strip()
-                                definitions_list = [sub_definition.text.strip() for sub_definition in sub_definitions]
-                                definitions_list.insert(0, top_definition)
-                                definition_text.append(definitions_list)
+                                element.find("ol").extract()
+                                top_definition = element.text.strip()
+                                sub_definitions_list = [sub_definition.text.strip() for sub_definition in sub_definitions]
+                                sub_definitions_list.insert(0, top_definition)
+                                definition_text.append(sub_definitions_list)
                             else:
                                 definition_text.append(element.text.strip())
             if def_type == 'definitions':
