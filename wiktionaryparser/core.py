@@ -249,7 +249,10 @@ class WiktionaryParser(object):
                     data_obj.pronunciations = text
                     data_obj.audio_links = audio_links
             for definition_index, definition_text, definition_type in word_data['definitions']:
-                if current_etymology[0] <= definition_index < next_etymology[0] \
+                current_etymology_str = ".".join(f"{int(num):02d}" for num in current_etymology[0].split(".") if num)
+                definition_index_str = ".".join(f"{int(num):02d}" for num in definition_index.split(".") if num)
+                next_etymology_str = ".".join(f"{int(num):02d}" for num in next_etymology[0].split(".") if num)
+                if current_etymology_str <= definition_index_str < next_etymology_str \
                         or is_subheading(current_etymology[0], definition_index):
                     def_obj = Definition()
                     def_obj.text = definition_text
