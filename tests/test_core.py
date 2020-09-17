@@ -22,7 +22,7 @@ test_words = [
     ('patronise', 49023308, ['English']),
     ('abiologically', 43781266, ['English']),
     ('alexin', 50152026, ['English']),
-    ('song', 50235564, ['English']),
+    ('song', 60388804, ['English']),
     ('house', 50356446, ['English']),
     ('video', 50291344, ['Latin']),
     ('seg', 50359832, ['Norwegian Bokmål']),
@@ -96,7 +96,7 @@ class TestParser(unittest.TestCase):
 
         if diff != {}:
             print("Found mismatch in \"{}\" in \"{}\"".format(word, lang))
-            print(json.dumps(json.loads(diff.json), indent=4))
+            print(json.dumps(json.loads(diff.to_json()), indent=4))
             print("Actual result:")
             print(json.dumps(fetched_word, indent=4))
 
