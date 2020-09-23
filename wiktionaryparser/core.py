@@ -114,8 +114,16 @@ class WiktionaryParser(object):
         for content in contents:
             if content.text.lower() == language:
                 start_index = content.find_previous().text + '.'
-        if len(contents) != 0 and not start_index:
-            return []
+        if not start_index:
+            if contents:
+                return []
+            language_heading = self.soup.find_all(
+                "span",
+                {"class": "mw-headline"},
+                string=lambda s: s.lower() == language
+            )
+            if not language_heading:
+                return []
         for content in contents:
             index = content.find_previous().text
             content_text = self.remove_digits(content.text.lower())
