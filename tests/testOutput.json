@@ -77,6 +77,54 @@
                 }
             }
         ],
+        "correspondent": [
+            {
+                "etymology": "From Latin, via Middle French or directly, from Medieval Latin correspond\u0113ns, present participle of corresponde\u014d.\n",
+                "definitions": [
+                    {
+                        "partOfSpeech": "adjective",
+                        "text": [
+                            "correspondent (comparative more correspondent, superlative most correspondent)",
+                            "Corresponding; suitable; adapted; congruous.",
+                            "(with to or with) Conforming; obedient."
+                        ],
+                        "relatedWords": [],
+                        "examples": [
+                            "Action correspondent or repugnant unto the law.",
+                            "[VV]e are able with playne demon\u017ftration to proue, and vvith rea\u017fon to per\u017fvvade that in tymes pa\u017ft our fayth vvas alike, that then vve preached thinges corre\u017fpondent vnto the forme of faith already published of vs, \u017fo that none in this behalfe can repyne or gaynesay vs.",
+                            "ARIEL: Pardon, master: / I will be correspondent to command, / And do my spriting gently."
+                        ]
+                    },
+                    {
+                        "partOfSpeech": "noun",
+                        "text": [
+                            "correspondent (plural correspondents)",
+                            "Someone who or something which corresponds.",
+                            "Someone who communicates with another person, or a publication, by writing.",
+                            "A journalist who sends reports back to a newspaper or radio or television station from a distant or overseas location."
+                        ],
+                        "relatedWords": [
+                            {
+                                "relationshipType": "hyponyms",
+                                "words": [
+                                    "stringer"
+                                ]
+                            }
+                        ],
+                        "examples": []
+                    }
+                ],
+                "pronunciations": {
+                    "text": [
+                        "(Received Pronunciation) IPA: /\u02cck\u0252\u0279\u026a\u02c8sp\u0252nd\u0259nt/",
+                        "(General American) IPA: /\u02cck\u0254\u0279\u026a\u02c8sp\u0251nd\u0259nt/"
+                    ],
+                    "audio": [
+                        "//upload.wikimedia.org/wikipedia/commons/transcoded/5/58/En-us-correspondent.ogg/En-us-correspondent.ogg.mp3"
+                    ]
+                }
+            }
+        ],
         "grapple": [
             {
                 "etymology": "From Middle English *grapplen (\u201cto seize, lay hold of\u201d), from Old English *gr\u00e6pplian (\u201cto seize\u201d) (compare Old English \u0121egr\u00e6ppian (\u201cto seize\u201d)), from Proto-Germanic *graipil\u014dn\u0105, *grabbal\u014dn\u0105 (\u201cto seize\u201d), from Proto-Indo-European *ghreb(h)-, *ghrab(h)- (\u201cto take, seize, rake\u201d), equivalent to grab +\u200e -le. Cognate with Dutch grabbelen (\u201cto grope, scramble, scrabble\u201d), German grabbeln (\u201cto rummage, grope about\u201d) and grapsen, grapschen (\u201cto seize, grasp, grabble\u201d). Influenced in some senses by grapple (\u201ctool with claws or hooks\u201d, noun) (see below). See further at grasp.\n",
