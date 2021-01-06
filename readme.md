@@ -7,22 +7,23 @@ A python project which downloads words from English Wiktionary ([en.wiktionary.o
 #### JSON structure
 
 ```json
-[{
-    "pronunciations": {
-        "text": ["pronunciation text"],
-        "audio": ["pronunciation audio"]
-    },
-    "definitions": [{
-        "relatedWords": [{
-            "relationshipType": "word relationship type",
-            "words": ["list of related words"]
-        }],
-        "text": ["list of definitions"],
-        "partOfSpeech": "part of speech",
-        "examples": ["list of examples"]
-    }],
-    "etymology": "etymology text",
-}]
+{"content": [{
+                "pronunciations": {
+                    "text": ["pronunciation text"],
+                    "audio": ["pronunciation audio"]
+                },
+                "definitions": [{
+                    "relatedWords": [{
+                        "relationshipType": "word relationship type",
+                        "words": ["list of related words"]
+                    }],
+                    "text": ["list of definitions"],
+                    "partOfSpeech": "part of speech",
+                    "examples": ["list of examples"]
+                }],
+                "etymology": "etymology text",
+            }]
+"categories": ["list of categories"]}
 ```
 
 #### Installation

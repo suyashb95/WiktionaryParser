@@ -135,9 +135,17 @@ class WiktionaryParser(object):
             'etymologies': self.parse_etymologies(word_contents),
             'related': self.parse_related_words(word_contents),
             'pronunciations': self.parse_pronunciations(word_contents),
+            'categories': self.parse_categories(),
         }
         json_obj_list = self.map_to_object(word_data)
         return json_obj_list
+
+    def parse_categories(self):
+        categories_list = []
+        catlinks = self.soup.find_all('div', {'class': 'catlinks'})
+        if len(catlinks) == 1:
+            categories_list = [cat.text for cat in catlinks[0].find_all('a')]
+        return categories_list
 
     def parse_pronunciations(self, word_contents):
         pronunciation_id_list = self.get_id_list(word_contents, 'pronunciation')
@@ -273,7 +281,7 @@ class WiktionaryParser(object):
                             def_obj.related_words.append(RelatedWord(relation_type, related_words))
                     data_obj.definition_list.append(def_obj)
             json_obj_list.append(data_obj.to_json())
-        return json_obj_list
+        return {'content': json_obj_list, 'categories': word_data['categories'][1:]}
 
     def fetch(self, word, language=None, old_id=None):
         language = self.language if not language else language
