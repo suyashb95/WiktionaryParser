@@ -283,6 +283,15 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return {'content': json_obj_list, 'categories': word_data['categories'][1:]}
 
+    def get_category_data(self):
+        # TODO: Add functionality for categories with multiple pages on wiktionary.
+        # TODO: Return subcategories
+        words = []
+        category_group = self.soup.find('div', {'id': 'mw-pages'}).find_all('div', {'class': 'mw-category'})
+        if len(category_group) == 1:
+            words = [word.text for word in category_group[0].find_all('a')]
+        return words
+
     def fetch(self, word, language=None, old_id=None):
         language = self.language if not language else language
         response = self.session.get(self.url.format(word), params={'oldid': old_id})
@@ -290,3 +299,10 @@ class WiktionaryParser(object):
         self.current_word = word
         self.clean_html()
         return self.get_word_data(language.lower())
+
+    def fetch_category(self, category):
+        category = "Category:" + category
+        response = self.session.get(self.url.format(category))
+        self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
+        self.clean_html()
+        return self.get_category_data()
