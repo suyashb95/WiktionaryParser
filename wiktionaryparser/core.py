@@ -107,7 +107,7 @@ class WiktionaryParser(object):
                 id_list.append((content_index, content_id, text_to_check))
         return id_list
 
-    def get_word_data(self, language):
+    def get_word_data(self, language, return_categories):
         contents = self.soup.find_all('span', {'class': 'toctext'})
         word_contents = []
         start_index = None
@@ -135,10 +135,14 @@ class WiktionaryParser(object):
             'etymologies': self.parse_etymologies(word_contents),
             'related': self.parse_related_words(word_contents),
             'pronunciations': self.parse_pronunciations(word_contents),
-            'categories': self.parse_categories(),
+
         }
         json_obj_list = self.map_to_object(word_data)
-        return json_obj_list
+        if return_categories:
+            categories = self.parse_categories()
+            return json_obj_list, categories[1:]
+        else:
+            return json_obj_list
 
     def parse_categories(self):
         categories_list = []
@@ -281,7 +285,7 @@ class WiktionaryParser(object):
                             def_obj.related_words.append(RelatedWord(relation_type, related_words))
                     data_obj.definition_list.append(def_obj)
             json_obj_list.append(data_obj.to_json())
-        return {'content': json_obj_list, 'categories': word_data['categories'][1:]}
+        return json_obj_list
 
     def get_category_data(self):
         # TODO: Add functionality for categories with multiple pages on wiktionary.
@@ -292,13 +296,13 @@ class WiktionaryParser(object):
             words = [word.text for word in category_group[0].find_all('a')]
         return words
 
-    def fetch(self, word, language=None, old_id=None):
+    def fetch(self, word, language=None, old_id=None, return_categories=False):
         language = self.language if not language else language
         response = self.session.get(self.url.format(word), params={'oldid': old_id})
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.current_word = word
         self.clean_html()
-        return self.get_word_data(language.lower())
+        return self.get_word_data(language.lower(), return_categories)
 
     def fetch_category(self, category):
         category = "Category:" + category

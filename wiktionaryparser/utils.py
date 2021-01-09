@@ -63,7 +63,7 @@ class Definition(object):
             'partOfSpeech': self.part_of_speech,
             'text': self.text,
             'relatedWords': [related_word.to_json() for related_word in self.related_words],
-            'examples': self.example_uses 
+            'examples': self.example_uses
         }
 
 
