@@ -135,7 +135,6 @@ class WiktionaryParser(object):
             'etymologies': self.parse_etymologies(word_contents),
             'related': self.parse_related_words(word_contents),
             'pronunciations': self.parse_pronunciations(word_contents),
-
         }
         json_obj_list = self.map_to_object(word_data)
         if return_categories:
@@ -287,14 +286,20 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
-    def get_category_data(self):
+    def get_category_data(self, return_subcategories=False):
         # TODO: Add functionality for categories with multiple pages on wiktionary.
-        # TODO: Return subcategories
         words = []
         category_group = self.soup.find('div', {'id': 'mw-pages'}).find_all('div', {'class': 'mw-category'})
         if len(category_group) == 1:
             words = [word.text for word in category_group[0].find_all('a')]
-        return words
+        if return_subcategories:
+            subcategories = []
+            category_groups = self.soup.find('div', {'id': 'mw-subcategories'}).find_all('div', {'class': 'mw-category-group'})
+            for category_group in category_groups:
+                subcategories += [cat.text for cat in category_group.find_all('a')]
+            return words, subcategories
+        else:
+            return words
 
     def fetch(self, word, language=None, old_id=None, return_categories=False):
         language = self.language if not language else language
@@ -304,9 +309,9 @@ class WiktionaryParser(object):
         self.clean_html()
         return self.get_word_data(language.lower(), return_categories)
 
-    def fetch_category(self, category):
+    def fetch_category(self, category, return_subcategories=False):
         category = "Category:" + category
         response = self.session.get(self.url.format(category))
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.clean_html()
-        return self.get_category_data()
+        return self.get_category_data(return_subcategories)
