@@ -27,7 +27,7 @@ A python project which downloads words from English Wiktionary ([en.wiktionary.o
 
 #### Installation
 
-##### Using pip 
+##### Using pip
 * run `pip install wiktionaryparser`
 
 ##### From Source
@@ -53,6 +53,12 @@ A python project which downloads words from English Wiktionary ([en.wiktionary.o
 >>> parser.set_default_language('french')
 >>> parser.exclude_part_of_speech('noun')
 >>> parser.include_relation('alternative forms')
+```
+
+```python
+>>> word, categories = parser.fetch('test', return_categories=True)
+>>> words = parser.fetch_category('English phrasebook')
+>>> words, subcategories = = parser.fetch_category('English phrasebook', return_subcategories=True)
 ```
 
 #### Requirements
