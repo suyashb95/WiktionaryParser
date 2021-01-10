@@ -286,12 +286,26 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
+    def parse_next_page_links(self):
+        link_tags = self.soup.find('div', {'id': 'mw-pages'}).find_all('a', {'title': 'Category:English phrasebook'})
+        return [link['href'] for link in link_tags if link.text == 'next page']
+
+    def parse_category_words(self):
+        words_content = self.soup.find('div', {'id': 'mw-pages'}).find('div', {'class': 'mw-content-ltr'})
+        words = [word.text for word in words_content.find_all('a')]
+        return words
+
     def get_category_data(self, return_subcategories=False):
-        # TODO: Add functionality for categories with multiple pages on wiktionary.
         words = []
-        category_groups = self.soup.find('div', {'id': 'mw-pages'}).find_all('div', {'class': 'mw-category-group'})
-        for category_group in category_groups:
-            words += [word.text for word in category_group.find_all('a')]
+        next_page_links = self.parse_next_page_links()
+        while len(next_page_links) > 0:
+            words += self.parse_category_words()
+            response = self.session.get('https://en.wiktionary.org/' + next_page_links[0])
+            self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
+            self.clean_html()
+            next_page_links = self.parse_next_page_links()
+        words += self.parse_category_words()
+
         if return_subcategories:
             subcategories = []
             category_groups = self.soup.find('div', {'id': 'mw-subcategories'}).find_all('div', {'class': 'mw-category-group'})
