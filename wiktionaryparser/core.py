@@ -289,9 +289,9 @@ class WiktionaryParser(object):
     def get_category_data(self, return_subcategories=False):
         # TODO: Add functionality for categories with multiple pages on wiktionary.
         words = []
-        category_group = self.soup.find('div', {'id': 'mw-pages'}).find_all('div', {'class': 'mw-category'})
-        if len(category_group) == 1:
-            words = [word.text for word in category_group[0].find_all('a')]
+        category_groups = self.soup.find('div', {'id': 'mw-pages'}).find_all('div', {'class': 'mw-category-group'})
+        for category_group in category_groups:
+            words += [word.text for word in category_group.find_all('a')]
         if return_subcategories:
             subcategories = []
             category_groups = self.soup.find('div', {'id': 'mw-subcategories'}).find_all('div', {'class': 'mw-category-group'})
