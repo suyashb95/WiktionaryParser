@@ -58,7 +58,8 @@ A python project which downloads words from English Wiktionary ([en.wiktionary.o
 ```python
 >>> word, categories = parser.fetch('test', return_categories=True)
 >>> words = parser.fetch_category('English phrasebook')
->>> words, subcategories = = parser.fetch_category('English phrasebook', return_subcategories=True)
+>>> words, subcategories = parser.fetch_category('English phrasebook', 
+                                                  return_subcategories=True)
 ```
 
 #### Requirements
