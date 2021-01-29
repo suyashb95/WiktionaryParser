@@ -24,6 +24,7 @@ test_words = [
     ('alexin', 50152026, ['English']),
     ('song', 60388804, ['English']),
     ('house', 50356446, ['English']),
+    ('correspondent', 61052028, ['English']),
     ('video', 50291344, ['Latin']),
     ('seg', 50359832, ['Norwegian Bokmål']),
     ('aldersblandet', 38616917, ['Norwegian Bokmål']),
