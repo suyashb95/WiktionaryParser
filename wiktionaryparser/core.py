@@ -144,7 +144,7 @@ class WiktionaryParser(object):
         pronunciation_list = []
         audio_links = []
         pronunciation_text = []
-        pronunciation_div_classes = ['mw-collapsible', 'vsSwitcher']
+        pronunciation_div_classes = ['mw-collapsible', 'vsSwitcher', 'zhpron']
         for pronunciation_index, pronunciation_id, _ in pronunciation_id_list:
             span_tag = self.soup.find_all('span', {'id': pronunciation_id})[0]
             list_tag = span_tag.parent
