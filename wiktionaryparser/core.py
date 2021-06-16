@@ -185,7 +185,15 @@ class WiktionaryParser(object):
                 if definition_tag.name in ['ol', 'ul']:
                     for element in definition_tag.find_all('li', recursive=False):
                         if element.text:
-                            definition_text.append(element.text.strip())
+                            sub_definitions = element.find_all("li")
+                            if sub_definitions:
+                                element.find("ol").extract()
+                                top_definition = element.text.strip()
+                                sub_definitions_list = [sub_definition.text.strip() for sub_definition in sub_definitions]
+                                sub_definitions_list.insert(0, top_definition)
+                                definition_text.append(sub_definitions_list)
+                            else:
+                                definition_text.append(element.text.strip())
             if def_type == 'definitions':
                 def_type = ''
             definition_list.append((def_index, definition_text, def_type))
@@ -207,7 +215,7 @@ class WiktionaryParser(object):
                         examples.append(example_text)
                     element.clear()
                 example_list.append((def_index, examples, def_type))
-                for quot_list in table.find_all(['ul', 'ol']):
+                for quot_list in table.find_all("ul", recursive=True):
                     quot_list.clear()
                 table = table.find_next_sibling()
         return example_list
