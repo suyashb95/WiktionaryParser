@@ -107,7 +107,7 @@ class WiktionaryParser(object):
                 id_list.append((content_index, content_id, text_to_check))
         return id_list
 
-    def get_word_data(self, language):
+    def get_word_data(self, language, return_categories):
         contents = self.soup.find_all('span', {'class': 'toctext'})
         word_contents = []
         start_index = None
@@ -137,7 +137,18 @@ class WiktionaryParser(object):
             'pronunciations': self.parse_pronunciations(word_contents),
         }
         json_obj_list = self.map_to_object(word_data)
-        return json_obj_list
+        if return_categories:
+            categories = self.parse_categories()
+            return json_obj_list, categories[1:]
+        else:
+            return json_obj_list
+
+    def parse_categories(self):
+        categories_list = []
+        catlinks = self.soup.find_all('div', {'class': 'catlinks'})
+        if len(catlinks) == 1:
+            categories_list = [cat.text for cat in catlinks[0].find_all('a')]
+        return categories_list
 
     def parse_pronunciations(self, word_contents):
         pronunciation_id_list = self.get_id_list(word_contents, 'pronunciation')
@@ -276,10 +287,46 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
-    def fetch(self, word, language=None, old_id=None):
+    def parse_next_page_links(self, category):
+        link_tags = self.soup.find('div', {'id': 'mw-pages'}).find_all('a', {'title': category})
+        return [link['href'] for link in link_tags if link.text == 'next page']
+
+    def parse_category_words(self):
+        words_content = self.soup.find('div', {'id': 'mw-pages'}).find('div', {'class': 'mw-content-ltr'})
+        words = [word.text for word in words_content.find_all('a')]
+        return words
+
+    def get_category_data(self, category, return_subcategories=False):
+        words = []
+        next_page_links = self.parse_next_page_links(category)
+        while len(next_page_links) > 0:
+            words += self.parse_category_words()
+            response = self.session.get('https://en.wiktionary.org/' + next_page_links[0])
+            self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
+            self.clean_html()
+            next_page_links = self.parse_next_page_links(category)
+        words += self.parse_category_words()
+
+        if return_subcategories:
+            subcategories = []
+            category_groups = self.soup.find('div', {'id': 'mw-subcategories'}).find_all('div', {'class': 'mw-category-group'})
+            for category_group in category_groups:
+                subcategories += [cat.text for cat in category_group.find_all('a')]
+            return words, subcategories
+        else:
+            return words
+
+    def fetch(self, word, language=None, old_id=None, return_categories=False):
         language = self.language if not language else language
         response = self.session.get(self.url.format(word), params={'oldid': old_id})
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.current_word = word
         self.clean_html()
-        return self.get_word_data(language.lower())
+        return self.get_word_data(language.lower(), return_categories)
+
+    def fetch_category(self, category, return_subcategories=False):
+        category = "Category:" + category
+        response = self.session.get(self.url.format(category))
+        self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
+        self.clean_html()
+        return self.get_category_data(category, return_subcategories=return_subcategories)
