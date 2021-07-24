@@ -1,4 +1,5 @@
 from typing import List, Optional, Union, NoReturn, Dict
+
 from wiktionaryparser.types import Pronunciation
 
 

@@ -1,12 +1,14 @@
 import re
-import requests
-from requests import Session
-from wiktionaryparser.utils import WordData, Definition, RelatedWord
-from typing import Optional, Tuple, List, Union, Dict, Any
-from bs4 import BeautifulSoup
-from itertools import zip_longest
 from copy import copy
+from itertools import zip_longest
 from string import digits
+from typing import Optional, Tuple, List, Union, Dict, Any
+
+import requests
+from bs4 import BeautifulSoup
+from requests import Session
+
+from wiktionaryparser.utils import WordData, Definition, RelatedWord
 
 PARTS_OF_SPEECH = [
     "noun",
@@ -221,7 +223,6 @@ class WiktionaryParser:
     def parse_definitions(self, word_contents: list) -> List[Tuple[Any, list, str]]:
         definition_id_list = self.get_id_list(word_contents, "definitions")
         definition_list: list[tuple[Any, list, str]] = []
-        definition_tag = None
         for def_index, def_id, def_type in definition_id_list:
             definition_text = []
             span_tag = self.soup.find_all("span", {"id": def_id})[0]
