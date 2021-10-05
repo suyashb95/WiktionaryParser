@@ -7,5 +7,6 @@ __all__ = [
     'RelatedWord',
     'PARTS_OF_SPEECH',
     'RELATIONS',
-    'WiktionaryParser'
+    'WiktionaryParser',
+    'languages'
 ]
