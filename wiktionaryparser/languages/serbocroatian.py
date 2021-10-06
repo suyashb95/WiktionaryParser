@@ -12,7 +12,8 @@ class ConjugationsParser(ContentParser):
             inflection_table = None
             while parent_tag and inflection_table is None:
                 parent_tag = parent_tag.find_next_sibling()
-                inflection_table = parent_tag.select_one('.inflection-table')
+                if parent_tag:
+                    inflection_table = parent_tag.select_one('.inflection-table')
 
             if not inflection_table:
                 return None
@@ -67,6 +68,9 @@ class ConjugationsParser(ContentParser):
 
 class ConjugationsProcessor(object):
     def process_word_data(self, words, word_data):
+        if "conjugation" not in word_data or not word_data['conjugation']:
+            return
+
         for word in words:
             for conjugation_index, conjugation in word_data['conjugation']:
                 if word.contains_heading(conjugation_index):

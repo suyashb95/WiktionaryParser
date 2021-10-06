@@ -108,8 +108,7 @@ class TestParserExtensions(unittest.TestCase):
     def test_custom_content_parser(self):
         custom_parser = WiktionaryParser()
         custom_parser.set_default_language('serbo-croatian')
-        conjugations_parser = serbocroatian.ConjugationsParser()
-        custom_parser.set_content_parser("conjugation", conjugations_parser)
+        custom_parser.set_content_parser("conjugation", serbocroatian.ConjugationsParser())
         custom_parser.add_post_processor(serbocroatian.ConjugationsProcessor())
         words = custom_parser.fetch("hodati", old_id=60892603)
         self.assertEqual(words[0]["conjugations"]["present"][0], "hodam")
