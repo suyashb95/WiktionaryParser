@@ -1,24 +1,10 @@
 import re, requests
 from wiktionaryparser.utils import WordData, Definition, RelatedWord
+from wiktionaryparser.languages import abbreviation_to_language, get_language
+
 from bs4 import BeautifulSoup
 from itertools import zip_longest
-from copy import copy
 from string import digits
-
-PARTS_OF_SPEECH = [
-    "noun", "verb", "adjective", "adverb", "determiner",
-    "article", "preposition", "conjunction", "proper noun",
-    "letter", "character", "phrase", "proverb", "idiom",
-    "symbol", "syllable", "numeral", "initialism", "interjection",
-    "definitions", "pronoun", "particle", "predicative", "participle",
-    "suffix",
-]
-
-RELATIONS = [
-    "synonyms", "antonyms", "hypernyms", "hyponyms",
-    "meronyms", "holonyms", "troponyms", "related terms",
-    "coordinate terms",
-]
 
 def is_subheading(child, parent):
     child_headings = child.split(".")
@@ -31,17 +17,17 @@ def is_subheading(child, parent):
     return True
 
 class WiktionaryParser(object):
-    def __init__(self):
-        self.url = "https://en.wiktionary.org/wiki/{}?printable=yes"
+    def __init__(self, language: str="english"):
+        self.language = abbreviation_to_language(str(language))
+        self.current_word = None
         self.soup = None
+        self.PARTS_OF_SPEECH, self.RELATIONS, \
+            self.ETYMOLOGY, self.PRONUNCIATION, self.url = get_language(self.language)
         self.session = requests.Session()
         self.session.mount("http://", requests.adapters.HTTPAdapter(max_retries = 2))
         self.session.mount("https://", requests.adapters.HTTPAdapter(max_retries = 2))
-        self.language = 'english'
-        self.current_word = None
-        self.PARTS_OF_SPEECH = copy(PARTS_OF_SPEECH)
-        self.RELATIONS = copy(RELATIONS)
-        self.INCLUDED_ITEMS = self.RELATIONS + self.PARTS_OF_SPEECH + ['etymology', 'pronunciation']
+        self.INCLUDED_ITEMS = self.RELATIONS + self.PARTS_OF_SPEECH \
+                                    + self.ETYMOLOGY + self.PRONUNCIATION
 
     def include_part_of_speech(self, part_of_speech):
         part_of_speech = part_of_speech.lower()
@@ -85,9 +71,9 @@ class WiktionaryParser(object):
 
     def get_id_list(self, contents, content_type):
         if content_type == 'etymologies':
-            checklist = ['etymology']
+            checklist = self.ETYMOLOGY
         elif content_type == 'pronunciation':
-            checklist = ['pronunciation']
+            checklist = self.PRONUNCIATION
         elif content_type == 'definitions':
             checklist = self.PARTS_OF_SPEECH
             if self.language == 'chinese':
@@ -222,12 +208,16 @@ class WiktionaryParser(object):
             next_tag = span_tag.parent.find_next_sibling()
             while next_tag and next_tag.name not in ['h3', 'h4', 'div', 'h5']:
                 etymology_tag = next_tag
+                etymology_tag_text = ''
                 next_tag = next_tag.find_next_sibling()
                 if etymology_tag.name == 'p':
-                    etymology_text += etymology_tag.text
+                    etymology_tag_text += etymology_tag.text
+                elif etymology_tag.name in ['dd', 'dl']:
+                    etymology_tag_text += etymology_tag.text
                 else:
                     for list_tag in etymology_tag.find_all('li'):
-                        etymology_text += list_tag.text + '\n'
+                        etymology_tag_text += list_tag.text + '\n'
+                etymology_text += etymology_tag_text
             etymology_list.append((etymology_index, etymology_text))
         return etymology_list
 
