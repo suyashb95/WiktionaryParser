@@ -1,37 +1,31 @@
+def count_digits(s):
+    return len(list(filter(str.isdigit, s)))
+
+
 class WordData(object):
-    def __init__(self, etymology=None, definitions=None, pronunciations=None,
-                 audio_links=None):
-        self.etymology = etymology if etymology else ''
-        self.definition_list = definitions
-        self.pronunciations = pronunciations if pronunciations else []
-        self.audio_links = audio_links if audio_links else []
+    def __init__(self, index, next_index):
+        self.index = index
+        self.next_index = next_index
+        self.data = dict()
 
-    @property
-    def definition_list(self):
-        return self._definition_list
+    def contains_heading(self, other_index):
+        current_index_str = ".".join(f"{int(num):02d}" for num in self.index.split(".") if num)
+        definition_index_str = ".".join(f"{int(num):02d}" for num in other_index.split(".") if num)
+        next_index_str = ".".join(f"{int(num):02d}" for num in self.next_index.split(".") if num)
+        return current_index_str <= definition_index_str < next_index_str
 
-    @definition_list.setter
-    def definition_list(self, definitions):
-        if definitions is None:
-            self._definition_list = []
-            return
-        elif not isinstance(definitions, list):
-            raise TypeError('Invalid type for definition')
-        else:
-            for element in definitions:
-                if not isinstance(element, Definition):
-                    raise TypeError('Invalid type for definition')
-            self._definition_list = definitions
+    def is_sibling_heading(self, other):
+        return count_digits(self.index) == count_digits(other)
 
-    def to_json(self):
-        return {
-            'etymology': self.etymology,
-            'definitions': [definition.to_json() for definition in self._definition_list],
-            'pronunciations': {
-                'text': self.pronunciations,
-                'audio': self.audio_links
-            }
-        }
+    def belongs_to_heading(self, parent):
+        child_headings = self.index.split(".")
+        parent_headings = parent.split(".")
+        if len(child_headings) <= len(parent_headings):
+            return False
+        for child_heading, parent_heading in zip(child_headings, parent_headings):
+            if child_heading != parent_heading:
+                return False
+        return True
 
 
 class Definition(object):

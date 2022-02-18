@@ -2,6 +2,7 @@ from parameterized import parameterized
 import unittest
 import json
 from wiktionaryparser import WiktionaryParser
+from wiktionaryparser.languages import serbocroatian
 from deepdiff import DeepDiff
 from typing import Dict, List
 import mock
@@ -9,7 +10,6 @@ from urllib import parse
 import os
 
 parser = WiktionaryParser()
-
 
 tests_dir = os.path.dirname(__file__)
 html_test_files_dir = os.path.join(tests_dir, 'html_test_files')
@@ -102,6 +102,16 @@ class TestParser(unittest.TestCase):
             print(json.dumps(fetched_word, indent=4))
 
         self.assertEqual(diff, {})
+
+
+class TestParserExtensions(unittest.TestCase):
+    def test_custom_content_parser(self):
+        custom_parser = WiktionaryParser()
+        custom_parser.set_default_language('serbo-croatian')
+        custom_parser.set_content_parser("conjugation", serbocroatian.ConjugationsParser())
+        custom_parser.add_post_processor(serbocroatian.ConjugationsProcessor())
+        words = custom_parser.fetch("hodati", old_id=60892603)
+        self.assertEqual(words[0]["conjugations"]["present"][0], "hodam")
 
 
 if __name__ == '__main__':
