@@ -7,7 +7,7 @@ from string import digits
 
 PARTS_OF_SPEECH = [
     "noun", "verb", "adjective", "adverb", "determiner",
-    "article", "preposition", "conjunction", "proper noun",
+    "article", "preposition", "postposition", "conjunction", "proper noun",
     "letter", "character", "phrase", "proverb", "idiom",
     "symbol", "syllable", "numeral", "initialism", "interjection",
     "definitions", "pronoun", "particle", "predicative", "participle",
