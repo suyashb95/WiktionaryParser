@@ -153,7 +153,8 @@ class WiktionaryParser(object):
                 if list_tag.name == 'p':
                     pronunciation_text.append(list_tag.text)
                     break
-                if list_tag.name == 'div' and any(_ in pronunciation_div_classes for _ in list_tag['class']):
+                list_tag_class = list_tag['class'] if "class" in list_tag else []
+                if list_tag.name == 'div' and any(_ in pronunciation_div_classes for _ in list_tag_class):
                     break
             for super_tag in list_tag.find_all('sup'):
                 super_tag.clear()
