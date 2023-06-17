@@ -70,6 +70,11 @@ options:
                         if present, look up <word> for several languages; otherwise, just English
 ```
 
+#### Organization
+
+All of the above -- the modifications and new files -- are in a new `git` branch named
+`additional_info`.
+
 #### Minor problem with backwards compatibility
 
 If someone has written some code that checks the result returned by `.fetch()` like this ...
