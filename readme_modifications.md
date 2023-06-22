@@ -95,7 +95,7 @@ if not "definitions" in result[0]:
 
 [added 2023-06-22 08:53] It occurs to me that there might be a way around this problem: change
 the call signature to `.fetch()`, by adding the keyword arg `allow_messages=False`.  Calls to
-`.fetch()` in existing code would, of course, have no args, and since the default would be not
+`.fetch()` in existing code would, of course, not have this arg, and since the default would be not
 to allow the return of `"messages"`, a not-found condition would return an empty list, as
 before.  However, if the call, in new code, were `.fetch(allow_messages=True)`, then a not-found
 condition would result in what I was after: additional info about the not-found result.
