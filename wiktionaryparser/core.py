@@ -1,9 +1,12 @@
+from urllib import parse
 import re, requests
 from wiktionaryparser.utils import WordData, Definition, RelatedWord
 from bs4 import BeautifulSoup
 from itertools import zip_longest
 from copy import copy
 from string import digits
+import json
+import os
 
 PARTS_OF_SPEECH = [
     "noun", "verb", "adjective", "adverb", "determiner",
@@ -20,6 +23,12 @@ RELATIONS = [
     "coordinate terms",
 ]
 
+LANGUAGE_CODES = {}
+with open('./wiktionaryparser/wiki_codes.json', 'r', encoding="utf8") as f:
+    LANGUAGE_CODES = json.load(f)
+
+#Language codes originally obtained from droher/etymology-db repository
+#https://raw.githubusercontent.com/droher/etymology-db/master/wiktionary_codes.csv
 def is_subheading(child, parent):
     child_headings = child.split(".")
     parent_headings = parent.split(".")
@@ -32,7 +41,7 @@ def is_subheading(child, parent):
 
 class WiktionaryParser(object):
     def __init__(self):
-        self.url = "https://en.wiktionary.org/wiki/{}?printable=yes"
+        self.url = "https://{}.wiktionary.org/w/api.php"
         self.soup = None
         self.session = requests.Session()
         self.session.mount("http://", requests.adapters.HTTPAdapter(max_retries = 2))
@@ -143,9 +152,9 @@ class WiktionaryParser(object):
         pronunciation_id_list = self.get_id_list(word_contents, 'pronunciation')
         pronunciation_list = []
         audio_links = []
-        pronunciation_text = []
         pronunciation_div_classes = ['mw-collapsible', 'vsSwitcher']
         for pronunciation_index, pronunciation_id, _ in pronunciation_id_list:
+            pronunciation_text = []
             span_tag = self.soup.find_all('span', {'id': pronunciation_id})[0]
             list_tag = span_tag.parent
             while list_tag.name != 'ul':
@@ -276,10 +285,18 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
-    def fetch(self, word, language=None, old_id=None):
+    def fetch(self, word, language=None, old_id=None, **params):
+        params.update({'oldid': old_id, "list": "search", 'srsearch': word, "format": "json"})
+        params['action'] = params.get("action", "query")
+        # params = parse.urlencode(params)
+        print(params)
         language = self.language if not language else language
-        response = self.session.get(self.url.format(word), params={'oldid': old_id})
-        self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
+        lang_code = LANGUAGE_CODES.get(language.lower(), 'en')
+        response = self.session.get(self.url.format(lang_code), params=params)
+        self.soup = response.json()
         self.current_word = word
-        self.clean_html()
+        res = {"response": copy.deepcopy(params)}
+        res.update(params)
+        return res
+
         return self.get_word_data(language.lower())
