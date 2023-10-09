@@ -1,12 +1,9 @@
-from urllib import parse
 import re, requests
 from wiktionaryparser.utils import WordData, Definition, RelatedWord
 from bs4 import BeautifulSoup
 from itertools import zip_longest
 from copy import copy
 from string import digits
-import json
-import os
 
 PARTS_OF_SPEECH = [
     "noun", "verb", "adjective", "adverb", "determiner",
@@ -23,12 +20,6 @@ RELATIONS = [
     "coordinate terms",
 ]
 
-LANGUAGE_CODES = {}
-with open('./wiktionaryparser/wiki_codes.json', 'r', encoding="utf8") as f:
-    LANGUAGE_CODES = json.load(f)
-
-#Language codes originally obtained from droher/etymology-db repository
-#https://raw.githubusercontent.com/droher/etymology-db/master/wiktionary_codes.csv
 def is_subheading(child, parent):
     child_headings = child.split(".")
     parent_headings = parent.split(".")
@@ -41,7 +32,7 @@ def is_subheading(child, parent):
 
 class WiktionaryParser(object):
     def __init__(self):
-        self.url = "https://{}.wiktionary.org/w/api.php"
+        self.url = "https://en.wiktionary.org/wiki/{}?printable=yes"
         self.soup = None
         self.session = requests.Session()
         self.session.mount("http://", requests.adapters.HTTPAdapter(max_retries = 2))
@@ -121,7 +112,7 @@ class WiktionaryParser(object):
         word_contents = []
         start_index = None
         for content in contents:
-            if content.text.lower() == language:
+            if language in content.text.lower():
                 start_index = content.find_previous().text + '.'
         if not start_index:
             if contents:
@@ -146,7 +137,14 @@ class WiktionaryParser(object):
             'pronunciations': self.parse_pronunciations(word_contents),
         }
         json_obj_list = self.map_to_object(word_data)
+        for obj in json_obj_list:
+            obj['categories'] = self.parse_categories(),
+            
         return json_obj_list
+
+    def parse_categories(self):
+        catlinks = self.soup.select('#mw-normal-catlinks>ul>li')
+        return sorted({link.text for link in catlinks})
 
     def parse_pronunciations(self, word_contents):
         pronunciation_id_list = self.get_id_list(word_contents, 'pronunciation')
@@ -285,18 +283,10 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
-    def fetch(self, word, language=None, old_id=None, **params):
-        params.update({'oldid': old_id, "list": "search", 'srsearch': word, "format": "json"})
-        params['action'] = params.get("action", "query")
-        # params = parse.urlencode(params)
-        print(params)
+    def fetch(self, word, language=None, old_id=None):
         language = self.language if not language else language
-        lang_code = LANGUAGE_CODES.get(language.lower(), 'en')
-        response = self.session.get(self.url.format(lang_code), params=params)
-        self.soup = response.json()
+        response = self.session.get(self.url.format(word), params={'oldid': old_id})
+        self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.current_word = word
-        res = {"response": copy.deepcopy(params)}
-        res.update(params)
-        return res
-
+        self.clean_html()
         return self.get_word_data(language.lower())

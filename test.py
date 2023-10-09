@@ -17,8 +17,8 @@ markup_test_files_dir = os.path.join(tests_dir, 'markup_test_files')
 
 test_words = [
     # ('ἀγγελία', 47719496, ['Ancient Greek']),
-    ('اللغة_العربية', None, ['Arabic', 'EngliSH']),
-    # ('grapple', 50080840, ['EnGlish']),
+    ('خيط', None, ['Arabic']),
+    # ('The_White_House', None, ['EnGlish']),
     # ('test', 50342756, ['English']),
     # ('patronise', 49023308, ['English']),
     # ('abiologically', 43781266, ['English']),
@@ -52,8 +52,14 @@ def get_test_words_table(*allowed_words):
     return result
 
 test_words = get_test_words_table()
-
+results = []
 parser = WiktionaryParser()
+parser.include_relation('alternative forms')
 for lang, word, old_id in test_words:
-    result = parser.fetch(word=word, language=lang, old_id=old_id)
-    print(json.dumps(result, indent=4, ensure_ascii=False))
+    results += parser.fetch(word=word, language=lang, old_id=old_id)
+
+
+with open('testOutput.json', 'w', encoding="utf8") as f:
+    f.write(json.dumps(results, indent=4, ensure_ascii=False))
+
+    
