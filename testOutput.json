@@ -5,9 +5,20 @@
             {
                 "partOfSpeech": "verb",
                 "text": [
-                    "خيط • (ḵiyyaṭ) (form II, non-past يخيط‎ (yḵiyyaṭ))",
-                    "to sew",
-                    "(idiomatic) to stroll"
+                    {
+                        "text": "خيط • (ḵiyyaṭ) (form II, non-past يخيط‎ (yḵiyyaṭ))",
+                        "appendix_tags": []
+                    },
+                    {
+                        "text": "to sew",
+                        "appendix_tags": []
+                    },
+                    {
+                        "text": "to stroll",
+                        "appendix_tags": [
+                            "idiomatic"
+                        ]
+                    }
                 ],
                 "relatedWords": [],
                 "examples": []
@@ -62,8 +73,14 @@
             {
                 "partOfSpeech": "noun",
                 "text": [
-                    "خَيْط or خِيط • (ḵayṭ or ḵīṭ) m (plural خيوط‎ (ḵyūṭ) or خيوطة‎ (ḵyūṭa))",
-                    "thread, string, cable"
+                    {
+                        "text": "خَيْط or خِيط • (ḵayṭ or ḵīṭ) m (plural خيوط‎ (ḵyūṭ) or خيوطة‎ (ḵyūṭa))",
+                        "appendix_tags": []
+                    },
+                    {
+                        "text": "thread, string, cable",
+                        "appendix_tags": []
+                    }
                 ],
                 "relatedWords": [],
                 "examples": []

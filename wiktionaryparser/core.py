@@ -174,7 +174,22 @@ class WiktionaryParser(object):
                     pronunciation_text.append(list_element.text.strip())
             pronunciation_list.append((pronunciation_index, pronunciation_text, audio_links))
         return pronunciation_list
+    
+    def mine_element(self, element):
+        text = element.text.strip()
+        
+        appendix_removal = element.find_all("a", {"title": "Appendix:Glossary"})
+        appendix_removal = [a.text for a in appendix_removal]
+        for k in appendix_removal:
+            src_regex = re.compile(f'\(?{k}\)?')
+            text = re.sub(src_regex, '', text).strip()
 
+        D = {
+            "text": text,
+            "appendix_tags": appendix_removal
+        }
+        return D
+    
     def parse_definitions(self, word_contents):
         definition_id_list = self.get_id_list(word_contents, 'definitions')
         definition_list = []
@@ -188,11 +203,11 @@ class WiktionaryParser(object):
                 table = table.find_next_sibling()
                 if definition_tag.name == 'p':
                     if definition_tag.text.strip():
-                        definition_text.append(definition_tag.text.strip())
+                        definition_text.append(self.mine_element(definition_tag))
                 if definition_tag.name in ['ol', 'ul']:
                     for element in definition_tag.find_all('li', recursive=False):
                         if element.text:
-                            definition_text.append(element.text.strip())
+                            definition_text.append(self.mine_element(element))
             if def_type == 'definitions':
                 def_type = ''
             definition_list.append((def_index, definition_text, def_type))
