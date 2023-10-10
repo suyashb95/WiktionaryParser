@@ -44,12 +44,12 @@ text = """
 """
 
 text_words = nltk.word_tokenize(text)
-text_words = ['خيط']
+# text_words = ['من']
 results = {}
 parser = WiktionaryParser()
 parser.include_relation('alternative forms')
 for word in tqdm.tqdm(text_words):
-    results.update(parser.fetch_all_potential(word=word, language=["arabic", "moroccan arabic"], old_id=None, verbose=0))
+    results.update(parser.fetch_all_potential(word=word, language="arabic", old_id=None, verbose=0))
     time.sleep(.5)
 
 

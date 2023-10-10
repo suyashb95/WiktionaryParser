@@ -2,7 +2,9 @@ import re, requests
 from wiktionaryparser.utils import WordData, Definition, RelatedWord
 from bs4 import BeautifulSoup
 from itertools import zip_longest
-from copy import copy
+import exrex
+import tqdm
+import copy
 from string import digits
 
 PARTS_OF_SPEECH = [
@@ -19,7 +21,9 @@ RELATIONS = [
     "meronyms", "holonyms", "troponyms", "related terms",
     "coordinate terms",
 ]
-
+EXCLUDED_APPENDICES = [
+    "obsolete"
+]
 def is_subheading(child, parent):
     child_headings = child.split(".")
     parent_headings = parent.split(".")
@@ -39,8 +43,9 @@ class WiktionaryParser(object):
         self.session.mount("https://", requests.adapters.HTTPAdapter(max_retries = 2))
         self.language = 'english'
         self.current_word = None
-        self.PARTS_OF_SPEECH = copy(PARTS_OF_SPEECH)
-        self.RELATIONS = copy(RELATIONS)
+        self.PARTS_OF_SPEECH = copy.copy(PARTS_OF_SPEECH)
+        self.RELATIONS = copy.copy(RELATIONS)
+        self.EXCLUDED_APPENDICES = copy.copy(EXCLUDED_APPENDICES)
         self.INCLUDED_ITEMS = self.RELATIONS + self.PARTS_OF_SPEECH + ['etymology', 'pronunciation']
 
     def include_part_of_speech(self, part_of_speech):
@@ -112,8 +117,9 @@ class WiktionaryParser(object):
         word_contents = []
         start_index = None
         for content in contents:
-            if language in content.text.lower():
+            if language == content.text.lower():
                 start_index = content.find_previous().text + '.'
+                
         if not start_index:
             if contents:
                 return []
@@ -138,7 +144,8 @@ class WiktionaryParser(object):
         }
         json_obj_list = self.map_to_object(word_data)
         for obj in json_obj_list:
-            obj['categories'] = self.parse_categories(),
+            obj['categories'] = self.parse_categories()
+            obj['language'] = language
             
         return json_obj_list
 
@@ -177,18 +184,21 @@ class WiktionaryParser(object):
     
     def mine_element(self, element):
         text = element.text.strip()
-        
+        headword = element.find('strong', {"class": "headword"})
+        headword = headword.text if headword else None
         appendix_removal = element.find_all("a", {"title": "Appendix:Glossary"})
-        appendix_removal = [a.text for a in appendix_removal]
+        appendix_removal = element.find_all("span", {"class": "ib-content"})
+        appendix_removal = [a.text for a in appendix_removal if a.text not in self.EXCLUDED_APPENDICES]
+
         for k in appendix_removal:
-            src_regex = re.compile(f'\(?{k}\)?')
+            src_regex = re.compile(f'(\({k}\)|{k})')
             text = re.sub(src_regex, '', text).strip()
 
         D = {
             "text": text,
             "appendix_tags": appendix_removal
         }
-        return D
+        return D, headword
     
     def parse_definitions(self, word_contents):
         definition_id_list = self.get_id_list(word_contents, 'definitions')
@@ -196,6 +206,7 @@ class WiktionaryParser(object):
         definition_tag = None
         for def_index, def_id, def_type in definition_id_list:
             definition_text = []
+            definition_headword = None
             span_tag = self.soup.find_all('span', {'id': def_id})[0]
             table = span_tag.parent.find_next_sibling()
             while table and table.name not in ['h3', 'h4', 'h5']:
@@ -203,11 +214,19 @@ class WiktionaryParser(object):
                 table = table.find_next_sibling()
                 if definition_tag.name == 'p':
                     if definition_tag.text.strip():
-                        definition_text.append(self.mine_element(definition_tag))
+                        def_dt, hw = self.mine_element(definition_tag)
+                        if hw:
+                            definition_headword = hw
+                        def_dt['headword'] = definition_headword
+                        definition_text.append(def_dt)
                 if definition_tag.name in ['ol', 'ul']:
                     for element in definition_tag.find_all('li', recursive=False):
                         if element.text:
-                            definition_text.append(self.mine_element(element))
+                            def_text, hw = self.mine_element(element)
+                            if hw:
+                                definition_headword = hw
+                            def_text['headword'] = definition_headword
+                            definition_text.append(def_text)
             if def_type == 'definitions':
                 def_type = ''
             definition_list.append((def_index, definition_text, def_type))
@@ -300,8 +319,39 @@ class WiktionaryParser(object):
 
     def fetch(self, word, language=None, old_id=None):
         language = self.language if not language else language
+        languages = language if hasattr(language, '__iter__') and type(language) != str else [language]
         response = self.session.get(self.url.format(word), params={'oldid': old_id})
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.current_word = word
         self.clean_html()
-        return self.get_word_data(language.lower())
+        res = []
+        for lang in languages:
+            res += self.get_word_data(lang.lower())
+        return res
+
+    def fetch_all_potential(self, word, language=None, old_id=None, verbose=1):
+        def get_possible_altenrnatives(word):
+            replacement_dict = {
+                "ا": ["ا", "أ", "إ", "آ"]
+            }
+            replacement_dict = {k: f"({'|'.join(v)})" for k, v in replacement_dict.items()}
+
+            trans = str.maketrans(replacement_dict)
+            word_regex = word.translate(trans)
+
+            return list(exrex.generate(word_regex))
+        
+        possible_altenrnatives = get_possible_altenrnatives(word)
+
+        res = {word: self.fetch(word)}
+        if verbose > 0:
+            possible_altenrnatives = tqdm.tqdm(possible_altenrnatives, desc="Fetching potential forms", leave=False)
+
+        for w in possible_altenrnatives:
+            if verbose > 0:
+                possible_altenrnatives.set_postfix(w)
+
+            fetch_res = self.fetch(w, language=language, old_id=old_id)
+            if fetch_res:
+                res[w] = fetch_res
+        return res

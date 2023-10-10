@@ -1,0 +1,1382 @@
+{
+    "الدوري": [],
+    "الإسباني": [],
+    "عمل": [
+        {
+            "etymology": "From Arabic عَمِلَ‎ (ʕamila).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "verb",
+                    "text": [
+                        {
+                            "text": "عمل • (ʕimil) (form I, present بعمل‎ (biʕmil), active participle عامل‎ (ʕāmel))",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "to do",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "to make, to prepare",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "to act (a certain way), to pretend",
+                            "appendix_tags": [
+                                "reflexive"
+                            ]
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": [
+                        "Synonym: سوّى‎ ",
+                        "‏شو بتحبّ نعمل؟‎‎šu bitḥebb niʕmil?What would you like for us to do?",
+                        "šu bitḥebb niʕmil?",
+                        "What would you like for us to do?",
+                        "‏يلّا تعالي، شو بتعملي؟‎‎yalla taʕāli, šu btiʕmili?Come on, what are you doing?",
+                        "yalla taʕāli, šu btiʕmili?",
+                        "Come on, what are you doing?",
+                        "Synonym: سوّى‎ ",
+                        "‏عملتلي دور.‎‎ʕimlatli dōr.She made an appointment for me.",
+                        "ʕimlatli dōr.",
+                        "She made an appointment for me.",
+                        "‏رح أعملكم أشياء زاكية.‎‎raḥ ʔaʕmilkom ʔašyāʔ zākye.I'm going to prepare some sweets for you.",
+                        "raḥ ʔaʕmilkom ʔašyāʔ zākye.",
+                        "I'm going to prepare some sweets for you.",
+                        "‏عمل حاله نايم.‎‎ʕimil ḥālo nāyem.He acted like he was asleep.",
+                        "ʕimil ḥālo nāyem.",
+                        "He acted like he was asleep."
+                    ]
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /ʕi.mil/, [ˈʕɛ.mɪl], [ˈʕɪ.mɪl], [ˈʕi.mɪl]",
+                    "IPA: /ʕa.mal/, [ˈʕa.mal]"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic 2-syllable words",
+                    "Arabic 3-syllable words",
+                    "Arabic form-I verbs",
+                    "Arabic form-II verbs",
+                    "Arabic lemmas",
+                    "Arabic masculine nouns",
+                    "Arabic nouns",
+                    "Arabic nouns with basic triptote broken plural",
+                    "Arabic nouns with basic triptote singular",
+                    "Arabic nouns with broken plural",
+                    "Arabic semantic loans from Medieval Latin",
+                    "Arabic sound form-I verbs",
+                    "Arabic sound form-II verbs",
+                    "Arabic sound verbs",
+                    "Arabic sound verbs by conjugation",
+                    "Arabic terms belonging to the root ع م ل",
+                    "Arabic terms derived from Medieval Latin",
+                    "Arabic terms with IPA pronunciation",
+                    "Arabic terms with audio links",
+                    "Arabic terms with quotations",
+                    "Arabic transitive verbs",
+                    "Arabic verbal nouns",
+                    "Arabic verbs",
+                    "Arabic verbs with full passive",
+                    "Egyptian Arabic form-I verbs",
+                    "Egyptian Arabic lemmas",
+                    "Egyptian Arabic terms belonging to the root ع م ل",
+                    "Egyptian Arabic terms derived from Arabic",
+                    "Egyptian Arabic terms inherited from Arabic",
+                    "Egyptian Arabic verbs",
+                    "Moroccan Arabic 1-syllable words",
+                    "Moroccan Arabic form-I verbs",
+                    "Moroccan Arabic lemmas",
+                    "Moroccan Arabic terms belonging to the root ع م ل",
+                    "Moroccan Arabic terms derived from Arabic",
+                    "Moroccan Arabic terms inherited from Arabic",
+                    "Moroccan Arabic terms with IPA pronunciation",
+                    "Moroccan Arabic terms with audio links",
+                    "Moroccan Arabic verbs",
+                    "North Levantine Arabic form-I verbs",
+                    "North Levantine Arabic lemmas",
+                    "North Levantine Arabic terms derived from Arabic",
+                    "North Levantine Arabic terms inherited from Arabic",
+                    "North Levantine Arabic terms with usage examples",
+                    "North Levantine Arabic verbs",
+                    "Persian lemmas",
+                    "Persian nouns",
+                    "Persian terms borrowed from Arabic",
+                    "Persian terms derived from Arabic",
+                    "Persian terms derived from the Arabic root ع م ل",
+                    "Persian terms with IPA pronunciation",
+                    "Rhymes:Urdu/əl",
+                    "Rhymes:Urdu/əl/2 syllables",
+                    "South Levantine Arabic form-I verbs",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic reflexive verbs",
+                    "South Levantine Arabic terms belonging to the root ع م ل",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms inherited from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic terms with audio links",
+                    "South Levantine Arabic terms with usage examples",
+                    "South Levantine Arabic verbs",
+                    "Urdu lemmas",
+                    "Urdu masculine nouns",
+                    "Urdu nouns",
+                    "Urdu terms borrowed from Classical Persian",
+                    "Urdu terms derived from Arabic",
+                    "Urdu terms derived from Classical Persian",
+                    "Urdu terms with IPA pronunciation",
+                    "ar:Grammar"
+                ]
+            ]
+        }
+    ],
+    "واحدة": [
+        {
+            "etymology": "From Arabic وَاحِدَة‎ (wāḥida).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "numeral",
+                    "text": [
+                        {
+                            "text": "واحدة • (waḥde) f",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "of واحد‎ (wāḥad)",
+                            "appendix_tags": [
+                                "feminine"
+                            ]
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": []
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /waħ.de/, [ˈwaħ.de]"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic 3-syllable words",
+                    "Arabic adjective feminine forms",
+                    "Arabic non-lemma forms",
+                    "Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic cardinal numbers",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic numerals",
+                    "South Levantine Arabic terms belonging to the root و ح د",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms inherited from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation"
+                ]
+            ]
+        }
+    ],
+    "الإنجليزي": [],
+    "و": [
+        {
+            "etymology": "",
+            "definitions": [
+                {
+                    "partOfSpeech": "conjunction",
+                    "text": [
+                        {
+                            "text": "و‎ (u)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "and",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": [
+                        "‏حَاجْتِي بْقْلَمْ وكَرّاسَة‎ ― ḥājtī b-qlam u karrāsa ― I need a pencil and a copy-book."
+                    ]
+                }
+            ],
+            "pronunciations": {
+                "text": [],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Abjad numerals",
+                    "Arabic 1-syllable words",
+                    "Arabic Presentation Forms-B block",
+                    "Arabic block",
+                    "Arabic conjunctions",
+                    "Arabic interfixes",
+                    "Arabic lemmas",
+                    "Arabic letters",
+                    "Arabic numeral symbols",
+                    "Arabic script characters",
+                    "Arabic terms derived from Proto-Semitic",
+                    "Arabic terms inherited from Proto-Semitic",
+                    "Arabic terms with IPA pronunciation",
+                    "Arabic terms with audio links",
+                    "Arabic terms with usage examples",
+                    "Balti lemmas",
+                    "Balti letters",
+                    "Balti terms with IPA pronunciation",
+                    "Burushaski lemmas",
+                    "Burushaski letters",
+                    "Burushaski terms with IPA pronunciation",
+                    "Central Kurdish conjunctions",
+                    "Central Kurdish lemmas",
+                    "Chagatai conjunctions",
+                    "Chagatai lemmas",
+                    "Chagatai terms borrowed from Classical Persian",
+                    "Chagatai terms derived from Classical Persian",
+                    "Chagatai terms derived from Middle Persian",
+                    "Chagatai terms derived from Old Persian",
+                    "Chagatai terms derived from Proto-Indo-European",
+                    "Chagatai terms derived from Proto-Indo-Iranian",
+                    "Character boxes with images",
+                    "Hijazi Arabic conjunctions",
+                    "Hijazi Arabic lemmas",
+                    "Hijazi Arabic letters",
+                    "Hijazi Arabic terms derived from Arabic",
+                    "Hijazi Arabic terms inherited from Arabic",
+                    "Hijazi Arabic terms with IPA pronunciation",
+                    "Iranian Persian",
+                    "Kashmiri lemmas",
+                    "Kashmiri letters",
+                    "Kashmiri terms with IPA pronunciation",
+                    "Kazakh lemmas",
+                    "Kazakh letters",
+                    "Kazakh terms with IPA pronunciation",
+                    "Malay lemmas",
+                    "Malay letters",
+                    "Malay terms with IPA pronunciation",
+                    "North Levantine Arabic lemmas",
+                    "North Levantine Arabic masculine suffixes",
+                    "North Levantine Arabic suffixes",
+                    "Ottoman Turkish conjunctions",
+                    "Ottoman Turkish lemmas",
+                    "Ottoman Turkish letters",
+                    "Ottoman Turkish terms derived from Arabic",
+                    "Pashto lemmas",
+                    "Pashto letters",
+                    "Pashto terms with IPA pronunciation",
+                    "Persian colloquialisms",
+                    "Persian conjunctions",
+                    "Persian lemmas",
+                    "Persian letters",
+                    "Persian particles",
+                    "Persian terms derived from Arabic",
+                    "Persian terms derived from Middle Persian",
+                    "Persian terms derived from Old Persian",
+                    "Persian terms derived from Proto-Indo-European",
+                    "Persian terms derived from Proto-Indo-Iranian",
+                    "Persian terms inherited from Middle Persian",
+                    "Persian terms inherited from Old Persian",
+                    "Persian terms inherited from Proto-Indo-Iranian",
+                    "Persian terms with IPA pronunciation",
+                    "Persian terms with audio links",
+                    "South Levantine Arabic conjunctions",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic masculine suffixes",
+                    "South Levantine Arabic suffixes",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms inherited from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic terms with audio links",
+                    "South Levantine Arabic terms with usage examples",
+                    "Tunisian Arabic conjunctions",
+                    "Tunisian Arabic lemmas",
+                    "Tunisian Arabic terms with usage examples",
+                    "Urdu conjunctions",
+                    "Urdu lemmas",
+                    "Urdu letters",
+                    "Urdu terms borrowed from Classical Persian",
+                    "Urdu terms derived from Classical Persian",
+                    "Urdu terms with IPA pronunciation",
+                    "Ushojo conjunctions",
+                    "Ushojo lemmas",
+                    "Ushojo letters",
+                    "Ushojo terms with IPA pronunciation",
+                    "Yoruba lemmas",
+                    "Yoruba letters",
+                    "Yoruba terms with IPA pronunciation",
+                    "ar:Mathematics"
+                ]
+            ]
+        }
+    ],
+    "حسب": [
+        {
+            "etymology": "From Arabic حَسَبَ‎ (ḥasaba, preposition).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "preposition",
+                    "text": [
+                        {
+                            "text": "حسب • (ḥásab)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "according to",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "it depends (on)",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": []
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /ħa.sab/, [ˈħa.sab]"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic adverbial accusatives",
+                    "Arabic form-I verbs",
+                    "Arabic intransitive verbs",
+                    "Arabic lemmas",
+                    "Arabic masculine nouns",
+                    "Arabic non-lemma forms",
+                    "Arabic noun forms",
+                    "Arabic nouns",
+                    "Arabic nouns with basic triptote broken plural",
+                    "Arabic nouns with basic triptote singular",
+                    "Arabic nouns with broken plural",
+                    "Arabic prepositions",
+                    "Arabic sound form-I verbs",
+                    "Arabic sound verbs",
+                    "Arabic sound verbs by conjugation",
+                    "Arabic terms belonging to the root ح س ب",
+                    "Arabic terms with quotations",
+                    "Arabic terms with usage examples",
+                    "Arabic transitive verbs",
+                    "Arabic verbal nouns",
+                    "Arabic verbs",
+                    "Arabic verbs lacking passive forms",
+                    "Arabic verbs with full passive",
+                    "South Levantine Arabic form-I verbs",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic prepositions",
+                    "South Levantine Arabic terms belonging to the root ح س ب",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms inherited from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic terms with audio links",
+                    "South Levantine Arabic terms with usage examples",
+                    "South Levantine Arabic verbs"
+                ]
+            ]
+        },
+        {
+            "etymology": "From Arabic حَسَبَ‎ (ḥasaba, verb).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "verb",
+                    "text": [
+                        {
+                            "text": "حسب • (ḥasab) (form I, present بحسب‎ (boḥsob))",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "to count",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "to charge money",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": [
+                        "‏أحسب كلشي؟‎‎ʔaḥsob kul-šiShall I charge you for everything?",
+                        "ʔaḥsob kul-ši",
+                        "Shall I charge you for everything?"
+                    ]
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /ħa.sab/, [ˈħa.sab]"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic adverbial accusatives",
+                    "Arabic form-I verbs",
+                    "Arabic intransitive verbs",
+                    "Arabic lemmas",
+                    "Arabic masculine nouns",
+                    "Arabic non-lemma forms",
+                    "Arabic noun forms",
+                    "Arabic nouns",
+                    "Arabic nouns with basic triptote broken plural",
+                    "Arabic nouns with basic triptote singular",
+                    "Arabic nouns with broken plural",
+                    "Arabic prepositions",
+                    "Arabic sound form-I verbs",
+                    "Arabic sound verbs",
+                    "Arabic sound verbs by conjugation",
+                    "Arabic terms belonging to the root ح س ب",
+                    "Arabic terms with quotations",
+                    "Arabic terms with usage examples",
+                    "Arabic transitive verbs",
+                    "Arabic verbal nouns",
+                    "Arabic verbs",
+                    "Arabic verbs lacking passive forms",
+                    "Arabic verbs with full passive",
+                    "South Levantine Arabic form-I verbs",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic prepositions",
+                    "South Levantine Arabic terms belonging to the root ح س ب",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms inherited from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic terms with audio links",
+                    "South Levantine Arabic terms with usage examples",
+                    "South Levantine Arabic verbs"
+                ]
+            ]
+        }
+    ],
+    "تسلل": [
+        {
+            "etymology": "From the root س ل ل‎ (s-l-l).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "verb",
+                    "text": [
+                        {
+                            "text": "تَسَلَّلَ • (tasallala) V, non-past يَتَسَلَّلُ‎‎ (yatasallalu)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "to sneak, to slip, to slink, to creep [+ مِن‎ (object) = away from, out from] [+ اِلَى‎ (object) = to, into]",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "to penetrate into, to infiltrate, to invade, to intrude [+ اِلَى‎ (object) = to, into]",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "to ingratiate oneself, to betake oneself to wheedle [+ اِلَى‎ (object) = to, into]",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": []
+                },
+                {
+                    "partOfSpeech": "noun",
+                    "text": [
+                        {
+                            "text": "تَسَلُّل • (tasallul) m",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "of تَسَلَّلَ (tasallala)",
+                            "appendix_tags": [
+                                "verbal noun"
+                            ]
+                        },
+                        {
+                            "text": "(soccer,  offside",
+                            "appendix_tags": [
+                                "uncountable"
+                            ]
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": []
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /ta.sal.la.la/"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic 4-syllable words",
+                    "Arabic form-V verbs",
+                    "Arabic geminate form-V verbs",
+                    "Arabic geminate verbs",
+                    "Arabic intransitive verbs",
+                    "Arabic lemmas",
+                    "Arabic masculine nouns",
+                    "Arabic nouns",
+                    "Arabic nouns with basic triptote singular",
+                    "Arabic sound verbs by conjugation",
+                    "Arabic terms belonging to the root س ل ل",
+                    "Arabic terms with IPA pronunciation",
+                    "Arabic uncountable nouns",
+                    "Arabic verbal nouns",
+                    "Arabic verbs",
+                    "Arabic verbs with impersonal passive",
+                    "ar:Football (soccer)"
+                ]
+            ]
+        }
+    ],
+    "من": [
+        {
+            "etymology": "From Arabic مِن‎ (min, “from, of, than”).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "preposition",
+                    "text": [
+                        {
+                            "text": "من • (min)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "from, of",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "(time) since, for",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "than (with comparatives)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "such as, for example",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": [
+                        "Antonyms: لـ‎ , على‎ ",
+                        "Antonyms: لـ‎ , حتى‎ , لحد‎ "
+                    ]
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /min/, [mɪn]"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic 1-syllable words",
+                    "Arabic collective nouns",
+                    "Arabic countable nouns",
+                    "Arabic form-I verbs",
+                    "Arabic geminate form-I verbs",
+                    "Arabic geminate verbs",
+                    "Arabic geminate verbs by conjugation",
+                    "Arabic interrogative pronouns",
+                    "Arabic jussive particles",
+                    "Arabic lemmas",
+                    "Arabic masculine nouns",
+                    "Arabic negative polarity items",
+                    "Arabic nouns",
+                    "Arabic nouns with basic triptote broken plural",
+                    "Arabic nouns with basic triptote collective",
+                    "Arabic nouns with basic triptote singular",
+                    "Arabic nouns with broken plural",
+                    "Arabic nouns with sound feminine paucal",
+                    "Arabic nouns with triptote singulative in -a",
+                    "Arabic prepositions",
+                    "Arabic pronouns",
+                    "Arabic relative pronouns",
+                    "Arabic terms belonging to the root م ن ن",
+                    "Arabic terms borrowed from Aramaic",
+                    "Arabic terms derived from Akkadian",
+                    "Arabic terms derived from Aramaic",
+                    "Arabic terms derived from Proto-Semitic",
+                    "Arabic terms derived from Proto-West Semitic",
+                    "Arabic terms inherited from Proto-Semitic",
+                    "Arabic terms inherited from Proto-West Semitic",
+                    "Arabic terms with IPA pronunciation",
+                    "Arabic terms with obsolete senses",
+                    "Arabic terms with quotations",
+                    "Arabic terms with usage examples",
+                    "Arabic transitive verbs",
+                    "Arabic verbal nouns",
+                    "Arabic verbs",
+                    "Arabic verbs with full passive",
+                    "Azerbaijani lemmas",
+                    "Azerbaijani pronouns",
+                    "Azerbaijani terms in Arabic script",
+                    "Central Kurdish lemmas",
+                    "Central Kurdish pronouns",
+                    "Central Kurdish terms with IPA pronunciation",
+                    "Chagatai lemmas",
+                    "Chagatai pronouns",
+                    "Chagatai terms derived from Proto-Turkic",
+                    "Chagatai terms inherited from Proto-Turkic",
+                    "Karakhanid lemmas",
+                    "Karakhanid personal pronouns",
+                    "Karakhanid postpositions",
+                    "Karakhanid pronouns",
+                    "Karakhanid terms derived from Proto-Turkic",
+                    "Karakhanid terms inherited from Proto-Turkic",
+                    "Khalaj lemmas",
+                    "Khalaj pronouns",
+                    "Khalaj terms in Arabic script",
+                    "Khorasani Turkish lemmas",
+                    "Khorasani Turkish pronouns",
+                    "Khorasani Turkish terms with IPA pronunciation",
+                    "North Levantine Arabic adverbs",
+                    "North Levantine Arabic conjunctions",
+                    "North Levantine Arabic lemmas",
+                    "North Levantine Arabic prepositions",
+                    "North Levantine Arabic terms derived from Arabic",
+                    "North Levantine Arabic terms inherited from Arabic",
+                    "North Levantine Arabic terms with usage examples",
+                    "Ottoman Turkish lemmas",
+                    "Ottoman Turkish pronouns",
+                    "Pashto lemmas",
+                    "Pashto masculine nouns",
+                    "Pashto nouns",
+                    "Persian lemmas",
+                    "Persian nouns",
+                    "Persian pronouns",
+                    "Persian terms derived from Akkadian",
+                    "Persian terms derived from Middle Persian",
+                    "Persian terms derived from Old Persian",
+                    "Persian terms derived from Proto-Indo-Iranian",
+                    "Persian terms derived from Proto-Iranian",
+                    "Persian terms inherited from Middle Persian",
+                    "Persian terms inherited from Old Persian",
+                    "Persian terms inherited from Proto-Indo-Iranian",
+                    "Persian terms inherited from Proto-Iranian",
+                    "Persian terms with IPA pronunciation",
+                    "Persian terms with audio links",
+                    "Persian terms with usage examples",
+                    "Punjabi lemmas",
+                    "Punjabi masculine nouns",
+                    "Punjabi nouns",
+                    "Punjabi nouns in Shahmukhi script",
+                    "Punjabi nouns with declension",
+                    "Punjabi terms derived from Proto-Indo-European",
+                    "Punjabi terms derived from Sanskrit",
+                    "Punjabi terms derived from the Proto-Indo-European root *men-",
+                    "Punjabi terms derived from the Sanskrit root मन्",
+                    "Punjabi terms inherited from Proto-Indo-European",
+                    "Punjabi terms inherited from Sanskrit",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic prepositions",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms inherited from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic terms with audio links",
+                    "Urdu lemmas",
+                    "Urdu masculine nouns",
+                    "Urdu nouns",
+                    "Urdu terms borrowed from Classical Persian",
+                    "Urdu terms derived from Akkadian",
+                    "Urdu terms derived from Classical Persian",
+                    "Ushojo lemmas",
+                    "Ushojo nouns",
+                    "Ushojo terms borrowed from Urdu",
+                    "Ushojo terms derived from Urdu",
+                    "ar:Hemipterans",
+                    "ar:Units of measure",
+                    "fa:Units of measure"
+                ]
+            ]
+        }
+    ],
+    "وحي": [
+        {
+            "etymology": "",
+            "definitions": [
+                {
+                    "partOfSpeech": "noun",
+                    "text": [
+                        {
+                            "text": "وَحْي • (waḥy) m (plural وُحِيّ (wuḥiyy))",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "of وَحَى‎ (waḥā) (form I)",
+                            "appendix_tags": [
+                                "verbal noun"
+                            ]
+                        },
+                        {
+                            "text": "(theology, Islam) revelation",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": [
+                        "‏إِنۡ هُوَ إِلَّا وَحۡيࣱ يُوحَىٰ.‎‎ʔin huwa ʔillā waḥyun yūḥā.It is naught save an inspiration that is inspired.",
+                        "ʔin huwa ʔillā waḥyun yūḥā.",
+                        "It is naught save an inspiration that is inspired."
+                    ]
+                }
+            ],
+            "pronunciations": {
+                "text": [],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic lemmas",
+                    "Arabic masculine nouns",
+                    "Arabic nouns",
+                    "Arabic nouns with basic triptote broken plural",
+                    "Arabic nouns with basic triptote singular",
+                    "Arabic nouns with broken plural",
+                    "Arabic terms belonging to the root و ح ي",
+                    "Arabic terms with quotations",
+                    "Arabic verbal nouns",
+                    "ar:Islam",
+                    "ar:Theology"
+                ]
+            ]
+        }
+    ],
+    "خيال": [
+        {
+            "etymology": "",
+            "definitions": [
+                {
+                    "partOfSpeech": "noun",
+                    "text": [
+                        {
+                            "text": "خَيَال • (ḵayāl) m (dual خَيَالَان‎ (ḵayālān), plural خَيَالَات‎ (ḵayālāt) or أَخْيِلَة‎ (ʔaḵyila))",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "imagination",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "shadow",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "(literature) fiction",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": []
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /xa.jaːl/"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic 2-syllable words",
+                    "Arabic lemmas",
+                    "Arabic masculine nouns",
+                    "Arabic nouns",
+                    "Arabic nouns with basic triptote singular",
+                    "Arabic nouns with broken plural",
+                    "Arabic nouns with sound feminine plural",
+                    "Arabic nouns with triptote broken plural in -a",
+                    "Arabic terms with IPA pronunciation",
+                    "Arabic terms with audio links",
+                    "ar:Literature"
+                ]
+            ]
+        }
+    ],
+    "الحكم": [],
+    "في": [
+        {
+            "etymology": "From Arabic فِي‎ (fī).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "preposition",
+                    "text": [
+                        {
+                            "text": "في (fi)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "in",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": [
+                        "‏تسكن عايلتي في سوسة‎ ― tuskun ʿāyilti fi sūsa ― My family lives in Sousse",
+                        "‏هي باش تجي في مارس‎ ― hiyya bāš tji fi mars ― She will come in March",
+                        "‏نجم نعمل الخدمة هاذي في ثلاثة يام‎ ― nnajjim naʕmil il-ḵidma hāḏi fi ṯlāṯa yyām ― I can do this work in three days",
+                        "‏هي في صحة طيبة‎ ― hiyya fi ṣaḥḥa ṭayyba ― She is in good health"
+                    ]
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /fi/"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic 1-syllable words",
+                    "Arabic lemmas",
+                    "Arabic non-lemma forms",
+                    "Arabic prepositions",
+                    "Arabic terms derived from Proto-Semitic",
+                    "Arabic terms inherited from Proto-Semitic",
+                    "Arabic terms with IPA pronunciation",
+                    "Arabic terms with audio links",
+                    "Arabic terms with usage examples",
+                    "Arabic verb forms",
+                    "Gulf Arabic determiners",
+                    "Gulf Arabic lemmas",
+                    "Gulf Arabic prepositions",
+                    "Gulf Arabic terms derived from Arabic",
+                    "Gulf Arabic terms inherited from Arabic",
+                    "Gulf Arabic terms with IPA pronunciation",
+                    "Gulf Arabic terms with usage examples",
+                    "Hijazi Arabic adverbs",
+                    "Hijazi Arabic lemmas",
+                    "Hijazi Arabic prepositions",
+                    "Hijazi Arabic terms derived from Arabic",
+                    "Hijazi Arabic terms inherited from Arabic",
+                    "Hijazi Arabic terms suffixed with ي (pronoun)",
+                    "Hijazi Arabic terms with IPA pronunciation",
+                    "Hijazi Arabic terms with usage examples",
+                    "Malay lemmas",
+                    "Malay nouns",
+                    "Malay terms with Jawi spelling",
+                    "South Levantine Arabic determiners",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic prepositions",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms inherited from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic terms with audio links",
+                    "South Levantine Arabic terms with usage examples",
+                    "Tunisian Arabic lemmas",
+                    "Tunisian Arabic prepositions",
+                    "Tunisian Arabic terms derived from Arabic",
+                    "Tunisian Arabic terms inherited from Arabic",
+                    "Tunisian Arabic terms with IPA pronunciation",
+                    "Tunisian Arabic terms with usage examples",
+                    "Visual dictionary"
+                ]
+            ]
+        }
+    ],
+    "هدف": [
+        {
+            "etymology": "From Arabic هَدَفَ‎ (hadafa).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "verb",
+                    "text": [
+                        {
+                            "text": "هدف • (hadaf) (form I, present بهدف‎ (bihdif))",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "to aim, to aspire",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": []
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /ha.daf/, [ˈha.daf]"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic 2-syllable words",
+                    "Arabic form-I verbs",
+                    "Arabic form-II verbs",
+                    "Arabic intransitive verbs",
+                    "Arabic lemmas",
+                    "Arabic masculine nouns",
+                    "Arabic nouns",
+                    "Arabic nouns with basic triptote broken plural",
+                    "Arabic nouns with basic triptote singular",
+                    "Arabic nouns with broken plural",
+                    "Arabic sound form-I verbs",
+                    "Arabic sound form-II verbs",
+                    "Arabic sound verbs",
+                    "Arabic sound verbs by conjugation",
+                    "Arabic terms belonging to the root ه د ف",
+                    "Arabic terms with IPA pronunciation",
+                    "Arabic terms with audio links",
+                    "Arabic terms with usage examples",
+                    "Arabic verbal nouns",
+                    "Arabic verbs",
+                    "Arabic verbs lacking passive forms",
+                    "Arabic verbs with impersonal passive",
+                    "Ottoman Turkish lemmas",
+                    "Ottoman Turkish nouns",
+                    "Ottoman Turkish terms borrowed from Arabic",
+                    "Ottoman Turkish terms derived from Arabic",
+                    "Pashto lemmas",
+                    "Pashto masculine nouns",
+                    "Pashto nouns",
+                    "Pashto terms borrowed from Persian",
+                    "Pashto terms derived from Arabic",
+                    "Pashto terms derived from Persian",
+                    "Pashto terms with IPA pronunciation",
+                    "Pashto terms with obsolete senses",
+                    "Pashto terms with rare senses",
+                    "Persian lemmas",
+                    "Persian nouns",
+                    "Persian terms borrowed from Arabic",
+                    "Persian terms derived from Arabic",
+                    "Persian terms with IPA pronunciation",
+                    "South Levantine Arabic form-I verbs",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic terms belonging to the root ه د ف",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms inherited from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic terms with audio links",
+                    "South Levantine Arabic verbs",
+                    "ar:Football (soccer)",
+                    "ar:Sports"
+                ]
+            ]
+        }
+    ],
+    "فيليكس": [],
+    "،": [
+        {
+            "etymology": "",
+            "definitions": [
+                {
+                    "partOfSpeech": "symbol",
+                    "text": [
+                        {
+                            "text": "،‎ • (,)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "the Arabic comma punctuation mark",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": [
+                        "‏وَاحِد، اِثْنَان، ثَلَاثَة، أَرْبَعَة، خَمْسَة، سِتَّة، سَبْعَة‎wāḥid, iṯnān, ṯalāṯa, ʔarbaʕa, ḵamsa, sitta, sabʕaone, two, three, four, five, six, seven",
+                        "wāḥid, iṯnān, ṯalāṯa, ʔarbaʕa, ḵamsa, sitta, sabʕa",
+                        "one, two, three, four, five, six, seven"
+                    ]
+                }
+            ],
+            "pronunciations": {
+                "text": [],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic block",
+                    "Arabic lemmas",
+                    "Arabic punctuation marks",
+                    "Arabic script characters",
+                    "Arabic symbols",
+                    "Arabic terms with usage examples",
+                    "Malay lemmas",
+                    "Malay symbols",
+                    "Persian lemmas",
+                    "Persian symbols"
+                ]
+            ]
+        }
+    ],
+    "الاوفسايد": [],
+    "على": [
+        {
+            "etymology": "From Arabic عَلَى‎ (ʕalā).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "preposition",
+                    "text": [
+                        {
+                            "text": "على • (ʕala)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "to, toward",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "(location) on, onto, over",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "(time) at, on",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "must, should",
+                            "appendix_tags": [
+                                "auxiliary"
+                            ]
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": [
+                        "Antonym: من‎ ",
+                        "‏الختيار راح عالمستشفى.‎‎il-ḵityār rāḥ ʕal-mustašfaThe old man went to the hospital.",
+                        "il-ḵityār rāḥ ʕal-mustašfa",
+                        "The old man went to the hospital.",
+                        "‏إمّي دخلت عالبيت.‎‎ʔimmi daḵlat ʕal-bētMy mother went into the house.",
+                        "ʔimmi daḵlat ʕal-bēt",
+                        "My mother went into the house.",
+                        "‏قدّيش دفعت عليه؟‎‎ʔaddēš dafaʕt ʕalēhHow much did you pay for it?",
+                        "ʔaddēš dafaʕt ʕalēh",
+                        "How much did you pay for it?",
+                        "Synonym: فوق‎ ",
+                        "‏حطّه عالطاولة.‎‎ḥoṭṭo ʕaṭ-ṭāwlePut it on the table.",
+                        "ḥoṭṭo ʕaṭ-ṭāwle",
+                        "Put it on the table.",
+                        "‏خلّينا نلتقي على ساعة ستّة.‎‎ḵallīna niltʔi ʕala sāʕa sitteLet's meet at six o'clock.",
+                        "ḵallīna niltʔi ʕala sāʕa sitte",
+                        "Let's meet at six o'clock.",
+                        "Synonym: لازم‎ ",
+                        "‏قرّرنا نعمل اللي علينا ونتّكل على ربّنا.‎‎ʔarrarna niʕmil illi ʕalēna w nittakil ʕala rabbnaWe resolved to do what we must and trust in God.",
+                        "ʔarrarna niʕmil illi ʕalēna w nittakil ʕala rabbna",
+                        "We resolved to do what we must and trust in God.",
+                        "‏إلي عليك ألف شيكل.‎‎ʔili ʕalēk ʔalf šēkelYou owe me one thousand shekels.",
+                        "ʔili ʕalēk ʔalf šēkel",
+                        "You owe me one thousand shekels."
+                    ]
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /ʕa.la/, [ˈʕa.la]"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic 2-syllable words",
+                    "Arabic adjective plural forms",
+                    "Arabic final-weak form-I verbs",
+                    "Arabic final-weak verbs",
+                    "Arabic final-weak verbs by conjugation",
+                    "Arabic form-I verbs",
+                    "Arabic form-I verbs with ي as third radical",
+                    "Arabic lemmas",
+                    "Arabic non-lemma forms",
+                    "Arabic prepositions",
+                    "Arabic terms belonging to the root ع ل ي",
+                    "Arabic terms derived from Proto-Semitic",
+                    "Arabic terms inherited from Proto-Semitic",
+                    "Arabic terms with IPA pronunciation",
+                    "Arabic terms with audio links",
+                    "Arabic terms with homophones",
+                    "Arabic terms with quotations",
+                    "Arabic terms with usage examples",
+                    "Arabic transitive verbs",
+                    "Arabic verbs",
+                    "Arabic verbs with full passive",
+                    "Egyptian Arabic lemmas",
+                    "Egyptian Arabic prepositions",
+                    "Egyptian Arabic terms derived from Arabic",
+                    "Egyptian Arabic terms inherited from Arabic",
+                    "Hijazi Arabic lemmas",
+                    "Hijazi Arabic prepositions",
+                    "Hijazi Arabic terms derived from Arabic",
+                    "Hijazi Arabic terms inherited from Arabic",
+                    "Hijazi Arabic terms with IPA pronunciation",
+                    "Hijazi Arabic terms with usage examples",
+                    "Moroccan Arabic 1-syllable words",
+                    "Moroccan Arabic lemmas",
+                    "Moroccan Arabic prepositions",
+                    "Moroccan Arabic terms derived from Arabic",
+                    "Moroccan Arabic terms inherited from Arabic",
+                    "Moroccan Arabic terms with IPA pronunciation",
+                    "North Levantine Arabic lemmas",
+                    "North Levantine Arabic prepositions",
+                    "North Levantine Arabic terms derived from Arabic",
+                    "North Levantine Arabic terms inherited from Arabic",
+                    "North Levantine Arabic terms with usage examples",
+                    "Rhymes:Arabic/aː",
+                    "Rhymes:Arabic/laː",
+                    "South Levantine Arabic auxiliary verbs",
+                    "South Levantine Arabic form-II verbs",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic prepositions",
+                    "South Levantine Arabic terms belonging to the root ع ل ي",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms inherited from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic terms with audio links",
+                    "South Levantine Arabic terms with usage examples",
+                    "South Levantine Arabic verbs",
+                    "Visual dictionary",
+                    "ajp:Time"
+                ]
+            ]
+        },
+        {
+            "etymology": "From Arabic عَلَّى‎ (ʕallā).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "verb",
+                    "text": [
+                        {
+                            "text": "علّى • (ʕalla) (form II, present بعلّي‎ (biʕalli))",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "to raise (the volume, one's voice, etc.)",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": [
+                        "Antonym: وطّى‎ "
+                    ]
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /ʕal.la/, [ˈʕal.la]"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic 2-syllable words",
+                    "Arabic adjective plural forms",
+                    "Arabic final-weak form-I verbs",
+                    "Arabic final-weak verbs",
+                    "Arabic final-weak verbs by conjugation",
+                    "Arabic form-I verbs",
+                    "Arabic form-I verbs with ي as third radical",
+                    "Arabic lemmas",
+                    "Arabic non-lemma forms",
+                    "Arabic prepositions",
+                    "Arabic terms belonging to the root ع ل ي",
+                    "Arabic terms derived from Proto-Semitic",
+                    "Arabic terms inherited from Proto-Semitic",
+                    "Arabic terms with IPA pronunciation",
+                    "Arabic terms with audio links",
+                    "Arabic terms with homophones",
+                    "Arabic terms with quotations",
+                    "Arabic terms with usage examples",
+                    "Arabic transitive verbs",
+                    "Arabic verbs",
+                    "Arabic verbs with full passive",
+                    "Egyptian Arabic lemmas",
+                    "Egyptian Arabic prepositions",
+                    "Egyptian Arabic terms derived from Arabic",
+                    "Egyptian Arabic terms inherited from Arabic",
+                    "Hijazi Arabic lemmas",
+                    "Hijazi Arabic prepositions",
+                    "Hijazi Arabic terms derived from Arabic",
+                    "Hijazi Arabic terms inherited from Arabic",
+                    "Hijazi Arabic terms with IPA pronunciation",
+                    "Hijazi Arabic terms with usage examples",
+                    "Moroccan Arabic 1-syllable words",
+                    "Moroccan Arabic lemmas",
+                    "Moroccan Arabic prepositions",
+                    "Moroccan Arabic terms derived from Arabic",
+                    "Moroccan Arabic terms inherited from Arabic",
+                    "Moroccan Arabic terms with IPA pronunciation",
+                    "North Levantine Arabic lemmas",
+                    "North Levantine Arabic prepositions",
+                    "North Levantine Arabic terms derived from Arabic",
+                    "North Levantine Arabic terms inherited from Arabic",
+                    "North Levantine Arabic terms with usage examples",
+                    "Rhymes:Arabic/aː",
+                    "Rhymes:Arabic/laː",
+                    "South Levantine Arabic auxiliary verbs",
+                    "South Levantine Arabic form-II verbs",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic prepositions",
+                    "South Levantine Arabic terms belonging to the root ع ل ي",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms inherited from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic terms with audio links",
+                    "South Levantine Arabic terms with usage examples",
+                    "South Levantine Arabic verbs",
+                    "Visual dictionary",
+                    "ajp:Time"
+                ]
+            ]
+        }
+    ],
+    "توريس": [],
+    "اللي": [
+        {
+            "etymology": "From or related to Arabic اَلَّذِي‎ (allaḏī) and Arabic اَلَّتِي‎ (allatī).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "pronoun",
+                    "text": [
+                        {
+                            "text": "اللي • (illi, lli)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "(relative) who; whom; which; that",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "the person who, whoever; that which, whatever (at the beginning of a sentence)",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": [
+                        "‏البنت اللي شفتها مبارح بتشتغل معي.‎‎il-bint illi šuft-ha mbāreḥ btištḡel maʕiThe girl I saw yesterday works with me.",
+                        "il-bint illi šuft-ha mbāreḥ btištḡel maʕi",
+                        "The girl I saw yesterday works with me."
+                    ]
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /lli/, [ˈ(ɪ)l.li]"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "North Levantine Arabic lemmas",
+                    "North Levantine Arabic pronouns",
+                    "North Levantine Arabic terms derived from Arabic",
+                    "North Levantine Arabic terms with usage examples",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic pronouns",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic terms with audio links",
+                    "South Levantine Arabic terms with usage examples"
+                ]
+            ]
+        }
+    ],
+    "مش": [
+        {
+            "etymology": "From underlying Arabic مَا هُوَ شَيْء‎ (mā huwa šayʔ).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "particle",
+                    "text": [
+                        {
+                            "text": "مش (muš)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "not",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": [
+                        "‏آنا مش تونسي.‎‎ʾāna muš tūnsi.I am not Tunisian.",
+                        "ʾāna muš tūnsi.",
+                        "I am not Tunisian."
+                    ]
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /muʃ/"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Egyptian Arabic lemmas",
+                    "Egyptian Arabic particles",
+                    "Egyptian Arabic terms derived from Arabic",
+                    "Egyptian Arabic terms with IPA pronunciation",
+                    "Egyptian Arabic terms with usage examples",
+                    "Moroccan Arabic 1-syllable words",
+                    "Moroccan Arabic lemmas",
+                    "Moroccan Arabic masculine nouns",
+                    "Moroccan Arabic nouns",
+                    "Moroccan Arabic terms borrowed from Berber languages",
+                    "Moroccan Arabic terms derived from Berber languages",
+                    "Moroccan Arabic terms with IPA pronunciation",
+                    "Moroccan Arabic terms with audio links",
+                    "South Levantine Arabic contractions",
+                    "South Levantine Arabic lemmas",
+                    "South Levantine Arabic particles",
+                    "South Levantine Arabic terms derived from Arabic",
+                    "South Levantine Arabic terms inherited from Arabic",
+                    "South Levantine Arabic terms with IPA pronunciation",
+                    "South Levantine Arabic terms with audio links",
+                    "South Levantine Arabic terms with usage examples",
+                    "Tunisian Arabic lemmas",
+                    "Tunisian Arabic particles",
+                    "Tunisian Arabic terms derived from Arabic",
+                    "Tunisian Arabic terms with IPA pronunciation",
+                    "Tunisian Arabic terms with usage examples"
+                ]
+            ]
+        }
+    ],
+    "متداخل": [],
+    "اساسا": [],
+    "أساسا": [
+        {
+            "etymology": "",
+            "definitions": [
+                {
+                    "partOfSpeech": "noun",
+                    "text": [
+                        {
+                            "text": "أَسَاسًا • (ʔasāsan)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "indefinite accusative singular of أَسَاس‎ (ʔasās)",
+                            "appendix_tags": []
+                        },
+                        {
+                            "text": "adverbial accusative of أَسَاس‎ (ʔasās)",
+                            "appendix_tags": []
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": []
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /ʔa.saː.san/"
+                ],
+                "audio": []
+            },
+            "categories": [
+                [
+                    "Arabic 3-syllable words",
+                    "Arabic non-lemma forms",
+                    "Arabic noun forms",
+                    "Arabic palindromes",
+                    "Arabic terms with IPA pronunciation"
+                ]
+            ]
+        }
+    ],
+    "اللعبة": []
+}

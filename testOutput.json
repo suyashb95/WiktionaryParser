@@ -1,37 +1,64 @@
-[
-    {
-        "etymology": "From Arabic خَيَّطَ‎ (ḵayyaṭa).\n",
-        "definitions": [
-            {
-                "partOfSpeech": "verb",
-                "text": [
-                    {
-                        "text": "خيط • (ḵiyyaṭ) (form II, non-past يخيط‎ (yḵiyyaṭ))",
-                        "appendix_tags": []
-                    },
-                    {
-                        "text": "to sew",
-                        "appendix_tags": []
-                    },
-                    {
-                        "text": "to stroll",
-                        "appendix_tags": [
-                            "idiomatic"
-                        ]
-                    }
-                ],
-                "relatedWords": [],
-                "examples": []
-            }
-        ],
-        "pronunciations": {
-            "text": [
-                "IPA: /xij.jatˤ/"
+{
+    "خيط": [
+        {
+            "etymology": "",
+            "definitions": [
+                {
+                    "partOfSpeech": "noun",
+                    "text": [
+                        {
+                            "text": "خَيْط • (ḵayṭ) m (plural خُيُوط‎ (ḵuyūṭ) or أَخْيَاط‎ (ʔaḵyāṭ))",
+                            "appendix_tags": [],
+                            "headword": "خَيْط"
+                        },
+                        {
+                            "text": "verbal noun of خَاطَ‎ (ḵāṭa)",
+                            "appendix_tags": [
+                                "form I"
+                            ],
+                            "headword": "خَيْط"
+                        },
+                        {
+                            "text": "thread; string; cord",
+                            "appendix_tags": [],
+                            "headword": "خَيْط"
+                        },
+                        {
+                            "text": "thread",
+                            "appendix_tags": [
+                                "programming"
+                            ],
+                            "headword": "خَيْط"
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": []
+                },
+                {
+                    "partOfSpeech": "verb",
+                    "text": [
+                        {
+                            "text": "خَيَّطَ • (ḵayyaṭa) II, non-past يُخَيِّطُ‎‎ (yuḵayyiṭu)",
+                            "appendix_tags": [],
+                            "headword": "خَيَّطَ"
+                        },
+                        {
+                            "text": "to sew",
+                            "appendix_tags": [],
+                            "headword": "خَيَّطَ"
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": []
+                }
             ],
-            "audio": []
-        },
-        "categories": [
-            [
+            "pronunciations": {
+                "text": [
+                    "IPA: /xajtˤ/"
+                ],
+                "audio": []
+            },
+            "categories": [
                 "Arabic 1-syllable words",
                 "Arabic form-II verbs",
                 "Arabic form-II verbs with ي as second radical",
@@ -64,36 +91,44 @@
                 "Moroccan Arabic terms with IPA pronunciation",
                 "Moroccan Arabic verbs",
                 "ar:Programming"
-            ]
-        ]
-    },
-    {
-        "etymology": "From Arabic خَيْط‎ (ḵayṭ).\n",
-        "definitions": [
-            {
-                "partOfSpeech": "noun",
-                "text": [
-                    {
-                        "text": "خَيْط or خِيط • (ḵayṭ or ḵīṭ) m (plural خيوط‎ (ḵyūṭ) or خيوطة‎ (ḵyūṭa))",
-                        "appendix_tags": []
-                    },
-                    {
-                        "text": "thread, string, cable",
-                        "appendix_tags": []
-                    }
-                ],
-                "relatedWords": [],
-                "examples": []
-            }
-        ],
-        "pronunciations": {
-            "text": [
-                "IPA: /xajtˤ/, /xiːtˤ/"
             ],
-            "audio": []
+            "language": "arabic"
         },
-        "categories": [
-            [
+        {
+            "etymology": "From Arabic خَيَّطَ‎ (ḵayyaṭa).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "verb",
+                    "text": [
+                        {
+                            "text": "خيط • (ḵiyyaṭ) (form II, non-past يخيط‎ (yḵiyyaṭ))",
+                            "appendix_tags": [],
+                            "headword": "خيط"
+                        },
+                        {
+                            "text": "to sew",
+                            "appendix_tags": [],
+                            "headword": "خيط"
+                        },
+                        {
+                            "text": "to stroll",
+                            "appendix_tags": [
+                                "idiomatic"
+                            ],
+                            "headword": "خيط"
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": []
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /xij.jatˤ/"
+                ],
+                "audio": []
+            },
+            "categories": [
                 "Arabic 1-syllable words",
                 "Arabic form-II verbs",
                 "Arabic form-II verbs with ي as second radical",
@@ -126,7 +161,71 @@
                 "Moroccan Arabic terms with IPA pronunciation",
                 "Moroccan Arabic verbs",
                 "ar:Programming"
-            ]
-        ]
-    }
-]
+            ],
+            "language": "moroccan arabic"
+        },
+        {
+            "etymology": "From Arabic خَيْط‎ (ḵayṭ).\n",
+            "definitions": [
+                {
+                    "partOfSpeech": "noun",
+                    "text": [
+                        {
+                            "text": "خَيْط or خِيط • (ḵayṭ or ḵīṭ) m (plural خيوط‎ (ḵyūṭ) or خيوطة‎ (ḵyūṭa))",
+                            "appendix_tags": [],
+                            "headword": "خَيْط"
+                        },
+                        {
+                            "text": "thread, string, cable",
+                            "appendix_tags": [],
+                            "headword": "خَيْط"
+                        }
+                    ],
+                    "relatedWords": [],
+                    "examples": []
+                }
+            ],
+            "pronunciations": {
+                "text": [
+                    "IPA: /xajtˤ/, /xiːtˤ/"
+                ],
+                "audio": []
+            },
+            "categories": [
+                "Arabic 1-syllable words",
+                "Arabic form-II verbs",
+                "Arabic form-II verbs with ي as second radical",
+                "Arabic hollow form-II verbs",
+                "Arabic hollow verbs",
+                "Arabic lemmas",
+                "Arabic masculine nouns",
+                "Arabic nouns",
+                "Arabic nouns with basic triptote broken plural",
+                "Arabic nouns with basic triptote singular",
+                "Arabic nouns with broken plural",
+                "Arabic sound verbs by conjugation",
+                "Arabic terms belonging to the root خ ي ط",
+                "Arabic terms with IPA pronunciation",
+                "Arabic terms with audio links",
+                "Arabic transitive verbs",
+                "Arabic verbal nouns",
+                "Arabic verbs",
+                "Arabic verbs with full passive",
+                "Moroccan Arabic 1-syllable words",
+                "Moroccan Arabic 2-syllable words",
+                "Moroccan Arabic form-II verbs",
+                "Moroccan Arabic idioms",
+                "Moroccan Arabic lemmas",
+                "Moroccan Arabic masculine nouns",
+                "Moroccan Arabic nouns",
+                "Moroccan Arabic terms belonging to the root خ ي ط",
+                "Moroccan Arabic terms derived from Arabic",
+                "Moroccan Arabic terms inherited from Arabic",
+                "Moroccan Arabic terms with IPA pronunciation",
+                "Moroccan Arabic verbs",
+                "ar:Programming"
+            ],
+            "language": "moroccan arabic"
+        }
+    ]
+}
