@@ -1,3 +1,4 @@
+import itertools
 class WordData(object):
     def __init__(self, etymology=None, definitions=None, pronunciations=None,
                  audio_links=None):
@@ -77,3 +78,10 @@ class RelatedWord(object):
             'relationshipType': self.relationship_type,
             'words': self.words
         }
+    
+
+def flatten_dict(dictionary):
+    dictionary = {k: v if hasattr(v, '__iter__') and type(v) != str else [v] for k, v in dictionary.items()}
+    keys, values = zip(*dictionary.items())
+    dictionary = [dict(zip(keys, v)) for v in itertools.product(*values)]
+    return dictionary

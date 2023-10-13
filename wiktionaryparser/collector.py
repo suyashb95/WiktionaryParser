@@ -4,11 +4,21 @@ import tqdm
 import copy
 from nltk.stem import *
 import pymysql
+import itertools
+import hashlib
 
 from wiktionaryparser.core import WiktionaryParser 
+from wiktionaryparser.utils import flatten_dict
+
 
 class Collector:
-    def __init__(self, host, username, password, db, word_table="words", dataset_table="data", edge_table="relationships"):
+    def __init__(self, host, username, password, db, 
+                 word_table="words", 
+                 dataset_table="data", 
+                 edge_table="relationships",
+                 definitions_table="definitions",
+                #  edge_table="relationships",
+                ):
         self.host = host
         self.username = username
         self.password = password
@@ -16,6 +26,7 @@ class Collector:
 
         self.word_table = word_table
         self.dataset_table = dataset_table
+        self.definitions_table = definitions_table
         self.edge_table = edge_table
 
         self.conn = pymysql.connect( 
@@ -39,6 +50,21 @@ class Collector:
                 ); 
             """, 
             f"CREATE TABLE IF NOT EXISTS {self.word_table} (id INT AUTO_INCREMENT PRIMARY KEY, word VARCHAR(255), query VARCHAR(255), language VARCHAR(255), etymology TEXT);",
+            f"""
+            CREATE TABLE IF NOT EXISTS {self.definitions_table} (
+                    `wPosHash` VARCHAR(64) NOT NULL , 
+                    `wordId` INT NOT NULL , 
+                    `partOfSpeech` VARCHAR(16) NOT NULL , 
+                    `text` VARCHAR(1024) NOT NULL , 
+                    `headword` VARCHAR(256) NOT NULL , 
+                    PRIMARY KEY (`wPosHash`(64)),
+                    CONSTRAINT fk_wordId FOREIGN KEY (wordId)  
+                    REFERENCES {self.word_table}(id)  
+                    ON DELETE CASCADE  
+                    ON UPDATE CASCADE  
+                );
+            """
+            # f"CREATE TABLE IF NOT EXISTS {self.definitions_table} (id VARCHAR(64) PRIMARY KEY, word VARCHAR(255), query VARCHAR(255), language VARCHAR(255), etymology TEXT);",
         ]
         for query in queries:
             # print(query)
@@ -97,18 +123,59 @@ class Collector:
 
     def save_word(self, fetched_data):
         cur = self.conn.cursor()
-        for e in fetched_data:
+        for row in fetched_data:
             word = {
-                k: e.get(k) for k in ['etymology', 'language', "query", 'word']
+                k: row.get(k) for k in ['etymology', 'language', "query", 'word']
             }
             cur.execute(f"INSERT INTO `{self.word_table}` (query, word, etymology, language) VALUES (%(query)s, %(word)s, %(etymology)s, %(language)s)", word)
             word_id = cur.lastrowid
             print(word_id)
+            
+            definitions = row.get("definitions", [])
+            definitions_list = []
+            appendix_list = []
+            for element in definitions:
+                #Definitions
+                definition = {
+                    "wordId": word_id, #FORREIGN KEY
+                    "partOfSpeech": element.get("partOfSpeech"),
+                }
+            
+                #Add definitions
+                definition['text'] = element.get("text", [])
+                definition = flatten_dict(definition)
 
 
+
+                for i in range(len(definition)):
+                    definition[i].update(definition[i].get("text", {}))
+                    #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
+                    unique_w = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('text')}".encode()
+                    unique_w_hash = hashlib.sha256(unique_w).hexdigest()
+                    definition[i]['wPosHash'] = unique_w_hash #PRIMARY KEY
+
+
+                    #Isolate appendix for its own table
+                    appendix = {
+                        "wPosHash": definition[i].get('wPosHash'), #FOREIGN KEY
+                        "appendix_tag": definition[i].pop('appendix_tags') #FOREIGN KEY
+                    }
+                    appendix = flatten_dict(appendix)
+                
+                
+                appendix_list += appendix
+                definitions_list += definition
+                # relations_list = element.get('relatedWords', [])
+            
+            cur.executemany(f"INSERT INTO {self.definitions_table} (wordId, partOfSpeech, wPosHash, text, headword) VALUES (%(wordId)s, %(partOfSpeech)s, %(wPosHash)s, %(text)s, %(headword)s);", definitions_list)
             break
+
         self.conn.commit()
-        return (e.get("definitions"))
+        return ({
+            "definitions": definitions_list,
+            "word_apx": appendix_list,
+            # "relationships": relations_list,
+        })
 
 
 
