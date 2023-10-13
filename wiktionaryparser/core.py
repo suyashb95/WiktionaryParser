@@ -317,7 +317,7 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
-    def fetch(self, word, language=None, old_id=None):
+    def fetch(self, word, language=None, old_id=None, query=None):
         language = self.language if not language else language
         languages = language if hasattr(language, '__iter__') and type(language) != str else [language]
         response = self.session.get(self.url.format(word), params={'oldid': old_id})
@@ -327,9 +327,13 @@ class WiktionaryParser(object):
         res = []
         for lang in languages:
             res += self.get_word_data(lang.lower())
+        for obj in res:
+            obj['query'] = obj.get('query', word) if query is None else query
+            obj['word'] = obj.get('query', word)
+
         return res
 
-    def fetch_all_potential(self, word, language=None, old_id=None, verbose=1):
+    def fetch_all_potential(self, word, language=None, old_id=None, verbose=0):
         def get_possible_altenrnatives(word):
             replacement_dict = {
                 "ا": ["ا", "أ", "إ", "آ"]
@@ -351,7 +355,7 @@ class WiktionaryParser(object):
             if verbose > 0:
                 possible_altenrnatives.set_postfix(w)
 
-            fetch_res = self.fetch(w, language=language, old_id=old_id)
+            fetch_res = self.fetch(w, language=language, old_id=old_id, query=word)
             if fetch_res:
                 res[w] = fetch_res
         return res

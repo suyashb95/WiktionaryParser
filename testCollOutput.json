@@ -1,0 +1,82 @@
+[
+    {
+        "partOfSpeech": "noun",
+        "text": [
+            {
+                "text": "example (plural examples)",
+                "appendix_tags": [],
+                "headword": "example"
+            },
+            {
+                "text": "Something that is representative of all such things in a group.",
+                "appendix_tags": [],
+                "headword": "example"
+            },
+            {
+                "text": "Something that serves to illustrate or explain a rule.",
+                "appendix_tags": [],
+                "headword": "example"
+            },
+            {
+                "text": "Something that serves as a pattern of behaviour to be imitated (a good example) or not to be imitated (a bad example).",
+                "appendix_tags": [],
+                "headword": "example"
+            },
+            {
+                "text": "A person punished as a warning to others.",
+                "appendix_tags": [],
+                "headword": "example"
+            },
+            {
+                "text": "A parallel or closely similar case, especially when serving as a precedent or model.",
+                "appendix_tags": [],
+                "headword": "example"
+            },
+            {
+                "text": "An instance (as a problem to be solved) serving to illustrate the rule or precept or to act as an exercise in the application of the rule.",
+                "appendix_tags": [],
+                "headword": "example"
+            }
+        ],
+        "relatedWords": [
+            {
+                "relationshipType": "synonyms",
+                "words": [
+                    "e.g.",
+                    "See also Thesaurus:model",
+                    "See also Thesaurus:exemplar"
+                ]
+            }
+        ],
+        "examples": [
+            "If Demandt's essay served as a strident example of the German desire for normalcy, a more subtle example was provided by a brief allohistorical depiction of a Nazi victory in World War II written by German historian Michael Salewski in 1999.",
+            "The use of algorithms in policing is one example of their increasing influence on our lives. And, as their ubiquity spreads, so too does the debate around whether we should allow ourselves to become so reliant on them – and who, if anyone, is policing their use.",
+            "Plant breeding is always a numbers game. […] The wild species we use are rich in genetic variation, […]. In addition, we are looking for rare alleles, so the more plants we try, the better. These rarities may be new mutations, or they can be existing ones that are neutral—or are even selected against—in a wild population. A good example is mutations that disrupt seed dispersal, leaving the seeds on the heads long after they are ripe.",
+            "Nelson Mandela was an example for many to follow.",
+            "For I haue giuen you an example, that yee ſhould doe, as I haue done to you.",
+            "I gave, thou ſay'ſt, th' example, / I led the way;",
+            "Learn from me, if not by my precepts, at least by my example, how dangerous is the acquirement of knowledge, […]",
+            "The Celebrity, by arts unknown, induced Mrs. Judge Short and two other ladies to call at Mohair on a certain afternoon when Mr. Cooke was trying a trotter on the track. […] Their example was followed by others at a time when the master of Mohair was superintending in person the docking of some two-year-olds, and equally invisible.",
+            "[…] hang him, hee'le be made an example.",
+            "Now theſe things were our examples, to the intent wee ſhould not luſt after euil things, as they alſo luſted.",
+            "Such temperate order in ſo fierce a cauſe, / Doth want example: […]"
+        ]
+    },
+    {
+        "partOfSpeech": "verb",
+        "text": [
+            {
+                "text": "example (third-person singular simple present examples, present participle exampling, simple past and past participle exampled)",
+                "appendix_tags": [],
+                "headword": "example"
+            },
+            {
+                "text": "To be illustrated or exemplified (by). (Can we add an example for this sense?)",
+                "appendix_tags": [],
+                "headword": "example"
+            }
+        ],
+        "relatedWords": [],
+        "examples": []
+    }
+]
