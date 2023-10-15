@@ -36,7 +36,7 @@ prep = Preprocessor(stemmer=nltk.stem.ARLSTem())
 parser = WiktionaryParser()
 parser.set_default_language("arabic")
 coll = Collector("localhost", username="root", password="", db="knowledge_graph")
-# coll.erase_db()
+coll.erase_db()
 
 
 for word, lang in text_words:

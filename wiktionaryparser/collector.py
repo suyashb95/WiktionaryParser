@@ -1,3 +1,6 @@
+import json
+import requests
+from bs4 import BeautifulSoup
 import csv
 import os
 import tqdm
@@ -37,6 +40,8 @@ class Collector:
         )
 
         self.__create_tables()
+        with open('appendix.json', 'w', encoding='utf8') as f:
+            f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
 
     def __create_tables(self):
         cur = self.conn.cursor()
@@ -52,23 +57,157 @@ class Collector:
             f"CREATE TABLE IF NOT EXISTS {self.word_table} (id INT AUTO_INCREMENT PRIMARY KEY, word VARCHAR(255), query VARCHAR(255), language VARCHAR(255), etymology TEXT);",
             f"""
             CREATE TABLE IF NOT EXISTS {self.definitions_table} (
-                    `wPosHash` VARCHAR(64) NOT NULL , 
+                    `id` VARCHAR(64), 
                     `wordId` INT NOT NULL , 
                     `partOfSpeech` VARCHAR(16) NOT NULL , 
                     `text` VARCHAR(1024) NOT NULL , 
                     `headword` VARCHAR(256) NOT NULL , 
-                    PRIMARY KEY (`wPosHash`(64)),
+                    PRIMARY KEY (`id`(64)),
                     CONSTRAINT fk_wordId FOREIGN KEY (wordId)  
                     REFERENCES {self.word_table}(id)  
                     ON DELETE CASCADE  
-                    ON UPDATE CASCADE  
+                    ON UPDATE CASCADE 
                 );
-            """
-            # f"CREATE TABLE IF NOT EXISTS {self.definitions_table} (id VARCHAR(64) PRIMARY KEY, word VARCHAR(255), query VARCHAR(255), language VARCHAR(255), etymology TEXT);",
+            """,
+            #CREATE APPENDIX TABLE HERE
+            f"""
+            CREATE TABLE IF NOT EXISTS appendix (
+                    id VARCHAR(64), 
+                    `label` VARCHAR(255) NOT NULL , 
+                    `description` VARCHAR(1024) , 
+                    `wikiUrl` VARCHAR(255) ,
+                    `category` VARCHAR(255) ,
+                    PRIMARY KEY (`id`(64))
+                );
+            """,
+            f"""
+            CREATE TABLE IF NOT EXISTS {self.definitions_table}_apx (
+                    `definitionId` VARCHAR(64) NOT NULL , 
+                    `appendixId` VARCHAR(64) NOT NULL , 
+                    CONSTRAINT fk_definitionId FOREIGN KEY (definitionId)  
+                    REFERENCES {self.definitions_table}(id)  
+                    ON DELETE CASCADE  
+                    ON UPDATE CASCADE , 
+                    CONSTRAINT fk_definitionApx FOREIGN KEY (appendixId)  
+                    REFERENCES appendix (id)  
+                    ON DELETE CASCADE  
+                    ON UPDATE CASCADE 
+                );
+            """,
         ]
-        for query in queries:
+        for query in tqdm.tqdm(queries):
             # print(query)
             cur.execute(query)
+            self.conn.commit()
+
+    def __get_appendix_data(self):
+        res = []
+        urls = {
+            "glossary": {
+                "url": "https://en.wiktionary.org/wiki/Appendix:Glossary"
+            },
+            "ar_verbs": {
+                "url": "https://en.wiktionary.org/wiki/Appendix:Arabic_verbs"
+            }
+        }
+        for cat, v in urls.items():
+            url = v.get('url')
+            if url is None:
+                continue
+            response = requests.get(url).content
+            soup = BeautifulSoup(response, 'html.parser')
+            for e in soup.find_all('span', {"class":"mw-editsection"}):
+                e.extract()
+            sections = soup.select('.mw-parser-output')
+            for section in sections:
+                dl = section.select('dd, dt, p, h3')
+                desc = None
+                label = None
+                wiki_url = None
+                for e in dl:
+                    if e.name in ["dd", "p"]:
+                        desc = e.text.strip()
+                    elif e.name in ["dt", "h3"]:
+                        
+                        label = e.text.strip()
+                        wiki_url = e.select_one('a')
+                        wiki_url = wiki_url if wiki_url is None else wiki_url.get('href')
+                    
+                    if None not in [desc, label]:
+                        apx = {
+                            "label": label,
+                            "description": desc,
+                            "wikiUrl": wiki_url,
+                            "category": cat
+                        }
+                        # apx_unique_hash = '_'.join([str(apx[k]) for k in sorted(apx)])
+                        apx_unique_hash = label.lower().encode()
+                        apx_unique_hash = hashlib.sha256(apx_unique_hash)
+                        apx['id'] = apx_unique_hash.hexdigest()
+                        res.append(apx)
+                    
+        cur = self.conn.cursor()
+        cur.executemany("INSERT IGNORE INTO appendix (id, label, description, category, wikiUrl) VALUES (%(id)s, %(label)s, %(description)s, %(category)s, %(wikiUrl)s) ", res)
+        self.conn.commit()
+        return res
+        
+    def save_word(self, fetched_data):
+        cur = self.conn.cursor()
+        for row in fetched_data:
+            word = {
+                k: row.get(k) for k in ['etymology', 'language', "query", 'word']
+            }
+            cur.execute(f"INSERT INTO `{self.word_table}` (query, word, etymology, language) VALUES (%(query)s, %(word)s, %(etymology)s, %(language)s)", word)
+            self.conn.commit()
+            word_id = cur.lastrowid
+                        
+            definitions = row.get("definitions", [])
+
+            for element in definitions:
+                #Definitions
+                definition = {
+                    "wordId": word_id, #FORREIGN KEY
+                    "partOfSpeech": element.get("partOfSpeech"),
+                }
+            
+                #Add definitions
+                definition['text'] = element.get("text", [])
+                definition = flatten_dict(definition)
+
+
+
+                for i in range(len(definition)):
+                    definition[i].update(definition[i].get("text", {}))
+                    appendix = definition[i].pop('appendix_tags')
+                    appendix = [a.lower().strip() for a in appendix]
+                    appendix = [a.replace(u"\xa0", ' ') for a in appendix]
+                    if len(appendix) > 0:
+                        print(appendix)
+                    #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
+                    unique_w = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('text')}".encode()
+                    unique_w_hash = hashlib.sha256(unique_w).hexdigest()
+                    definition[i]['definitionId'] = unique_w_hash #PRIMARY KEY
+
+
+                    #Isolate appendix for its own table
+                    appendix = {
+                        "appendixId": [
+                            hashlib.sha256(e.encode()).hexdigest() for e in appendix
+                        ] #FOREIGN KEY
+                    }
+                    cur.execute(f"INSERT INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition[i])
+                    self.conn.commit()
+                    appendix['definitionId'] = unique_w_hash
+                    appendix = flatten_dict(appendix)
+                    if len(appendix) > 0:
+                        print(appendix)
+                        apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
+                        cur.executemany(apx_q, appendix)
+                        self.conn.commit()
+
+            break
+        return
+
 
     @staticmethod
     def adapt_csv_dataset(dataset_file: os.PathLike, delimiter=',', header=0, dataset_name=None, text_col=0, label_col=-1, task=None):
@@ -84,12 +223,15 @@ class Collector:
     
     def erase_db(self):
         cur = self.conn.cursor()
-        for table in [self.dataset_table, self.word_table]:
+        cur.execute("SET FOREIGN_KEY_CHECKS = 0")
+        for table in [
+            self.definitions_table+"_apx",
+            self.definitions_table, self.dataset_table, self.word_table
+            ]:
             cur.execute(f"TRUNCATE TABLE {table}")
             cur.execute(f"ALTER TABLE {table} AUTO_INCREMENT = 1")
-        # cur.execute(f"TRUNCATE TABLE {self.edge_table}")
-        # cur.execute(f"TRUNCATE TABLE {self.word_table}")
-    
+        cur.execute("SET FOREIGN_KEY_CHECKS = 1")
+
     def insert_data(self, dataset, dataset_name=None, task=None):
         task = task if task is not None else 'NULL'
         dataset_name = dataset_name if dataset_name is not None else 'NULL'
@@ -119,64 +261,6 @@ class Collector:
         dataset_name = path.split('/')[-1].replace('.csv', '')
         file_rows = self.coll.adapt_csv_dataset(path, dataset_name=dataset_name)
         self.coll.insert_data(file_rows, dataset_name=dataset_name, task="Sentiment Analysis")
-
-
-    def save_word(self, fetched_data):
-        cur = self.conn.cursor()
-        for row in fetched_data:
-            word = {
-                k: row.get(k) for k in ['etymology', 'language', "query", 'word']
-            }
-            cur.execute(f"INSERT INTO `{self.word_table}` (query, word, etymology, language) VALUES (%(query)s, %(word)s, %(etymology)s, %(language)s)", word)
-            word_id = cur.lastrowid
-            print(word_id)
-            
-            definitions = row.get("definitions", [])
-            definitions_list = []
-            appendix_list = []
-            for element in definitions:
-                #Definitions
-                definition = {
-                    "wordId": word_id, #FORREIGN KEY
-                    "partOfSpeech": element.get("partOfSpeech"),
-                }
-            
-                #Add definitions
-                definition['text'] = element.get("text", [])
-                definition = flatten_dict(definition)
-
-
-
-                for i in range(len(definition)):
-                    definition[i].update(definition[i].get("text", {}))
-                    #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
-                    unique_w = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('text')}".encode()
-                    unique_w_hash = hashlib.sha256(unique_w).hexdigest()
-                    definition[i]['wPosHash'] = unique_w_hash #PRIMARY KEY
-
-
-                    #Isolate appendix for its own table
-                    appendix = {
-                        "wPosHash": definition[i].get('wPosHash'), #FOREIGN KEY
-                        "appendix_tag": definition[i].pop('appendix_tags') #FOREIGN KEY
-                    }
-                    appendix = flatten_dict(appendix)
-                
-                
-                appendix_list += appendix
-                definitions_list += definition
-                # relations_list = element.get('relatedWords', [])
-            
-            cur.executemany(f"INSERT INTO {self.definitions_table} (wordId, partOfSpeech, wPosHash, text, headword) VALUES (%(wordId)s, %(partOfSpeech)s, %(wPosHash)s, %(text)s, %(headword)s);", definitions_list)
-            break
-
-        self.conn.commit()
-        return ({
-            "definitions": definitions_list,
-            "word_apx": appendix_list,
-            # "relationships": relations_list,
-        })
-
 
 
 # preprocessor = Preprocessor(stemmer=ARLSTem(), normalizer=Normalizer(waw_norm="و"))
