@@ -187,7 +187,7 @@ class WiktionaryParser(object):
         headword = element.find('strong', {"class": "headword"})
         headword = headword.text if headword else None
         appendix_removal = element.find_all("a", {"title": "Appendix:Glossary"})
-        appendix_removal = element.find_all("span", {"class": "ib-content"})
+        appendix_removal += element.find_all("span", {"class": "ib-content"})
         appendix_removal = [a.text for a in appendix_removal if a.text not in self.EXCLUDED_APPENDICES]
 
         for k in appendix_removal:

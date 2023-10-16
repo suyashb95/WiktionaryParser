@@ -43,6 +43,9 @@ class Collector:
         with open('appendix.json', 'w', encoding='utf8') as f:
             f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
 
+    def __apply_hash(self, s):
+        return hashlib.sha256(s.encode()).hexdigest()
+    
     def __create_tables(self):
         cur = self.conn.cursor()
         queries = [f"""
@@ -96,7 +99,6 @@ class Collector:
             """,
         ]
         for query in tqdm.tqdm(queries):
-            # print(query)
             cur.execute(query)
             self.conn.commit()
 
@@ -141,9 +143,8 @@ class Collector:
                             "category": cat
                         }
                         # apx_unique_hash = '_'.join([str(apx[k]) for k in sorted(apx)])
-                        apx_unique_hash = label.lower().encode()
-                        apx_unique_hash = hashlib.sha256(apx_unique_hash)
-                        apx['id'] = apx_unique_hash.hexdigest()
+                        apx_unique_hash = label
+                        apx['id'] = self.__apply_hash(apx_unique_hash)
                         res.append(apx)
                     
         cur = self.conn.cursor()
@@ -153,6 +154,7 @@ class Collector:
         
     def save_word(self, fetched_data):
         cur = self.conn.cursor()
+        related_words = []
         for row in fetched_data:
             word = {
                 k: row.get(k) for k in ['etymology', 'language', "query", 'word']
@@ -162,37 +164,37 @@ class Collector:
             word_id = cur.lastrowid
                         
             definitions = row.get("definitions", [])
+            
 
             for element in definitions:
+                for rw in element.get("relatedWords", []):
+                    rw['wordId'] = word_id
+                    related_words += flatten_dict(rw)
                 #Definitions
                 definition = {
                     "wordId": word_id, #FORREIGN KEY
                     "partOfSpeech": element.get("partOfSpeech"),
+                    "text": element.get("text", [])
                 }
             
                 #Add definitions
-                definition['text'] = element.get("text", [])
                 definition = flatten_dict(definition)
-
-
 
                 for i in range(len(definition)):
                     definition[i].update(definition[i].get("text", {}))
                     appendix = definition[i].pop('appendix_tags')
                     appendix = [a.lower().strip() for a in appendix]
                     appendix = [a.replace(u"\xa0", ' ') for a in appendix]
-                    if len(appendix) > 0:
-                        print(appendix)
-                    #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
-                    unique_w = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('text')}".encode()
-                    unique_w_hash = hashlib.sha256(unique_w).hexdigest()
-                    definition[i]['definitionId'] = unique_w_hash #PRIMARY KEY
 
+                    #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
+                    unique_w = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('text')}"
+                    unique_w_hash = self.__apply_hash(unique_w)
+                    definition[i]['definitionId'] = unique_w_hash #PRIMARY KEY
 
                     #Isolate appendix for its own table
                     appendix = {
                         "appendixId": [
-                            hashlib.sha256(e.encode()).hexdigest() for e in appendix
+                            self.__apply_hash(e) for e in appendix
                         ] #FOREIGN KEY
                     }
                     cur.execute(f"INSERT INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition[i])
@@ -200,13 +202,13 @@ class Collector:
                     appendix['definitionId'] = unique_w_hash
                     appendix = flatten_dict(appendix)
                     if len(appendix) > 0:
-                        print(appendix)
                         apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
                         cur.executemany(apx_q, appendix)
                         self.conn.commit()
 
-            break
-        return
+
+        
+        return related_words #fetched_data
 
 
     @staticmethod
@@ -252,7 +254,7 @@ class Collector:
             try:
                 cur.execute(query)
             except Exception as err:
-                print('\n\n'+query+'\n\n')
+                # print('\n\n'+query+'\n\n')
                 raise(err)
                 break    
         self.conn.commit()
