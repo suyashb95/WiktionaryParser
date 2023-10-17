@@ -40,8 +40,8 @@ class Collector:
         )
 
         self.__create_tables()
-        with open('appendix.json', 'w', encoding='utf8') as f:
-            f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
+        # with open('appendix.json', 'w', encoding='utf8') as f:
+        #     f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
 
     def __apply_hash(self, s):
         return hashlib.sha256(s.encode()).hexdigest()
@@ -156,6 +156,7 @@ class Collector:
         cur = self.conn.cursor()
         related_words = []
         for row in fetched_data:
+            print(row.keys())
             word = {
                 k: row.get(k) for k in ['etymology', 'language', "query", 'word']
             }
@@ -208,7 +209,7 @@ class Collector:
 
 
         
-        return related_words #fetched_data
+        return fetched_data #related_words
 
 
     @staticmethod

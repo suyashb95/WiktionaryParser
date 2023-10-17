@@ -136,10 +136,10 @@ class WiktionaryParser(object):
             if index.startswith(start_index) and content_text in self.INCLUDED_ITEMS:
                 word_contents.append(content)
         word_data = {
+            'related': self.parse_related_words(word_contents),
             'examples': self.parse_examples(word_contents),
             'definitions': self.parse_definitions(word_contents),
             'etymologies': self.parse_etymologies(word_contents),
-            'related': self.parse_related_words(word_contents),
             'pronunciations': self.parse_pronunciations(word_contents),
         }
         json_obj_list = self.map_to_object(word_data)
@@ -279,12 +279,27 @@ class WiktionaryParser(object):
             words = []
             span_tag = self.soup.find_all('span', {'id': related_id})[0]
             parent_tag = span_tag.parent
+            print(parent_tag.name, parent_tag.get('class'))
             while parent_tag and not parent_tag.find_all('li'):
                 parent_tag = parent_tag.find_next_sibling()
             if parent_tag:
                 for list_tag in parent_tag.find_all('li'):
                     words.append(list_tag.text)
             related_words_list.append((related_index, words, relation_type))
+
+        #Pass 2
+        nyms = self.soup.select('.nyms')
+        for nym in nyms:
+            #Find parent li
+            relation_type_span = nym.select_one('span.defdate')
+            relation_type = relation_type_span.text if relation_type_span is not None else ""
+            relation_type = re.sub('s?:$', 's', relation_type).lower()
+            if relation_type in self.RELATIONS:
+                relation_type_span.extract()
+                words = [a.get_text() for a in nym.select('span>a')]
+                related_words_list.append(('0.0', words, relation_type))
+
+        print(len(related_words_list))
         return related_words_list
 
     def map_to_object(self, word_data):

@@ -27,7 +27,8 @@ text = """
 # text_words = nltk.word_tokenize(text)
 text_words = [
     # ('خيط', 'moroccan arabic'),
-    ('big', 'english'),
+    # ('big', 'english'),
+    ('سماء', 'arabic'),
 ]
 # text_words = ['example']
 results = {}
@@ -41,11 +42,11 @@ coll.erase_db()
 
 for word, lang in text_words:
     prepped_word = prep(word)[0]
+    fetched_data = {word: parser.fetch(prepped_word, language=lang)}
     fetched_data = parser.fetch_all_potential(prepped_word, language=lang)
     for k in fetched_data:
         element = fetched_data[k]
         results = coll.save_word(element)
-
 
 with open('testCollOutput.json', 'w', encoding="utf8") as f:
     f.write(json.dumps(results, indent=4, ensure_ascii=False))
