@@ -15,29 +15,21 @@ from wiktionaryparser.utils import flatten_dict
 
 
 class Collector:
-    def __init__(self, host, username, password, db, 
+    def __init__(self, conn, 
                  word_table="words", 
                  dataset_table="data", 
                  edge_table="relationships",
                  definitions_table="definitions",
                 ):
-        self.host = host
-        self.username = username
-        self.password = password
-        self.db = db
+
+        self.conn = conn
 
         self.word_table = word_table
         self.dataset_table = dataset_table
         self.definitions_table = definitions_table
         self.edge_table = edge_table
 
-        self.conn = pymysql.connect( 
-            host=self.host, 
-            user=self.username,  
-            password = self.password, 
-            db=self.db, 
-        )
-
+        
         self.__create_tables()
         # with open('appendix.json', 'w', encoding='utf8') as f:
         #     f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))

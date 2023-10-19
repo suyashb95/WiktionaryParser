@@ -1,6 +1,8 @@
 from parameterized import parameterized
 import unittest
 import json
+
+import pymysql
 from wiktionaryparser.collector import Collector
 from deepdiff import DeepDiff
 from typing import Dict, List
@@ -36,7 +38,9 @@ results = {}
 prep = Preprocessor(stemmer=nltk.stem.ARLSTem())
 parser = WiktionaryParser()
 parser.set_default_language("arabic")
-coll = Collector("localhost", username="root", password="", db="knowledge_graph")
+
+conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
+coll = Collector(conn)
 coll.erase_db()
 
 
