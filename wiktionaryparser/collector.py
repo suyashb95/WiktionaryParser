@@ -20,6 +20,7 @@ class Collector:
                  dataset_table="data", 
                  edge_table="relationships",
                  definitions_table="definitions",
+                 force_edge_tail_constraint=False
                 ):
 
         self.conn = conn
@@ -28,6 +29,8 @@ class Collector:
         self.dataset_table = dataset_table
         self.definitions_table = definitions_table
         self.edge_table = edge_table
+
+        self.force_edge_tail_constraint = force_edge_tail_constraint
 
         
         self.__create_tables()
@@ -48,11 +51,20 @@ class Collector:
                     task VARCHAR(255)
                 ); 
             """, 
-            f"CREATE TABLE IF NOT EXISTS {self.word_table} (id INT AUTO_INCREMENT PRIMARY KEY, word VARCHAR(255), query VARCHAR(255), language VARCHAR(255), etymology TEXT);",
+            f"""
+            CREATE TABLE IF NOT EXISTS {self.word_table} (
+                    `id` VARCHAR(64), 
+                    word VARCHAR(255), 
+                    query VARCHAR(255), 
+                    language VARCHAR(255), 
+                    etymology TEXT,
+                    PRIMARY KEY (`id`(64))
+                );
+            """,
             f"""
             CREATE TABLE IF NOT EXISTS {self.definitions_table} (
                     `id` VARCHAR(64), 
-                    `wordId` INT NOT NULL , 
+                    `wordId` VARCHAR(64) NOT NULL , 
                     `partOfSpeech` VARCHAR(16) NOT NULL , 
                     `text` VARCHAR(1024) NOT NULL , 
                     `headword` VARCHAR(256) NOT NULL , 
@@ -91,12 +103,16 @@ class Collector:
             f"""
             CREATE TABLE IF NOT EXISTS {self.edge_table} (
                     `definitionId` VARCHAR(64) NOT NULL ,
-                    `word` VARCHAR(64) , 
+                    `wordId` VARCHAR(64) NULL , 
                     `relationshipType` VARCHAR(64) , 
                     CONSTRAINT fk_definitionIdRel FOREIGN KEY (definitionId)  
                     REFERENCES {self.definitions_table}(id)  
                     ON DELETE CASCADE  
-                    ON UPDATE CASCADE 
+                    ON UPDATE CASCADE  {''', 
+                    CONSTRAINT fk_wordIdRel FOREIGN KEY (wordId)  
+                    REFERENCES {self.word_table}(id)  
+                    ON DELETE CASCADE  
+                    ON UPDATE CASCADE ''' if self.force_edge_tail_constraint else ''}
                 );
             """,
         ]
@@ -217,9 +233,10 @@ class Collector:
             word = {
                 k: row.get(k) for k in ['etymology', 'language', "query", 'word']
             }
-            cur.execute(f"INSERT INTO `{self.word_table}` (query, word, etymology, language) VALUES (%(query)s, %(word)s, %(etymology)s, %(language)s)", word)
+            word['id'] = self.__apply_hash(word['word'])
+            cur.execute(f"INSERT INTO `{self.word_table}` (id, query, word, etymology, language) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s)", word)
             self.conn.commit()
-            word_id = cur.lastrowid
+            word_id = word['id']
                         
             definitions = row.get("definitions", [])         
 
@@ -274,15 +291,18 @@ class Collector:
             def_hash = f"{related_words[i].get('wordId')}_{related_words[i].get('pos')}_{related_words[i].get('def_text')[:hash_maxlen]}"
             def_hash = self.__apply_hash(def_hash)
             related_words[i]['def_hash'] = def_hash
+            related_words[i]['words'] = self.__apply_hash(related_words[i]['words'])
 
             for k in ['pos', 'def_text']:
                 if k in related_words[i]:
                     del related_words[i][k]
             # print("RW {} keys: {}".format(i, related_words[i].keys()))
 
-        cur.executemany(f"INSERT INTO {self.edge_table} (definitionId, word, relationshipType) VALUES (%(def_hash)s, %(words)s, %(relationshipType)s)", related_words)
+        cur.executemany(f"INSERT INTO {self.edge_table} (definitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(words)s, %(relationshipType)s)", related_words)
         self.conn.commit()
         return related_words #fetched_data #related_words
+    
+    
 
 
 # preprocessor = Preprocessor(stemmer=ARLSTem(), normalizer=Normalizer(waw_norm="و"))

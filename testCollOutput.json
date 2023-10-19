@@ -1,128 +1,128 @@
 [
     {
         "relationshipType": "hyponyms",
-        "words": "سَحَاب",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "660279b9c3eb664f30dab08fc942e3abbe4505378e157aa7741d5bcd80dac2a2",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "hyponyms",
-        "words": "غَيْم",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "fc866ca5cde072f73741743ba1cb5b3f475fd4c1e4ad9e094e9389d8ecf2ea2e",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "hyponyms",
-        "words": "عَنَان",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "3326536403c0de5ba3c76c6b8de36944875f0178005acf716ea769d5eea12dcf",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "hyponyms",
-        "words": "غَمَام",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "3bf8f3319d0b646524f62fa3a0dc5e6293cb5aa03212c1bbff17e179f19ab471",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "hyponyms",
-        "words": "مُزْن",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "fc258b90b9a7043b8ab8c6957d4a5c5c319b92c094781418e99f386364589bc8",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "hyponyms",
-        "words": "مَطَر",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "b976c2729d8d1cb91cddb25e877d1dfe5421170bd6fadeb97852288174129ba2",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "hyponyms",
-        "words": "سَيْل",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "3b4b4853839c99013bfe2e67e5206885fdb8a773be421bb34dd6f1fbe97be8ea",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "synonyms",
-        "words": "فَضَاء",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "798ffc72bbbeba903eaefd85bf68243577c886f0edfc43a9991395ee5007cf2b",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "synonyms",
-        "words": "فَلَك",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "bec8c25b9793d2093efe393cd7c895e9a685118702b3f87a13ed66c8017af8c9",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "synonyms",
-        "words": "أَثِير",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "f3cfa23c9bdaa6abd96f73f237799f864299633301fbb6125b2054c494da932d",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "synonyms",
-        "words": "مَجَال جَوِّيّ",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "bf53a0a776b5088ad282da2b953e5cff42779609a5e3823a4e5ba96092bb55b3",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "synonyms",
-        "words": "قُبَّة سَمَاوِيَّة",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "b18b79da3610a7d03a10b866bb14e4bc5b309c2b23ff8b61f14067c5ba7063f7",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "synonyms",
-        "words": "مَجَال سَمَاوِيّ",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "364c1445663537c2fb04e292d75312435d94dbd3967415488162c918a6e3aa3f",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "synonyms",
-        "words": "غِلَاف جَوِيّ",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "b266f40725731f265325160d5ead1bbc1fd641a4b1aabe20f91b46db80dac41a",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "synonyms",
-        "words": "سْتْرَاتُوسْفِير",
-        "wordId": 1,
-        "def_hash": "9b94cfdccfbf481e521330fc57e7b6f2ca2a67c5297fc794326dbf5e16aa3a6a"
+        "words": "197782299137dcbd4a28e8f50520a3f08a7714db59f1a8086c2d4c9c0fbe278b",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
     },
     {
         "relationshipType": "synonyms",
-        "words": "سَقْف",
-        "wordId": 1,
-        "def_hash": "5b59d878827687cc3dfae37cf7dfde2a913ec9ad540f687c94e2f96162b7f3c0"
+        "words": "9be01a58ef70bc5c6bafaf3ed37789205b15387b2cdc7ec91ee7298e1ea5b32a",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "8016cdd65a6004d4eadab936f03727f9a25456fa66401c437c7e4f4c041653e4"
     },
     {
         "relationshipType": "synonyms",
-        "words": "بِنَاء",
-        "wordId": 1,
-        "def_hash": "5b59d878827687cc3dfae37cf7dfde2a913ec9ad540f687c94e2f96162b7f3c0"
+        "words": "b1a0ce5825758c14a463d819c6deac1766b1b7ad0c0483478d36eedf1fbebfe1",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "8016cdd65a6004d4eadab936f03727f9a25456fa66401c437c7e4f4c041653e4"
     },
     {
         "relationshipType": "synonyms",
-        "words": "رَقِيع",
-        "wordId": 1,
-        "def_hash": "5b59d878827687cc3dfae37cf7dfde2a913ec9ad540f687c94e2f96162b7f3c0"
+        "words": "969c91956a2ad1f39bc726b8fa09c0dbd1f64ac6ef413ed0dd6ba5952d857318",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "8016cdd65a6004d4eadab936f03727f9a25456fa66401c437c7e4f4c041653e4"
     },
     {
         "relationshipType": "synonyms",
-        "words": "ظَهْرُ الْفَرَسِ",
-        "wordId": 1,
-        "def_hash": "d5952baaa837efefaffc843985c8cd6e31adc02844e55e637be3c1f937ad3e1d"
+        "words": "a89d41b8b34b0793306ca1b64ae4799d62769aad82a9ff6c41346f209a9f9140",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "f3e3801c18bfc87863022e50fe5ea74236c5552a67e50139d58a2b0724dc2037"
     },
     {
         "relationshipType": "synonyms",
-        "words": "ضَهْر",
-        "wordId": 1,
-        "def_hash": "4315384355cbc75a80e6a2df71b8a34aaf8d23634b71e6d292c3071a379ddd73"
+        "words": "29d46ea6c1435c8a86b9bdfe5640d87b39da2bdb48e9bb9af1aea1682aa0cd4c",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "c38ee351e7e49d3cf3f329d9aae8baa1176058fb7ffa9e3a224358c0e0033e52"
     },
     {
         "relationshipType": "synonyms",
-        "words": "عُشْب",
-        "wordId": 1,
-        "def_hash": "ed1119fbf4481e91a51285eace83959fe0836f9872409eafab9aecb24bf257b8"
+        "words": "f8315536467e7cf5de9f9fa860943899207e1bccadd8aac3d2eb83d6e1380356",
+        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+        "def_hash": "c4dbe08dff7472879a24650485c82b85dc602c9a17c284696bc681dc6e7ef968"
     }
 ]
