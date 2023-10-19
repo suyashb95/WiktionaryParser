@@ -295,25 +295,31 @@ class WiktionaryParser(object):
             while True:
                 content = content.find_next_sibling()
                 if content.name in ['h3', 'h4', 'h5']:
-                    # print()
                     break
 
-                nyms = content.select('.nyms')
-                # print(len(nyms), end=", ")
-
-                for nym in nyms:
-                    #Find parent li
-                    relation_type_span = nym.select_one('span.defdate')
-                    relation_type = relation_type_span.text if relation_type_span is not None else ""
-                    relation_type = re.sub('s?:$', 's', relation_type).lower()
-                    if relation_type in self.RELATIONS:
-                        relation_type_span.extract()
-                        words = [a.get_text() for a in nym.select('span>a')]
-                        related_words_list.append((k, words, relation_type))
+                nyms_list = self.parse_related_words_from_nyms(content, k)
+                related_words_list += nyms_list
 
         print(len(related_words_list))
         return related_words_list
+    
 
+    def parse_related_words_from_nyms(self, content, related_index):
+        nyms_list = []
+        nyms = content.select('.nyms')
+        for nym in nyms:
+            relation_type_span = nym.select_one('span.defdate')
+            relation_type = relation_type_span.text if relation_type_span is not None else ""
+            relation_type = re.sub('s?:$', 's', relation_type).lower()
+            if relation_type in self.RELATIONS:
+                relation_type_span.extract()
+                words = []
+                for a in nym.select('span>a'):
+                    words.append(a.get_text())
+                nyms_list.append((related_index, words, relation_type))
+
+        return nyms_list
+    
     def map_to_object(self, word_data):
         json_obj_list = []
         if not word_data['etymologies']:

@@ -165,6 +165,7 @@ class Collector:
             word_id = cur.lastrowid
                         
             definitions = row.get("definitions", [])
+            # definitions = row.get("definitions", [])
             
 
             for element in definitions:
@@ -183,6 +184,10 @@ class Collector:
 
                 for i in range(len(definition)):
                     definition[i].update(definition[i].get("text", {}))
+                    for k_ in ["examples", "categories"]:
+                        if k_ in definition[i]:
+                            definition[i].pop(k_)
+                            
                     appendix = definition[i].pop('appendix_tags')
                     appendix = [a.lower().strip() for a in appendix]
                     appendix = [a.replace(u"\xa0", ' ') for a in appendix]
@@ -209,7 +214,7 @@ class Collector:
 
 
         
-        return fetched_data #related_words
+        return fetched_data #fetched_data #related_words
 
 
     @staticmethod
