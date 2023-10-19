@@ -279,7 +279,6 @@ class WiktionaryParser(object):
             words = []
             span_tag = self.soup.find_all('span', {'id': related_id})[0]
             parent_tag = span_tag.parent
-            print(parent_tag.name, parent_tag.get('class'))
             while parent_tag and not parent_tag.find_all('li'):
                 parent_tag = parent_tag.find_next_sibling()
             if parent_tag:
@@ -288,16 +287,29 @@ class WiktionaryParser(object):
             related_words_list.append((related_index, words, relation_type))
 
         #Pass 2
-        nyms = self.soup.select('.nyms')
-        for nym in nyms:
-            #Find parent li
-            relation_type_span = nym.select_one('span.defdate')
-            relation_type = relation_type_span.text if relation_type_span is not None else ""
-            relation_type = re.sub('s?:$', 's', relation_type).lower()
-            if relation_type in self.RELATIONS:
-                relation_type_span.extract()
-                words = [a.get_text() for a in nym.select('span>a')]
-                related_words_list.append(('0.0', words, relation_type))
+        id_list = {e.find_previous().text: e.parent.get('href') for e in word_contents}
+        # id_list = list(id_list.items())
+        for k in id_list:
+            def_id = id_list[k].replace('#', '')
+            content = self.soup.find(True, {"id": def_id}).parent
+            while True:
+                content = content.find_next_sibling()
+                if content.name in ['h3', 'h4', 'h5']:
+                    # print()
+                    break
+
+                nyms = content.select('.nyms')
+                # print(len(nyms), end=", ")
+
+                for nym in nyms:
+                    #Find parent li
+                    relation_type_span = nym.select_one('span.defdate')
+                    relation_type = relation_type_span.text if relation_type_span is not None else ""
+                    relation_type = re.sub('s?:$', 's', relation_type).lower()
+                    if relation_type in self.RELATIONS:
+                        relation_type_span.extract()
+                        words = [a.get_text() for a in nym.select('span>a')]
+                        related_words_list.append((k, words, relation_type))
 
         print(len(related_words_list))
         return related_words_list

@@ -27,7 +27,7 @@ text = """
 # text_words = nltk.word_tokenize(text)
 text_words = [
     # ('خيط', 'moroccan arabic'),
-    # ('big', 'english'),
+    # ('example', 'english'),
     ('سماء', 'arabic'),
 ]
 # text_words = ['example']

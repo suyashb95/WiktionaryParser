@@ -61,7 +61,95 @@
                         "headword": "سَمَاء"
                     }
                 ],
-                "relatedWords": [],
+                "relatedWords": [
+                    {
+                        "relationshipType": "hyponyms",
+                        "words": [
+                            "سَحَاب",
+                            "غَيْم",
+                            "عَنَان",
+                            "غَمَام",
+                            "مُزْن",
+                            "مَطَر",
+                            "سَيْل"
+                        ],
+                        "wordId": 1
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            "فَضَاء",
+                            "فَلَك"
+                        ],
+                        "wordId": 1
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            "أَثِير",
+                            "مَجَال جَوِّيّ"
+                        ],
+                        "wordId": 1
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            "قُبَّة سَمَاوِيَّة",
+                            "مَجَال سَمَاوِيّ"
+                        ],
+                        "wordId": 1
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            "غِلَاف جَوِيّ"
+                        ],
+                        "wordId": 1
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            "سْتْرَاتُوسْفِير"
+                        ],
+                        "wordId": 1
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            "سَقْف",
+                            "بِنَاء"
+                        ],
+                        "wordId": 1
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            "رَقِيع"
+                        ],
+                        "wordId": 1
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            "ظَهْرُ الْفَرَسِ"
+                        ],
+                        "wordId": 1
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            "ضَهْر"
+                        ],
+                        "wordId": 1
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            "عُشْب"
+                        ],
+                        "wordId": 1
+                    }
+                ],
                 "examples": [
                     "‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;",
                     "wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔin",
