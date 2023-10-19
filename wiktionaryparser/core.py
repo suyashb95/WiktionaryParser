@@ -183,6 +183,7 @@ class WiktionaryParser(object):
         return pronunciation_list
     
     def mine_element(self, element):
+        raw_text = element.text.strip()
         text = element.text.strip()
         headword = element.find('strong', {"class": "headword"})
         headword = headword.text if headword else None
@@ -195,6 +196,7 @@ class WiktionaryParser(object):
             text = re.sub(src_regex, '', text).strip()
 
         D = {
+            "raw_text": raw_text,
             "text": text,
             "appendix_tags": appendix_removal
         }
@@ -287,24 +289,32 @@ class WiktionaryParser(object):
             related_words_list.append((related_index, words, relation_type))
 
         #Pass 2
-        id_list = {e.find_previous().text: e.parent.get('href') for e in word_contents}
+        id_list = {e.find_previous().text: {
+            "related_section" :e.parent.get('href').replace('#', '')
+        } for e in word_contents}
         # id_list = list(id_list.items())
         for k in id_list:
-            def_id = id_list[k].replace('#', '')
+            def_id = id_list[k].get('related_section')
             content = self.soup.find(True, {"id": def_id}).parent
             while True:
                 content = content.find_next_sibling()
                 if content.name in ['h3', 'h4', 'h5']:
                     break
 
-                nyms_list = self.parse_related_words_from_nyms(content, k)
-                related_words_list += nyms_list
+                elif content.name in ['ol', 'ul']:
+                    lis = content.find_all('li', recursive=False)
+                    for li in lis:
+                        related_words_list += self.parse_related_words_from_nyms(li, k, def_text=li.text)
+                elif content.name in ['p']:
+                    related_words_list += self.parse_related_words_from_nyms(content, k, def_text=content.text)
+                        
+     
 
         print(len(related_words_list))
         return related_words_list
     
 
-    def parse_related_words_from_nyms(self, content, related_index):
+    def parse_related_words_from_nyms(self, content, related_index, **kwargs):
         nyms_list = []
         nyms = content.select('.nyms')
         for nym in nyms:
@@ -315,7 +325,11 @@ class WiktionaryParser(object):
                 relation_type_span.extract()
                 words = []
                 for a in nym.select('span>a'):
-                    words.append(a.get_text())
+                    a_dict = {
+                        "words": a.get_text()
+                    }
+                    a_dict.update(kwargs)
+                    words.append(a_dict)
                 nyms_list.append((related_index, words, relation_type))
 
         return nyms_list

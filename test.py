@@ -42,7 +42,7 @@ coll.erase_db()
 
 for word, lang in text_words:
     prepped_word = prep(word)[0]
-    fetched_data = {word: parser.fetch(prepped_word, language=lang)}
+    # fetched_data = {word: parser.fetch(prepped_word, language=lang)}
     fetched_data = parser.fetch_all_potential(prepped_word, language=lang)
     for k in fetched_data:
         element = fetched_data[k]
