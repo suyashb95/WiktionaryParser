@@ -307,10 +307,7 @@ class WiktionaryParser(object):
                         related_words_list += self.parse_related_words_from_nyms(li, k, def_text=li.text)
                 elif content.name in ['p']:
                     related_words_list += self.parse_related_words_from_nyms(content, k, def_text=content.text)
-                        
-     
-
-        print(len(related_words_list))
+                             
         return related_words_list
     
 

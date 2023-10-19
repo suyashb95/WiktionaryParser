@@ -20,7 +20,6 @@ class Collector:
                  dataset_table="data", 
                  edge_table="relationships",
                  definitions_table="definitions",
-                #  edge_table="relationships",
                 ):
         self.host = host
         self.username = username
@@ -97,6 +96,17 @@ class Collector:
                     ON UPDATE CASCADE 
                 );
             """,
+            f"""
+            CREATE TABLE IF NOT EXISTS {self.edge_table} (
+                    `definitionId` VARCHAR(64) NOT NULL ,
+                    `word` VARCHAR(64) , 
+                    `relationshipType` VARCHAR(64) , 
+                    CONSTRAINT fk_definitionIdRel FOREIGN KEY (definitionId)  
+                    REFERENCES {self.definitions_table}(id)  
+                    ON DELETE CASCADE  
+                    ON UPDATE CASCADE 
+                );
+            """,
         ]
         for query in tqdm.tqdm(queries):
             cur.execute(query)
@@ -169,7 +179,7 @@ class Collector:
         cur = self.conn.cursor()
         cur.execute("SET FOREIGN_KEY_CHECKS = 0")
         for table in [
-            self.definitions_table+"_apx",
+            self.definitions_table+"_apx", self.edge_table,
             self.definitions_table, self.dataset_table, self.word_table
             ]:
             cur.execute(f"TRUNCATE TABLE {table}")
@@ -267,7 +277,6 @@ class Collector:
                         cur.executemany(apx_q, appendix)
                         self.conn.commit()
 
-        print("Len RW: ", len(related_words))
         for i in range(len(related_words)):
             related_words[i].update(related_words[i].get("words", {}))
             def_hash = f"{related_words[i].get('wordId')}_{related_words[i].get('pos')}_{related_words[i].get('def_text')[:hash_maxlen]}"
@@ -278,6 +287,9 @@ class Collector:
                 if k in related_words[i]:
                     del related_words[i][k]
             # print("RW {} keys: {}".format(i, related_words[i].keys()))
+
+        cur.executemany(f"INSERT INTO {self.edge_table} (definitionId, word, relationshipType) VALUES (%(def_hash)s, %(words)s, %(relationshipType)s)", related_words)
+        self.conn.commit()
         return related_words #fetched_data #related_words
 
 
