@@ -102,10 +102,10 @@ class Collector:
             """,
             f"""
             CREATE TABLE IF NOT EXISTS {self.edge_table} (
-                    `definitionId` VARCHAR(64) NOT NULL ,
+                    `headDefinitionId` VARCHAR(64) NOT NULL ,
                     `wordId` VARCHAR(64) NULL , 
                     `relationshipType` VARCHAR(64) , 
-                    CONSTRAINT fk_definitionIdRel FOREIGN KEY (definitionId)  
+                    CONSTRAINT fk_definitionIdRel FOREIGN KEY (headDefinitionId)  
                     REFERENCES {self.definitions_table}(id)  
                     ON DELETE CASCADE  
                     ON UPDATE CASCADE  {''', 
@@ -298,7 +298,7 @@ class Collector:
                     del related_words[i][k]
             # print("RW {} keys: {}".format(i, related_words[i].keys()))
 
-        cur.executemany(f"INSERT INTO {self.edge_table} (definitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(words)s, %(relationshipType)s)", related_words)
+        cur.executemany(f"INSERT INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(words)s, %(relationshipType)s)", related_words)
         self.conn.commit()
         return related_words #fetched_data #related_words
     
