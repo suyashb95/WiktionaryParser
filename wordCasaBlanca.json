@@ -1,0 +1,57 @@
+[
+    {
+        "etymology": "From دَار‎ (dār, “house”) and بَيْضَاء‎ (bayḍāʔ, “white”): a calque of the original Portuguese name Casa Branca (\"White House\"), changed to Casablanca when the Spanish assumed control of the city.\n",
+        "definitions": [
+            {
+                "partOfSpeech": "proper noun",
+                "text": [
+                    {
+                        "raw_text": "الدَّار الْبَيْضَاء • (ad-dār al-bayḍāʔ) f",
+                        "text": "الدَّار الْبَيْضَاء • (ad-dār al-bayḍāʔ) f",
+                        "appendix_tags": [],
+                        "headword": "الدَّار الْبَيْضَاء"
+                    },
+                    {
+                        "raw_text": "Casablanca (the capital city of the region of Casablanca-Settat, Morocco)",
+                        "text": "Casablanca (the capital city of the region of Casablanca-Settat, Morocco)",
+                        "appendix_tags": [],
+                        "headword": "الدَّار الْبَيْضَاء"
+                    }
+                ],
+                "relatedWords": [
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            "كَازَابْلَانْكَا‎ (kazablanka)"
+                        ],
+                        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534",
+                        "pos": "proper noun"
+                    }
+                ],
+                "examples": []
+            }
+        ],
+        "pronunciations": {
+            "text": [],
+            "audio": []
+        },
+        "categories": [
+            "Arabic definite nouns",
+            "Arabic feminine nouns",
+            "Arabic lemmas",
+            "Arabic multiword terms",
+            "Arabic nouns with basic triptote singular",
+            "Arabic proper nouns",
+            "Arabic terms calqued from Portuguese",
+            "Arabic terms derived from Portuguese",
+            "ar:Cities in Casablanca-Settat",
+            "ar:Cities in Morocco",
+            "ar:Places in Casablanca-Settat",
+            "ar:Places in Morocco",
+            "ar:Regional capitals of Morocco"
+        ],
+        "language": "arabic",
+        "query": "الدار_البيضاء",
+        "word": "الدار_البيضاء"
+    }
+]

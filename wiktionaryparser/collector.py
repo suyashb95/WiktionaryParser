@@ -32,7 +32,7 @@ class Collector:
 
         self.force_edge_tail_constraint = force_edge_tail_constraint
 
-        
+        self.base_url = "https://en.wiktionary.org/"
         self.__create_tables()
         # with open('appendix.json', 'w', encoding='utf8') as f:
         #     f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
@@ -229,12 +229,11 @@ class Collector:
         cur = self.conn.cursor()
         related_words = []
         for row in fetched_data:
-            print(row.keys())
             word = {
                 k: row.get(k) for k in ['etymology', 'language', "query", 'word']
             }
             word['id'] = self.__apply_hash(word['word'])
-            cur.execute(f"INSERT INTO `{self.word_table}` (id, query, word, etymology, language) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s)", word)
+            cur.execute(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s)", word)
             self.conn.commit()
             word_id = word['id']
                         
@@ -277,7 +276,7 @@ class Collector:
                             self.__apply_hash(e) for e in appendix
                         ] #FOREIGN KEY
                     }
-                    cur.execute(f"INSERT INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition[i])
+                    cur.execute(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition[i])
                     self.conn.commit()
                     appendix['definitionId'] = unique_w_hash
                     appendix = flatten_dict(appendix)
@@ -289,6 +288,7 @@ class Collector:
         for i in range(len(related_words)):
             related_words[i].update(related_words[i].get("words", {}))
             def_hash = f"{related_words[i].get('wordId')}_{related_words[i].get('pos')}_{related_words[i].get('def_text')[:hash_maxlen]}"
+            print(def_hash)
             def_hash = self.__apply_hash(def_hash)
             related_words[i]['def_hash'] = def_hash
             related_words[i]['words'] = self.__apply_hash(related_words[i]['words'])
@@ -302,6 +302,40 @@ class Collector:
         self.conn.commit()
         return related_words #fetched_data #related_words
     
+    def get_category_data(self, lang="ar"):
+        urls = {
+            "set_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_set_categories',
+            "name_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_name_categories'
+        }
+        data = []
+        for k in urls:
+            url = urls[k]
+            while True:
+                response = requests.get(url)
+                soup = BeautifulSoup(response.content, "lxml")
+                #Get all links
+                links = soup.select(".CategoryTreeItem>a")
+                for a in links[:2]:
+                    # tree_bullet = a.find_previous_sibling('span')
+                    # hasSubcat = "CategoryTreeBullet" in tree_bullet.get('class')
+                    a_data = {
+                        "sourceList": k,
+                        "hashed_title": self.__apply_hash(a.get("title")),
+                        "title": a.get("title"),
+                        "text": a.get_text(),
+                        "wikiUrl": a.get("href"),
+                        # "hasSubcat": hasSubcat
+                    }
+                    data.append(a_data)
+
+                url = soup.find("a", text="next page")
+                if url is None:
+                    break
+
+                url = self.base_url + url.get('href')
+
+        return data
+
     
 
 

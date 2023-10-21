@@ -36,12 +36,13 @@ def is_subheading(child, parent):
 
 class WiktionaryParser(object):
     def __init__(self):
-        self.url = "https://en.wiktionary.org/wiki/{}?printable=yes"
+        self.url = "https://en.wiktionary.org/wiki/{}?printable={}"
         self.soup = None
         self.session = requests.Session()
         self.session.mount("http://", requests.adapters.HTTPAdapter(max_retries = 2))
         self.session.mount("https://", requests.adapters.HTTPAdapter(max_retries = 2))
         self.language = 'english'
+        self.use_printable = 'yes'
         self.current_word = None
         self.PARTS_OF_SPEECH = copy.copy(PARTS_OF_SPEECH)
         self.RELATIONS = copy.copy(RELATIONS)
@@ -285,7 +286,21 @@ class WiktionaryParser(object):
                 parent_tag = parent_tag.find_next_sibling()
             if parent_tag:
                 for list_tag in parent_tag.find_all('li'):
-                    words.append(list_tag.text)
+                    prev_def = parent_tag
+                    while True:
+                        prev_def = prev_def.find_previous_sibling()
+                        if prev_def.name in ['p', 'ol', 'ul']:
+                            break
+                    if prev_def.name == "p":
+                        def_text = prev_def
+                    elif prev_def.name in ['ul', 'ol']:
+                        def_text = prev_def.find_all('li')[-1]
+
+                    def_text = def_text.get_text()
+                    words.append({
+                        "words": list_tag.text,
+                        "def_text": def_text
+                    })
             related_words_list.append((related_index, words, relation_type))
 
         #Pass 2
@@ -298,7 +313,10 @@ class WiktionaryParser(object):
             content = self.soup.find(True, {"id": def_id}).parent
             while True:
                 content = content.find_next_sibling()
-                if content.name in ['h3', 'h4', 'h5']:
+                if content is None:
+                    break
+
+                elif content.name in ['h3', 'h4', 'h5']:
                     break
 
                 elif content.name in ['ol', 'ul']:
@@ -364,11 +382,12 @@ class WiktionaryParser(object):
     def fetch(self, word, language=None, old_id=None, query=None):
         language = self.language if not language else language
         languages = language if hasattr(language, '__iter__') and type(language) != str else [language]
-        response = self.session.get(self.url.format(word), params={'oldid': old_id})
+        response = self.session.get(self.url.format(word, self.use_printable), params={'oldid': old_id})
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.current_word = word
         self.clean_html()
         res = []
+
         for lang in languages:
             res += self.get_word_data(lang.lower())
         for obj in res:
@@ -380,7 +399,8 @@ class WiktionaryParser(object):
     def fetch_all_potential(self, word, language=None, old_id=None, verbose=0):
         def get_possible_altenrnatives(word):
             replacement_dict = {
-                "ا": ["ا", "أ", "إ", "آ"]
+                "ا": ["ا", "أ", "إ", "آ"],
+                " ": "_"
             }
             replacement_dict = {k: f"({'|'.join(v)})" for k, v in replacement_dict.items()}
 
@@ -390,7 +410,6 @@ class WiktionaryParser(object):
             return list(exrex.generate(word_regex))
         
         possible_altenrnatives = get_possible_altenrnatives(word)
-
         res = {word: self.fetch(word)}
         if verbose > 0:
             possible_altenrnatives = tqdm.tqdm(possible_altenrnatives, desc="Fetching potential forms", leave=False)
