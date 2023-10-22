@@ -223,45 +223,7 @@ class Collector:
         dataset_name = path.split('/')[-1].replace('.csv', '')
         file_rows = self.coll.adapt_csv_dataset(path, dataset_name=dataset_name)
         self.coll.insert_data(file_rows, dataset_name=dataset_name, task="Sentiment Analysis")
-        
-    def save_word(self, fetched_data):
-        hash_maxlen = 48
-        cur = self.conn.cursor()
-        related_words = []
-        definitions = []
-        appendices = []
-        for row in fetched_data:
-            word = {
-                k: row.get(k) for k in ['etymology', 'language', "query", 'word']
-            }
-            word['id'] = self.__apply_hash(word['word'])
-            cur.execute(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s)", word)
-            self.conn.commit()
-            word_id = word['id']
-                        
-            
-            for element in row.get("definitions", [])  :
-                # Related words
-                relations = self.process_fetched_relationships(element, word_id, hash_maxlen=hash_maxlen)
 
-                #Definitions
-                definition, appendix = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
-                definitions += definition
-                appendices += appendix
-                related_words += relations
-
-        cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition)
-        if len(appendix) > 0:
-            apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
-            cur.executemany(apx_q, appendices)
-        self.conn.commit()
-
-        
-            # print("RW {} keys: {}".format(i, related_words[i].keys()))
-
-        cur.executemany(f"INSERT INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(words)s, %(relationshipType)s)", related_words)
-        self.conn.commit()
-        return related_words #fetched_data #related_words
     def process_fetched_relationships(self, element, word_id, hash_maxlen=-1):
         related_words = []
         for rw in element.get("relatedWords", []):
@@ -273,7 +235,8 @@ class Collector:
                 def_hash = f"{rw_list[i].get('wordId')}_{rw_list[i].get('pos')}_{rw_list[i].get('def_text')[:hash_maxlen]}"
                 def_hash = self.__apply_hash(def_hash)
                 rw_list[i]['def_hash'] = def_hash
-                rw_list[i]['words'] = self.__apply_hash(rw_list[i]['words'])
+                rw_list[i]['word'] = rw_list[i].pop('words')
+                rw_list[i]['wordId'] = self.__apply_hash(rw_list[i]['word'])
 
                 for k in ['pos', 'def_text']:
                     if k in rw_list[i]:
@@ -315,7 +278,55 @@ class Collector:
             appendix = flatten_dict(appendix)
             
         return definition, appendix
+        
+    def save_word(self, fetched_data):
+        hash_maxlen = 48
+        related_words = []
+        orph_nodes = []
+        definitions = []
+        appendices = []
+        words = []
+        for row in fetched_data:
+            word = {
+                k: row.get(k) for k in ['etymology', 'language', "query", 'word']
+            }
+            word_id = self.__apply_hash(word['word'])
+            word['id'] = word_id
+            words.append(word)
+                        
+            
+            for element in row.get("definitions", [])  :
+                # Related words
+                relations = self.process_fetched_relationships(element, word_id, hash_maxlen=hash_maxlen)
+                for r in relations:
+                    onode = {}
+                    onode['word'] = r.get('word')
+                    onode['id'] = self.__apply_hash(onode['word'])
+                    onode['query'] = word.get("word")
+                    onode['etymology'] = None
+                    onode['language'] = word.get("language")
+                    
+                    orph_nodes.append(onode)
+                #Definitions
+                definition, appendix = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
+                definitions += definition
+                appendices += appendix
+                
+                related_words += relations
 
+        #Inserting to database
+        cur = self.conn.cursor()
+        cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s)", words)
+        cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s)", orph_nodes)
+        cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition)
+        if len(appendix) > 0:
+            apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
+            cur.executemany(apx_q, appendices)
+        
+        cur.executemany(f"INSERT INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(wordId)s, %(relationshipType)s)", related_words)
+        self.conn.commit()
+        return orph_nodes #fetched_data #related_words
+    
     def get_category_data(self, lang="ar"):
         urls = {
             "set_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_set_categories',
