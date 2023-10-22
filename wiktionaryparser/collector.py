@@ -228,6 +228,8 @@ class Collector:
         hash_maxlen = 48
         cur = self.conn.cursor()
         related_words = []
+        definitions = []
+        appendices = []
         for row in fetched_data:
             word = {
                 k: row.get(k) for k in ['etymology', 'language', "query", 'word']
@@ -237,70 +239,83 @@ class Collector:
             self.conn.commit()
             word_id = word['id']
                         
-            definitions = row.get("definitions", [])         
-
-            for element in definitions:
-                element_pos = element.get("partOfSpeech")
-                for rw in element.get("relatedWords", []):
-                    rw['wordId'] = word_id
-                    rw['pos'] = element_pos
-
-                    related_words += flatten_dict(rw)
-                #Definitions
-                definition = {
-                    "wordId": word_id, #FOREIGN KEY
-                    "partOfSpeech": element_pos,
-                    "text": element.get("text", [])
-                }
             
-                #Add definitions
-                definition = flatten_dict(definition)
-                for i in range(len(definition)):
-                    definition[i].update(definition[i].get("text", {}))
-                    for k_ in ["examples", "categories"]:
-                        if k_ in definition[i]:
-                            definition[i].pop(k_)
-                            
-                    appendix = definition[i].pop('appendix_tags')
-                    appendix = [a.lower().strip() for a in appendix]
-                    appendix = [a.replace(u"\xa0", ' ') for a in appendix]
+            for element in row.get("definitions", [])  :
+                # Related words
+                relations = self.process_fetched_relationships(element, word_id, hash_maxlen=hash_maxlen)
 
-                    #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
-                    unique_w_hash = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('raw_text')[:hash_maxlen]}"
-                    unique_w_hash = self.__apply_hash(unique_w_hash)
-                    definition[i]['definitionId'] = unique_w_hash #PRIMARY KEY
+                #Definitions
+                definition, appendix = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
+                definitions += definition
+                appendices += appendix
+                related_words += relations
 
-                    #Isolate appendix for its own table
-                    appendix = {
-                        "appendixId": [
-                            self.__apply_hash(e) for e in appendix
-                        ] #FOREIGN KEY
-                    }
-                    cur.execute(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition[i])
-                    self.conn.commit()
-                    appendix['definitionId'] = unique_w_hash
-                    appendix = flatten_dict(appendix)
-                    if len(appendix) > 0:
-                        apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
-                        cur.executemany(apx_q, appendix)
-                        self.conn.commit()
+        cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition)
+        if len(appendix) > 0:
+            apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
+            cur.executemany(apx_q, appendices)
+        self.conn.commit()
 
-        for i in range(len(related_words)):
-            related_words[i].update(related_words[i].get("words", {}))
-            def_hash = f"{related_words[i].get('wordId')}_{related_words[i].get('pos')}_{related_words[i].get('def_text')[:hash_maxlen]}"
-            def_hash = self.__apply_hash(def_hash)
-            related_words[i]['def_hash'] = def_hash
-            related_words[i]['words'] = self.__apply_hash(related_words[i]['words'])
-
-            for k in ['pos', 'def_text']:
-                if k in related_words[i]:
-                    del related_words[i][k]
+        
             # print("RW {} keys: {}".format(i, related_words[i].keys()))
 
         cur.executemany(f"INSERT INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(words)s, %(relationshipType)s)", related_words)
         self.conn.commit()
         return related_words #fetched_data #related_words
+    def process_fetched_relationships(self, element, word_id, hash_maxlen=-1):
+        related_words = []
+        for rw in element.get("relatedWords", []):
+            rw['wordId'] = word_id
+            rw['pos'] = element.get("partOfSpeech")
+            rw_list = flatten_dict(rw)
+            for i in range(len(rw_list)):
+                rw_list[i].update(rw_list[i].get("words", {}))
+                def_hash = f"{rw_list[i].get('wordId')}_{rw_list[i].get('pos')}_{rw_list[i].get('def_text')[:hash_maxlen]}"
+                def_hash = self.__apply_hash(def_hash)
+                rw_list[i]['def_hash'] = def_hash
+                rw_list[i]['words'] = self.__apply_hash(rw_list[i]['words'])
+
+                for k in ['pos', 'def_text']:
+                    if k in rw_list[i]:
+                        del rw_list[i][k]
+            related_words += rw_list
+        return related_words
+
+    def process_fetched_definition(self, element, word_id, hash_maxlen=-1):
+        definition = {
+            "wordId": word_id, #FOREIGN KEY
+            "partOfSpeech": element.get("partOfSpeech"),
+            "text": element.get("text", [])
+        }
     
+        #Add definitions
+        definition = flatten_dict(definition)
+        for i in range(len(definition)):
+            definition[i].update(definition[i].get("text", {}))
+            for k_ in ["examples", "categories"]:
+                if k_ in definition[i]:
+                    definition[i].pop(k_)
+                    
+            appendix = definition[i].pop('appendix_tags')
+            appendix = [a.lower().strip() for a in appendix]
+            appendix = [a.replace(u"\xa0", ' ') for a in appendix]
+
+            #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
+            unique_w_hash = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('raw_text')[:hash_maxlen]}"
+            unique_w_hash = self.__apply_hash(unique_w_hash)
+            definition[i]['definitionId'] = unique_w_hash #PRIMARY KEY
+
+            #Isolate appendix for its own table
+            appendix = {
+                "appendixId": [
+                    self.__apply_hash(e) for e in appendix
+                ] #FOREIGN KEY
+            }
+            appendix['definitionId'] = unique_w_hash
+            appendix = flatten_dict(appendix)
+            
+        return definition, appendix
+
     def get_category_data(self, lang="ar"):
         urls = {
             "set_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_set_categories',
