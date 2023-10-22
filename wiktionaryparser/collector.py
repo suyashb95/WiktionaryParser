@@ -288,7 +288,6 @@ class Collector:
         for i in range(len(related_words)):
             related_words[i].update(related_words[i].get("words", {}))
             def_hash = f"{related_words[i].get('wordId')}_{related_words[i].get('pos')}_{related_words[i].get('def_text')[:hash_maxlen]}"
-            print(def_hash)
             def_hash = self.__apply_hash(def_hash)
             related_words[i]['def_hash'] = def_hash
             related_words[i]['words'] = self.__apply_hash(related_words[i]['words'])
