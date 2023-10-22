@@ -20,7 +20,7 @@ class Collector:
                  dataset_table="data", 
                  edge_table="relationships",
                  definitions_table="definitions",
-                 force_edge_tail_constraint=False
+                 force_edge_tail_constraint=True
                 ):
 
         self.conn = conn
@@ -108,13 +108,14 @@ class Collector:
                     CONSTRAINT fk_definitionIdRel FOREIGN KEY (headDefinitionId)  
                     REFERENCES {self.definitions_table}(id)  
                     ON DELETE CASCADE  
-                    ON UPDATE CASCADE  {''', 
+                    ON UPDATE CASCADE  ,
+
                     CONSTRAINT fk_wordIdRel FOREIGN KEY (wordId)  
                     REFERENCES {self.word_table}(id)  
                     ON DELETE CASCADE  
-                    ON UPDATE CASCADE ''' if self.force_edge_tail_constraint else ''}
+                    ON UPDATE CASCADE
                 );
-            """,
+            """
         ]
         for query in tqdm.tqdm(queries):
             cur.execute(query)
