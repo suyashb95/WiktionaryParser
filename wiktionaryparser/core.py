@@ -196,12 +196,9 @@ class WiktionaryParser(object):
                 appendix_removal.append(a.text)
                 a.extract()
 
-        for k in appendix_removal:
-            src_regex = re.compile(f'(\({k}\)|{k})')
-            text = re.sub(src_regex, '', text).strip()
-
         mentions = []
-        for m in element.find_all('a'):
+        remaining_a = element.find_all('a')
+        for m in remaining_a:
             m_href = m.get('href')
             if m_href.startswith('/wiki'):
                 language = m.parent.get('lang')
@@ -210,6 +207,10 @@ class WiktionaryParser(object):
                     "word": m.text,
                     "language": language
                 })
+
+        for k in appendix_removal:
+            src_regex = re.compile(f'(\({k}\)|{k})')
+            text = re.sub(src_regex, '', text).strip()
         D = {
             "raw_text": raw_text,
             "text": text,

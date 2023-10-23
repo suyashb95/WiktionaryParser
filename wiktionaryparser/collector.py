@@ -220,7 +220,8 @@ class Collector:
             for m in range(len(mentions_)):
                 mentions_[m]['definitionId'] = unique_w_hash
             
-        return definition, appendix, mentions_
+            mentions += mentions_
+        return definition, appendix, mentions
         
     def save_word(self, fetched_data):
         hash_maxlen = 48
@@ -283,7 +284,7 @@ class Collector:
         #Inserting to database
         cur = self.conn.cursor()
         cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s)", words)
-        cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s)", orph_nodes)
+        cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s)", orph_nodes)
         cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition)
         if len(appendix) > 0:
             apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
