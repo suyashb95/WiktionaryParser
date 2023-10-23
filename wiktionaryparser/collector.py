@@ -6,7 +6,6 @@ import os
 import tqdm
 import copy
 from nltk.stem import *
-import pymysql
 import itertools
 import hashlib
 
@@ -34,92 +33,28 @@ class Collector:
 
         self.base_url = "https://en.wiktionary.org/"
         self.__create_tables()
-        # with open('appendix.json', 'w', encoding='utf8') as f:
-        #     f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
+        with open('appendix.json', 'w', encoding='utf8') as f:
+            f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
 
     def __apply_hash(self, s):
         return hashlib.sha256(s.encode()).hexdigest()
     
     def __create_tables(self):
+        table_names = {
+            "word_table": self.word_table,
+            "dataset_table": self.dataset_table,
+            "definitions_table": self.definitions_table,
+            "edge_table": self.edge_table,
+        }
         cur = self.conn.cursor()
-        queries = [f"""
-                CREATE TABLE IF NOT EXISTS {self.dataset_table} (
-                    id INT AUTO_INCREMENT PRIMARY KEY, 
-                    text VARCHAR(1023) NOT NULL, 
-                    label VARCHAR(255) NOT NULL, 
-                    dataset_name VARCHAR(255), 
-                    task VARCHAR(255)
-                ); 
-            """, 
-            f"""
-            CREATE TABLE IF NOT EXISTS {self.word_table} (
-                    `id` VARCHAR(64), 
-                    word VARCHAR(255), 
-                    query VARCHAR(255), 
-                    language VARCHAR(255), 
-                    etymology TEXT,
-                    PRIMARY KEY (`id`(64))
-                );
-            """,
-            f"""
-            CREATE TABLE IF NOT EXISTS {self.definitions_table} (
-                    `id` VARCHAR(64), 
-                    `wordId` VARCHAR(64) NOT NULL , 
-                    `partOfSpeech` VARCHAR(16) NOT NULL , 
-                    `text` VARCHAR(1024) NOT NULL , 
-                    `headword` VARCHAR(256) NOT NULL , 
-                    PRIMARY KEY (`id`(64)),
-                    CONSTRAINT fk_wordId FOREIGN KEY (wordId)  
-                    REFERENCES {self.word_table}(id)  
-                    ON DELETE CASCADE  
-                    ON UPDATE CASCADE 
-                );
-            """,
-            #CREATE APPENDIX TABLE HERE
-            f"""
-            CREATE TABLE IF NOT EXISTS appendix (
-                    id VARCHAR(64), 
-                    `label` VARCHAR(255) NOT NULL , 
-                    `description` VARCHAR(1024) , 
-                    `wikiUrl` VARCHAR(255) ,
-                    `category` VARCHAR(255) ,
-                    PRIMARY KEY (`id`(64))
-                );
-            """,
-            f"""
-            CREATE TABLE IF NOT EXISTS {self.definitions_table}_apx (
-                    `definitionId` VARCHAR(64) NOT NULL , 
-                    `appendixId` VARCHAR(64) NOT NULL , 
-                    CONSTRAINT fk_definitionId FOREIGN KEY (definitionId)  
-                    REFERENCES {self.definitions_table}(id)  
-                    ON DELETE CASCADE  
-                    ON UPDATE CASCADE , 
-                    CONSTRAINT fk_definitionApx FOREIGN KEY (appendixId)  
-                    REFERENCES appendix (id)  
-                    ON DELETE CASCADE  
-                    ON UPDATE CASCADE 
-                );
-            """,
-            f"""
-            CREATE TABLE IF NOT EXISTS {self.edge_table} (
-                    `headDefinitionId` VARCHAR(64) NOT NULL ,
-                    `wordId` VARCHAR(64) NULL , 
-                    `relationshipType` VARCHAR(64) , 
-                    CONSTRAINT fk_definitionIdRel FOREIGN KEY (headDefinitionId)  
-                    REFERENCES {self.definitions_table}(id)  
-                    ON DELETE CASCADE  
-                    ON UPDATE CASCADE  ,
-
-                    CONSTRAINT fk_wordIdRel FOREIGN KEY (wordId)  
-                    REFERENCES {self.word_table}(id)  
-                    ON DELETE CASCADE  
-                    ON UPDATE CASCADE
-                );
-            """
-        ]
-        for query in tqdm.tqdm(queries):
-            cur.execute(query)
-            self.conn.commit()
+        with open('query.sql', 'r') as f:
+            query = f.read()
+        query = query.format(**table_names).split(';')
+        for q in query:
+            q = q.strip()
+            if len(q) > 0:
+                cur.execute(q+";")
+        self.conn.commit()
 
     def __get_appendix_data(self):
         res = []
