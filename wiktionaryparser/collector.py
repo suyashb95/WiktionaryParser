@@ -235,6 +235,7 @@ class Collector:
                 k: row.get(k) for k in ['etymology', 'language', "query", 'word', 'wikiUrl']
             }
             word_id = self.__apply_hash(word['word'])
+            word['wikiUrl'] = word['wikiUrl'] if word['wikiUrl'] is not None else f"/wiki/{word['word']}"
             word['id'] = word_id
             words.append(word)
                         
