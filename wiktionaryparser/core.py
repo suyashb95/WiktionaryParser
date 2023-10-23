@@ -188,18 +188,33 @@ class WiktionaryParser(object):
         text = element.text.strip()
         headword = element.find('strong', {"class": "headword"})
         headword = headword.text if headword else None
-        appendix_removal = element.find_all("a", {"title": "Appendix:Glossary"})
-        appendix_removal += element.find_all("span", {"class": "ib-content"})
-        appendix_removal = [a.text for a in appendix_removal if a.text not in self.EXCLUDED_APPENDICES]
+        appendix = element.find_all("a", {"title": "Appendix:Glossary"})
+        appendix += element.find_all("span", {"class": "ib-content"})
+        appendix_removal = []
+        for a in appendix:
+            if a.text not in self.EXCLUDED_APPENDICES:
+                appendix_removal.append(a.text)
+                a.extract()
 
         for k in appendix_removal:
             src_regex = re.compile(f'(\({k}\)|{k})')
             text = re.sub(src_regex, '', text).strip()
 
+        mentions = []
+        for m in element.find_all('a'):
+            m_href = m.get('href')
+            if m_href.startswith('/wiki'):
+                language = m.parent.get('lang')
+                mentions.append({
+                    "wikiUrl": m_href,
+                    "word": m.text,
+                    "language": language
+                })
         D = {
             "raw_text": raw_text,
             "text": text,
-            "appendix_tags": appendix_removal
+            "appendix_tags": appendix_removal,
+            "mentions": mentions
         }
         return D, headword
     

@@ -1,156 +1,26 @@
 [
     {
-        "word": "سَحَاب",
-        "id": "660279b9c3eb664f30dab08fc942e3abbe4505378e157aa7741d5bcd80dac2a2",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
+        "wikiUrl": "/wiki/grass",
+        "word": "grass",
+        "language": null,
+        "definitionId": "c4dbe08dff7472879a24650485c82b85dc602c9a17c284696bc681dc6e7ef968"
     },
     {
-        "word": "غَيْم",
-        "id": "fc866ca5cde072f73741743ba1cb5b3f475fd4c1e4ad9e094e9389d8ecf2ea2e",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
+        "wikiUrl": "/wiki/Casablanca#English",
+        "word": "Casablanca",
+        "language": "en",
+        "definitionId": "1dfc26d90ebdc82c1e8c41d161f5393a4c77b5d7b8dd06a11eda4b2c592f896e"
     },
     {
-        "word": "عَنَان",
-        "id": "3326536403c0de5ba3c76c6b8de36944875f0178005acf716ea769d5eea12dcf",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
+        "wikiUrl": "/wiki/capital_city",
+        "word": "capital city",
+        "language": null,
+        "definitionId": "1dfc26d90ebdc82c1e8c41d161f5393a4c77b5d7b8dd06a11eda4b2c592f896e"
     },
     {
-        "word": "غَمَام",
-        "id": "3bf8f3319d0b646524f62fa3a0dc5e6293cb5aa03212c1bbff17e179f19ab471",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "مُزْن",
-        "id": "fc258b90b9a7043b8ab8c6957d4a5c5c319b92c094781418e99f386364589bc8",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "مَطَر",
-        "id": "b976c2729d8d1cb91cddb25e877d1dfe5421170bd6fadeb97852288174129ba2",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "سَيْل",
-        "id": "3b4b4853839c99013bfe2e67e5206885fdb8a773be421bb34dd6f1fbe97be8ea",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "فَضَاء",
-        "id": "798ffc72bbbeba903eaefd85bf68243577c886f0edfc43a9991395ee5007cf2b",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "فَلَك",
-        "id": "bec8c25b9793d2093efe393cd7c895e9a685118702b3f87a13ed66c8017af8c9",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "أَثِير",
-        "id": "f3cfa23c9bdaa6abd96f73f237799f864299633301fbb6125b2054c494da932d",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "مَجَال جَوِّيّ",
-        "id": "bf53a0a776b5088ad282da2b953e5cff42779609a5e3823a4e5ba96092bb55b3",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "قُبَّة سَمَاوِيَّة",
-        "id": "b18b79da3610a7d03a10b866bb14e4bc5b309c2b23ff8b61f14067c5ba7063f7",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "مَجَال سَمَاوِيّ",
-        "id": "364c1445663537c2fb04e292d75312435d94dbd3967415488162c918a6e3aa3f",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "غِلَاف جَوِيّ",
-        "id": "b266f40725731f265325160d5ead1bbc1fd641a4b1aabe20f91b46db80dac41a",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "سْتْرَاتُوسْفِير",
-        "id": "197782299137dcbd4a28e8f50520a3f08a7714db59f1a8086c2d4c9c0fbe278b",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "سَقْف",
-        "id": "9be01a58ef70bc5c6bafaf3ed37789205b15387b2cdc7ec91ee7298e1ea5b32a",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "بِنَاء",
-        "id": "b1a0ce5825758c14a463d819c6deac1766b1b7ad0c0483478d36eedf1fbebfe1",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "رَقِيع",
-        "id": "969c91956a2ad1f39bc726b8fa09c0dbd1f64ac6ef413ed0dd6ba5952d857318",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "ظَهْرُ الْفَرَسِ",
-        "id": "a89d41b8b34b0793306ca1b64ae4799d62769aad82a9ff6c41346f209a9f9140",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "ضَهْر",
-        "id": "29d46ea6c1435c8a86b9bdfe5640d87b39da2bdb48e9bb9af1aea1682aa0cd4c",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "عُشْب",
-        "id": "f8315536467e7cf5de9f9fa860943899207e1bccadd8aac3d2eb83d6e1380356",
-        "query": "سماء",
-        "etymology": null,
-        "language": "arabic"
-    },
-    {
-        "word": "كَازَابْلَانْكَا‎ (kazablanka)",
-        "id": "36317c5793b7246e01a70150c0d3daf596e5e21d50850e1ea7a81fdee4c3ef80",
-        "query": "الدار_البيضاء",
-        "etymology": null,
-        "language": "arabic"
+        "wikiUrl": "/wiki/Morocco#English",
+        "word": "Morocco",
+        "language": "en",
+        "definitionId": "1dfc26d90ebdc82c1e8c41d161f5393a4c77b5d7b8dd06a11eda4b2c592f896e"
     }
 ]

@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `{word_table}` (
   `query` varchar(255) DEFAULT NULL,
   `language` varchar(255) DEFAULT NULL,
   `etymology` text DEFAULT NULL,
+  `wikiUrl` text DEFAULT NULL,
   PRIMARY KEY (`id`(64))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

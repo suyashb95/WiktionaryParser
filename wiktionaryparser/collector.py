@@ -184,9 +184,9 @@ class Collector:
         definition = {
             "wordId": word_id, #FOREIGN KEY
             "partOfSpeech": element.get("partOfSpeech"),
-            "text": element.get("text", [])
+            "text": element.get("text", []),
         }
-    
+        mentions = []
         #Add definitions
         definition = flatten_dict(definition)
         for i in range(len(definition)):
@@ -198,13 +198,16 @@ class Collector:
             appendix = definition[i].pop('appendix_tags')
             appendix = [a.lower().strip() for a in appendix]
             appendix = [a.replace(u"\xa0", ' ') for a in appendix]
+            
+            mentions_ = definition[i].pop("mentions")
+
 
             #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
             unique_w_hash = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('raw_text')[:hash_maxlen]}"
             unique_w_hash = self.__apply_hash(unique_w_hash)
             definition[i]['definitionId'] = unique_w_hash #PRIMARY KEY
 
-            #Isolate appendix for its own table
+            #Isolate appendix in its own table
             appendix = {
                 "appendixId": [
                     self.__apply_hash(e) for e in appendix
@@ -212,8 +215,12 @@ class Collector:
             }
             appendix['definitionId'] = unique_w_hash
             appendix = flatten_dict(appendix)
+
+            #Isolate mentions their its own table
+            for m in range(len(mentions_)):
+                mentions_[m]['definitionId'] = unique_w_hash
             
-        return definition, appendix
+        return definition, appendix, mentions_
         
     def save_word(self, fetched_data):
         hash_maxlen = 48
@@ -224,35 +231,58 @@ class Collector:
         words = []
         for row in fetched_data:
             word = {
-                k: row.get(k) for k in ['etymology', 'language', "query", 'word']
+                k: row.get(k) for k in ['etymology', 'language', "query", 'word', 'wikiUrl']
             }
             word_id = self.__apply_hash(word['word'])
             word['id'] = word_id
             words.append(word)
                         
             
-            for element in row.get("definitions", [])  :
+            for element in row.get("definitions", []):
                 # Related words
                 relations = self.process_fetched_relationships(element, word_id, hash_maxlen=hash_maxlen)
+                
+                #Definitions
+                definition, appendix, mentions = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
+
+                #Newly discovered words (From relationships)
                 for r in relations:
                     onode = {}
                     onode['word'] = r.get('word')
+                    onode['wikiUrl'] = r.get('wikiUrl')
                     onode['id'] = self.__apply_hash(onode['word'])
                     onode['query'] = word.get("word")
                     onode['etymology'] = None
                     onode['language'] = word.get("language")
                     
                     orph_nodes.append(onode)
-                #Definitions
-                definition, appendix = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
+
+                #Newly discovered words (From mentions)
+                for m in mentions:
+                    mnode = copy.deepcopy(m)
+                    mnode.update({
+                        "id": self.__apply_hash(m.get('word')),
+                        "query": word.get("word"),
+                        "etymology": None
+                    })
+                    mnode_def_id = mnode.pop('definitionId')
+                    new_rel = {
+                        "relationshipType": "mention",
+                        "wordId": mnode['id'],
+                        "def_hash": mnode_def_id,
+                        "word": mnode['word']
+                    }
+                    orph_nodes.append(mnode)
+                    relations.append(new_rel)
+                
+                #Add to stack
                 definitions += definition
                 appendices += appendix
-                
                 related_words += relations
 
         #Inserting to database
         cur = self.conn.cursor()
-        cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s)", words)
+        cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s)", words)
         cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s)", orph_nodes)
         cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition)
         if len(appendix) > 0:
@@ -261,7 +291,7 @@ class Collector:
         
         cur.executemany(f"INSERT INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(wordId)s, %(relationshipType)s)", related_words)
         self.conn.commit()
-        return orph_nodes #fetched_data #related_words
+        return mentions #fetched_data #related_words
     
     def get_category_data(self, lang="ar"):
         urls = {
