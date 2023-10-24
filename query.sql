@@ -106,3 +106,37 @@ CREATE TABLE IF NOT EXISTS `{edge_table}` (
   ON DELETE CASCADE  
   ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` VARCHAR(64) NOT NULL , 
+  `title` TEXT NOT NULL , 
+  `text` TEXT NOT NULL , 
+  `sourceList` VARCHAR(64) NOT NULL , 
+  `wikiUrl` TEXT NOT NULL , 
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `{definitions_table}_apx`
+--
+
+CREATE TABLE IF NOT EXISTS `word_categories` (
+  `wordId` varchar(64) NOT NULL,
+  `categoryId` varchar(64) NOT NULL , 
+  CONSTRAINT fk_wordCatgId FOREIGN KEY (wordId)  
+  REFERENCES {word_table}(id)  
+  ON DELETE CASCADE  
+  ON UPDATE CASCADE , 
+  CONSTRAINT fk_wordCatg FOREIGN KEY (categoryId)  
+  REFERENCES categories (id)  
+  ON DELETE CASCADE  
+  ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

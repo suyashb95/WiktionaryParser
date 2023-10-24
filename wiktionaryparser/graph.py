@@ -45,4 +45,15 @@ class Builder:
         result = [dict(zip(column_names, row)) for row in cur.fetchall()]
         return result
 
+    def get_orphan_nodes(self):
+        query = [
+            f"SELECT word, language, wikiUrl  FROM {self.word_table}",
+            "WHERE wikiUrl IS NOT NULL AND etymology IS NULL"
+        ]
+        query = "\n".join(query)
+        cur = self.conn.cursor()
+        result = cur.execute(query)
+        column_names = [desc[0] for desc in cur.description]
+        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        return result
 # preprocessor = Preprocessor(stemmer=ARLSTem(), normalizer=Normalizer(waw_norm="و"))
