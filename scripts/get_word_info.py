@@ -38,7 +38,7 @@ for word, lang in tqdm.tqdm(text_words):
         fetched_data = parser.fetch_all_potential(prepped_word, language=lang)
     for k in fetched_data:
         element = fetched_data[k]
-        results += coll.save_word(element)
+        results += coll.save_word(element, save_to_db=False)
 
 with open('wordOut.json', 'w', encoding="utf8") as f:
     f.write(json.dumps(results, indent=4, ensure_ascii=False))

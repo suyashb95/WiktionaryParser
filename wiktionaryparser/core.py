@@ -200,13 +200,14 @@ class WiktionaryParser(object):
         remaining_a = element.find_all('a')
         for m in remaining_a:
             m_href = m.get('href')
-            if m_href.startswith('/wiki'):
-                language = m.parent.get('lang')
-                mentions.append({
-                    "wikiUrl": m_href,
-                    "word": m.text,
-                    "language": language
-                })
+            if m_href is not None:
+                if m_href.startswith('/wiki'):
+                    language = m.parent.get('lang')
+                    mentions.append({
+                        "wikiUrl": m_href,
+                        "word": m.text,
+                        "language": language
+                    })
 
         for k in appendix_removal:
             src_regex = re.compile(f'(\({k}\)|{k})')

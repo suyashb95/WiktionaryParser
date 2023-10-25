@@ -84,7 +84,7 @@ class Collector:
                     if e.name in ["dd", "p"]:
                         desc = e.text.strip()
                     elif e.name in ["dt", "h3"]:
-                        
+                        desc = None
                         label = e.text.strip()
                         wiki_url = e.select_one('a')
                         wiki_url = wiki_url if wiki_url is None else wiki_url.get('href')
