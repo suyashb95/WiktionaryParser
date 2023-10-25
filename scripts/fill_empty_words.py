@@ -21,28 +21,6 @@ conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge
 collector = Collector(conn)
 builder = Builder(conn)
 
-if False:
-    # BEGINNING OF TEMPORARY SECTION
-    text_words = [
-        # ('خيط', 'moroccan arabic'),
-        # ('example', 'english'),
-        # ('سماء', 'arabic'),
-        ('الدار البيضاء', 'arabic'),
-    ]
-    collector.erase_db()
-    for word, lang in tqdm.tqdm(text_words):
-        no_spaces_word = re.sub('\s', '_', word)
-        if word != no_spaces_word: #If word has space, e.q to saying word is an entity
-            fetched_data = {word: parser.fetch(no_spaces_word, language=lang)}
-        else:
-            prepped_word = ' '.join(prep(word)) #[0]
-            fetched_data = parser.fetch_all_potential(prepped_word, language=lang)
-        for k in fetched_data:
-            element = fetched_data[k]
-            collector.save_word(element, save_to_db=True)
-    # END OF TEMPORARY SECTION
-
-
 fetched_data = []
 saved_data = []
 orphan_nodes = builder.get_orphan_nodes()

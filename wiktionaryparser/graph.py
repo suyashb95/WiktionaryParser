@@ -49,7 +49,7 @@ class Builder:
         query = [
             f"SELECT word, language, wikiUrl  FROM {self.word_table}",
             "WHERE wikiUrl IS NOT NULL AND query IS NULL",
-            "LIMIT 10"
+            "LIMIT 25"
         ]
         query = "\n".join(query)
         cur = self.conn.cursor()

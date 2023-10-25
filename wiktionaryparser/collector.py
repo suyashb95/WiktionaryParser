@@ -1,4 +1,5 @@
 import json
+import re
 import requests
 from bs4 import BeautifulSoup
 import csv
@@ -234,9 +235,11 @@ class Collector:
             word = {
                 k: row.get(k) for k in ['etymology', 'language', "query", 'word', 'wikiUrl']
             }
-            word_id = self.__apply_hash(word['word'])
-            word['wikiUrl'] = word['wikiUrl'] if word['wikiUrl'] is not None else f"/wiki/{word['word']}"
+            word_str = word['word']
+            word_id = self.__apply_hash(word_str)
+            word['wikiUrl'] = word['wikiUrl'] if word['wikiUrl'] is not None else f"/wiki/{word_str}"
             word['id'] = word_id
+            word['word'] = re.sub('\W|_', ' ', word_str)
             words.append(word)
                         
             
@@ -253,7 +256,7 @@ class Collector:
                     onode['word'] = r.get('word')
                     onode['wikiUrl'] = r.get('wikiUrl')
                     onode['id'] = self.__apply_hash(onode['word'])
-                    onode['query'] = word.get("word")
+                    onode['query'] = word_str
                     onode['etymology'] = None
                     onode['language'] = word.get("language")
                     
