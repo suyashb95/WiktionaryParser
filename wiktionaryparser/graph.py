@@ -48,7 +48,7 @@ class Builder:
     def get_orphan_nodes(self):
         query = [
             f"SELECT word, language, wikiUrl  FROM {self.word_table}",
-            "WHERE wikiUrl IS NOT NULL AND etymology IS NULL",
+            "WHERE wikiUrl IS NOT NULL AND query IS NULL",
             "LIMIT 10"
         ]
         query = "\n".join(query)

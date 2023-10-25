@@ -283,22 +283,23 @@ class Collector:
                 related_words += relations
 
         if save_to_db:
-            self.save_word_data(words, definition, related_words, appendices, orph_nodes)
+            self.save_word_data(words, definitions, related_words, appendices, orph_nodes)
 
-        return fetched_data #fetched_data #related_words
+        return related_words #fetched_data #related_words
     
 
     def save_word_data(self, words, definition, related_words, appendices, orph_nodes):
         #Inserting to database
         cur = self.conn.cursor()
+        cur.executemany(f"UPDATE `{self.word_table}` SET query=%(query)s, word=%(word)s, etymology=%(etymology)s, language=%(language)s, wikiUrl=%(wikiUrl)s WHERE id=%(id)s", words)
         cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s)", words)
-        cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s)", orph_nodes)
+        cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl) VALUES (%(id)s, NULL, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s)", orph_nodes)
         cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition)
         if len(appendices) > 0:
             apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
             cur.executemany(apx_q, appendices)
         
-        cur.executemany(f"INSERT INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(wordId)s, %(relationshipType)s)", related_words)
+        cur.executemany(f"INSERT IGNORE INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(wordId)s, %(relationshipType)s)", related_words)
         self.conn.commit()
 
 
