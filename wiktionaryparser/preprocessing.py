@@ -59,6 +59,11 @@ class Preprocessor:
         cleantext = re.sub(cleanr, ' ', str(text)) 
         return cleantext
     
+    def stripurl(self, text): 
+        cleanr = re.compile('https?://\w+(.\w+)+(/?\w+)*') 
+        cleantext = re.sub(cleanr, ' ', str(text)) 
+        return cleantext
+    
     def stem(self, word):
         return self.stemmer.stem(word)
         
@@ -67,7 +72,10 @@ class Preprocessor:
 
     def __call__(self, text):
         processed_text = []
-        text = text
+        text = self.stripurl(text)
+        text = self.striphtml(text)
+        # text = text
+        # text = text
         tokenized_text = self.tokenizer(text)
         for w in tokenized_text:
             w = self.remove_punct(w)

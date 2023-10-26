@@ -57,4 +57,26 @@ class Builder:
         column_names = [desc[0] for desc in cur.description]
         result = [dict(zip(column_names, row)) for row in cur.fetchall()]
         return result
+    
+    def get_dataset(self, dataset_name=None, task=None):
+        query = f"SELECT * from {self.dataset_table}"
+        params = {
+            "dataset_name": dataset_name,
+            "task": task
+        }
+        params = {k: v for k, v in params.items() if v is not None}
+        params = [f"{k}={v}" for k, v in params.items()]
+        if len(params) > 0:
+            params = " AND ".join(params)
+            query = query + " WHERE " + params
+        
+        cur = self.conn.cursor()
+        cur.execute(query)
+
+        result_set = []
+        cur_keys = [desc[0] for desc in cur.description]
+        for c in cur.fetchall():
+            result_set.append(dict(zip(cur_keys, c)))
+
+        return result_set
 # preprocessor = Preprocessor(stemmer=ARLSTem(), normalizer=Normalizer(waw_norm="و"))
