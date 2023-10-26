@@ -1,21 +1,17 @@
-import re
 import sys
 
 sys.path.append('.')
 import pymysql
-from wiktionaryparser.collector import Collector
 import json
 import tqdm
 
-# nltk.download('punkt')
-
+from wiktionaryparser.collector import Collector
 from wiktionaryparser.core import WiktionaryParser
 from wiktionaryparser.graph import Builder
 from wiktionaryparser.preprocessing import Preprocessor
 
 parser = WiktionaryParser()
 prep = Preprocessor()
-# parser.set_default_language("arabic")
 
 conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
 collector = Collector(conn)
