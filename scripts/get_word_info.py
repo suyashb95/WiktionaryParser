@@ -15,7 +15,8 @@ text_words = [
     # ('خيط', 'moroccan arabic'),
     # ('example', 'english'),
     ('سماء', 'arabic'),
-    # ('الدار البيضاء', 'arabic'),
+    ('الدار البيضاء', 'arabic'),
+    ('البيت الأبيض', 'arabic'),
 ]
 # text_words = ['example']
 results = []
@@ -26,7 +27,7 @@ parser.set_default_language("arabic")
 
 conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
 coll = Collector(conn)
-coll.erase_db()
+# coll.erase_db()
 
 
 for word, lang in tqdm.tqdm(text_words):

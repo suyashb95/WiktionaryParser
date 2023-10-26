@@ -330,7 +330,8 @@ class Collector:
     def __get_category_data(self, lang="ar"):
         urls = {
             "set_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_set_categories',
-            "name_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_name_categories'
+            "name_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_name_categories',
+            "type_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_type_categories',
         }
         data = []
         for k in urls:
