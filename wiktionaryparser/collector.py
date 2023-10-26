@@ -34,8 +34,12 @@ class Collector:
 
         self.base_url = "https://en.wiktionary.org/"
         self.__create_tables()
-        with open('appendix.json', 'w', encoding='utf8') as f:
-            f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
+        if True:
+            with open('appendix.json', 'w', encoding='utf8') as f:
+                f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
+
+            with open('category_links.json', 'w', encoding='utf8') as f:
+                f.write(json.dumps(self.__get_category_data(), indent=2, ensure_ascii=False))
 
     def __apply_hash(self, s):
         return hashlib.sha256(s.encode()).hexdigest()
@@ -187,28 +191,27 @@ class Collector:
             "partOfSpeech": element.get("partOfSpeech"),
             "text": element.get("text", []),
         }
+        appendices = []
         mentions = []
+        categories = []
         #Add definitions
         definition = flatten_dict(definition)
         for i in range(len(definition)):
             definition[i].update(definition[i].get("text", {}))
-            for k_ in ["examples", "categories"]:
+            for k_ in ["examples"]:
                 if k_ in definition[i]:
                     definition[i].pop(k_)
                     
-            appendix = definition[i].pop('appendix_tags')
-            appendix = [a.lower().strip() for a in appendix]
-            appendix = [a.replace(u"\xa0", ' ') for a in appendix]
-            
-            mentions_ = definition[i].pop("mentions")
-
-
             #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
             unique_w_hash = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('raw_text')[:hash_maxlen]}"
             unique_w_hash = self.__apply_hash(unique_w_hash)
             definition[i]['definitionId'] = unique_w_hash #PRIMARY KEY
 
             #Isolate appendix in its own table
+            appendix = definition[i].pop('appendix_tags', [])
+            appendix = [a.lower().strip() for a in appendix]
+            appendix = [a.replace(u"\xa0", ' ') for a in appendix]
+            
             appendix = {
                 "appendixId": [
                     self.__apply_hash(e) for e in appendix
@@ -216,13 +219,18 @@ class Collector:
             }
             appendix['definitionId'] = unique_w_hash
             appendix = flatten_dict(appendix)
+            appendices += appendix
 
             #Isolate mentions their its own table
+            mentions_ = definition[i].pop("mentions", [])
             for m in range(len(mentions_)):
                 mentions_[m]['definitionId'] = unique_w_hash
             
             mentions += mentions_
-        return definition, appendix, mentions
+
+
+
+        return definition, appendices, mentions, categories
         
     def save_word(self, fetched_data, save_to_db=False):
         hash_maxlen = 48
@@ -231,6 +239,8 @@ class Collector:
         definitions = []
         appendices = []
         words = []
+        categories = []
+
         for row in fetched_data:
             word = {
                 k: row.get(k) for k in ['etymology', 'language', "query", 'word', 'wikiUrl']
@@ -242,13 +252,23 @@ class Collector:
             word['word'] = re.sub('\W|_', ' ', word_str)
             words.append(word)
                         
-            
+            #Isolate categories in their own table
+            categories_ = row.pop('categories', [])
+            categories_ = {
+                "categoryId": [
+                    self.__apply_hash(e) for e in categories_
+                ] #FOREIGN KEY,
+            }
+            categories_['wordId'] = word_id
+            categories_ = flatten_dict(categories_)
+            categories += categories_
+
             for element in row.get("definitions", []):
                 # Related words
                 relations = self.process_fetched_relationships(element, word_id, hash_maxlen=hash_maxlen)
                 
                 #Definitions
-                definition, appendix, mentions = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
+                definition, appendix, mentions, word_categories = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
 
                 #Newly discovered words (From relationships)
                 for r in relations:
@@ -284,14 +304,14 @@ class Collector:
                 definitions += definition
                 appendices += appendix
                 related_words += relations
-
+                categories += word_categories
         if save_to_db:
-            self.save_word_data(words, definitions, related_words, appendices, orph_nodes)
+            self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories)
 
-        return related_words #fetched_data #related_words
+        return categories #fetched_data #related_words
     
 
-    def save_word_data(self, words, definition, related_words, appendices, orph_nodes):
+    def save_word_data(self, words=[], definition=[], related_words=[], appendices=[], orph_nodes=[], categories=[]):
         #Inserting to database
         cur = self.conn.cursor()
         cur.executemany(f"UPDATE `{self.word_table}` SET query=%(query)s, word=%(word)s, etymology=%(etymology)s, language=%(language)s, wikiUrl=%(wikiUrl)s WHERE id=%(id)s", words)
@@ -303,10 +323,11 @@ class Collector:
             cur.executemany(apx_q, appendices)
         
         cur.executemany(f"INSERT IGNORE INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(wordId)s, %(relationshipType)s)", related_words)
+        cur.executemany(f"INSERT IGNORE INTO `word_categories` (wordId, categoryId) VALUES (%(wordId)s, %(categoryId)s)", categories)
         self.conn.commit()
 
 
-    def get_category_data(self, lang="ar"):
+    def __get_category_data(self, lang="ar"):
         urls = {
             "set_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_set_categories',
             "name_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_name_categories'
@@ -324,7 +345,7 @@ class Collector:
                     # hasSubcat = "CategoryTreeBullet" in tree_bullet.get('class')
                     a_data = {
                         "sourceList": k,
-                        "id": self.__apply_hash(a.get("title")),
+                        "id": self.__apply_hash(a.get_text()),
                         "title": a.get("title"),
                         "text": a.get_text(),
                         "wikiUrl": a.get("href"),
