@@ -91,6 +91,7 @@ def flatten_dict(dictionary):
 
 
 def get_colormap(labels, palette="tab10_r"):
+    labels = sorted(set(labels), key=str)
     colormap = plt.get_cmap(palette)
     colormap = colormap(np.linspace(0, 1, len(labels)))
     colormap = (colormap * 255).astype(int)

@@ -32,6 +32,8 @@ class Builder:
         self.definitions_table = definitions_table
         self.edge_table = edge_table
 
+        self.graph = None
+
         # with open('appendix.json', 'w', encoding='utf8') as f:
         #     f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
 
@@ -99,13 +101,13 @@ class Builder:
 
         return result_set
     
-    def get_pyvis_graph(self, instance="w2w", preprocessing_callback=None, nodes_palette="tab10", edges_palette="tab10"):
-        g = Network(height='100vh', width='100vw')
+    def get_pyvis_graph(self, instance="w2w", preprocessing_callback=None, nodes_palette="tab10", edges_palette="tab10", **kwargs):
+        self.graph = Network(height='100vh', width='100vw', **kwargs)
 
         if instance == "w2w":
             graph_data = self.word2word()
         else:
-            return g
+            return self.graph
 
         vocab = self.get_vocab()
         if preprocessing_callback is None:
@@ -117,8 +119,15 @@ class Builder:
 
         edge_labels = {r.get('relationshipType') for r in graph_data}
 
-        node_colors = get_colormap(language_norm, palette=nodes_palette)
-        edge_colors = get_colormap(edge_labels, palette=edges_palette)
+        if type(nodes_palette) == str:
+            node_colors = get_colormap(language_norm, palette=nodes_palette)
+        else:
+            node_colors = nodes_palette
+
+        if type(edges_palette) == str:
+            edge_colors = get_colormap(edge_labels, palette=edges_palette)
+        else:
+            edge_colors = edges_palette
 
 
 
@@ -128,7 +137,7 @@ class Builder:
             color = node_colors.get(lang, "black")
             word = preprocessing_callback(w.get('word'))
             title = f"{word} ({lang})"
-            g.add_node(w.get('id'), label=word, title=title, color=color, hover=True)
+            self.graph.add_node(w.get('id'), label=word, title=title, color=color, hover=True)
 
         for r in graph_data:
             headId = r.get('headId')
@@ -137,17 +146,17 @@ class Builder:
             tail = preprocessing_callback(r.get('tail'))
             reltype = r.get('relationshipType')
 
-            if headId not in g.nodes:
-                g.add_node(headId, label=head)
+            if headId not in self.graph.nodes:
+                self.graph.add_node(headId, label=head)
 
-            if tailId not in g.nodes:
-                g.add_node(tailId, label=tail)
+            if tailId not in self.graph.nodes:
+                self.graph.add_node(tailId, label=tail)
 
             color = edge_colors[reltype]
             arrows = "to" if reltype not in Builder.get_bidir_rels() else None
-            g.add_edge(headId, tailId, color=color, label=reltype, hoverWidth=2, arrows=arrows)
+            self.graph.add_edge(headId, tailId, color=color, label=reltype, hoverWidth=2, arrows=arrows)
 
-        return g
+        return self.graph
 
 
 # preprocessor = Preprocessor(stemmer=ARLSTem(), normalizer=Normalizer(waw_norm="و"))

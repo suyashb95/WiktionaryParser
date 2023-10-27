@@ -13,8 +13,8 @@ conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge
 builder = Builder(conn)
 g = builder.get_pyvis_graph(
     preprocessing_callback=Preprocessor(return_type="str"),
-    nodes_palette="Set1", edges_palette="Set1",
-    )
+    nodes_palette="Set1", edges_palette="Set1", filter_menu=True
+)
 
 g_options = {
     "physics": {"enabled": False},
