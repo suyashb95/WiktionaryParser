@@ -38,12 +38,14 @@ class Normalizer:
         return text_
 
 class Preprocessor:
-    def __init__(self, stemmer=None, normalizer=None, tokenizer=None, stop_words=None, keep_punct=False):
+    def __init__(self, return_type="list", stemmer=None, normalizer=None, tokenizer=None, stop_words=None, keep_punct=False, unshakl=True):
         self.stemmer = stemmer
         self.normalizer = normalizer
         self.tokenizer = word_tokenize if not tokenizer else tokenizer
         self.punctuation = string.punctuation if not keep_punct else ''
         self.stop_words = set() if not stop_words else set(stop_words)
+        self.return_type = return_type
+        self.unshakl = unshakl
         
     def is_stopword(self, word):
         return word in self.stop_words
@@ -52,7 +54,7 @@ class Preprocessor:
         trans = str.maketrans({p: ' ' for p in list(self.punctuation)})
         return word.translate(trans)
     def remove_repeated_letters(self, word):
-        return re.sub(r'(\w)\1+', r'\1', word, flags=re.IGNORECASE)
+        return re.sub(r'(\w)\1{2,}', r'\1', word, flags=re.IGNORECASE)
         
     def striphtml(self, text): 
         cleanr = re.compile('<.*?>') 
@@ -70,6 +72,11 @@ class Preprocessor:
     def normalize(self, word):
         return self.normalizer.normalize(word)
 
+    def strip_shakl(self, word):
+        shakl_regex = re.compile(r'[\u064B-\u0655]')
+        word = re.sub(shakl_regex, '', word)
+        return word
+    
     def __call__(self, text):
         processed_text = []
         text = self.stripurl(text)
@@ -84,6 +91,10 @@ class Preprocessor:
                 w = self.stem(w)
             if self.normalizer:
                 w = self.normalize(w)
+            if self.unshakl:
+                w = self.strip_shakl(w)
 
             processed_text.append(w)
+        if self.return_type == "str":
+            processed_text = " ".join(processed_text)
         return processed_text

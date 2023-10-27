@@ -35,8 +35,20 @@ class Builder:
 
     def word2word(self):
         query = [
-            f"SELECT {self.edge_table}.wordId head, {self.edge_table}.relationshipType, {self.definitions_table}.wordId tail FROM {self.edge_table}",
-            f"JOIN {self.definitions_table} ON {self.definitions_table}.id = {self.edge_table}.headDefinitionId"
+            f"SELECT {self.definitions_table}.headword head, {self.definitions_table}.wordId headId, {self.edge_table}.relationshipType, {self.word_table}.word tail, {self.word_table}.id tailId FROM {self.edge_table}",
+            f"JOIN {self.definitions_table} ON {self.definitions_table}.id = {self.edge_table}.headDefinitionId",
+            f"JOIN {self.word_table} ON {self.word_table}.id = {self.edge_table}.wordId",
+        ]
+        query = "\n".join(query)
+        cur = self.conn.cursor()
+        result = cur.execute(query)
+        column_names = [desc[0] for desc in cur.description]
+        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        return result
+    
+    def get_vocab(self):
+        query = [
+            f"SELECT * FROM {self.word_table}",
         ]
         query = "\n".join(query)
         cur = self.conn.cursor()
