@@ -1,34 +1,64 @@
 import json
 import sys
-import langcodes
-import numpy as np
 import pymysql
-import matplotlib.pyplot as plt
 sys.path.append('.')
 from wiktionaryparser.preprocessing import Preprocessor
 from wiktionaryparser.graph import Builder
-from wiktionaryparser.utils import get_colormap
 
 conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
 builder = Builder(conn)
 g = builder.get_pyvis_graph(
     preprocessing_callback=Preprocessor(return_type="str"),
-    nodes_palette="Set1", edges_palette="Set1", filter_menu=True
+    nodes_palette="tab10_r", edges_palette="Set1", filter_menu=True, height='100vh', width='50vw', 
 )
 
 g_options = {
     "physics": {"enabled": False},
     "node": {"size": 100}
 }
+g.force_atlas_2based(-50)
 # g.barnes_hut(spring_length=5)
 g.options.set(
     f"""
     var options = {json.dumps(g_options, indent=2)}
 """
 )
+g.show_buttons(True)
 g.save_graph("example.html")
 
-# # Embed the custom JavaScript in the HTML file
-# with open("example.html", "a") as html_file:
-#     html_file.write(f"<script>{custom_js}</script>")
+
+custom_js = """
+// Get references to the elements
+const cardDiv = document.querySelector('.card');
+const configDiv = document.querySelector('#config');
+const networkDiv = document.querySelector('#mynetwork');
+// Create a new div to wrap the 'config' div
+const newDiv = document.createElement('div');
+newDiv.setAttribute('class', 'container')
+if (true) {
+    // Check if both elements exist in the DOM
+    if (networkDiv) {
+    
+    // Append the 'config' div to the new div
+    newDiv.appendChild(networkDiv);
+    // Append the new div inside the 'card' div
+    cardDiv.appendChild(newDiv);
+    }
+    if (configDiv) {
+    
+    // Append the 'config' div to the new div
+    newDiv.appendChild(configDiv);
+    // Append the new div inside the 'card' div
+    cardDiv.appendChild(newDiv);
+    }
+}
+else {
+  console.log("One or both of the elements were not found.");
+}
+"""
+
+# Embed the custom JavaScript in the HTML file
+with open("example.html", "a") as html_file:
+    html_file.write(f"<script>{custom_js}</script>")
+    # html_file.write(f"<style>{custom_css}</style>")
 

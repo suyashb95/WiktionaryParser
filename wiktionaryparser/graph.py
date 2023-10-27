@@ -55,10 +55,17 @@ class Builder:
         result = [dict(zip(column_names, row)) for row in cur.fetchall()]
         return result
     
-    def get_vocab(self):
+    def get_vocab(self, category_info=True):
+        from_table = f"{self.word_table}.*"
+        if category_info:
+            from_table = "categories.*, " + from_table
         query = [
-            f"SELECT * FROM {self.word_table}",
+            f"SELECT {from_table} FROM {'word_categories' if category_info else self.word_table}",
         ]
+        if category_info:
+            query.append(f"JOIN {self.word_table} ON {self.word_table}.id = word_categories.wordId")
+            query.append(f"JOIN categories ON categories.id = word_categories.categoryId")
+            
         query = "\n".join(query)
         cur = self.conn.cursor()
         result = cur.execute(query)
@@ -102,14 +109,14 @@ class Builder:
         return result_set
     
     def get_pyvis_graph(self, instance="w2w", preprocessing_callback=None, nodes_palette="tab10", edges_palette="tab10", **kwargs):
-        self.graph = Network(height='100vh', width='100vw', **kwargs)
+        self.graph = Network(**kwargs)
 
         if instance == "w2w":
             graph_data = self.word2word()
         else:
             return self.graph
 
-        vocab = self.get_vocab()
+        vocab = self.get_vocab(category_info=False)
         if preprocessing_callback is None:
             preprocessing_callback = lambda x: x
 
