@@ -1,4 +1,7 @@
 import itertools
+
+from matplotlib import pyplot as plt
+import numpy as np
 class WordData(object):
     def __init__(self, etymology=None, definitions=None, pronunciations=None,
                  audio_links=None):
@@ -85,3 +88,11 @@ def flatten_dict(dictionary):
     keys, values = zip(*dictionary.items())
     dictionary = [dict(zip(keys, v)) for v in itertools.product(*values)]
     return dictionary
+
+
+def get_colormap(labels, palette="tab10_r"):
+    colormap = plt.get_cmap(palette)
+    colormap = colormap(np.linspace(0, 1, len(labels)))
+    colormap = (colormap * 255).astype(int)
+    colormap = [f"rgb({r}, {g}, {b})" for r, g, b, _ in colormap]
+    return dict(zip(labels, colormap))
