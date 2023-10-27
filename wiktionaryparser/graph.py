@@ -1,3 +1,4 @@
+import re
 from pyvis.network import Network
 import json
 import langcodes
@@ -72,6 +73,21 @@ class Builder:
         column_names = [desc[0] for desc in cur.description]
         result = [dict(zip(column_names, row)) for row in cur.fetchall()]
         return result
+    
+    def get_category_relations(self):
+        query = [
+            f"SELECT w.id headId, w.word head, c.id tailId, c.text tail, 'categoryOf' relationshipType FROM word_categories wc",
+            f"JOIN {self.word_table} w ON w.id = wc.wordId",
+            f"JOIN categories c ON c.id = wc.categoryId",
+        ]
+
+        query = "\n".join(query)
+        cur = self.conn.cursor()
+        relations = cur.execute(query)
+        column_names = [desc[0] for desc in cur.description]
+        relations = [dict(zip(column_names, row)) for row in cur.fetchall()]
+
+        return relations
 
     def get_orphan_nodes(self):
         query = [
@@ -108,20 +124,52 @@ class Builder:
 
         return result_set
     
-    def get_pyvis_graph(self, instance="w2w", preprocessing_callback=None, nodes_palette="tab10", edges_palette="tab10", **kwargs):
+    def get_categories(self, category_ids=None):
+        query = [
+            f"SELECT * FROM categories",
+        ]
+        if hasattr(category_ids, '__iter__') and type(category_ids) != str:
+            category_ids = [f"'{c}'" for c in category_ids]
+            category_ids = ", ".join(category_ids)
+            query.append(f"WHERE id IN ({category_ids})")
+        query = "\n".join(query)
+        cur = self.conn.cursor()
+        result = cur.execute(query)
+        column_names = [desc[0] for desc in cur.description]
+        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        return result
+    
+    def get_pyvis_graph(self, instance="w2w", preprocessing_callback=None, category_info=True, nodes_palette="tab10", edges_palette="tab10", **kwargs):
         self.graph = Network(**kwargs)
 
         if instance == "w2w":
             graph_data = self.word2word()
         else:
             return self.graph
+        
 
         vocab = self.get_vocab(category_info=False)
+        if category_info:
+            cat_relations = self.get_category_relations()
+            graph_data += cat_relations
+            cat_ids = [c['tailId'] for c in cat_relations]
+            categories = self.get_categories(category_ids=cat_ids)
+            for cat in categories:
+                # cat['language'] = re.sub('^(.+):(.+)', '\g<1>', cat['text'])
+                cat['language'] = "Category"
+                cat['word'] = re.sub('^(.+):(.+)', '\g<2>', cat['text'])
+                vocab.append(cat)
+
         if preprocessing_callback is None:
             preprocessing_callback = lambda x: x
 
         language_map = {w.get('language') for w in vocab}
-        language_norm = [langcodes.find(l).language if len(str(l)) > 3 and l is not None else l for l in language_map]
+        language_norm = []
+        for l in language_map:
+            if len(str(l)) > 3 and l not in [None, "Category"]:
+                l = langcodes.find(l).language
+
+            language_norm.append(l)
         language_map = dict(zip(language_map, language_norm))
 
         edge_labels = {r.get('relationshipType') for r in graph_data}
@@ -143,7 +191,7 @@ class Builder:
             lang = language_map[lang]
             color = node_colors.get(lang, "black")
             word = preprocessing_callback(w.get('word'))
-            title = f"{word} ({lang})"
+            title = f"{word} ({lang})" if lang is not None else f"{word} (?)"
             self.graph.add_node(w.get('id'), label=word, title=title, color=color, hover=True)
 
         for r in graph_data:

@@ -90,10 +90,14 @@ def flatten_dict(dictionary):
     return dictionary
 
 
-def get_colormap(labels, palette="tab10_r"):
+def get_colormap(labels, palette=None):
     labels = sorted(set(labels), key=str)
+    if None in labels:
+        labels.remove(None)
     colormap = plt.get_cmap(palette)
-    colormap = colormap(np.linspace(0, 1, len(labels)))
+    colormap = colormap(np.linspace(0.1, 1, len(labels)))
     colormap = (colormap * 255).astype(int)
     colormap = [f"rgb({r}, {g}, {b})" for r, g, b, _ in colormap]
-    return dict(zip(labels, colormap))
+    colormap = dict(zip(labels, colormap))
+    colormap[None] = "gray"
+    return colormap
