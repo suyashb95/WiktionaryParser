@@ -1,3 +1,4 @@
+from collections import Counter
 import os
 os.environ['DGLBACKEND'] = "pytorch"
 import dgl
@@ -38,6 +39,7 @@ class Builder:
         self.edge_table = edge_table
 
         self.graph = None
+        self.vocab = None
 
         # with open('appendix.json', 'w', encoding='utf8') as f:
         #     f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
@@ -45,6 +47,36 @@ class Builder:
     @staticmethod
     def get_bidir_rels():
         return ['hyponyms', 'synonyms', 'antonyms']
+    
+    def word2word(self, query_filter=None):
+        query = [
+            f"SELECT whead.id headId, whead.word head, wtail.id tailId, wtail.word tail, {self.edge_table}.relationshipType FROM {self.edge_table}",
+            f"JOIN {self.word_table} wtail ON wtail.id = {self.edge_table}.wordId",
+            f"JOIN {self.definitions_table} def ON def.id = {self.edge_table}.headDefinitionId",
+            f"JOIN {self.word_table} whead ON def.wordId = whead.id",
+        ]
+        where_clause = []
+        if query_filter is not None:
+            for k, v in query_filter.items():
+                if hasattr(v, "__iter__") and type(v) != str:
+                        if len(v) > 0:
+                            v = ', '.join([f"'{e}'" for e in v])
+                            filter_ = f"{k} IN ({v})"
+                        else:
+                            continue
+                else:
+                    filter_ = f"{k} = {v}"
+                where_clause.append(filter_)
+        if len(where_clause) > 0:
+            where_clause = " AND ".join(where_clause)
+            where_clause = "WHERE " + where_clause
+            query.append(where_clause)
+        query = "\n".join(query)
+        cur = self.conn.cursor()
+        result = cur.execute(query)
+        column_names = [desc[0] for desc in cur.description]
+        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        return result
     
 
     def def2word(self, query_filter=None):
@@ -76,16 +108,22 @@ class Builder:
         result = [dict(zip(column_names, row)) for row in cur.fetchall()]
         return result
     
-    def get_vocab(self, category_info=True):
+    def get_vocab(self, category_info=True, partOfSpeech=False):
         from_table = f"{self.word_table}.*"
         if category_info:
             from_table = "categories.*, " + from_table
+        if partOfSpeech:
+            from_table = "def.partOfSpeech, " + from_table
         query = [
             f"SELECT {from_table} FROM {'word_categories' if category_info else self.word_table}",
         ]
         if category_info:
             query.append(f"JOIN {self.word_table} ON {self.word_table}.id = word_categories.wordId")
             query.append(f"JOIN categories ON categories.id = word_categories.categoryId")
+
+        if partOfSpeech:
+            query.append(f"JOIN {self.definitions_table} def ON {self.word_table}.id = def.wordId")
+
             
         query = "\n".join(query)
         cur = self.conn.cursor()
@@ -159,6 +197,23 @@ class Builder:
         result = [dict(zip(column_names, row)) for row in cur.fetchall()]
         return result
     
+    def build_graph_vocab(self, category_info=False):
+        category_rels = []
+        if self.vocab is None:
+            self.vocab = self.get_vocab()
+        vocab = self.vocab
+        if category_info:
+            cat_relations = self.get_category_relations()
+            category_rels += cat_relations
+            cat_ids = [c['tailId'] for c in cat_relations]
+            categories = self.get_categories(category_ids=cat_ids)
+            for cat in categories:
+                # cat['language'] = re.sub('^(.+):(.+)', '\g<1>', cat['text'])
+                cat['language'] = "Category"
+                cat['word'] = re.sub('^(.+):(.+)', '\g<2>', cat['text'])
+                vocab.append(cat)
+        return vocab, category_rels
+
     def build_graph(self, instance="w2w", query_filter=None, preprocessing_callback=None, category_info=True, nodes_palette="tab10", edges_palette="tab10", **kwargs):
         self.graph = Network(**kwargs)
 
@@ -169,18 +224,8 @@ class Builder:
         else:
             return self.graph
         
-
-        vocab = self.get_vocab(category_info=False)
-        if category_info:
-            cat_relations = self.get_category_relations()
-            graph_data += cat_relations
-            cat_ids = [c['tailId'] for c in cat_relations]
-            categories = self.get_categories(category_ids=cat_ids)
-            for cat in categories:
-                # cat['language'] = re.sub('^(.+):(.+)', '\g<1>', cat['text'])
-                cat['language'] = "Category"
-                cat['word'] = re.sub('^(.+):(.+)', '\g<2>', cat['text'])
-                vocab.append(cat)
+        vocab, category_rels = self.build_graph_vocab(category_info=category_info)
+        graph_data += category_rels
 
         if preprocessing_callback is None:
             preprocessing_callback = lambda x: x
@@ -235,37 +280,8 @@ class Builder:
 
         return self.graph
 
-    def word2word(self, query_filter=None):
-        query = [
-            f"SELECT whead.id headId, whead.word head, wtail.id tailId, wtail.word tail, {self.edge_table}.relationshipType FROM {self.edge_table}",
-            f"JOIN {self.word_table} wtail ON wtail.id = {self.edge_table}.wordId",
-            f"JOIN {self.definitions_table} def ON def.id = {self.edge_table}.headDefinitionId",
-            f"JOIN {self.word_table} whead ON def.wordId = whead.id",
-        ]
-        where_clause = []
-        if query_filter is not None:
-            for k, v in query_filter.items():
-                if hasattr(v, "__iter__") and type(v) != str:
-                        if len(v) > 0:
-                            v = ', '.join([f"'{e}'" for e in v])
-                            filter_ = f"{k} IN ({v})"
-                        else:
-                            continue
-                else:
-                    filter_ = f"{k} = {v}"
-                where_clause.append(filter_)
-        if len(where_clause) > 0:
-            where_clause = " AND ".join(where_clause)
-            where_clause = "WHERE " + where_clause
-            query.append(where_clause)
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        result = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
-        return result
-    
-    def get_homo_graph(self):
+    def get_homo_graph(self, instance, category_info=False):
+        self.build_graph(instance=instance, category_info=category_info)
         nodes = {node['id']: i for i, node in enumerate(self.graph.nodes, start=1)}
         edges_src = [nodes[e.get('from')] for e in self.graph.edges]
         edges_dst = [nodes[e.get('to')] for e in self.graph.edges]
@@ -274,11 +290,94 @@ class Builder:
         
         return g
     
-    def get_hetero_graph(self):
-        nodes = {node['id']: i for i, node in enumerate(self.graph.nodes, start=1)}
-        reltypes = set([e.get('label') for e in self.graph.edges])
-        # edges_src = [e.get('from') for e in self.graph.edges]
-        # edges_dst = [e.get('to') for e in self.graph.edges]
+    def get_reltype_counts(self):
+        query = [
+            f"SELECT rel.relationshipType, COUNT(*) count FROM {self.edge_table} rel",
+            f"GROUP BY rel.relationshipType"
+        ]
+
+        query = "\n".join(query)
+        cur = self.conn.cursor()
+        result = cur.execute(query)
+        column_names = [desc[0] for desc in cur.description]
+        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        count = {}
+        for r in result:
+            k = r.get('relationshipType')
+            count[k] = count.get(k, 0) + r.get('count', 0)
+        return count
+    
+    def get_pos_counts(self):
+        query = [
+            f"SELECT def.partOfSpeech, COUNT(*) count FROM {self.definitions_table} def",
+            f"GROUP BY def.partOfSpeech"
+        ]
+
+        query = "\n".join(query)
+        cur = self.conn.cursor()
+        result = cur.execute(query)
+        column_names = [desc[0] for desc in cur.description]
+        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        count = {}
+        for r in result:
+            k = r.get('partOfSpeech')
+            count[k] = count.get(k, 0) + r.get('count', 0)
+        return count
+    
+    def word_pos(self):
+        query = [
+            f"SELECT def.partOfSpeech, w.id FROM {self.definitions_table} def",
+            f"JOIN {self.word_table} w ON def.wordId = w.id"
+        ]
+
+        query = "\n".join(query)
+        cur = self.conn.cursor()
+        result = cur.execute(query)
+        column_names = [desc[0] for desc in cur.description]
+        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        pos_tags = {}
+        for r in result:
+            k = r.get('id')
+            if k not in pos_tags:
+                pos_tags[k] = []
+            pos_tags[k].append(r.get('partOfSpeech'))
+        pos_tags = {k: Counter(pos_tags[k]) for k in pos_tags}
+        pos_tags = {k: {t: p/sum(pos_tags[k].values()) for t, p in pos_tags[k].items()} for k in pos_tags}
+        return pos_tags
+    
+    def get_hetero_graph(self, instance, category_info=False):
+        self.build_graph(instance=instance, category_info=category_info)
         
-        # g = dgl.graph((edges_src, edges_dst), num_nodes=len(nodes)+1)
+        filters = {
+            "reltype": self.get_reltype_counts().keys(),
+            "head_tag": self.get_pos_counts().keys(),
+            "tail_tag": self.get_pos_counts().keys(),
+        }
+        filters = flatten_dict(filters)
         
+        nodes = sorted({node['id'] for node in self.graph.nodes})
+        nodes = {node: i for i, node in enumerate(nodes, start=1)}
+        print(nodes)
+        data_dict = {}
+        for rule in filters:
+
+            sty = rule.get('head_tag')
+            dty = rule.get('head_tag')
+            r = rule.get('reltype')
+            edges_src = []
+            edges_dst = []
+            for edge in self.graph.edges:
+                if edge.get('label') != r:
+                    continue
+                    
+                s = edge.get('from')
+                d = edge.get('to')
+                edges_src.append(nodes[s])
+                edges_dst.append(nodes[d])
+
+            data_dict[(sty, r, dty)] = (edges_src, edges_dst)
+            
+        # edges_src = [nodes[e.get('from')] for e in self.graph.edges]
+        # edges_dst = [nodes[e.get('to')] for e in self.graph.edges]
+        g = dgl.heterograph(data_dict)
+        return g
