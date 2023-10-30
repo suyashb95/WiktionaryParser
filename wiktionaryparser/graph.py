@@ -282,7 +282,7 @@ class Builder:
 
     def get_homo_graph(self, instance, category_info=False):
         self.build_graph(instance=instance, category_info=category_info)
-        nodes = {node['id']: i for i, node in enumerate(self.graph.nodes, start=1)}
+        nodes = {node['id']: i for i, node in enumerate(self.graph.nodes)}
         edges_src = [nodes[e.get('from')] for e in self.graph.edges]
         edges_dst = [nodes[e.get('to')] for e in self.graph.edges]
 
@@ -346,18 +346,24 @@ class Builder:
         return pos_tags
     
     def get_hetero_graph(self, instance, category_info=False):
+  
         self.build_graph(instance=instance, category_info=category_info)
-        
+        pos_tags = self.get_pos_counts().keys()
         filters = {
             "reltype": self.get_reltype_counts().keys(),
-            "head_tag": self.get_pos_counts().keys(),
-            "tail_tag": self.get_pos_counts().keys(),
+            "head_tag": pos_tags,
+            "tail_tag": pos_tags,
         }
         filters = flatten_dict(filters)
         
-        nodes = sorted({node['id'] for node in self.graph.nodes})
-        nodes = {node: i for i, node in enumerate(nodes, start=1)}
-        print(nodes)
+        nodes = {node['id']: node for node in self.graph.nodes}
+        node_ids = {}
+        node_ids_inv = {}
+        for i, node_id in enumerate(nodes):
+            node_ids[node_id] = i
+            node_ids_inv[i] = node_id
+
+
         data_dict = {}
         for rule in filters:
 
@@ -372,12 +378,12 @@ class Builder:
                     
                 s = edge.get('from')
                 d = edge.get('to')
-                edges_src.append(nodes[s])
-                edges_dst.append(nodes[d])
+                edges_src.append(node_ids[s])
+                edges_dst.append(node_ids[d])
 
             data_dict[(sty, r, dty)] = (edges_src, edges_dst)
             
-        # edges_src = [nodes[e.get('from')] for e in self.graph.edges]
-        # edges_dst = [nodes[e.get('to')] for e in self.graph.edges]
         g = dgl.heterograph(data_dict)
-        return g
+        
+
+        return g, node_ids_inv
