@@ -1,3 +1,7 @@
+import os
+os.environ['DGLBACKEND'] = "pytorch"
+import dgl
+import torch
 import re
 from pyvis.network import Network
 import json
@@ -43,12 +47,28 @@ class Builder:
         return ['hyponyms', 'synonyms', 'antonyms']
     
 
-    def def2word(self):
+    def def2word(self, query_filter=None):
         query = [
-            f"SELECT {self.definitions_table}.headword head, {self.definitions_table}.partOfSpeech headPOS, {self.definitions_table}.wordId headId, {self.edge_table}.relationshipType, {self.word_table}.word tail, {self.word_table}.id tailId FROM {self.edge_table}",
-            f"JOIN {self.definitions_table} ON {self.definitions_table}.id = {self.edge_table}.headDefinitionId",
-            f"JOIN {self.word_table} ON {self.word_table}.id = {self.edge_table}.wordId",
+            f"SELECT def.headword head, def.partOfSpeech headPOS, def.wordId headId, {self.edge_table}.relationshipType, wtail.word tail, wtail.id tailId FROM {self.edge_table}",
+            f"JOIN {self.definitions_table} def ON def.id = {self.edge_table}.headDefinitionId",
+            f"JOIN {self.word_table} wtail ON wtail.id = {self.edge_table}.wordId",
         ]
+        where_clause = []
+        if query_filter is not None:
+            for k, v in query_filter.items():
+                if hasattr(v, "__iter__") and type(v) != str:
+                        if len(v) > 0:
+                            v = ', '.join([f"'{e}'" for e in v])
+                            filter_ = f"{k} IN ({v})"
+                        else:
+                            continue
+                else:
+                    filter_ = f"{k} = {v}"
+                where_clause.append(filter_)
+        if len(where_clause) > 0:
+            where_clause = " AND ".join(where_clause)
+            where_clause = "WHERE " + where_clause
+            query.append(where_clause)
         query = "\n".join(query)
         cur = self.conn.cursor()
         result = cur.execute(query)
@@ -139,13 +159,13 @@ class Builder:
         result = [dict(zip(column_names, row)) for row in cur.fetchall()]
         return result
     
-    def get_pyvis_graph(self, instance="w2w", preprocessing_callback=None, category_info=True, nodes_palette="tab10", edges_palette="tab10", **kwargs):
+    def build_graph(self, instance="w2w", query_filter=None, preprocessing_callback=None, category_info=True, nodes_palette="tab10", edges_palette="tab10", **kwargs):
         self.graph = Network(**kwargs)
 
         if instance == "w2w":
-            graph_data = self.word2word()
+            graph_data = self.word2word(query_filter=query_filter)
         elif instance == "d2w":
-            graph_data = self.def2word()
+            graph_data = self.def2word(query_filter=query_filter)
         else:
             return self.graph
         
@@ -215,19 +235,50 @@ class Builder:
 
         return self.graph
 
-    def word2word(self):
+    def word2word(self, query_filter=None):
         query = [
             f"SELECT whead.id headId, whead.word head, wtail.id tailId, wtail.word tail, {self.edge_table}.relationshipType FROM {self.edge_table}",
             f"JOIN {self.word_table} wtail ON wtail.id = {self.edge_table}.wordId",
             f"JOIN {self.definitions_table} def ON def.id = {self.edge_table}.headDefinitionId",
             f"JOIN {self.word_table} whead ON def.wordId = whead.id",
         ]
+        where_clause = []
+        if query_filter is not None:
+            for k, v in query_filter.items():
+                if hasattr(v, "__iter__") and type(v) != str:
+                        if len(v) > 0:
+                            v = ', '.join([f"'{e}'" for e in v])
+                            filter_ = f"{k} IN ({v})"
+                        else:
+                            continue
+                else:
+                    filter_ = f"{k} = {v}"
+                where_clause.append(filter_)
+        if len(where_clause) > 0:
+            where_clause = " AND ".join(where_clause)
+            where_clause = "WHERE " + where_clause
+            query.append(where_clause)
         query = "\n".join(query)
-        print(query)
         cur = self.conn.cursor()
         result = cur.execute(query)
         column_names = [desc[0] for desc in cur.description]
         result = [dict(zip(column_names, row)) for row in cur.fetchall()]
         return result
     
-# preprocessor = Preprocessor(stemmer=ARLSTem(), normalizer=Normalizer(waw_norm="و"))
+    def get_homo_graph(self):
+        nodes = {node['id']: i for i, node in enumerate(self.graph.nodes, start=1)}
+        edges_src = [nodes[e.get('from')] for e in self.graph.edges]
+        edges_dst = [nodes[e.get('to')] for e in self.graph.edges]
+
+        g = dgl.graph((edges_src, edges_dst), num_nodes=len(nodes)+1)
+        
+        return g
+    
+    def get_hetero_graph(self):
+        nodes = {node['id']: i for i, node in enumerate(self.graph.nodes, start=1)}
+        reltypes = set([e.get('label') for e in self.graph.edges])
+        # edges_src = [e.get('from') for e in self.graph.edges]
+        # edges_dst = [e.get('to') for e in self.graph.edges]
+        
+        # g = dgl.graph((edges_src, edges_dst), num_nodes=len(nodes)+1)
+        
