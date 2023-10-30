@@ -42,7 +42,7 @@ parser.set_default_language("arabic")
 
 conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
 graph_constructor = Builder(conn)
-results = graph_constructor.word2word()
+results = graph_constructor.def2word()
 print(results)
 # coll = Collector(conn)
 # coll.erase_db()

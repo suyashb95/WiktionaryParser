@@ -43,9 +43,9 @@ class Builder:
         return ['hyponyms', 'synonyms', 'antonyms']
     
 
-    def word2word(self):
+    def def2word(self):
         query = [
-            f"SELECT {self.definitions_table}.headword head, {self.definitions_table}.wordId headId, {self.edge_table}.relationshipType, {self.word_table}.word tail, {self.word_table}.id tailId FROM {self.edge_table}",
+            f"SELECT {self.definitions_table}.headword head, {self.definitions_table}.partOfSpeech headPOS, {self.definitions_table}.wordId headId, {self.edge_table}.relationshipType, {self.word_table}.word tail, {self.word_table}.id tailId FROM {self.edge_table}",
             f"JOIN {self.definitions_table} ON {self.definitions_table}.id = {self.edge_table}.headDefinitionId",
             f"JOIN {self.word_table} ON {self.word_table}.id = {self.edge_table}.wordId",
         ]
@@ -144,6 +144,8 @@ class Builder:
 
         if instance == "w2w":
             graph_data = self.word2word()
+        elif instance == "d2w":
+            graph_data = self.def2word()
         else:
             return self.graph
         
@@ -202,10 +204,10 @@ class Builder:
             reltype = r.get('relationshipType')
 
             if headId not in self.graph.nodes:
-                self.graph.add_node(headId, label=head)
+                self.graph.add_node(headId, label=head, pos=r.get('headPOS'))
 
             if tailId not in self.graph.nodes:
-                self.graph.add_node(tailId, label=tail)
+                self.graph.add_node(tailId, label=tail, pos=r.get('tailPOS'))
 
             color = edge_colors[reltype]
             arrows = "to" if reltype not in Builder.get_bidir_rels() else None
@@ -213,5 +215,19 @@ class Builder:
 
         return self.graph
 
-
+    def word2word(self):
+        query = [
+            f"SELECT whead.id headId, whead.word head, wtail.id tailId, wtail.word tail, {self.edge_table}.relationshipType FROM {self.edge_table}",
+            f"JOIN {self.word_table} wtail ON wtail.id = {self.edge_table}.wordId",
+            f"JOIN {self.definitions_table} def ON def.id = {self.edge_table}.headDefinitionId",
+            f"JOIN {self.word_table} whead ON def.wordId = whead.id",
+        ]
+        query = "\n".join(query)
+        print(query)
+        cur = self.conn.cursor()
+        result = cur.execute(query)
+        column_names = [desc[0] for desc in cur.description]
+        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        return result
+    
 # preprocessor = Preprocessor(stemmer=ARLSTem(), normalizer=Normalizer(waw_norm="و"))

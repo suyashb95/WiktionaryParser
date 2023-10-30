@@ -46,12 +46,6 @@
              
 
              
-             #config {
-                 float: left;
-                 width: 400px;
-                 height: 600px;
-             }
-             
 
              
         </style>
@@ -108,8 +102,6 @@
         </div>
 
         
-        
-            <div id="config"></div>
         
 
         <script type="text/javascript">
@@ -281,8 +273,7 @@
 
                   var options = {
     "configure": {
-        "enabled": true,
-        "filter": true
+        "enabled": false
     },
     "edges": {
         "color": {
@@ -300,15 +291,6 @@
     },
     "physics": {
         "enabled": true,
-        "forceAtlas2Based": {
-            "avoidOverlap": 0,
-            "centralGravity": 0.01,
-            "damping": 0.4,
-            "gravitationalConstant": -50,
-            "springConstant": 0.08,
-            "springLength": 100
-        },
-        "solver": "forceAtlas2Based",
         "stabilization": {
             "enabled": true,
             "fit": true,
@@ -322,10 +304,6 @@
                   
 
 
-                  
-                  // if this network requires displaying the configure window,
-                  // put it in its div
-                  options.configure["container"] = document.getElementById("config");
                   
 
                   network = new vis.Network(container, data, options);
@@ -345,32 +323,4 @@
               drawGraph();
         </script>
     </body>
-</html><script>
-// Get references to the elements
-const cardDiv = document.querySelector('.card');
-const configDiv = document.querySelector('#config');
-const networkDiv = document.querySelector('#mynetwork');
-// Create a new div to wrap the 'config' div
-const newDiv = document.createElement('div');
-newDiv.setAttribute('class', 'container')
-if (true) {
-    // Check if both elements exist in the DOM
-    if (networkDiv) {
-    
-    // Append the 'config' div to the new div
-    newDiv.appendChild(networkDiv);
-    // Append the new div inside the 'card' div
-    cardDiv.appendChild(newDiv);
-    }
-    if (configDiv) {
-    
-    // Append the 'config' div to the new div
-    newDiv.appendChild(configDiv);
-    // Append the new div inside the 'card' div
-    cardDiv.appendChild(newDiv);
-    }
-}
-else {
-  console.log("One or both of the elements were not found.");
-}
-</script>
+</html>
