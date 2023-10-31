@@ -40,7 +40,7 @@ class Builder:
 
         self.graph = None
         self.vocab = None
-
+        self.node_ids = {}
         # with open('appendix.json', 'w', encoding='utf8') as f:
         #     f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
 
@@ -345,6 +345,17 @@ class Builder:
         pos_tags = {k: {t: p/sum(pos_tags[k].values()) for t, p in pos_tags[k].items()} for k in pos_tags}
         return pos_tags
     
+            
+    def initialize_node_mappings(self):
+        nodes = {node['id']: node for node in self.graph.nodes}
+        node_ids = {}
+        self.node_ids = {}
+        for i, node_id in enumerate(nodes):
+            node_ids[node_id] = i
+            self.node_ids[i] = node_id
+
+        return node_ids
+    
     def get_hetero_graph(self, instance, category_info=False):
   
         self.build_graph(instance=instance, category_info=category_info)
@@ -355,14 +366,7 @@ class Builder:
             "tail_tag": pos_tags,
         }
         filters = flatten_dict(filters)
-        
-        nodes = {node['id']: node for node in self.graph.nodes}
-        node_ids = {}
-        node_ids_inv = {}
-        for i, node_id in enumerate(nodes):
-            node_ids[node_id] = i
-            node_ids_inv[i] = node_id
-
+        node_ids = self.initialize_node_mappings()
 
         data_dict = {}
         for rule in filters:
@@ -386,4 +390,4 @@ class Builder:
         g = dgl.heterograph(data_dict)
         
 
-        return g, node_ids_inv
+        return g
