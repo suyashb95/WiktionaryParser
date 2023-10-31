@@ -12,9 +12,10 @@ class CustomGraphConvLayer(nn.Module):
         # Graph convolution operation
         self.graph_conv = dglnn.GraphConv(input_dim, output_dim, norm='both', weight=True)
 
-    def forward(self, g):
+    def forward(self, g, feats):
         # Apply the graph convolution operation
-        g.ndata['h'] = self.graph_conv(g, g.ndata['h'])
+        attr = "h"
+        g.ndata[attr] = self.graph_conv(g, feats)
         # Perform edge classification (e.g., binary classification)
         
         edge_features = g.edata['feat']  # Replace 'feat' with the name of your edge features

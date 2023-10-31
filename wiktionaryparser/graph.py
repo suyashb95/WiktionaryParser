@@ -1,25 +1,19 @@
 from collections import Counter
+from copy import copy, deepcopy
 import os
+
 os.environ['DGLBACKEND'] = "pytorch"
 import dgl
 import torch
+import torch.nn.functional as F
 import re
 from pyvis.network import Network
-import json
 import langcodes
-import requests
-from bs4 import BeautifulSoup
-import csv
 import os
-import tqdm
-import copy
 from nltk.stem import *
-import pymysql
-import itertools
-import hashlib
 
-from wiktionaryparser.core import WiktionaryParser 
 from wiktionaryparser.utils import flatten_dict, get_colormap
+from wiktionaryparser.feature_extraction import FeatureExtractor
 
 
 class GraphBuilder:
@@ -32,7 +26,7 @@ class GraphBuilder:
                 ):
 
         self.conn = conn
-
+        self.DEFINED_TAGS = ['proper noun']
         self.word_table = word_table
         self.dataset_table = dataset_table
         self.definitions_table = definitions_table
@@ -78,7 +72,6 @@ class GraphBuilder:
         result = [dict(zip(column_names, row)) for row in cur.fetchall()]
         return result
     
-
     def def2word(self, query_filter=None):
         query = [
             f"SELECT def.headword head, def.partOfSpeech headPOS, def.wordId headId, {self.edge_table}.relationshipType, wtail.word tail, wtail.id tailId FROM {self.edge_table}",
@@ -146,6 +139,22 @@ class GraphBuilder:
         relations = [dict(zip(column_names, row)) for row in cur.fetchall()]
 
         return relations
+    
+    def get_appendix_relations(self):
+        query = [
+            f"SELECT w.id headId, w.word head, apx.id tailId, apx.label tail, 'tagOf' relationshipType FROM {self.definitions_table}_apx defapx",
+            f"JOIN {self.definitions_table} d ON defapx.definitionId = d.id",
+            f"JOIN {self.word_table} w ON w.id = d.wordId",
+            f"JOIN appendix apx ON apx.id = defapx.appendixId",
+        ]
+
+        query = "\n".join(query)
+        cur = self.conn.cursor()
+        relations = cur.execute(query)
+        column_names = [desc[0] for desc in cur.description]
+        relations = [dict(zip(column_names, row)) for row in cur.fetchall()]
+
+        return relations
 
     def get_orphan_nodes(self):
         query = [
@@ -197,11 +206,23 @@ class GraphBuilder:
         result = [dict(zip(column_names, row)) for row in cur.fetchall()]
         return result
     
-    def build_graph_vocab(self, category_info=False):
+    def build_graph_vocab(self, category_info=False, appendix_info=False):
         category_rels = []
+        appendix_rels = []
         if self.vocab is None:
             self.vocab = self.get_vocab()
         vocab = self.vocab
+
+        if appendix_info:
+            apx_relations = self.get_appendix_relations()
+            appendix_rels += apx_relations
+            apx_ids = [a['tailId'] for a in apx_relations]
+            appendices = self.get_categories(category_ids=apx_ids)
+            for apx in appendices:
+                apx['language'] = "Tag"
+                apx['word'] = apx['text']
+                vocab.append(apx)
+
         if category_info:
             cat_relations = self.get_category_relations()
             category_rels += cat_relations
@@ -212,9 +233,10 @@ class GraphBuilder:
                 cat['language'] = "Category"
                 cat['word'] = re.sub('^(.+):(.+)', '\g<2>', cat['text'])
                 vocab.append(cat)
-        return vocab, category_rels
+        
+        return vocab, category_rels, appendix_rels
 
-    def build_graph(self, instance="w2w", query_filter=None, preprocessing_callback=None, category_info=True, nodes_palette="tab10", edges_palette="tab10", **kwargs):
+    def build_graph(self, instance="w2w", query_filter=None, preprocessing_callback=None, category_info=True, appendix_info=False, nodes_palette="tab10", edges_palette="tab10", **kwargs):
         self.graph = Network(**kwargs)
 
         if instance == "w2w":
@@ -224,8 +246,9 @@ class GraphBuilder:
         else:
             return self.graph
         
-        vocab, category_rels = self.build_graph_vocab(category_info=category_info)
+        vocab, category_rels, appendix_rels = self.build_graph_vocab(category_info=category_info, appendix_info=appendix_info)
         graph_data += category_rels
+        graph_data += appendix_rels
 
         if preprocessing_callback is None:
             preprocessing_callback = lambda x: x
@@ -280,16 +303,6 @@ class GraphBuilder:
 
         return self.graph
 
-    def get_homo_graph(self, instance, category_info=False):
-        self.build_graph(instance=instance, category_info=category_info)
-        nodes = {node['id']: i for i, node in enumerate(self.graph.nodes)}
-        edges_src = [nodes[e.get('from')] for e in self.graph.edges]
-        edges_dst = [nodes[e.get('to')] for e in self.graph.edges]
-
-        g = dgl.graph((edges_src, edges_dst), num_nodes=len(nodes)+1)
-        
-        return g
-    
     def get_reltype_counts(self):
         query = [
             f"SELECT rel.relationshipType, COUNT(*) count FROM {self.edge_table} rel",
@@ -344,7 +357,6 @@ class GraphBuilder:
         pos_tags = {k: Counter(pos_tags[k]) for k in pos_tags}
         pos_tags = {k: {t: p/sum(pos_tags[k].values()) for t, p in pos_tags[k].items()} for k in pos_tags}
         return pos_tags
-    
             
     def initialize_node_mappings(self):
         nodes = {node['id']: node for node in self.graph.nodes}
@@ -356,38 +368,47 @@ class GraphBuilder:
 
         return node_ids
     
-    def get_hetero_graph(self, instance, category_info=False):
-  
-        self.build_graph(instance=instance, category_info=category_info)
-        pos_tags = self.get_pos_counts().keys()
-        filters = {
-            "reltype": self.get_reltype_counts().keys(),
-            "head_tag": pos_tags,
-            "tail_tag": pos_tags,
+    def initialize_edge_mappings(self):
+        edges = {edge['label']: edge for edge in self.graph.edges}
+        edge_ids = {}
+        for i, edge_id in enumerate(edges):
+            edge_ids[edge_id] = i
+
+        return edge_ids
+    
+    def get_homo_graph(self, instance, category_info=False, appendix_info=False):
+        if self.graph is None:
+            self.build_graph(instance=instance, category_info=category_info, appendix_info=appendix_info)
+        nodes = self.initialize_node_mappings()
+        edges = self.initialize_edge_mappings()
+
+        edges_src = []
+        edges_dst = []
+        edges_attrs = {
+            "rel": []
         }
-        filters = flatten_dict(filters)
-        node_ids = self.initialize_node_mappings()
-
-        data_dict = {}
-        for rule in filters:
-
-            sty = rule.get('head_tag')
-            dty = rule.get('head_tag')
-            r = rule.get('reltype')
-            edges_src = []
-            edges_dst = []
-            for edge in self.graph.edges:
-                if edge.get('label') != r:
-                    continue
-                    
-                s = edge.get('from')
-                d = edge.get('to')
-                edges_src.append(node_ids[s])
-                edges_dst.append(node_ids[d])
-
-            data_dict[(sty, r, dty)] = (edges_src, edges_dst)
-            
-        g = dgl.heterograph(data_dict)
+        node_attrs = {
+            k: {nodes.get(v['id']): v.get(k) for v in self.vocab}
+            for k in ['sourceList']
+        }
+        for k in node_attrs:
+            v = {node: None for node in nodes.values()}
+            v.update(node_attrs[k])
+            node_attrs[k] = v
         
-
+        for e in self.graph.edges:
+            edges_src.append(nodes[e.get('from')])
+            edges_dst.append(nodes[e.get('to')])
+            edges_attrs['rel'].append(edges[e.get('label')])
+        
+        g = dgl.graph((edges_src, edges_dst))
+        
+        for k in node_attrs:
+            node_attrs[k] = torch.ones(len(node_attrs[k]), len(set(node_attrs[k].values())))
+            g.ndata[k] = node_attrs[k]
+            
+        for k in edges_attrs:
+            edges_attrs[k] = torch.tensor(edges_attrs[k])
+            g.edata[k] = F.one_hot(edges_attrs[k], num_classes=len(set(edges_attrs[k])))
+        
         return g
