@@ -7,7 +7,7 @@ import tqdm
 
 from wiktionaryparser.collector import Collector
 from wiktionaryparser.core import WiktionaryParser
-from wiktionaryparser.graph import Builder
+from wiktionaryparser.graph import GraphBuilder
 from wiktionaryparser.preprocessing import Preprocessor
 
 parser = WiktionaryParser()
@@ -15,7 +15,7 @@ prep = Preprocessor()
 
 conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
 collector = Collector(conn)
-builder = Builder(conn)
+builder = GraphBuilder(conn)
 
 fetched_data = []
 saved_data = []

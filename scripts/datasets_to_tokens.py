@@ -12,7 +12,7 @@ from collections import Counter
 import pymysql
 
 
-from wiktionaryparser.graph import Builder
+from wiktionaryparser.graph import GraphBuilder
 from wiktionaryparser.core import WiktionaryParser
 from wiktionaryparser.preprocessing import Normalizer, Preprocessor
 
@@ -20,7 +20,7 @@ parser = WiktionaryParser()
 prep = Preprocessor(stemmer=stem.ARLSTem2(), normalizer=Normalizer('أ', alef_norm='ا'))
 
 conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
-builder = Builder(conn)
+builder = GraphBuilder(conn)
 
 results = builder.get_dataset()
 

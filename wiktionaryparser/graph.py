@@ -22,7 +22,7 @@ from wiktionaryparser.core import WiktionaryParser
 from wiktionaryparser.utils import flatten_dict, get_colormap
 
 
-class Builder:
+class GraphBuilder:
     def __init__(self, conn, 
                  word_table="words", 
                  dataset_table="data", 
@@ -275,7 +275,7 @@ class Builder:
                 self.graph.add_node(tailId, label=tail, pos=r.get('tailPOS'))
 
             color = edge_colors[reltype]
-            arrows = "to" if reltype not in Builder.get_bidir_rels() else None
+            arrows = "to" if reltype not in GraphBuilder.get_bidir_rels() else None
             self.graph.add_edge(headId, tailId, color=color, label=reltype, hoverWidth=2, arrows=arrows)
 
         return self.graph

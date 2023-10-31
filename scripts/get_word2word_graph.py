@@ -13,7 +13,7 @@ import time
 
 from urllib import parse
 import os
-from wiktionaryparser.graph import Builder
+from wiktionaryparser.graph import GraphBuilder
 
 from wiktionaryparser.preprocessing import Preprocessor
 from wiktionaryparser.core import WiktionaryParser
@@ -41,7 +41,7 @@ parser = WiktionaryParser()
 parser.set_default_language("arabic")
 
 conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
-graph_constructor = Builder(conn)
+graph_constructor = GraphBuilder(conn)
 results = graph_constructor.def2word()
 print(results)
 # coll = Collector(conn)

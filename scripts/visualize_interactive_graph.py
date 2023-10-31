@@ -3,10 +3,10 @@ import sys
 import pymysql
 sys.path.append('.')
 from wiktionaryparser.preprocessing import Preprocessor
-from wiktionaryparser.graph import Builder
+from wiktionaryparser.graph import GraphBuilder
 
 conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
-builder = Builder(conn)
+builder = GraphBuilder(conn)
 graph_data = builder.word2word()
 g = builder.build_graph(instance="d2w",
     preprocessing_callback=Preprocessor(return_type="str"),
