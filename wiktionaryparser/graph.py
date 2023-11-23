@@ -34,6 +34,7 @@ class GraphBuilder:
 
         self.graph = None
         self.vocab = None
+        self.language_map = None
         self.node_ids = {}
         # with open('appendix.json', 'w', encoding='utf8') as f:
         #     f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
@@ -74,9 +75,10 @@ class GraphBuilder:
     
     def def2word(self, query_filter=None):
         query = [
-            f"SELECT def.headword head, def.partOfSpeech headPOS, def.wordId headId, {self.edge_table}.relationshipType, wtail.word tail, wtail.id tailId FROM {self.edge_table}",
+            f"SELECT def.headword head, def.partOfSpeech headPOS, def.wordId headId, {self.edge_table}.relationshipType, wtail.word tail, dtail.partOfSpeech tailPOS, wtail.id tailId FROM {self.edge_table}",
             f"JOIN {self.definitions_table} def ON def.id = {self.edge_table}.headDefinitionId",
             f"JOIN {self.word_table} wtail ON wtail.id = {self.edge_table}.wordId",
+            f"LEFT JOIN {self.definitions_table} dtail ON dtail.wordId = {self.edge_table}.wordId"
         ]
         where_clause = []
         if query_filter is not None:
@@ -95,6 +97,7 @@ class GraphBuilder:
             where_clause = "WHERE " + where_clause
             query.append(where_clause)
         query = "\n".join(query)
+        print(query)
         cur = self.conn.cursor()
         result = cur.execute(query)
         column_names = [desc[0] for desc in cur.description]
@@ -233,6 +236,16 @@ class GraphBuilder:
                 cat['language'] = "Category"
                 cat['word'] = re.sub('^(.+):(.+)', '\g<2>', cat['text'])
                 vocab.append(cat)
+
+        
+        self.language_map = {w.get('language') for w in vocab}
+        language_norm = []
+        for l in self.language_map:
+            if len(str(l)) > 3 and l not in [None, "Category"]:
+                l = langcodes.find(l).language
+
+            language_norm.append(l)
+        self.language_map = dict(zip(self.language_map, language_norm))
         
         return vocab, category_rels, appendix_rels
 
@@ -253,53 +266,10 @@ class GraphBuilder:
         if preprocessing_callback is None:
             preprocessing_callback = lambda x: x
 
-        language_map = {w.get('language') for w in vocab}
-        language_norm = []
-        for l in language_map:
-            if len(str(l)) > 3 and l not in [None, "Category"]:
-                l = langcodes.find(l).language
+        print(graph_data[0].keys())
 
-            language_norm.append(l)
-        language_map = dict(zip(language_map, language_norm))
+        # for e in graph_data:
 
-        edge_labels = {r.get('relationshipType') for r in graph_data}
-
-        if type(nodes_palette) == str:
-            node_colors = get_colormap(language_norm, palette=nodes_palette)
-        else:
-            node_colors = nodes_palette
-
-        if type(edges_palette) == str:
-            edge_colors = get_colormap(edge_labels, palette=edges_palette)
-        else:
-            edge_colors = edges_palette
-
-
-
-        for w in vocab:
-            lang = w.get('language')
-            lang = language_map[lang]
-            color = node_colors.get(lang, "black")
-            word = preprocessing_callback(w.get('word'))
-            title = f"{word} ({lang})" if lang is not None else f"{word} (?)"
-            self.graph.add_node(w.get('id'), label=word, title=title, color=color, hover=True)
-
-        for r in graph_data:
-            headId = r.get('headId')
-            tailId = r.get('tailId')
-            head = preprocessing_callback(r.get('head'))
-            tail = preprocessing_callback(r.get('tail'))
-            reltype = r.get('relationshipType')
-
-            if headId not in self.graph.nodes:
-                self.graph.add_node(headId, label=head, pos=r.get('headPOS'))
-
-            if tailId not in self.graph.nodes:
-                self.graph.add_node(tailId, label=tail, pos=r.get('tailPOS'))
-
-            color = edge_colors[reltype]
-            arrows = "to" if reltype not in GraphBuilder.get_bidir_rels() else None
-            self.graph.add_edge(headId, tailId, color=color, label=reltype, hoverWidth=2, arrows=arrows)
 
         return self.graph
 
@@ -419,23 +389,9 @@ class GraphBuilder:
         if self.graph is None:
             self.build_graph(instance=instance, category_info=category_info, appendix_info=appendix_info)
         nodes = self.initialize_node_mappings()
-        node_types = {v.get('id'): v.get('partOfSpeech') for v in self.vocab if v.get('partOfSpeech') is not None}
+        edges = self.initialize_edge_mappings()
         data_dict = {}
-        
-        for edge in self.graph.edges:
-            edge_src = edge['from']
-            edge_dst = edge['to']
-            edge_rel = edge['label']
-            edge_src_type = node_types.get(edge_src, default_ntype)
-            edge_dst_type = node_types.get(edge_dst, default_ntype)
 
-            rel = (nodes.get(edge_src), nodes.get(edge_dst))
-
-            edge_category = (edge_src_type, edge_rel, edge_dst_type)
-
-            data_dict[edge_category] = data_dict.get(edge_category, [])
-            data_dict[edge_category].append(rel)
-            
         return data_dict
 
 

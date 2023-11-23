@@ -12,5 +12,4 @@ builder = GraphBuilder(conn)
 g = builder.get_hetero_graph("d2w", category_info=True, appendix_info=True)
 
 # print(g)
-g = dgl.heterograph(g)
 print(g)
