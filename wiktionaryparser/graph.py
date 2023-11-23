@@ -210,7 +210,7 @@ class GraphBuilder:
         category_rels = []
         appendix_rels = []
         if self.vocab is None:
-            self.vocab = self.get_vocab()
+            self.vocab = self.get_vocab(partOfSpeech=True)
         vocab = self.vocab
 
         if appendix_info:
@@ -238,7 +238,7 @@ class GraphBuilder:
 
     def build_graph(self, instance="w2w", query_filter=None, preprocessing_callback=None, category_info=True, appendix_info=False, nodes_palette="tab10", edges_palette="tab10", **kwargs):
         self.graph = Network(**kwargs)
-
+        instance = instance.lower()
         if instance == "w2w":
             graph_data = self.word2word(query_filter=query_filter)
         elif instance == "d2w":
@@ -385,11 +385,12 @@ class GraphBuilder:
         edges_src = []
         edges_dst = []
         edges_attrs = {
-            "rel": []
+            "rel": [],
+            "polar": [],
         }
         node_attrs = {
             k: {nodes.get(v['id']): v.get(k) for v in self.vocab}
-            for k in ['sourceList']
+            for k in ['sourceList', 'partOfSpeech']
         }
         for k in node_attrs:
             v = {node: None for node in nodes.values()}
@@ -409,6 +410,32 @@ class GraphBuilder:
             
         for k in edges_attrs:
             edges_attrs[k] = torch.tensor(edges_attrs[k])
+            print(edges_attrs[k])
             g.edata[k] = F.one_hot(edges_attrs[k], num_classes=len(set(edges_attrs[k])))
         
         return g
+    
+    def get_hetero_graph(self, instance, category_info=False, appendix_info=False, default_ntype="word"):
+        if self.graph is None:
+            self.build_graph(instance=instance, category_info=category_info, appendix_info=appendix_info)
+        nodes = self.initialize_node_mappings()
+        node_types = {v.get('id'): v.get('partOfSpeech') for v in self.vocab if v.get('partOfSpeech') is not None}
+        data_dict = {}
+        
+        for edge in self.graph.edges:
+            edge_src = edge['from']
+            edge_dst = edge['to']
+            edge_rel = edge['label']
+            edge_src_type = node_types.get(edge_src, default_ntype)
+            edge_dst_type = node_types.get(edge_dst, default_ntype)
+
+            rel = (nodes.get(edge_src), nodes.get(edge_dst))
+
+            edge_category = (edge_src_type, edge_rel, edge_dst_type)
+
+            data_dict[edge_category] = data_dict.get(edge_category, [])
+            data_dict[edge_category].append(rel)
+            
+        return data_dict
+
+
