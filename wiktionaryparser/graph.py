@@ -1,5 +1,6 @@
 from collections import Counter
 from copy import copy, deepcopy
+import json
 import os
 
 os.environ['DGLBACKEND'] = "pytorch"
@@ -45,10 +46,10 @@ class GraphBuilder:
     
     def word2word(self, query_filter=None):
         query = [
-            f"SELECT whead.id headId, whead.word head, wtail.id tailId, wtail.word tail, {self.edge_table}.relationshipType FROM {self.edge_table}",
+            f"SELECT whead.id headId, hdef.partOfSpeech headPOS, whead.word head, wtail.id tailId, wtail.word tail, {self.edge_table}.relationshipType FROM {self.edge_table}",
             f"JOIN {self.word_table} wtail ON wtail.id = {self.edge_table}.wordId",
-            f"JOIN {self.definitions_table} def ON def.id = {self.edge_table}.headDefinitionId",
-            f"JOIN {self.word_table} whead ON def.wordId = whead.id",
+            f"JOIN {self.definitions_table} hdef ON hdef.id = {self.edge_table}.headDefinitionId",
+            f"JOIN {self.word_table} whead ON hdef.wordId = whead.id",
         ]
         where_clause = []
         if query_filter is not None:
@@ -129,7 +130,9 @@ class GraphBuilder:
     
     def get_category_relations(self):
         query = [
-            f"SELECT w.id headId, w.word head, c.id tailId, c.text tail, 'categoryOf' relationshipType FROM word_categories wc",
+            f"SELECT w.id headId, d.partOfSpeech headPOS, w.word head, c.id tailId, c.text tail, 'categoryOf' relationshipType", 
+            f"FROM word_categories wc",
+            f"JOIN {self.definitions_table} d ON d.wordId = wc.wordId",
             f"JOIN {self.word_table} w ON w.id = wc.wordId",
             f"JOIN categories c ON c.id = wc.categoryId",
         ]
@@ -144,7 +147,8 @@ class GraphBuilder:
     
     def get_appendix_relations(self):
         query = [
-            f"SELECT w.id headId, w.word head, apx.id tailId, apx.label tail, 'tagOf' relationshipType FROM {self.definitions_table}_apx defapx",
+            f"SELECT w.id headId, d.partOfSpeech headPOS, w.word head, apx.id tailId, apx.label tail, 'tagOf' relationshipType", 
+            f"FROM {self.definitions_table}_apx defapx",
             f"JOIN {self.definitions_table} d ON defapx.definitionId = d.id",
             f"JOIN {self.word_table} w ON w.id = d.wordId",
             f"JOIN appendix apx ON apx.id = defapx.appendixId",
@@ -246,18 +250,15 @@ class GraphBuilder:
             appendix_rels += apx_relations
             apx_ids = [a['tailId'] for a in apx_relations]
             appendices = self.get_appendices(appendix_ids=apx_ids)
-            # print(appendices)
             for apx in appendices:
                 apx['language'] = "Tag"
                 apx['word'] = apx['label']
                 vocab.append(apx)
         
         vocab = {w['id']: w for w in vocab}
-        self.node_ids = {e: i for i, e in enumerate(vocab, start=2)}
-        # print(self.node_ids)
         return vocab, category_rels, appendix_rels
 
-    def build_graph(self, instance="w2w", query_filter=None, preprocessing_callback=None, category_info=True, appendix_info=False, nodes_palette="tab10", edges_palette="tab10", **kwargs):
+    def build_graph(self, instance="w2w", query_filter=None, preprocessing_callback=None, category_info=True, appendix_info=False, use_pos=True, **kwargs):
         instance = instance.lower()
         if instance == "w2w":
             graph_data = self.word2word(query_filter=query_filter)
@@ -269,18 +270,26 @@ class GraphBuilder:
             return self.graph
 
         vocab, category_rels, appendix_rels = self.build_graph_vocab(category_info=category_info, appendix_info=appendix_info)
-        
-                
         for e in graph_data:
-            e["headType"], e["tailType"] = g_key
+            if use_pos:
+                e['tailPOS'] = e['tailPOS'] if e.get('tailPOS') is not None else "orphan_"+g_key[-1]
+                e["headType"], e["tailType"] = e['headPOS'], e['tailPOS']
+            else:
+                e["headType"], e["tailType"] = g_key
         
                 
         for e in category_rels:
-            e["headType"], e["tailType"] = g_key[0], "category"
+            if use_pos:
+                e["headType"], e["tailType"] = e['headPOS'], "category"
+            else:
+                e["headType"], e["tailType"] = g_key[0], "category"
 
                 
         for e in appendix_rels:
-            e["headType"], e["tailType"] = g_key[0], "tag"
+            if use_pos:
+                e["headType"], e["tailType"] = e['headPOS'], "tag"
+            else:
+                e["headType"], e["tailType"] = g_key[0], "tag"
 
         graph_data += category_rels
         graph_data += appendix_rels
@@ -289,35 +298,36 @@ class GraphBuilder:
             preprocessing_callback = lambda x: x
 
         data_dict = {}
-        node_ids = {}
-        print(graph_data[0])
+        self.node_ids = {}
         
         for e in graph_data:        
             reltype = e['relationshipType']
             k = (e["headType"], reltype, e["tailType"])
             #If this node type doesn't exist, create an empty list
-            node_ids[e["headType"]] = node_ids.get(e["headType"], [])
-            node_ids[e["tailType"]] = node_ids.get(e["tailType"], [])
+            self.node_ids[e["headType"]] = self.node_ids.get(e["headType"], [])
+            self.node_ids[e["tailType"]] = self.node_ids.get(e["tailType"], [])
 
             #If node id appears for the first time, append it to node list
-            if e['headId'] not in node_ids[e["headType"]]:
-                node_ids[e["headType"]].append(e['headId'])
+            if e['headId'] not in self.node_ids[e["headType"]]:
+                self.node_ids[e["headType"]].append(e['headId'])
             
-            if e['tailId'] not in node_ids[e["tailType"]]:
-                node_ids[e["tailType"]].append(e['tailId'])
+            if e['tailId'] not in self.node_ids[e["tailType"]]:
+                self.node_ids[e["tailType"]].append(e['tailId'])
 
             #If this relationship type doesn't exist, create an empty list
             data_dict[k] = data_dict.get(k, [])
 
 
-            head = node_ids[e["headType"]].index(e['headId'])
-            tail = node_ids[e["tailType"]].index(e['tailId'])
+            head = self.node_ids[e["headType"]].index(e['headId'])
+            tail = self.node_ids[e["tailType"]].index(e['tailId'])
 
-            edge = ([head, tail])
-            # print(f"{e['head']} --{reltype}-> {e['tail']}")
+            edge = tuple([head, tail])
             data_dict[k].append(edge)
 
-        # print(self.node_ids)
-        self.graph = dgl.heterograph(data_dict)
+        data_dict = {k: Counter(v) for k, v in data_dict.items()}
+        g_edgelist = {k: list(v.keys()) for k, v in data_dict.items()}
+        g_edgeweights = {k: torch.tensor([c/sum(v.values()) for c in v.values()]) for k, v in data_dict.items()}
+        self.graph = dgl.heterograph(g_edgelist)
+        self.graph.edata['weights'] = g_edgeweights
         return self.graph
 
