@@ -97,7 +97,6 @@ class GraphBuilder:
             where_clause = "WHERE " + where_clause
             query.append(where_clause)
         query = "\n".join(query)
-        print(query)
         cur = self.conn.cursor()
         result = cur.execute(query)
         column_names = [desc[0] for desc in cur.description]
@@ -107,7 +106,7 @@ class GraphBuilder:
     def get_vocab(self, category_info=True, partOfSpeech=False):
         from_table = f"{self.word_table}.*"
         if category_info:
-            from_table = "categories.*, " + from_table
+            from_table = from_table + ", C.title categoryTitle, C.id categoryId"
         if partOfSpeech:
             from_table = "def.partOfSpeech, " + from_table
         query = [
@@ -115,7 +114,7 @@ class GraphBuilder:
         ]
         if category_info:
             query.append(f"JOIN {self.word_table} ON {self.word_table}.id = word_categories.wordId")
-            query.append(f"JOIN categories ON categories.id = word_categories.categoryId")
+            query.append(f"JOIN categories C ON C.id = word_categories.categoryId")
 
         if partOfSpeech:
             query.append(f"JOIN {self.definitions_table} def ON {self.word_table}.id = def.wordId")
@@ -209,22 +208,27 @@ class GraphBuilder:
         result = [dict(zip(column_names, row)) for row in cur.fetchall()]
         return result
     
+    def get_appendices(self, appendix_ids=None):
+        query = [
+            f"SELECT * FROM appendix",
+        ]
+        if hasattr(appendix_ids, '__iter__') and type(appendix_ids) != str:
+            appendix_ids = [f"'{c}'" for c in appendix_ids]
+            appendix_ids = ", ".join(appendix_ids)
+            query.append(f"WHERE id IN ({appendix_ids})")
+        query = "\n".join(query)
+        cur = self.conn.cursor()
+        result = cur.execute(query)
+        column_names = [desc[0] for desc in cur.description]
+        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        return result
+    
     def build_graph_vocab(self, category_info=False, appendix_info=False):
         category_rels = []
         appendix_rels = []
         if self.vocab is None:
-            self.vocab = self.get_vocab(partOfSpeech=True)
+            self.vocab = self.get_vocab(partOfSpeech=True, category_info=False)
         vocab = self.vocab
-
-        if appendix_info:
-            apx_relations = self.get_appendix_relations()
-            appendix_rels += apx_relations
-            apx_ids = [a['tailId'] for a in apx_relations]
-            appendices = self.get_categories(category_ids=apx_ids)
-            for apx in appendices:
-                apx['language'] = "Tag"
-                apx['word'] = apx['text']
-                vocab.append(apx)
 
         if category_info:
             cat_relations = self.get_category_relations()
@@ -237,161 +241,83 @@ class GraphBuilder:
                 cat['word'] = re.sub('^(.+):(.+)', '\g<2>', cat['text'])
                 vocab.append(cat)
 
+        if appendix_info:
+            apx_relations = self.get_appendix_relations()
+            appendix_rels += apx_relations
+            apx_ids = [a['tailId'] for a in apx_relations]
+            appendices = self.get_appendices(appendix_ids=apx_ids)
+            # print(appendices)
+            for apx in appendices:
+                apx['language'] = "Tag"
+                apx['word'] = apx['label']
+                vocab.append(apx)
         
-        self.language_map = {w.get('language') for w in vocab}
-        language_norm = []
-        for l in self.language_map:
-            if len(str(l)) > 3 and l not in [None, "Category"]:
-                l = langcodes.find(l).language
-
-            language_norm.append(l)
-        self.language_map = dict(zip(self.language_map, language_norm))
-        
+        vocab = {w['id']: w for w in vocab}
+        self.node_ids = {e: i for i, e in enumerate(vocab, start=2)}
+        # print(self.node_ids)
         return vocab, category_rels, appendix_rels
 
     def build_graph(self, instance="w2w", query_filter=None, preprocessing_callback=None, category_info=True, appendix_info=False, nodes_palette="tab10", edges_palette="tab10", **kwargs):
-        self.graph = Network(**kwargs)
         instance = instance.lower()
         if instance == "w2w":
             graph_data = self.word2word(query_filter=query_filter)
+            g_key = ('word', 'word')
         elif instance == "d2w":
             graph_data = self.def2word(query_filter=query_filter)
+            g_key = ('definition', 'word')
         else:
             return self.graph
-        
+
         vocab, category_rels, appendix_rels = self.build_graph_vocab(category_info=category_info, appendix_info=appendix_info)
+        
+                
+        for e in graph_data:
+            e["headType"], e["tailType"] = g_key
+        
+                
+        for e in category_rels:
+            e["headType"], e["tailType"] = g_key[0], "category"
+
+                
+        for e in appendix_rels:
+            e["headType"], e["tailType"] = g_key[0], "tag"
+
         graph_data += category_rels
         graph_data += appendix_rels
 
         if preprocessing_callback is None:
             preprocessing_callback = lambda x: x
 
-        print(graph_data[0].keys())
-
-        # for e in graph_data:
-
-
-        return self.graph
-
-    def get_reltype_counts(self):
-        query = [
-            f"SELECT rel.relationshipType, COUNT(*) count FROM {self.edge_table} rel",
-            f"GROUP BY rel.relationshipType"
-        ]
-
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        result = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
-        count = {}
-        for r in result:
-            k = r.get('relationshipType')
-            count[k] = count.get(k, 0) + r.get('count', 0)
-        return count
-    
-    def get_pos_counts(self):
-        query = [
-            f"SELECT def.partOfSpeech, COUNT(*) count FROM {self.definitions_table} def",
-            f"GROUP BY def.partOfSpeech"
-        ]
-
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        result = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
-        count = {}
-        for r in result:
-            k = r.get('partOfSpeech')
-            count[k] = count.get(k, 0) + r.get('count', 0)
-        return count
-    
-    def word_pos(self):
-        query = [
-            f"SELECT def.partOfSpeech, w.id FROM {self.definitions_table} def",
-            f"JOIN {self.word_table} w ON def.wordId = w.id"
-        ]
-
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        result = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
-        pos_tags = {}
-        for r in result:
-            k = r.get('id')
-            if k not in pos_tags:
-                pos_tags[k] = []
-            pos_tags[k].append(r.get('partOfSpeech'))
-        pos_tags = {k: Counter(pos_tags[k]) for k in pos_tags}
-        pos_tags = {k: {t: p/sum(pos_tags[k].values()) for t, p in pos_tags[k].items()} for k in pos_tags}
-        return pos_tags
-            
-    def initialize_node_mappings(self):
-        nodes = {node['id']: node for node in self.graph.nodes}
-        node_ids = {}
-        self.node_ids = {}
-        for i, node_id in enumerate(nodes):
-            node_ids[node_id] = i
-            self.node_ids[i] = node_id
-
-        return node_ids
-    
-    def initialize_edge_mappings(self):
-        edges = {edge['label']: edge for edge in self.graph.edges}
-        edge_ids = {}
-        for i, edge_id in enumerate(edges):
-            edge_ids[edge_id] = i
-
-        return edge_ids
-    
-    def get_homo_graph(self, instance, category_info=False, appendix_info=False):
-        if self.graph is None:
-            self.build_graph(instance=instance, category_info=category_info, appendix_info=appendix_info)
-        nodes = self.initialize_node_mappings()
-        edges = self.initialize_edge_mappings()
-
-        edges_src = []
-        edges_dst = []
-        edges_attrs = {
-            "rel": [],
-            "polar": [],
-        }
-        node_attrs = {
-            k: {nodes.get(v['id']): v.get(k) for v in self.vocab}
-            for k in ['sourceList', 'partOfSpeech']
-        }
-        for k in node_attrs:
-            v = {node: None for node in nodes.values()}
-            v.update(node_attrs[k])
-            node_attrs[k] = v
-        
-        for e in self.graph.edges:
-            edges_src.append(nodes[e.get('from')])
-            edges_dst.append(nodes[e.get('to')])
-            edges_attrs['rel'].append(edges[e.get('label')])
-        
-        g = dgl.graph((edges_src, edges_dst))
-        
-        for k in node_attrs:
-            node_attrs[k] = torch.ones(len(node_attrs[k]), len(set(node_attrs[k].values())))
-            g.ndata[k] = node_attrs[k]
-            
-        for k in edges_attrs:
-            edges_attrs[k] = torch.tensor(edges_attrs[k])
-            print(edges_attrs[k])
-            g.edata[k] = F.one_hot(edges_attrs[k], num_classes=len(set(edges_attrs[k])))
-        
-        return g
-    
-    def get_hetero_graph(self, instance, category_info=False, appendix_info=False, default_ntype="word"):
-        if self.graph is None:
-            self.build_graph(instance=instance, category_info=category_info, appendix_info=appendix_info)
-        nodes = self.initialize_node_mappings()
-        edges = self.initialize_edge_mappings()
         data_dict = {}
+        node_ids = {}
+        print(graph_data[0])
+        
+        for e in graph_data:        
+            reltype = e['relationshipType']
+            k = (e["headType"], reltype, e["tailType"])
+            #If this node type doesn't exist, create an empty list
+            node_ids[e["headType"]] = node_ids.get(e["headType"], [])
+            node_ids[e["tailType"]] = node_ids.get(e["tailType"], [])
 
-        return data_dict
+            #If node id appears for the first time, append it to node list
+            if e['headId'] not in node_ids[e["headType"]]:
+                node_ids[e["headType"]].append(e['headId'])
+            
+            if e['tailId'] not in node_ids[e["tailType"]]:
+                node_ids[e["tailType"]].append(e['tailId'])
 
+            #If this relationship type doesn't exist, create an empty list
+            data_dict[k] = data_dict.get(k, [])
+
+
+            head = node_ids[e["headType"]].index(e['headId'])
+            tail = node_ids[e["tailType"]].index(e['tailId'])
+
+            edge = ([head, tail])
+            # print(f"{e['head']} --{reltype}-> {e['tail']}")
+            data_dict[k].append(edge)
+
+        # print(self.node_ids)
+        self.graph = dgl.heterograph(data_dict)
+        return self.graph
 
