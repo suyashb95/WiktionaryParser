@@ -189,6 +189,13 @@
     "id": "5b2cb5ae682de31da1b14ae2d8b6c389cb73328174eca7936d54838bb27c7723"
   },
   {
+    "label": "alus mider",
+    "description": "A speech register in the Balinese language.",
+    "wikiUrl": null,
+    "category": "glossary",
+    "id": "82d857f00f18ba36fbc9ca97bc5fe968005b622ed8d126c99cce44a9acbd58e6"
+  },
+  {
     "label": "ambitransitive verb",
     "description": "Capable of being either transitive or intransitive depending on usage. For instance, eat and read optionally take a direct object: \"I eat daily\", \"She likes to read\" (both intransitive), \"Read this book\", \"I do not eat meat\" (both transitive). Ergative verbs (q.v.) are a kind of ambitransitive verb. Compare ditransitive verb.",
     "wikiUrl": "/wiki/ambitransitive_verb",
@@ -201,6 +208,13 @@
     "wikiUrl": "/wiki/analogy",
     "category": "glossary",
     "id": "fd7bdeae637576ba80a7dcb2f31024a7bfd0b404186195bfe40fa496935e9683"
+  },
+  {
+    "label": "andap",
+    "description": "A speech register in the Balinese language.",
+    "wikiUrl": null,
+    "category": "glossary",
+    "id": "7c248987daac24f360c1a2c3cb729b228ee10fb36762b728e7f75875e22f028b"
   },
   {
     "label": "anglicisation, anglicization",
@@ -616,6 +630,13 @@
     "id": "d867c55b793d0858a46441c618c08a7635e998cb6e08a687683751becffac0d0"
   },
   {
+    "label": "collocation",
+    "description": "A sequence of words or terms that are used together more often than by chance, i.e. that appears together relatively more often.",
+    "wikiUrl": "/wiki/collocation",
+    "category": "glossary",
+    "id": "561db4fdbf42e43fe02026503b5fbf7e9c2918f17614556af1e0da8f18cfc179"
+  },
+  {
     "label": "colloquial",
     "description": "Denotes words belonging to a spoken or vernacular variety of a language. These words are only properly used in a casual or familiar context. This label is only used with some languages; with others it is treated as a synonym of informal. If used, colloquial is stronger than informal (a general rule of thumb is that informal words may be used in the running text of a newspaper article, while a colloquial term would likely not appear without quotation marks).",
     "wikiUrl": "/wiki/colloquial",
@@ -719,6 +740,13 @@
     "wikiUrl": "/wiki/consonantism",
     "category": "glossary",
     "id": "e5c3285f463ef93681d4da0eddbe4b6f5ecc872eaa8a9cd16cb1bfd157f42445"
+  },
+  {
+    "label": "consonant gradation",
+    "description": "A form of consonant mutation found in certain, particularly Uralic, languages, which is historically conditioned by the openness of the following syllable.",
+    "wikiUrl": "/wiki/consonant_gradation",
+    "category": "glossary",
+    "id": "ceaaec9cc38186dfb8e2a7481cd226bb0ab40149ad73665947420df432707f2d"
   },
   {
     "label": "construct state",
@@ -1912,7 +1940,7 @@
   },
   {
     "label": "learned borrowing",
-    "description": "A loanword that was borrowed from a classical language such as Latin, Ancient Greek or Sanskrit, and which has not undergone significant reshaping due to sound change or analogy with inherited terms. Such borrowings are thus often unadapted. Compare with semi-learned borrowings, which have been significantly reshaped, and inherited terms, which have undergone all the normal sound changes of a language. A theme of Latin's influence on modern European languages is that in many cases the same Latin word has been borrowed into any given modern language multiple times in different eras, and the morphologic and semantic facts about each descendant word differ in predictable ways (by eras); a concise summary for the case of English (for example) is offered in some introductory textbooks, such as Burriss and Casson.[1] A typical example of this process is that the Portuguese term artículo (“articulus”) is a learned borrowing from Latin articulus (“joint, limb, division”); the term artigo (“article”) is a semi-learned borrowing from the same term, which was borrowed early enough to undergo later sound changes that lenited c into g and deleted l between vowels; and the term artelho (“toe”) is inherited from the same Latin term.",
+    "description": "A loanword that was borrowed directly on purpose, instead of through normal language contact, from another language, especially classical languages such as Latin, Ancient Greek or Sanskrit, and which has not undergone significant reshaping due to sound change or analogy with inherited terms. Such borrowings are thus often unadapted. Compare with semi-learned borrowings, which have been significantly reshaped, and inherited terms, which have undergone all the normal sound changes of a language. A theme of Latin's influence on modern European languages is that in many cases the same Latin word has been borrowed into any given modern language multiple times in different eras, and the morphologic and semantic facts about each descendant word differ in predictable ways (by eras); a concise summary for the case of English (for example) is offered in some introductory textbooks, such as Burriss and Casson.[1] A typical example of this process is that the Portuguese term artículo (“articulus”) is a learned borrowing from Latin articulus (“joint, limb, division”); the term artigo (“article”) is a semi-learned borrowing from the same term, which was borrowed early enough to undergo later sound changes that lenited c into g and deleted l between vowels; and the term artelho (“toe”) is inherited from the same Latin term.",
     "wikiUrl": "/wiki/learned_borrowing",
     "category": "glossary",
     "id": "1876af2140b75016e5b7f0c0265e1ca552b32e4d1ae83030e27beb3a7cebe6ba"
@@ -2175,6 +2203,13 @@
     "wikiUrl": null,
     "category": "glossary",
     "id": "3f02173ccf98f92a473902054195afb0c55bf883183999a2c6dae367591c1058"
+  },
+  {
+    "label": "mutation",
+    "description": "The property of a sound in a word, often a consonant but possibly a vowel (as in ablaut and umlaut), altering due to its morphological or syntactic, as opposed to phonological, context. Examples of consonant mutations include the word-initial consonant mutations found in many Celtic languages. (see  Consonant mutation on  Wikipedia.Wikipedia )",
+    "wikiUrl": "/wiki/mutation",
+    "category": "glossary",
+    "id": "d3336a334a5e8a2e6266703c54eaa332034daa74461ad1271507bb5ec6188d35"
   },
   {
     "label": "mute h",
@@ -3729,6 +3764,13 @@
     "wikiUrl": "/wiki/vowel",
     "category": "glossary",
     "id": "59981069c56a2c667397e132d6adebe3a174579592f56f59213bdba8c54d7fa3"
+  },
+  {
+    "label": "vowel harmony",
+    "description": "A phonological restriction in some languages which constrains the vowels found either next to each other or within a word, such that vowels must belong to the same class in a particular classification, like front/back vowels or rounded/unrounded vowels.",
+    "wikiUrl": "/wiki/vowel_harmony",
+    "category": "glossary",
+    "id": "9c90a277c9888d5d7104ca560678411761b0ae49e34bd896ec868fe93e65dfde"
   },
   {
     "label": "vulgar",

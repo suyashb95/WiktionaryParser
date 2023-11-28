@@ -1954,6 +1954,13 @@
   },
   {
     "sourceList": "set_categories",
+    "id": "de473f6d691082ec156a0bdeaabf3fc686969e7cb612c04339eac703d99b3b28",
+    "title": "Category:ar:Observances",
+    "text": "ar:Observances",
+    "wikiUrl": "/wiki/Category:ar:Observances"
+  },
+  {
+    "sourceList": "set_categories",
     "id": "ff15a618a25e7f1729deb0d8f26749dfe159a55c9a006c9b075e019fc2d1c0c4",
     "title": "Category:ar:Occupations",
     "text": "ar:Occupations",
@@ -2822,6 +2829,20 @@
   },
   {
     "sourceList": "name_categories",
+    "id": "f2b0bf45e34bfa9ba52ba939741861d44cd48ef115ceb3c6b62c708d640c90a9",
+    "title": "Category:ar:Administrative regions",
+    "text": "ar:Administrative regions",
+    "wikiUrl": "/wiki/Category:ar:Administrative_regions"
+  },
+  {
+    "sourceList": "name_categories",
+    "id": "7c6dad70d13c5929cd857720f4caa6140d01ac1c73f98c3c00766245cd9183ec",
+    "title": "Category:ar:Administrative regions of France",
+    "text": "ar:Administrative regions of France",
+    "wikiUrl": "/wiki/Category:ar:Administrative_regions_of_France"
+  },
+  {
+    "sourceList": "name_categories",
     "id": "0dbd4314ca3dd4ec027b88da103b08904b704f29b4760e649794c33fdedc748e",
     "title": "Category:ar:Alphabets",
     "text": "ar:Alphabets",
@@ -2854,6 +2875,13 @@
     "title": "Category:ar:Artistic works",
     "text": "ar:Artistic works",
     "wikiUrl": "/wiki/Category:ar:Artistic_works"
+  },
+  {
+    "sourceList": "name_categories",
+    "id": "7ece0cf0a966471d300f5df8de8c3e5a63aa72380acd609ad1da99a26d69ea95",
+    "title": "Category:ar:Atolls",
+    "text": "ar:Atolls",
+    "wikiUrl": "/wiki/Category:ar:Atolls"
   },
   {
     "sourceList": "name_categories",
@@ -4201,6 +4229,13 @@
   },
   {
     "sourceList": "name_categories",
+    "id": "146eb215aa145daaef0f2dad1837926a59f45357c0bc237dabf3347560d6bd65",
+    "title": "Category:ar:Dependent territories of New Zealand",
+    "text": "ar:Dependent territories of New Zealand",
+    "wikiUrl": "/wiki/Category:ar:Dependent_territories_of_New_Zealand"
+  },
+  {
+    "sourceList": "name_categories",
     "id": "38e0e29550d15cd40bbef95d35c95b8613a81da02e88b757d197db10e088bedf",
     "title": "Category:ar:Dependent territories of the United Kingdom",
     "text": "ar:Dependent territories of the United Kingdom",
@@ -4320,13 +4355,6 @@
   },
   {
     "sourceList": "name_categories",
-    "id": "996712edda6495f3fe0ba0582f59c8935f3c37e639e6a8bb7642975c8fa067cd",
-    "title": "Category:ar:Exonyms",
-    "text": "ar:Exonyms",
-    "wikiUrl": "/wiki/Category:ar:Exonyms"
-  },
-  {
-    "sourceList": "name_categories",
     "id": "2e1e166e1883a4327f5aa618ca1a8508a5a35053dd21098b2f9ce9c5cf302876",
     "title": "Category:ar:Federal territories",
     "text": "ar:Federal territories",
@@ -4348,13 +4376,6 @@
   },
   {
     "sourceList": "name_categories",
-    "id": "36e4625b24469a471afc0b7c242ae728f6b49c4e8af85bd0f0d6432ec3636e63",
-    "title": "Category:ar:Foreign personal names",
-    "text": "ar:Foreign personal names",
-    "wikiUrl": "/wiki/Category:ar:Foreign_personal_names"
-  },
-  {
-    "sourceList": "name_categories",
     "id": "f9341ae1e109a40a444bf77a5ab2dab879b8c854557cf2ba995e9d6371c92f12",
     "title": "Category:ar:Forests",
     "text": "ar:Forests",
@@ -4373,6 +4394,13 @@
     "title": "Category:ar:Governorates",
     "text": "ar:Governorates",
     "wikiUrl": "/wiki/Category:ar:Governorates"
+  },
+  {
+    "sourceList": "name_categories",
+    "id": "9703a8ae4f7a923667200a7d168ac453bd9d5e248caa05fb8e847042d616eb25",
+    "title": "Category:ar:Governorates of Egypt",
+    "text": "ar:Governorates of Egypt",
+    "wikiUrl": "/wiki/Category:ar:Governorates_of_Egypt"
   },
   {
     "sourceList": "name_categories",
@@ -5412,6 +5440,13 @@
   },
   {
     "sourceList": "name_categories",
+    "id": "07d7f0d446bdc4b847b0720c1a42853840375a2bab99482457d5dcf8259e5ea4",
+    "title": "Category:ar:Places in New Zealand",
+    "text": "ar:Places in New Zealand",
+    "wikiUrl": "/wiki/Category:ar:Places_in_New_Zealand"
+  },
+  {
+    "sourceList": "name_categories",
     "id": "83c390260e8d6c992d326e1695eb0301e18743310683b154306f646938400a56",
     "title": "Category:ar:Places in Newfoundland and Labrador",
     "text": "ar:Places in Newfoundland and Labrador",
@@ -5930,6 +5965,13 @@
   },
   {
     "sourceList": "name_categories",
+    "id": "83c8238107b8743c75415faf05ce543a86c42172140166507b90048cf2937f9f",
+    "title": "Category:ar:Political subdivisions of Egypt",
+    "text": "ar:Political subdivisions of Egypt",
+    "wikiUrl": "/wiki/Category:ar:Political_subdivisions_of_Egypt"
+  },
+  {
+    "sourceList": "name_categories",
     "id": "d49ab094e5e0343cbef748273557375a96b4e6aa2752d805308c7cbd74f19c25",
     "title": "Category:ar:Political subdivisions of El Salvador",
     "text": "ar:Political subdivisions of El Salvador",
@@ -6018,6 +6060,13 @@
     "title": "Category:ar:Political subdivisions of Moldova",
     "text": "ar:Political subdivisions of Moldova",
     "wikiUrl": "/wiki/Category:ar:Political_subdivisions_of_Moldova"
+  },
+  {
+    "sourceList": "name_categories",
+    "id": "536260abe30f1f4423867430d0117ffa018b4988284c3b849fb2d9b954fc653c",
+    "title": "Category:ar:Political subdivisions of New Zealand",
+    "text": "ar:Political subdivisions of New Zealand",
+    "wikiUrl": "/wiki/Category:ar:Political_subdivisions_of_New_Zealand"
   },
   {
     "sourceList": "name_categories",
@@ -6308,17 +6357,17 @@
   },
   {
     "sourceList": "name_categories",
-    "id": "d09e83f025f297372bdf4ddbb0a7c98a6b4c63ea3605e656dbe3cd1593201605",
-    "title": "Category:ar:Regions in Asia",
-    "text": "ar:Regions in Asia",
-    "wikiUrl": "/wiki/Category:ar:Regions_in_Asia"
+    "id": "1e2aa383b2a90c673db20fa488fab7e8f56daf1cef45068c4f3701db85dafb45",
+    "title": "Category:ar:Regions of Africa",
+    "text": "ar:Regions of Africa",
+    "wikiUrl": "/wiki/Category:ar:Regions_of_Africa"
   },
   {
     "sourceList": "name_categories",
-    "id": "5cecf0338525fe6a50ac5003465e3ed1824cc0a3fd045117716bc66cfdb97d4f",
-    "title": "Category:ar:Regions in Europe",
-    "text": "ar:Regions in Europe",
-    "wikiUrl": "/wiki/Category:ar:Regions_in_Europe"
+    "id": "438d8d9f741c29e915c10bc75ca6273240572e85d0d3f65242237d317baafac5",
+    "title": "Category:ar:Regions of Asia",
+    "text": "ar:Regions of Asia",
+    "wikiUrl": "/wiki/Category:ar:Regions_of_Asia"
   },
   {
     "sourceList": "name_categories",
@@ -6326,6 +6375,13 @@
     "title": "Category:ar:Regions of Djibouti",
     "text": "ar:Regions of Djibouti",
     "wikiUrl": "/wiki/Category:ar:Regions_of_Djibouti"
+  },
+  {
+    "sourceList": "name_categories",
+    "id": "8af19b7d6ee457a115e2b3c9a4f88790708841d64ac98c21baa4ae53e67dedf9",
+    "title": "Category:ar:Regions of Europe",
+    "text": "ar:Regions of Europe",
+    "wikiUrl": "/wiki/Category:ar:Regions_of_Europe"
   },
   {
     "sourceList": "name_categories",
@@ -6378,10 +6434,24 @@
   },
   {
     "sourceList": "name_categories",
+    "id": "3a3e5f486dc2a8b70eb1b4a4f63c075710c78b40b71edb3a79f74c519bae07b5",
+    "title": "Category:ar:Rivers in Asia",
+    "text": "ar:Rivers in Asia",
+    "wikiUrl": "/wiki/Category:ar:Rivers_in_Asia"
+  },
+  {
+    "sourceList": "name_categories",
     "id": "6167294ad93b9449dddd1f0901afb5ef07bc7d50f11b3612e520ae9daef0ceba",
     "title": "Category:ar:Rivers in China",
     "text": "ar:Rivers in China",
     "wikiUrl": "/wiki/Category:ar:Rivers_in_China"
+  },
+  {
+    "sourceList": "name_categories",
+    "id": "bf7a23e28713981fb8edceabc5f70e427adee81b59eb2f8625074c66278b78ca",
+    "title": "Category:ar:Rivers in Europe",
+    "text": "ar:Rivers in Europe",
+    "wikiUrl": "/wiki/Category:ar:Rivers_in_Europe"
   },
   {
     "sourceList": "name_categories",
@@ -6648,6 +6718,13 @@
     "title": "Category:ar:Towns in Punjab",
     "text": "ar:Towns in Punjab",
     "wikiUrl": "/wiki/Category:ar:Towns_in_Punjab"
+  },
+  {
+    "sourceList": "name_categories",
+    "id": "d80a0249fb19b88c06d34861b74429b9b230f07c32a2136d6d6613461debaa21",
+    "title": "Category:ar:Towns in Saudi Arabia",
+    "text": "ar:Towns in Saudi Arabia",
+    "wikiUrl": "/wiki/Category:ar:Towns_in_Saudi_Arabia"
   },
   {
     "sourceList": "name_categories",

@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `{word_table}` (
   `language` varchar(255) DEFAULT NULL,
   `etymology` text DEFAULT NULL,
   `wikiUrl` text DEFAULT NULL,
+  `isDerived` BOOLEAN,
   PRIMARY KEY (`id`(64))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

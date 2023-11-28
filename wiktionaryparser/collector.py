@@ -232,7 +232,7 @@ class Collector:
 
         return definition, appendices, mentions, categories
         
-    def save_word(self, fetched_data, save_to_db=False):
+    def save_word(self, fetched_data, save_to_db=False, save_mentions=True, save_orphan=True):
         hash_maxlen = 48
         related_words = []
         orph_nodes = []
@@ -243,7 +243,7 @@ class Collector:
 
         for row in fetched_data:
             word = {
-                k: row.get(k) for k in ['etymology', 'language', "query", 'word', 'wikiUrl']
+                k: row.get(k) for k in ['etymology', 'language', "query", 'word', 'wikiUrl', 'isDerived']
             }
             word_str = word['word']
             word_id = self.__apply_hash(word_str)
@@ -271,34 +271,36 @@ class Collector:
                 definition, appendix, mentions, word_categories = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
 
                 #Newly discovered words (From relationships)
-                for r in relations:
-                    onode = {}
-                    onode['word'] = r.get('word')
-                    onode['wikiUrl'] = r.get('wikiUrl')
-                    onode['id'] = self.__apply_hash(onode['word'])
-                    onode['query'] = word_str
-                    onode['etymology'] = None
-                    onode['language'] = word.get("language")
-                    
-                    orph_nodes.append(onode)
+                if save_orphan:
+                    for r in relations:
+                        onode = {}
+                        onode['word'] = r.get('word')
+                        onode['wikiUrl'] = r.get('wikiUrl')
+                        onode['id'] = self.__apply_hash(onode['word'])
+                        onode['query'] = word_str
+                        onode['etymology'] = None
+                        onode['language'] = word.get("language")
+                        
+                        orph_nodes.append(onode)
 
                 #Newly discovered words (From mentions)
-                for m in mentions:
-                    mnode = copy.deepcopy(m)
-                    mnode.update({
-                        "id": self.__apply_hash(m.get('word')),
-                        "query": word.get("word"),
-                        "etymology": None
-                    })
-                    mnode_def_id = mnode.pop('definitionId')
-                    new_rel = {
-                        "relationshipType": "mention",
-                        "wordId": mnode['id'],
-                        "def_hash": mnode_def_id,
-                        "word": mnode['word']
-                    }
-                    orph_nodes.append(mnode)
-                    relations.append(new_rel)
+                if save_mentions:
+                    for m in mentions:
+                        mnode = copy.deepcopy(m)
+                        mnode.update({
+                            "id": self.__apply_hash(m.get('word')),
+                            "query": word.get("word"),
+                            "etymology": None
+                        })
+                        mnode_def_id = mnode.pop('definitionId')
+                        new_rel = {
+                            "relationshipType": "mention",
+                            "wordId": mnode['id'],
+                            "def_hash": mnode_def_id,
+                            "word": mnode['word']
+                        }
+                        orph_nodes.append(mnode)
+                        relations.append(new_rel)
                 
                 #Add to stack
                 definitions += definition
@@ -306,25 +308,29 @@ class Collector:
                 related_words += relations
                 categories += word_categories
         if save_to_db:
-            self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories)
+            self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories, insert=save_orphan)
 
-        return categories #fetched_data #related_words
+        return fetched_data #fetched_data #related_words
     
 
-    def save_word_data(self, words=[], definition=[], related_words=[], appendices=[], orph_nodes=[], categories=[]):
+    def save_word_data(self, words=[], definition=[], related_words=[], appendices=[], orph_nodes=[], categories=[], insert=True, update=True):
         #Inserting to database
         cur = self.conn.cursor()
-        cur.executemany(f"UPDATE `{self.word_table}` SET query=%(query)s, word=%(word)s, etymology=%(etymology)s, language=%(language)s, wikiUrl=%(wikiUrl)s WHERE id=%(id)s", words)
-        cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s)", words)
-        cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl) VALUES (%(id)s, NULL, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s)", orph_nodes)
-        cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition)
-        if len(appendices) > 0:
-            apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
-            cur.executemany(apx_q, appendices)
-        
-        cur.executemany(f"INSERT IGNORE INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(wordId)s, %(relationshipType)s)", related_words)
-        cur.executemany(f"INSERT IGNORE INTO `word_categories` (wordId, categoryId) VALUES (%(wordId)s, %(categoryId)s)", categories)
-        self.conn.commit()
+        if update:
+            cur.executemany(f"UPDATE `{self.word_table}` SET query=%(query)s, word=%(word)s, etymology=%(etymology)s, language=%(language)s, wikiUrl=%(wikiUrl)s, isDerived=0 WHERE id=%(id)s", words)
+            cur.executemany(f"UPDATE `{self.word_table}` SET query=%(query)s, word=%(word)s, etymology=%(etymology)s, language=%(language)s, wikiUrl=%(wikiUrl)s, isDerived=1 WHERE id=%(id)s", orph_nodes)
+            self.conn.commit()
+        if insert:
+            cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl, isDerived) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s, 0)", words)
+            cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl, isDerived) VALUES (%(id)s, NULL, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s, 1)", orph_nodes)
+            cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition)
+            if len(appendices) > 0:
+                apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
+                cur.executemany(apx_q, appendices)
+            
+            cur.executemany(f"INSERT IGNORE INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(wordId)s, %(relationshipType)s)", related_words)
+            cur.executemany(f"INSERT IGNORE INTO `word_categories` (wordId, categoryId) VALUES (%(wordId)s, %(categoryId)s)", categories)
+            self.conn.commit()
 
 
     def __get_category_data(self, lang="ar"):

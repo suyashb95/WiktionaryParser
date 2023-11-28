@@ -1,4 +1,5 @@
 import itertools
+import langcodes
 
 from matplotlib import pyplot as plt
 import numpy as np
@@ -101,3 +102,12 @@ def get_colormap(labels, palette=None):
     colormap = dict(zip(labels, colormap))
     colormap[None] = "gray"
     return colormap
+
+def convert_language(input_str, format="long"):
+    lang = langcodes.Language.make(language=input_str)
+    if format == "long":
+        if lang.display_name().startswith("Unknown"):
+            return input_str
+        else:
+            return lang.display_name().lower()
+    return lang.language

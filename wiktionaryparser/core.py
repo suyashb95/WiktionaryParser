@@ -200,14 +200,15 @@ class WiktionaryParser(object):
         remaining_a = element.find_all('a')
         for m in remaining_a:
             m_href = m.get('href')
+            language = m.parent.get('lang')
             if m_href is not None:
                 if m_href.startswith('/wiki'):
-                    language = m.parent.get('lang')
                     mentions.append({
                         "wikiUrl": m_href,
                         "word": m.text,
                         "language": language
                     })
+
 
         for k in appendix_removal:
             src_regex = re.compile(f'(\({k}\)|{k})')
@@ -358,7 +359,8 @@ class WiktionaryParser(object):
                 words = []
                 for a in nym.select('span>a'):
                     a_dict = {
-                        "words": a.get_text()
+                        "words": a.get_text(),
+                        "wikiUrl": a.get("href"),
                     }
                     a_dict.update(kwargs)
                     words.append(a_dict)
@@ -396,13 +398,17 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
+    def grab_from_url(self, url, old_id=None):
+        response = self.session.get(url, params={'oldid': old_id})
+        self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
+        self.clean_html()
+
     def fetch(self, word, language=None, old_id=None, query=None):
         language = self.language if not language else language
         languages = language if hasattr(language, '__iter__') and type(language) != str else [language]
-        response = self.session.get(self.url.format(word, self.use_printable), params={'oldid': old_id})
-        self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
+        url = self.url.format(word, self.use_printable)
+        self.grab_from_url(url, old_id=old_id)
         self.current_word = word
-        self.clean_html()
         res = []
 
         for lang in languages:

@@ -1,194 +1,585 @@
 [
     {
-        "categoryId": "0f62e47c52419dbf1affc4f5eb23321a1f81c516b44df43ee96daf53ab128808",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
+        "etymology": "From Proto-Semitic *šamāy- (“sky, space”).\n",
+        "definitions": [
+            {
+                "partOfSpeech": "noun",
+                "text": [
+                    {
+                        "raw_text": "سَمَاء • (samāʔ) f (dual سَمَاوَانِ‎ (samāwāni) or سَمَاءَانِ‎ (samāʔāni), plural سَمَاوَات‎ (samāwāt) or سَمَاءَات‎ (samāʔāt) or أَسْمِيَة‎ (ʔasmiya) or سُمِيّ‎ (sumiyy)) (countable, uncountable)",
+                        "text": "سَمَاء • (samāʔ) f (dual سَمَاوَانِ‎ (samāwāni) or سَمَاءَانِ‎ (samāʔāni)plural سَمَاوَات‎ (samāwāt) or سَمَاءَات‎ (samāʔāt) or أَسْمِيَة‎ (ʔasmiya) or سُمِيّ‎ (sumiyy)) (un)",
+                        "appendix_tags": [
+                            "countable",
+                            "uncountable",
+                            ", "
+                        ],
+                        "mentions": [
+                            {
+                                "wikiUrl": "/wiki/Wiktionary:Arabic_transliteration",
+                                "word": "•",
+                                "language": null,
+                                "definitionId": "5bf0b870016857ee8621fd8cb95bf13d17558d7561a9676468da66ff211d474a"
+                            },
+                            {
+                                "wikiUrl": "/wiki/%D8%B3%D9%85%D8%A7%D9%88%D8%A7%D8%AA#Arabic",
+                                "word": "سَمَاوَات",
+                                "language": "ar",
+                                "definitionId": "5bf0b870016857ee8621fd8cb95bf13d17558d7561a9676468da66ff211d474a"
+                            },
+                            {
+                                "wikiUrl": "/wiki/%D8%B3%D9%85%D9%8A#Arabic",
+                                "word": "سُمِيّ",
+                                "language": "ar",
+                                "definitionId": "5bf0b870016857ee8621fd8cb95bf13d17558d7561a9676468da66ff211d474a"
+                            }
+                        ],
+                        "headword": "سَمَاء"
+                    },
+                    {
+                        "raw_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).",
+                        "text": "the sky/skies; the heaven(s) spacethe sphere(s)the cosmos(es)the lift(s).",
+                        "appendix_tags": [
+                            "countable",
+                            "figurative",
+                            "simile",
+                            "",
+                            ", "
+                        ],
+                        "mentions": [
+                            {
+                                "wikiUrl": "/wiki/sky",
+                                "word": "sky",
+                                "language": null,
+                                "definitionId": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
+                            },
+                            {
+                                "wikiUrl": "/wiki/skies",
+                                "word": "skies",
+                                "language": null,
+                                "definitionId": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
+                            },
+                            {
+                                "wikiUrl": "/wiki/heaven",
+                                "word": "heaven",
+                                "language": null,
+                                "definitionId": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
+                            },
+                            {
+                                "wikiUrl": "/wiki/space",
+                                "word": "space",
+                                "language": null,
+                                "definitionId": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
+                            },
+                            {
+                                "wikiUrl": "/wiki/sphere",
+                                "word": "sphere",
+                                "language": null,
+                                "definitionId": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
+                            },
+                            {
+                                "wikiUrl": "/wiki/cosmos",
+                                "word": "cosmos",
+                                "language": null,
+                                "definitionId": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
+                            },
+                            {
+                                "wikiUrl": "/wiki/lift",
+                                "word": "lift",
+                                "language": null,
+                                "definitionId": "64906c99b5503a6d2f749834e234bfc512c1083e8b1385bdf264397dca68ccf1"
+                            }
+                        ],
+                        "headword": "سَمَاء"
+                    },
+                    {
+                        "raw_text": "(countable) a high covering; ceiling, vault, canopy",
+                        "text": "a high covering; ceiling, vault, canopy",
+                        "appendix_tags": [
+                            "countable",
+                            ""
+                        ],
+                        "mentions": [
+                            {
+                                "wikiUrl": "/wiki/high",
+                                "word": "high",
+                                "language": null,
+                                "definitionId": "8016cdd65a6004d4eadab936f03727f9a25456fa66401c437c7e4f4c041653e4"
+                            },
+                            {
+                                "wikiUrl": "/wiki/covering",
+                                "word": "covering",
+                                "language": null,
+                                "definitionId": "8016cdd65a6004d4eadab936f03727f9a25456fa66401c437c7e4f4c041653e4"
+                            },
+                            {
+                                "wikiUrl": "/wiki/ceiling",
+                                "word": "ceiling",
+                                "language": null,
+                                "definitionId": "8016cdd65a6004d4eadab936f03727f9a25456fa66401c437c7e4f4c041653e4"
+                            },
+                            {
+                                "wikiUrl": "/wiki/vault",
+                                "word": "vault",
+                                "language": null,
+                                "definitionId": "8016cdd65a6004d4eadab936f03727f9a25456fa66401c437c7e4f4c041653e4"
+                            },
+                            {
+                                "wikiUrl": "/wiki/canopy",
+                                "word": "canopy",
+                                "language": null,
+                                "definitionId": "8016cdd65a6004d4eadab936f03727f9a25456fa66401c437c7e4f4c041653e4"
+                            }
+                        ],
+                        "headword": "سَمَاء"
+                    },
+                    {
+                        "raw_text": "(archaic or Classical Arabic, countable) Arabian horse’s back.",
+                        "text": "Arabian horse’s back.",
+                        "appendix_tags": [
+                            "archaic",
+                            "countable",
+                            " or Classical Arabic, "
+                        ],
+                        "mentions": [
+                            {
+                                "wikiUrl": "/wiki/Arabian_horse",
+                                "word": "Arabian horse",
+                                "language": null,
+                                "definitionId": "f3e3801c18bfc87863022e50fe5ea74236c5552a67e50139d58a2b0724dc2037"
+                            },
+                            {
+                                "wikiUrl": "/wiki/back",
+                                "word": "back",
+                                "language": null,
+                                "definitionId": "f3e3801c18bfc87863022e50fe5ea74236c5552a67e50139d58a2b0724dc2037"
+                            }
+                        ],
+                        "headword": "سَمَاء"
+                    },
+                    {
+                        "raw_text": "(archaic or Classical Arabic, countable) mountaintop, summit.",
+                        "text": "mountaintop, summit.",
+                        "appendix_tags": [
+                            "archaic",
+                            "countable",
+                            " or Classical Arabic, "
+                        ],
+                        "mentions": [
+                            {
+                                "wikiUrl": "/wiki/mountaintop",
+                                "word": "mountaintop",
+                                "language": null,
+                                "definitionId": "c38ee351e7e49d3cf3f329d9aae8baa1176058fb7ffa9e3a224358c0e0033e52"
+                            },
+                            {
+                                "wikiUrl": "/wiki/summit",
+                                "word": "summit",
+                                "language": null,
+                                "definitionId": "c38ee351e7e49d3cf3f329d9aae8baa1176058fb7ffa9e3a224358c0e0033e52"
+                            }
+                        ],
+                        "headword": "سَمَاء"
+                    },
+                    {
+                        "raw_text": "(archaic or Classical Arabic, countable) rainy grass",
+                        "text": "rainy grass",
+                        "appendix_tags": [
+                            "archaic",
+                            "countable",
+                            " or Classical Arabic, "
+                        ],
+                        "mentions": [
+                            {
+                                "wikiUrl": "/wiki/grass",
+                                "word": "grass",
+                                "language": null,
+                                "definitionId": "c4dbe08dff7472879a24650485c82b85dc602c9a17c284696bc681dc6e7ef968"
+                            }
+                        ],
+                        "headword": "سَمَاء"
+                    }
+                ],
+                "relatedWords": [
+                    {
+                        "relationshipType": "hyponyms",
+                        "words": [
+                            {
+                                "words": "سَحَاب",
+                                "wikiUrl": "/wiki/%D8%B3%D8%AD%D8%A7%D8%A8#Arabic",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            },
+                            {
+                                "words": "غَيْم",
+                                "wikiUrl": "/wiki/%D8%BA%D9%8A%D9%85#Arabic",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            },
+                            {
+                                "words": "عَنَان",
+                                "wikiUrl": "/wiki/%D8%B9%D9%86%D8%A7%D9%86#Arabic",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            },
+                            {
+                                "words": "غَمَام",
+                                "wikiUrl": "/wiki/%D8%BA%D9%85%D8%A7%D9%85#Arabic",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            },
+                            {
+                                "words": "مُزْن",
+                                "wikiUrl": "/wiki/%D9%85%D8%B2%D9%86#Arabic",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            },
+                            {
+                                "words": "مَطَر",
+                                "wikiUrl": "/wiki/%D9%85%D8%B7%D8%B1#Arabic",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            },
+                            {
+                                "words": "سَيْل",
+                                "wikiUrl": "/wiki/%D8%B3%D9%8A%D9%84#Arabic",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            }
+                        ],
+                        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+                        "pos": "noun"
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            {
+                                "words": "فَضَاء",
+                                "wikiUrl": "/wiki/%D9%81%D8%B6%D8%A7%D8%A1#Arabic",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            },
+                            {
+                                "words": "فَلَك",
+                                "wikiUrl": "/wiki/%D9%81%D9%84%D9%83#Arabic",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            }
+                        ],
+                        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+                        "pos": "noun"
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            {
+                                "words": "أَثِير",
+                                "wikiUrl": "/wiki/%D8%A3%D8%AB%D9%8A%D8%B1#Arabic",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            },
+                            {
+                                "words": "مَجَال جَوِّيّ",
+                                "wikiUrl": "/w/index.php?title=%D9%85%D8%AC%D8%A7%D9%84_%D8%AC%D9%88%D9%8A&action=edit&redlink=1",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            }
+                        ],
+                        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+                        "pos": "noun"
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            {
+                                "words": "قُبَّة سَمَاوِيَّة",
+                                "wikiUrl": "/w/index.php?title=%D9%82%D8%A8%D8%A9_%D8%B3%D9%85%D8%A7%D9%88%D9%8A%D8%A9&action=edit&redlink=1",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            },
+                            {
+                                "words": "مَجَال سَمَاوِيّ",
+                                "wikiUrl": "/w/index.php?title=%D9%85%D8%AC%D8%A7%D9%84_%D8%B3%D9%85%D8%A7%D9%88%D9%8A&action=edit&redlink=1",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            }
+                        ],
+                        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+                        "pos": "noun"
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            {
+                                "words": "غِلَاف جَوِيّ",
+                                "wikiUrl": "/w/index.php?title=%D8%BA%D9%84%D8%A7%D9%81_%D8%AC%D9%88%D9%8A&action=edit&redlink=1",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            }
+                        ],
+                        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+                        "pos": "noun"
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            {
+                                "words": "سْتْرَاتُوسْفِير",
+                                "wikiUrl": "/wiki/%D8%B3%D8%AA%D8%B1%D8%A7%D8%AA%D9%88%D8%B3%D9%81%D9%8A%D8%B1#Arabic",
+                                "def_text": "(countable) the sky/skies; the heaven(s) (figurative, simile), space, the sphere(s), the cosmos(es), the lift(s).\n‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.(by extension) the produce of the sky (such as clouds, nimbuses, or rain)\nHyponyms: سَحَاب‎ (saḥāb, “clouds”), غَيْم‎ (ḡaym, “clouds; fog; mist”), عَنَان‎ (ʕanān, “clouds, the stratosphere”), غَمَام‎ (ḡamām, “clouds”), مُزْن‎ (muzn, “clouds, nimbi”), مَطَر‎ (maṭar, “rain”), سَيْل‎ (sayl, “rain; a torrent, a shower, a hail”)‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"(uncountable), outer space (when observed from earth), the upper regions, the multiverses, the universe, the cosmos(es), the heavens (figurative, simile)Synonyms: فَضَاء‎ (faḍāʔ, “a space, a void”), فَلَك‎ (falak, “outer space, universe”)‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.(proper noun, uncountable, figurative, simile, religion, obsolete, poetic) the abode of God traditionally conceived as beyond the sky; Heaven, the empyrean‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […] airspace, the aetherSynonyms: أَثِير‎ (ʔaṯīr), مَجَال جَوِّيّ‎ (majāl jawwiyy)the celestial sphere(s)\nSynonyms: قُبَّة سَمَاوِيَّة‎ (qubba(t) samāwiyya), مَجَال سَمَاوِيّ‎ (majāl samāwiyy)the atmosphere(s)\nSynonym: غِلَاف جَوِيّ‎ (ḡilāf jawiyy)the stratosphereSynonym: سْتْرَاتُوسْفِير‎ (strātūsfīr)"
+                            }
+                        ],
+                        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+                        "pos": "noun"
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            {
+                                "words": "سَقْف",
+                                "wikiUrl": "/wiki/%D8%B3%D9%82%D9%81#Arabic",
+                                "def_text": "(countable) a high covering; ceiling, vault, canopySynonyms: سَقْف‎ (saqf), بِنَاء‎ (bināʔ)‏وَقَالَتْ سَمَاءُ الْبَيْتِ فَوْقَكَ مُخَلَّقٌ‎ ― waqālat samāʔu al-bayti fawqaka muḵallaqun ― And she said: The ceiling of the house above you is perfect in make.‏مَنْ كَانَ يَظُنُّ أَنْ لَنْ يَنْصُرَهُ ٱللهُ فِي ٱلدُّنْيَا وَٱلْآخِرَةِ فَلْيَمْدُدْ بِسَبَبٍ إِلَىٰ ٱلسَّمَاءِ ثُمَّ لْيَقْطَعْ فَلْيَنْظُرْ هَلْ يُذْهِبَنَّ كَيْدُهُ مَا يَغِيظُ‎man kāna yaẓunnu ʔan lan yanṣurahu llāhu fī d-dunyā wal-ʔāḵirati falyamdud bisababin ʔilā l-ssamāʔi ṯumma lyaqṭaʕ falyanẓur hal yuḏhibanna kayduhu mā yaḡīẓuHe who thinks that God will not support him in this world and the hereafter: Then let him stretch a rope upto the vault and let him strangle himself. Then let him see if his strategy makes what is enraging [him so much] go away.(uncountable, figurative) anything which resembles a vault, particularly the sky; the firmament, the vault of heaven, the welkinSynonym: رَقِيع‎ (raqīʕ)‏وَيُمْسِكُ ٱلسَّمَاءَ أَنْ تَقَعَ عَلَىٰ ٱلْأَرْضِ إِلَّا بِإِذْنِهِ‎wayumsiku s-samāʔa ʔan taqaʕa ʕalā l-ʔarḍi ʔillā biʔiḏnihiAnd He holds up the firmament lest it fall upon the earth but by His leave."
+                            },
+                            {
+                                "words": "بِنَاء",
+                                "wikiUrl": "/wiki/%D8%A8%D9%86%D8%A7%D8%A1#Arabic",
+                                "def_text": "(countable) a high covering; ceiling, vault, canopySynonyms: سَقْف‎ (saqf), بِنَاء‎ (bināʔ)‏وَقَالَتْ سَمَاءُ الْبَيْتِ فَوْقَكَ مُخَلَّقٌ‎ ― waqālat samāʔu al-bayti fawqaka muḵallaqun ― And she said: The ceiling of the house above you is perfect in make.‏مَنْ كَانَ يَظُنُّ أَنْ لَنْ يَنْصُرَهُ ٱللهُ فِي ٱلدُّنْيَا وَٱلْآخِرَةِ فَلْيَمْدُدْ بِسَبَبٍ إِلَىٰ ٱلسَّمَاءِ ثُمَّ لْيَقْطَعْ فَلْيَنْظُرْ هَلْ يُذْهِبَنَّ كَيْدُهُ مَا يَغِيظُ‎man kāna yaẓunnu ʔan lan yanṣurahu llāhu fī d-dunyā wal-ʔāḵirati falyamdud bisababin ʔilā l-ssamāʔi ṯumma lyaqṭaʕ falyanẓur hal yuḏhibanna kayduhu mā yaḡīẓuHe who thinks that God will not support him in this world and the hereafter: Then let him stretch a rope upto the vault and let him strangle himself. Then let him see if his strategy makes what is enraging [him so much] go away.(uncountable, figurative) anything which resembles a vault, particularly the sky; the firmament, the vault of heaven, the welkinSynonym: رَقِيع‎ (raqīʕ)‏وَيُمْسِكُ ٱلسَّمَاءَ أَنْ تَقَعَ عَلَىٰ ٱلْأَرْضِ إِلَّا بِإِذْنِهِ‎wayumsiku s-samāʔa ʔan taqaʕa ʕalā l-ʔarḍi ʔillā biʔiḏnihiAnd He holds up the firmament lest it fall upon the earth but by His leave."
+                            }
+                        ],
+                        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+                        "pos": "noun"
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            {
+                                "words": "رَقِيع",
+                                "wikiUrl": "/wiki/%D8%B1%D9%82%D9%8A%D8%B9#Arabic",
+                                "def_text": "(countable) a high covering; ceiling, vault, canopySynonyms: سَقْف‎ (saqf), بِنَاء‎ (bināʔ)‏وَقَالَتْ سَمَاءُ الْبَيْتِ فَوْقَكَ مُخَلَّقٌ‎ ― waqālat samāʔu al-bayti fawqaka muḵallaqun ― And she said: The ceiling of the house above you is perfect in make.‏مَنْ كَانَ يَظُنُّ أَنْ لَنْ يَنْصُرَهُ ٱللهُ فِي ٱلدُّنْيَا وَٱلْآخِرَةِ فَلْيَمْدُدْ بِسَبَبٍ إِلَىٰ ٱلسَّمَاءِ ثُمَّ لْيَقْطَعْ فَلْيَنْظُرْ هَلْ يُذْهِبَنَّ كَيْدُهُ مَا يَغِيظُ‎man kāna yaẓunnu ʔan lan yanṣurahu llāhu fī d-dunyā wal-ʔāḵirati falyamdud bisababin ʔilā l-ssamāʔi ṯumma lyaqṭaʕ falyanẓur hal yuḏhibanna kayduhu mā yaḡīẓuHe who thinks that God will not support him in this world and the hereafter: Then let him stretch a rope upto the vault and let him strangle himself. Then let him see if his strategy makes what is enraging [him so much] go away.(uncountable, figurative) anything which resembles a vault, particularly the sky; the firmament, the vault of heaven, the welkinSynonym: رَقِيع‎ (raqīʕ)‏وَيُمْسِكُ ٱلسَّمَاءَ أَنْ تَقَعَ عَلَىٰ ٱلْأَرْضِ إِلَّا بِإِذْنِهِ‎wayumsiku s-samāʔa ʔan taqaʕa ʕalā l-ʔarḍi ʔillā biʔiḏnihiAnd He holds up the firmament lest it fall upon the earth but by His leave."
+                            }
+                        ],
+                        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+                        "pos": "noun"
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            {
+                                "words": "ظَهْرُ الْفَرَسِ",
+                                "wikiUrl": "/w/index.php?title=%D8%B8%D9%87%D8%B1_%D8%A7%D9%84%D9%81%D8%B1%D8%B3&action=edit&redlink=1",
+                                "def_text": "(archaic or Classical Arabic, countable) Arabian horse’s back.\nSynonym: ظَهْرُ الْفَرَسِ‎ (ẓahru l-farasi)"
+                            }
+                        ],
+                        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+                        "pos": "noun"
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            {
+                                "words": "ضَهْر",
+                                "wikiUrl": "/wiki/%D8%B6%D9%87%D8%B1#Arabic",
+                                "def_text": "(archaic or Classical Arabic, countable) mountaintop, summit.\nSynonym: ضَهْر‎ (ḍahr)"
+                            }
+                        ],
+                        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+                        "pos": "noun"
+                    },
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            {
+                                "words": "عُشْب",
+                                "wikiUrl": "/wiki/%D8%B9%D8%B4%D8%A8#Arabic",
+                                "def_text": "(archaic or Classical Arabic, countable) rainy grassSynonym: عُشْب‎ (ʕušb)"
+                            }
+                        ],
+                        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef",
+                        "pos": "noun"
+                    }
+                ],
+                "examples": [
+                    "‏وَهُوَ ٱلَّذِي أَنْزَلَ مِنَ ٱلسَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ نَبَاتَ كُلِّ شَيْءٍ‎wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔinAnd it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;",
+                    "wahuwa llaḏī ʔanzala mina s-samāʔi māʔan faʔaḵrajnā bihi nabāta kulli šayʔin",
+                    "And it is He Who sent down rain from the sky. And with it have We brought forth germination of all things;",
+                    "‏هُوَ ٱلَّذِي خَلَقَ لَكُمْ مَّا فِي ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰ إِلَىٰ ٱلسَّمَاءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍ‎‎huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātinIt is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.",
+                    "huwa llaḏī ḵalaqa lakum mmā fī l-ʔarḍi jamīʕan ṯumma stawā ʔilā s-samāʔi fasawwāhunna sabʕa samāwātin",
+                    "It is He Who created for you all what is on earth. Again he directed himself towards the heaven and made thereof seven heavens.",
+                    "سَحَاب‎ , غَيْم‎ , عَنَان‎ , غَمَام‎ , مُزْن‎ , مَطَر‎ , سَيْل‎ ",
+                    "‏فَقُلْتُ ٱسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا يُّرْسِلِ ٱلسَّمَاءَ عَلَيْكُمْ مِّدْرَارًا وَّيُمْدِدْكُمْ بِأَمْوَالٍ وَّبَنِينَ وَيَجْعَلْ لَّكُمْ جَنَّاتٍ وَّيَجْعَلْ لَّكُمْ أَنْهَارًا‎faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāranSo I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"",
+                    "faqultu staḡfirū rabbakum ʔinnahu kāna ḡaffāran yyursili s-samāʔa ʕalaykum mmidrāran wwayumdidkum biʔamwālin wwabanīna wayajʕal llakum jannātin wwayajʕal llakum ʔanhāran",
+                    "So I said, \"Ask your Lord for forgiveness! He surely is forgiving. He shall send unto you profusely the produce of the sky. And He shall enrich you with wealth and children and make for you gardens and make for you rivers.\"",
+                    "فَضَاء‎ , فَلَك‎ ",
+                    "‏تَبَارَكَ ٱلَّذِي جَعَلَ فِي ٱلسَّمَاءِ بُرُوجًا وَّجَعَلَ فِيهَا سِرَٰجًا وَّقَمَرًا مُّنِيرًا‎tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīranBlessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.",
+                    "tabāraka llaḏī jaʕala fī s-samāʔi burūjan wwajaʕala fīhā sirājan wwaqamaran mmunīran",
+                    "Blessed is He Who made asterisms in the heavens and [also] made therein a lamp and a luminous moon.",
+                    "‏ءَأَمِنْتُمْ مَّنْ فِي ٱلسَّمَاءِ أَنْ يَّخْسِفَ بِكُمُ ٱلْأَرْضَ فَإِذَا هِيَ تَمُورُ‎ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūruAre you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?",
+                    "ʔaʔamintum mman fī s-samāʔi ʔan yyaḵsifa bikumu l-ʔarḍa faʔiḏā hiya tamūru",
+                    "Are you [so] certain that He Who is in Heaven will cause not the earth, when it would be swaying in tumult, to swallow you up?",
+                    "‏وَلَٰكِنْ بَعْدَ أَنْ أَسْخَطَ آبَاؤُنَا إِلَٰهَ ٱلسَّمَاءِ  […]‎walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]But after our fathers made the god of Heaven angry  […]",
+                    "walākin baʕda ʔan ʔasḵaṭa ʔābāʔunā ʔilāha s-samāʔi  […]",
+                    "But after our fathers made the god of Heaven angry  […]",
+                    "أَثِير‎ , مَجَال جَوِّيّ‎ ",
+                    "قُبَّة سَمَاوِيَّة‎  samāwiyya), مَجَال سَمَاوِيّ‎ ",
+                    "غِلَاف جَوِيّ‎ ",
+                    "سْتْرَاتُوسْفِير‎ ",
+                    "سَقْف‎ , بِنَاء‎ ",
+                    "‏وَقَالَتْ سَمَاءُ الْبَيْتِ فَوْقَكَ مُخَلَّقٌ‎ ― waqālat samāʔu al-bayti fawqaka muḵallaqun ― And she said: The ceiling of the house above you is perfect in make.",
+                    "‏مَنْ كَانَ يَظُنُّ أَنْ لَنْ يَنْصُرَهُ ٱللهُ فِي ٱلدُّنْيَا وَٱلْآخِرَةِ فَلْيَمْدُدْ بِسَبَبٍ إِلَىٰ ٱلسَّمَاءِ ثُمَّ لْيَقْطَعْ فَلْيَنْظُرْ هَلْ يُذْهِبَنَّ كَيْدُهُ مَا يَغِيظُ‎man kāna yaẓunnu ʔan lan yanṣurahu llāhu fī d-dunyā wal-ʔāḵirati falyamdud bisababin ʔilā l-ssamāʔi ṯumma lyaqṭaʕ falyanẓur hal yuḏhibanna kayduhu mā yaḡīẓuHe who thinks that God will not support him in this world and the hereafter: Then let him stretch a rope upto the vault and let him strangle himself. Then let him see if his strategy makes what is enraging [him so much] go away.",
+                    "man kāna yaẓunnu ʔan lan yanṣurahu llāhu fī d-dunyā wal-ʔāḵirati falyamdud bisababin ʔilā l-ssamāʔi ṯumma lyaqṭaʕ falyanẓur hal yuḏhibanna kayduhu mā yaḡīẓu",
+                    "He who thinks that God will not support him in this world and the hereafter: Then let him stretch a rope upto the vault and let him strangle himself. Then let him see if his strategy makes what is enraging [him so much] go away.",
+                    "رَقِيع‎ ",
+                    "‏وَيُمْسِكُ ٱلسَّمَاءَ أَنْ تَقَعَ عَلَىٰ ٱلْأَرْضِ إِلَّا بِإِذْنِهِ‎wayumsiku s-samāʔa ʔan taqaʕa ʕalā l-ʔarḍi ʔillā biʔiḏnihiAnd He holds up the firmament lest it fall upon the earth but by His leave.",
+                    "wayumsiku s-samāʔa ʔan taqaʕa ʕalā l-ʔarḍi ʔillā biʔiḏnihi",
+                    "And He holds up the firmament lest it fall upon the earth but by His leave.",
+                    "ظَهْرُ الْفَرَسِ‎ ",
+                    "ضَهْر‎ ",
+                    "عُشْب‎ "
+                ]
+            }
+        ],
+        "pronunciations": {
+            "text": [
+                "IPA: /sa.maːʔ/"
+            ],
+            "audio": []
+        },
+        "language": "arabic",
+        "query": "سماء",
+        "word": "سماء"
     },
     {
-        "categoryId": "730aa3bb4b88022da7821a603a0d53d1037bc669c4b9e0ea51ca4e85f19178cc",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
+        "etymology": "From دَار‎ (dār, “house”) and بَيْضَاء‎ (bayḍāʔ, “white”): a calque of the original Portuguese name Casa Branca (\"White House\"), changed to Casablanca when the Spanish assumed control of the city.\n",
+        "definitions": [
+            {
+                "partOfSpeech": "proper noun",
+                "text": [
+                    {
+                        "raw_text": "الدَّار الْبَيْضَاء • (ad-dār al-bayḍāʔ) f",
+                        "text": "الدَّار الْبَيْضَاء • (ad-dār al-bayḍāʔ) f",
+                        "appendix_tags": [],
+                        "mentions": [
+                            {
+                                "wikiUrl": "/wiki/Wiktionary:Arabic_transliteration",
+                                "word": "•",
+                                "language": null,
+                                "definitionId": "6c594352b399c2ab12a50e720f9be573781465973992a682a533c5b88b379f9c"
+                            }
+                        ],
+                        "headword": "الدَّار الْبَيْضَاء"
+                    },
+                    {
+                        "raw_text": "Casablanca (the capital city of the region of Casablanca-Settat, Morocco)",
+                        "text": "Casablanca (the capital city of the region of Casablanca-Settat, Morocco)",
+                        "appendix_tags": [],
+                        "mentions": [
+                            {
+                                "wikiUrl": "/wiki/Casablanca#English",
+                                "word": "Casablanca",
+                                "language": "en",
+                                "definitionId": "1dfc26d90ebdc82c1e8c41d161f5393a4c77b5d7b8dd06a11eda4b2c592f896e"
+                            },
+                            {
+                                "wikiUrl": "/wiki/capital_city",
+                                "word": "capital city",
+                                "language": null,
+                                "definitionId": "1dfc26d90ebdc82c1e8c41d161f5393a4c77b5d7b8dd06a11eda4b2c592f896e"
+                            },
+                            {
+                                "wikiUrl": "/wiki/Morocco#English",
+                                "word": "Morocco",
+                                "language": "en",
+                                "definitionId": "1dfc26d90ebdc82c1e8c41d161f5393a4c77b5d7b8dd06a11eda4b2c592f896e"
+                            }
+                        ],
+                        "headword": "الدَّار الْبَيْضَاء"
+                    }
+                ],
+                "relatedWords": [
+                    {
+                        "relationshipType": "synonyms",
+                        "words": [
+                            {
+                                "words": "كَازَابْلَانْكَا‎ (kazablanka)",
+                                "def_text": "Casablanca (the capital city of the region of Casablanca-Settat, Morocco)"
+                            }
+                        ],
+                        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534",
+                        "pos": "proper noun"
+                    }
+                ],
+                "examples": []
+            }
+        ],
+        "pronunciations": {
+            "text": [],
+            "audio": []
+        },
+        "language": "arabic",
+        "query": "الدار_البيضاء",
+        "word": "الدار_البيضاء"
     },
     {
-        "categoryId": "7a8bc77304f02a18036747f5775e398ffe593800ca510b19372192bdb7615604",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "c6c7e438f38562017392453cfc6c7c81dd37d2b04c38a7543b7cf89c3a4f3b50",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "c6747bf4bbad3d06d2e740cc40fdeb5471e2f8bcbe2ed0ed22246cb58073fe89",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "da39f27d43a1886921283baf24108bc44c616cb5846824165c5b35b4af6d7842",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "3221a75ffe40b22b32bda008da328159a09da1748c3172965b44549b385caaf0",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "1b072ec9728fa843df695501f3b69f93816f2b09f0e37f54d1500f08b5c71e04",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "f5ee8c197f57f5185336624a316927adb95ee8ecab1eb958bbe646f39d19cd4f",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "003cd17a36541e674ed6b6f97c82ea022638b5a651b6a66f918d7edbb1bfe9b7",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "736039f46cab2cd58773f74f0aebe682049d1958c5bb4662e33acdcff96f2724",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "61aebd6ba565848ab89efc20d487053b8115aa21c9b835b07831f3297c2fa647",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "fdbc89d9e1807f0744a0b6705aa5fc3fb1fed359c21670baa746e1db1926c85b",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "7ff0c369f37c402c31b039f1ee554e6cc27c45cbd03e019c95a7124f2d791984",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "dc80c60f5627fd62714f0ee6a2e317a802fd5aebf4af41ff3d8e1138f750fd09",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "afef65461b73f0b8975acea01dc077996067c54c36f879d546f410e97ee24957",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "b00a67d8c922f32460136f70c9bfd9a97a68167825394f31f80d152173efd5f5",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "efaf532911fb15503e0255923a7b18cfc82a9aabd1d882397f591161370a8dad",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "803ca5709b58e4f7ab933fe0e1facf184f83011335cc2c835c3259150af2ed0b",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "12947ca6410393d36a3311af35d2e67828677341c3706b962a4a6bef5ba854c8",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "323bac38a0172c6eb95dd28e97202e663814aa668030fc31d052ff5b534499dd",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "d771bc453a6d813fcb9fd26c8ceaf0979c6aea9160f0bfb5e076f4e835394e39",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "d4197ac7c2434a894479ad1582d8004bb493029138a9d8397235cef9de132191",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "e823b09496d955492a24e18a5b9cc5660b23420775d499350c71b46676a34966",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "5eab6a19946e28e63464506195a37904fbc21caa4351d1c7997ed331135ebe52",
-        "wordId": "599815a1cfcda8ee7156f547177b5f6d2b51346f25b178a290d4b06fca0ff6ef"
-    },
-    {
-        "categoryId": "b720f09010e4c757177abc695e32464c853939604408e5a67777a20e6af3df22",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "7a8bc77304f02a18036747f5775e398ffe593800ca510b19372192bdb7615604",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "c6747bf4bbad3d06d2e740cc40fdeb5471e2f8bcbe2ed0ed22246cb58073fe89",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "f052ab02d048dd57a6075166eec108f58f750fe3e8a22028aa68dbd30cd6a3e0",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "1b072ec9728fa843df695501f3b69f93816f2b09f0e37f54d1500f08b5c71e04",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "02291f5d82877fa44db36f4fc3670f0b3b7de7a28f8feda6a48481dabf5f5e81",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "9caeb9c089a83c233039b4d5ff80bfcd7cc4456cc1c5ba0920c9f4d61f6b50ef",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "4f429a2822c5e52effa31f02bd77f1f193093822838505139a7b337f790d38c8",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "1d71d2b8a8bf7ee1b5f0e4d4999f450e77f351dfb2131c8c6bab2ecc55caf17b",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "63d9bff420dd31a75dac90ddb67bea8b9c3a0267ae8a0c024ad458a7a087936a",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "4f8e592b63e75d1615a7fe301d0afa94d75c2de94190d213e24c3309044cfccb",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "720d0ee4b87893409678a6a9e531d7d086fffba7de2b32f4506d877f5d080e86",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "04921ae88e9423cd15f42828c3bc95791b43921e4073a81f5110521568ccd0ff",
-        "wordId": "b3bb2ff0024fcbed808cdf6f9db5d11a4c947d77d91c87c6b506a59a28f05534"
-    },
-    {
-        "categoryId": "b720f09010e4c757177abc695e32464c853939604408e5a67777a20e6af3df22",
-        "wordId": "eb8ba606f0da653e317683e63e714b1bd12df579c75f52961cc53b2bf45f4b83"
-    },
-    {
-        "categoryId": "c6747bf4bbad3d06d2e740cc40fdeb5471e2f8bcbe2ed0ed22246cb58073fe89",
-        "wordId": "eb8ba606f0da653e317683e63e714b1bd12df579c75f52961cc53b2bf45f4b83"
-    },
-    {
-        "categoryId": "dafc4d93b409553fb262f1164939b3e280c7a8d9c70d9bd502056e5fa7f41804",
-        "wordId": "eb8ba606f0da653e317683e63e714b1bd12df579c75f52961cc53b2bf45f4b83"
-    },
-    {
-        "categoryId": "2f459c1ef06b4944b5f2b55b821d41561701079fbbceaff685024e8325f8a1cc",
-        "wordId": "eb8ba606f0da653e317683e63e714b1bd12df579c75f52961cc53b2bf45f4b83"
-    },
-    {
-        "categoryId": "f052ab02d048dd57a6075166eec108f58f750fe3e8a22028aa68dbd30cd6a3e0",
-        "wordId": "eb8ba606f0da653e317683e63e714b1bd12df579c75f52961cc53b2bf45f4b83"
-    },
-    {
-        "categoryId": "1b072ec9728fa843df695501f3b69f93816f2b09f0e37f54d1500f08b5c71e04",
-        "wordId": "eb8ba606f0da653e317683e63e714b1bd12df579c75f52961cc53b2bf45f4b83"
-    },
-    {
-        "categoryId": "02291f5d82877fa44db36f4fc3670f0b3b7de7a28f8feda6a48481dabf5f5e81",
-        "wordId": "eb8ba606f0da653e317683e63e714b1bd12df579c75f52961cc53b2bf45f4b83"
-    },
-    {
-        "categoryId": "b00a67d8c922f32460136f70c9bfd9a97a68167825394f31f80d152173efd5f5",
-        "wordId": "eb8ba606f0da653e317683e63e714b1bd12df579c75f52961cc53b2bf45f4b83"
-    },
-    {
-        "categoryId": "e967347ef2b0a0884ab8922517a0f9c68ee6fe8b9c1db172108308e1d319a6fb",
-        "wordId": "eb8ba606f0da653e317683e63e714b1bd12df579c75f52961cc53b2bf45f4b83"
-    },
-    {
-        "categoryId": "307f52e7d0d734f73ea6c950d8ab9c888567352767915ebc5f522d0795a310e8",
-        "wordId": "eb8ba606f0da653e317683e63e714b1bd12df579c75f52961cc53b2bf45f4b83"
+        "etymology": "",
+        "definitions": [
+            {
+                "partOfSpeech": "proper noun",
+                "text": [
+                    {
+                        "raw_text": "الْبَيْت الْأَبْيَض‎ • (al-bayt al-ʔabyaḍ) m",
+                        "text": "الْبَيْت الْأَبْيَض‎ • (al-bayt al-ʔabyaḍ) m",
+                        "appendix_tags": [],
+                        "mentions": [
+                            {
+                                "wikiUrl": "/wiki/%D8%A8%D9%8A%D8%AA#Arabic",
+                                "word": "الْبَيْت",
+                                "language": "ar",
+                                "definitionId": "64e0f2749068d4e9d83ffc7d4aca25f6fb727438393fbcc91b5bf8365b4925fb"
+                            },
+                            {
+                                "wikiUrl": "/wiki/%D8%A3%D8%A8%D9%8A%D8%B6#Arabic",
+                                "word": "الْأَبْيَض",
+                                "language": "ar",
+                                "definitionId": "64e0f2749068d4e9d83ffc7d4aca25f6fb727438393fbcc91b5bf8365b4925fb"
+                            },
+                            {
+                                "wikiUrl": "/wiki/Wiktionary:Arabic_transliteration",
+                                "word": "•",
+                                "language": null,
+                                "definitionId": "64e0f2749068d4e9d83ffc7d4aca25f6fb727438393fbcc91b5bf8365b4925fb"
+                            }
+                        ],
+                        "headword": "الْبَيْت الْأَبْيَض"
+                    },
+                    {
+                        "raw_text": "White House (The official residence of the President of the United States of America)",
+                        "text": "White House (The official residence of the President of the United States of America)",
+                        "appendix_tags": [],
+                        "mentions": [
+                            {
+                                "wikiUrl": "/wiki/White_House",
+                                "word": "White House",
+                                "language": null,
+                                "definitionId": "0653612c185a6f8cedae4ec605a1a5bb9afcbc310ce1119915b62bcf5aa20a4d"
+                            }
+                        ],
+                        "headword": "الْبَيْت الْأَبْيَض"
+                    },
+                    {
+                        "raw_text": "(metonymically) White House (The United States presidency)",
+                        "text": "White House (The United States presidency)",
+                        "appendix_tags": [
+                            "metonymically",
+                            ""
+                        ],
+                        "mentions": [
+                            {
+                                "wikiUrl": "/wiki/White_House",
+                                "word": "White House",
+                                "language": null,
+                                "definitionId": "522027dfccfc69c6e352b996f287f8113ee52b655fce14d57ecc600f59dbf01d"
+                            }
+                        ],
+                        "headword": "الْبَيْت الْأَبْيَض"
+                    }
+                ],
+                "relatedWords": [],
+                "examples": []
+            }
+        ],
+        "pronunciations": {
+            "text": [
+                "IPA: /al.bajt al.ʔab.jadˤ/"
+            ],
+            "audio": []
+        },
+        "language": "arabic",
+        "query": "البيت_الأبيض",
+        "word": "البيت_الأبيض"
     }
 ]
