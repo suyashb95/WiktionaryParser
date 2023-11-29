@@ -164,7 +164,7 @@ class GraphBuilder:
 
     def get_orphan_nodes(self):
         query = [
-            f"SELECT word, language, wikiUrl  FROM {self.word_table}",
+            f"SELECT * FROM {self.word_table}",
             "WHERE isDerived=1",
             "AND wikiUrl IS NOT NULL",
             # "LIMIT 25"

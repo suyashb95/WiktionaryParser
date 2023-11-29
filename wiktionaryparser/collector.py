@@ -232,7 +232,7 @@ class Collector:
 
         return definition, appendices, mentions, categories
         
-    def save_word(self, fetched_data, save_to_db=False, save_mentions=True, save_orphan=True):
+    def save_word(self, fetched_data, save_to_db=False, save_orphan=True):
         hash_maxlen = 48
         related_words = []
         orph_nodes = []
@@ -243,12 +243,14 @@ class Collector:
 
         for row in fetched_data:
             word = {
-                k: row.get(k) for k in ['etymology', 'language', "query", 'word', 'wikiUrl', 'isDerived']
+                k: row.get(k) for k in ['id', 'etymology', 'language', "query", 'word', 'wikiUrl', 'isDerived']
             }
             word_str = word['word']
             word_id = self.__apply_hash(word_str)
             word['wikiUrl'] = word['wikiUrl'] if word['wikiUrl'] is not None else f"/wiki/{word_str}"
-            word['id'] = word_id
+            #Row may appear with its actual id if the 
+            if word['id'] is None:
+                word['id'] = word_id
             word['word'] = re.sub('\W|_', ' ', word_str)
             words.append(word)
                         
@@ -284,7 +286,7 @@ class Collector:
                         orph_nodes.append(onode)
 
                 #Newly discovered words (From mentions)
-                if save_mentions:
+                if save_orphan:
                     for m in mentions:
                         mnode = copy.deepcopy(m)
                         mnode.update({
@@ -310,7 +312,7 @@ class Collector:
         if save_to_db:
             self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories, insert=save_orphan)
 
-        return fetched_data #fetched_data #related_words
+        return words #fetched_data #related_words
     
 
     def save_word_data(self, words=[], definition=[], related_words=[], appendices=[], orph_nodes=[], categories=[], insert=True, update=True):
