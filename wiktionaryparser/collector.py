@@ -310,7 +310,7 @@ class Collector:
                 related_words += relations
                 categories += word_categories
         if save_to_db:
-            self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories, insert=save_orphan)
+            self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories)
 
         return words #fetched_data #related_words
     

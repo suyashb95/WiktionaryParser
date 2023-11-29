@@ -204,8 +204,9 @@ class GraphBuilder:
         ]
         if hasattr(category_ids, '__iter__') and type(category_ids) != str:
             category_ids = [f"'{c}'" for c in category_ids]
-            category_ids = ", ".join(category_ids)
-            query.append(f"WHERE id IN ({category_ids})")
+            if len(category_ids) > 0:
+                category_ids = ", ".join(category_ids)
+                query.append(f"WHERE id IN ({category_ids})")
         query = "\n".join(query)
         cur = self.conn.cursor()
         result = cur.execute(query)
@@ -256,8 +257,8 @@ class GraphBuilder:
                 apx['word'] = apx['label']
                 vocab.append(apx)
         
-        vocab = {w['id']: w for w in vocab}
-        return vocab, category_rels, appendix_rels
+        self.vocab = {w['id']: w for w in vocab}
+        return category_rels, appendix_rels
 
     def build_graph(self, instance="w2w", query_filter=None, preprocessing_callback=None, category_info=True, appendix_info=False, use_pos=True, **kwargs):
         instance = instance.lower()
@@ -270,7 +271,7 @@ class GraphBuilder:
         else:
             return self.graph
 
-        vocab, category_rels, appendix_rels = self.build_graph_vocab(category_info=category_info, appendix_info=appendix_info)
+        category_rels, appendix_rels = self.build_graph_vocab(category_info=category_info, appendix_info=appendix_info)
         for e in graph_data:
             if use_pos:
                 e['tailPOS'] = e['tailPOS'] if e.get('tailPOS') is not None else "orphan_"+g_key[-1]
