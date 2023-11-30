@@ -2,6 +2,7 @@ from collections import Counter
 import dgl
 import sys
 from matplotlib import pyplot as plt
+import numpy as np
 import pymysql
 
 sys.path.append('.')
@@ -20,7 +21,7 @@ graph = builder.build_graph("d2w", category_info=True, appendix_info=True,
 
 
 g = Network(directed=True)
-color_palette = get_colormap(graph.ntypes, palette="tab10_r")
+n_color_palette = get_colormap(graph.ntypes, palette="tab10_r")
 for n_i, ntype in enumerate(graph.ntypes):
     node_ids = builder.node_ids[ntype]
     ntype_voc = graph.nodes(ntype)
@@ -34,11 +35,13 @@ for n_i, ntype in enumerate(graph.ntypes):
         if node is not None:
             node['i'] = i
             # print('\t {}'.format(node['word']))
-            g.add_node(n_id=node['id'], label=node['word'], color=color_palette[ntype])
+            g.add_node(n_id=node['id'], label=node['word'], color=n_color_palette[ntype])
 
 # graph = dgl.to_homogeneous(builder.graph)
 # print(graph.ndata)
 # print(graph)
+e_color_palette = get_colormap(set(graph.etypes), palette="Accent_r")
+print(e_color_palette)
 edgelist = []
 for etype in graph.canonical_etypes:
     stype, rel, dtype  = etype
@@ -54,8 +57,7 @@ for etype in graph.canonical_etypes:
 
 edgelist = Counter(edgelist)
 for (s, r, d), c in edgelist.items():
-    g.add_edge(source=s, to=d, label=r, value=c)
-    # print(etype_rel)
+    g.add_edge(source=s, to=d, label=r, value=np.log(c + 1), color=e_color_palette[r])
 
-
+g.barnes_hut()
 g.save_graph('graph.html')
