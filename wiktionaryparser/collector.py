@@ -34,7 +34,7 @@ class Collector:
 
         self.base_url = "https://en.wiktionary.org/"
         self.__create_tables()
-        if True:
+        if not True:
             with open('appendix.json', 'w', encoding='utf8') as f:
                 f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
 

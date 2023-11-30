@@ -22,7 +22,7 @@ def main(text_words):
 
     conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
     coll = Collector(conn)
-    coll.erase_db()
+    # coll.erase_db()
 
 
     for word, lang in tqdm.tqdm(text_words):
@@ -34,7 +34,7 @@ def main(text_words):
             fetched_data = parser.fetch_all_potential(prepped_word, language=lang)
         for k in fetched_data:
             element = fetched_data[k]
-            results += coll.save_word(element, save_to_db=True)
+            results += coll.save_word(element, save_to_db=not True)
 
     return results
 
@@ -42,8 +42,8 @@ text_words = [
     # ('خيط', 'moroccan arabic'),
     # ('example', 'english'),
     ('سماء', 'arabic'),
-    ('الدار البيضاء', 'arabic'),
-    ('البيت الأبيض', 'arabic'),
+    # ('الدار البيضاء', 'arabic'),
+    # ('البيت الأبيض', 'arabic'),
 ]
 
 results = main(text_words)

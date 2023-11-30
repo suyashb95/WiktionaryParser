@@ -46,10 +46,9 @@ class GraphBuilder:
     
     def word2word(self, query_filter=None):
         query = [
-            f"SELECT whead.id headId, hdef.partOfSpeech headPOS, whead.word head, wtail.id tailId, wtail.word tail, {self.edge_table}.relationshipType FROM {self.edge_table}",
-            f"JOIN {self.word_table} wtail ON wtail.id = {self.edge_table}.wordId",
+            f"SELECT hdef.wordId headId, hdef.partOfSpeech headPOS, hdef.headWord head, tdef.wordId tailId, tdef.partOfSpeech tailPOS, tdef.headWord tail, {self.edge_table}.relationshipType FROM {self.edge_table}",
             f"JOIN {self.definitions_table} hdef ON hdef.id = {self.edge_table}.headDefinitionId",
-            f"JOIN {self.word_table} whead ON hdef.wordId = whead.id",
+            f"LEFT JOIN {self.definitions_table} tdef ON tdef.wordId = {self.edge_table}.wordId",
         ]
         where_clause = []
         if query_filter is not None:
@@ -76,10 +75,9 @@ class GraphBuilder:
     
     def def2word(self, query_filter=None):
         query = [
-            f"SELECT def.headword head, def.partOfSpeech headPOS, def.wordId headId, {self.edge_table}.relationshipType, wtail.word tail, dtail.partOfSpeech tailPOS, wtail.id tailId FROM {self.edge_table}",
-            f"JOIN {self.definitions_table} def ON def.id = {self.edge_table}.headDefinitionId",
-            f"JOIN {self.word_table} wtail ON wtail.id = {self.edge_table}.wordId",
-            f"LEFT JOIN {self.definitions_table} dtail ON dtail.wordId = {self.edge_table}.wordId"
+            f"SELECT hdef.headword head, hdef.partOfSpeech headPOS, hdef.wordId headId, {self.edge_table}.relationshipType, tdef.headWord tail, tdef.partOfSpeech tailPOS, tdef.wordId tailId FROM {self.edge_table}",
+            f"JOIN {self.definitions_table} hdef ON hdef.id = {self.edge_table}.headDefinitionId",
+            f"LEFT JOIN {self.definitions_table} tdef ON tdef.wordId = {self.edge_table}.wordId"
         ]
         where_clause = []
         if query_filter is not None:
