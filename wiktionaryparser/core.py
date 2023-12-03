@@ -197,9 +197,10 @@ class WiktionaryParser(object):
         for e in example_tags:
             parent_el = e.find_parent('ul').parent
             if parent_el == element:
-                example_text = re.sub(r'\([^)]*\)', '', element.text.strip())
+                example_text = re.sub(r'\([^)]*\)', '', e.text.strip())
                 if example_text:
                     example = {
+                        "source": e.select_one("span.cited-source"),
                         "quotation": e.select_one("*.e-quotation"),
                         "transliteration": e.select_one("*.e-transliteration"),
                         "translation": e.select_one("*.e-translation"),
@@ -255,21 +256,27 @@ class WiktionaryParser(object):
             while table and table.name not in ['h3', 'h4', 'h5']:
                 definition_tag = table
                 table = table.find_next_sibling()
+                scrappable = []
                 if definition_tag.name == 'p':
                     if definition_tag.text.strip():
-                        def_dt, hw = self.mine_element(definition_tag)
-                        if hw:
-                            definition_headword = hw
-                        def_dt['headword'] = definition_headword
-                        definition_text.append(def_dt)
+                        scrappable.append(definition_tag)
+                        # def_dt, hw = self.mine_element(definition_tag)
+                        
                 if definition_tag.name in ['ol', 'ul']:
                     for element in definition_tag.find_all('li', recursive=False):
                         if element.text:
-                            def_text, hw = self.mine_element(element)
-                            if hw:
-                                definition_headword = hw
-                            def_text['headword'] = definition_headword
-                            definition_text.append(def_text)
+                            scrappable.append(element)
+                            for subelement in element.select('ol>li', recursive=False):
+                                if subelement.text:
+                                    scrappable.append(subelement)
+
+                for e in scrappable:
+                    def_dt, hw = self.mine_element(e)
+                    if hw:
+                        definition_headword = hw
+                    def_dt['headword'] = definition_headword
+                    definition_text.append(def_dt)
+      
                     
             if def_type == 'definitions':
                 def_type = ''
@@ -469,7 +476,6 @@ class WiktionaryParser(object):
         res = {word: self.fetch(word)}
         if verbose > 0:
             possible_altenrnatives = tqdm.tqdm(possible_altenrnatives, desc="Fetching potential forms", leave=False)
-
         for w in possible_altenrnatives:
             if verbose > 0:
                 possible_altenrnatives.set_postfix(w)

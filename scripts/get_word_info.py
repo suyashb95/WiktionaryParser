@@ -31,12 +31,14 @@ def main(text_words):
             fetched_data = {word: parser.fetch(no_spaces_word, language=lang)}
         else:
             prepped_word = ' '.join(prep(word)) #[0]
+            # print(f"Fetching all potentials for {prepped_word} ({lang})")
             fetched_data = parser.fetch_all_potential(prepped_word, language=lang)
         for k in fetched_data:
             element = fetched_data[k]
             results += coll.save_word(element, save_to_db=not True)
 
     return results
+
 
 text_words = [
     # ('خيط', 'moroccan arabic'),
