@@ -191,6 +191,27 @@ class WiktionaryParser(object):
         appendix = element.find_all("a", {"title": "Appendix:Glossary"})
         appendix += element.find_all("span", {"class": "ib-content"})
         appendix_removal = []
+        example_tags = element.select("div.citation-whole")
+        examples = []
+
+        for e in example_tags:
+            parent_el = e.find_parent('ul').parent
+            if parent_el == element:
+                example_text = re.sub(r'\([^)]*\)', '', element.text.strip())
+                if example_text:
+                    example = {
+                        "quotation": e.select_one("*.e-quotation"),
+                        "transliteration": e.select_one("*.e-transliteration"),
+                        "translation": e.select_one("*.e-translation"),
+                    }
+                    example = {k: v.text if v is not None else v for k, v in example.items()}
+                    example.update({
+                        "example_text": example_text,
+                    })
+                    if example.get('quotation') is not None:
+                        examples.append(example)
+        # print(len(examples))
+
         for a in appendix:
             if a.text not in self.EXCLUDED_APPENDICES:
                 appendix_removal.append(a.text)
@@ -217,7 +238,8 @@ class WiktionaryParser(object):
             "raw_text": raw_text,
             "text": text,
             "appendix_tags": appendix_removal,
-            "mentions": mentions
+            "mentions": mentions,
+            "examples": examples,
         }
         return D, headword
     
@@ -248,6 +270,7 @@ class WiktionaryParser(object):
                                 definition_headword = hw
                             def_text['headword'] = definition_headword
                             definition_text.append(def_text)
+                    
             if def_type == 'definitions':
                 def_type = ''
             definition_list.append((def_index, definition_text, def_type))
@@ -266,11 +289,21 @@ class WiktionaryParser(object):
                 for element in table.find_all('dd'):
                     example_text = re.sub(r'\([^)]*\)', '', element.text.strip())
                     if example_text:
-                        examples.append(example_text)
-                    element.clear()
+                        example = {
+                            "quotation": element.select_one("*.e-quotation"),
+                            "transliteration": element.select_one("*.e-transliteration"),
+                            "translation": element.select_one("*.e-translation"),
+                        }
+                        example = {k: v.text if v is not None else v for k, v in example.items()}
+                        example.update({
+                            "example_text": example_text,
+                        })
+                        if example.get('quotation') is not None:
+                            examples.append(example)
+                    # element.clear()
                 example_list.append((def_index, examples, def_type))
-                for quot_list in table.find_all(['ul', 'ol']):
-                    quot_list.clear()
+                # for quot_list in table.find_all(['ul', 'ol']):
+                #     quot_list.clear()
                 table = table.find_next_sibling()
         return example_list
 

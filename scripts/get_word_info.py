@@ -24,8 +24,8 @@ def main(text_words):
     coll = Collector(conn)
     # coll.erase_db()
 
-
-    for word, lang in tqdm.tqdm(text_words):
+    # text_words = tqdm.tqdm(text_words)
+    for word, lang in text_words:
         no_spaces_word = re.sub('\s', '_', word)
         if word != no_spaces_word: #If word has space, e.q to saying word is an entity
             fetched_data = {word: parser.fetch(no_spaces_word, language=lang)}
