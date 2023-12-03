@@ -41,7 +41,6 @@ for n_i, ntype in enumerate(graph.ntypes):
 # print(graph.ndata)
 # print(graph)
 e_color_palette = get_colormap(set(graph.etypes), palette="Accent_r")
-print(e_color_palette)
 edgelist = []
 for etype in graph.canonical_etypes:
     stype, rel, dtype  = etype

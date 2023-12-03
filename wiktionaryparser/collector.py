@@ -312,7 +312,7 @@ class Collector:
         if save_to_db:
             self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories)
 
-        return words #fetched_data #related_words
+        return fetched_data #fetched_data #related_words
     
 
     def save_word_data(self, words=[], definition=[], related_words=[], appendices=[], orph_nodes=[], categories=[], insert=True, update=True):
