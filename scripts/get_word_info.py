@@ -22,9 +22,9 @@ def main(text_words):
 
     conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
     coll = Collector(conn)
-    # coll.erase_db()
+    coll.erase_db()
 
-    # text_words = tqdm.tqdm(text_words)
+    text_words = tqdm.tqdm(text_words)
     for word, lang in text_words:
         no_spaces_word = re.sub('\s', '_', word)
         if word != no_spaces_word: #If word has space, e.q to saying word is an entity
@@ -35,7 +35,7 @@ def main(text_words):
             fetched_data = parser.fetch_all_potential(prepped_word, language=lang)
         for k in fetched_data:
             element = fetched_data[k]
-            results += coll.save_word(element, save_to_db=not True)
+            results += coll.save_word(element, save_to_db=True)
 
     return results
 
