@@ -128,7 +128,7 @@ class Collector:
         cur = self.conn.cursor()
         cur.execute("SET FOREIGN_KEY_CHECKS = 0")
         for table in [
-            self.definitions_table+"_apx", self.edge_table, 'word_categories', 
+            self.definitions_table+"_apx", self.edge_table, 'word_categories', "examples",
             'categories', self.definitions_table, self.dataset_table, self.word_table
             ]:
             cur.execute(f"TRUNCATE TABLE {table}")
@@ -194,13 +194,14 @@ class Collector:
         appendices = []
         mentions = []
         categories = []
+        examples = []
         #Add definitions
         definition = flatten_dict(definition)
         for i in range(len(definition)):
             definition[i].update(definition[i].get("text", {}))
-            for k_ in ["examples"]:
-                if k_ in definition[i]:
-                    definition[i].pop(k_)
+            # for k_ in ["examples"]:
+            #     if k_ in definition[i]:
+            #         definition[i].pop(k_)
                     
             #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
             unique_w_hash = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('raw_text')[:hash_maxlen]}"
@@ -227,10 +228,14 @@ class Collector:
                 mentions_[m]['definitionId'] = unique_w_hash
             
             mentions += mentions_
+            def_examples = definition[i].pop('examples', [])
+            for e in range(len(def_examples)):
+                def_examples[e]['definitionId'] = unique_w_hash
+
+            examples += def_examples
 
 
-
-        return definition, appendices, mentions, categories
+        return definition, appendices, mentions, categories, examples
         
     def save_word(self, fetched_data, save_to_db=False, save_orphan=True):
         hash_maxlen = 48
@@ -239,6 +244,7 @@ class Collector:
         definitions = []
         appendices = []
         words = []
+        examples = []
         categories = []
 
         for row in fetched_data:
@@ -270,7 +276,7 @@ class Collector:
                 relations = self.process_fetched_relationships(element, word_id, hash_maxlen=hash_maxlen)
                 
                 #Definitions
-                definition, appendix, mentions, word_categories = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
+                definition, appendix, mentions, word_categories, w_examples = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
 
                 #Newly discovered words (From relationships)
                 if save_orphan:
@@ -309,13 +315,14 @@ class Collector:
                 appendices += appendix
                 related_words += relations
                 categories += word_categories
+                examples += w_examples
         if save_to_db:
-            self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories)
+            self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories, examples)
 
-        return fetched_data #fetched_data #related_words
+        return examples #fetched_data #related_words
     
 
-    def save_word_data(self, words=[], definition=[], related_words=[], appendices=[], orph_nodes=[], categories=[], insert=True, update=True):
+    def save_word_data(self, words=[], definition=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
         #Inserting to database
         cur = self.conn.cursor()
         if update:
@@ -326,6 +333,7 @@ class Collector:
             cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl, isDerived) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s, 0)", words)
             cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl, isDerived) VALUES (%(id)s, NULL, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s, 1)", orph_nodes)
             cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition)
+            cur.executemany(f"INSERT INTO `examples` (definitionId, quotation, transliteration, translation, source, example_text) VALUES (%(definitionId)s, %(quotation)s, %(transliteration)s, %(translation)s, %(source)s, %(example_text)s);", examples)
             if len(appendices) > 0:
                 apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
                 cur.executemany(apx_q, appendices)

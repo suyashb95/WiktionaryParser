@@ -141,3 +141,23 @@ CREATE TABLE IF NOT EXISTS `word_categories` (
   ON DELETE CASCADE  
   ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `{definitions_table}_apx`
+--
+CREATE TABLE IF NOT EXISTS `examples` (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    definitionId varchar(64) NOT NULL , 
+    quotation TEXT NOT NULL,
+    transliteration TEXT NOT NULL,
+    translation TEXT NOT NULL,
+    source TEXT NULL,
+    example_text TEXT NOT NULL,
+    
+    CONSTRAINT fk_exampleDef FOREIGN KEY (definitionId) 
+    REFERENCES {definitions_table} (id)
+    ON DELETE CASCADE  
+    ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
