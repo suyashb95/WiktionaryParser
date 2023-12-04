@@ -178,7 +178,7 @@ class Collector:
         task = task if task is not None else 'NULL'
         dataset_name = dataset_name if dataset_name is not None else 'NULL'
         cur = self.conn.cursor()
-        dataset = dataset[:5]
+        # dataset = dataset[:5]
         for e in tqdm.tqdm(dataset, desc=f"Inserting database: {dataset_name}", leave=False):
             row = copy.copy(e)
             row.update({"dataset_name": dataset_name, "task": task})

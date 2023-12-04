@@ -8,6 +8,7 @@ def main(text_words):
     results = []
     text_words = tqdm.tqdm(text_words)
     for word, lang in text_words:
+        text_words.set_description_str(f'Collecting info for "{fix_ar_display(word)}" ({lang})')
         no_spaces_word = re.sub('\s', '_', word)
         if word != no_spaces_word: #If word has space, e.q to saying word is an entity
             fetched_data = {word: parser.fetch(no_spaces_word, language=lang)}
@@ -22,17 +23,17 @@ def main(text_words):
     return results
 
 
-text_words = [
-    ('خيط', 'moroccan arabic'),
-    ('example', 'english'),
-    ('سماء', 'arabic'),
-    ('الدار البيضاء', 'arabic'),
-    ('البيت الأبيض', 'arabic'),
-]
+# text_words = [
+#     ('خيط', 'moroccan arabic'),
+#     ('example', 'english'),
+#     ('سماء', 'arabic'),
+#     ('الدار البيضاء', 'arabic'),
+#     ('البيت الأبيض', 'arabic'),
+# ]
 
-results = main(text_words)
+# results = main(text_words)
 
-with open('wordOut.json', 'w', encoding="utf8") as f:
-    f.write(json.dumps(results, indent=4, ensure_ascii=False))
+# with open('wordOut.json', 'w', encoding="utf8") as f:
+#     f.write(json.dumps(results, indent=4, ensure_ascii=False))
 
     

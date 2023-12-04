@@ -2,7 +2,7 @@ import os
 import re
 from .utils import *
 
-def main(data_dir):
+def main(data_dir, limit=-1):
     datasets = []
     root, dirs, _ = next(os.walk(data_dir))
 
@@ -12,9 +12,6 @@ def main(data_dir):
             path = os.path.join(d_, f)
             f = re.sub('\.\w+$', '', f)
             dataset = collector.adapt_csv_dataset(path, dataset_name=f, task=d)
-            collector.insert_data(dataset, dataset_name=f, task=d)
+            collector.insert_data(dataset[:limit], dataset_name=f, task=d)
             datasets += [f]
     return datasets
-
-
-main('D:\Datasets')

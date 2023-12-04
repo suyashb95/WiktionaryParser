@@ -2,6 +2,7 @@ import sys
 from nltk import stem
 import pymysql
 sys.path.append('.')
+from bidi.algorithm import get_display
 
 from src.graph import GraphBuilder
 
@@ -22,3 +23,4 @@ dataset_2_tokens_prep = Preprocessor(stemmer=stem.ARLSTem2(), normalizer=Normali
 
 
 reset_db = lambda : collector.erase_db()
+fix_ar_display = lambda text: get_display(text)
