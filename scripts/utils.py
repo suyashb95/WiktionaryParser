@@ -3,7 +3,7 @@ from nltk import stem
 import pymysql
 sys.path.append('.')
 from bidi.algorithm import get_display
-
+import arabic_reshaper
 from src.graph import GraphBuilder
 
 from src.collector import Collector
@@ -23,4 +23,4 @@ dataset_2_tokens_prep = Preprocessor(stemmer=stem.ARLSTem2(), normalizer=Normali
 
 
 reset_db = lambda : collector.erase_db()
-fix_ar_display = lambda text: get_display(text)
+fix_ar_display = lambda text: get_display(arabic_reshaper.reshape(text))

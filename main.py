@@ -6,7 +6,9 @@ from scripts.get_word_info import main as collect_info
 from scripts.deorphanize import main as deorphanize
 from scripts.visualize_interactive_graph import export_graph_to_html
 
-EXPERIMENTAL = True
+EXPERIMENTAL = False
+deorphanization_level = 2
+
 reset_db()
 limit = 5 if EXPERIMENTAL else -1
 datasets = upload_data('D:\Datasets', limit=limit)
@@ -19,7 +21,9 @@ if EXPERIMENTAL:
 
 vocab = [(tok['token'], tok.get('lang', 'arabic')) for tok in global_tokens]
 vocab = collect_info(vocab, wait_time=.1)
-deorphanize(wait_time=.1)
+for lv in range(deorphanization_level):
+    print(f"Deorphanization (Level {lv+1:2d})")
+    deorphanize(wait_time=.1)
 
 with open('tokens.json', 'w', encoding="utf8") as f:
     f.write(json.dumps(vocab, indent=4, ensure_ascii=False))

@@ -51,4 +51,5 @@ def export_graph_to_html(output_file='graph.html'):
         g.add_edge(source=s, to=d, label=r, value=np.log(c + 1), color=e_color_palette[r])
 
     g.barnes_hut()
+    g.select_menu = True
     g.save_graph(output_file)
