@@ -1,16 +1,15 @@
 import sys
 import re
-from unittest import result
 import tqdm
 sys.path.append('.')
 import json
 
 import pymysql
-from wiktionaryparser.collector import Collector
+from src.collector import Collector
 import nltk
 
-from wiktionaryparser.preprocessing import Preprocessor
-from wiktionaryparser.core import WiktionaryParser
+from src.preprocessing import Preprocessor
+from src.core import WiktionaryParser
 
 
 def main(text_words):

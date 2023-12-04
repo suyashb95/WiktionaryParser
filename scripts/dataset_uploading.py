@@ -7,9 +7,9 @@ sys.path.append('.')
 import pymysql
 
 
-from wiktionaryparser.collector import Collector
-from wiktionaryparser.core import WiktionaryParser
-from wiktionaryparser.preprocessing import Preprocessor
+from src.collector import Collector
+from src.core import WiktionaryParser
+from src.preprocessing import Preprocessor
 
 parser = WiktionaryParser()
 prep = Preprocessor()

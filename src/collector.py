@@ -10,8 +10,7 @@ from nltk.stem import *
 import itertools
 import hashlib
 
-from wiktionaryparser.core import WiktionaryParser 
-from wiktionaryparser.utils import flatten_dict
+from .utils import flatten_dict
 
 
 class Collector:

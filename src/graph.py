@@ -1,20 +1,12 @@
 from collections import Counter
-from copy import copy, deepcopy
-import json
 import os
 
 os.environ['DGLBACKEND'] = "pytorch"
 import dgl
 import torch
-import torch.nn.functional as F
 import re
-from pyvis.network import Network
-import langcodes
 import os
 from nltk.stem import *
-
-from wiktionaryparser.utils import flatten_dict, get_colormap
-from wiktionaryparser.feature_extraction import FeatureExtractor
 
 
 class GraphBuilder:

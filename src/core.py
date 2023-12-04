@@ -1,5 +1,5 @@
 import re, requests
-from wiktionaryparser.utils import WordData, Definition, RelatedWord
+from .utils import WordData, Definition, RelatedWord
 from bs4 import BeautifulSoup
 from itertools import zip_longest
 import exrex

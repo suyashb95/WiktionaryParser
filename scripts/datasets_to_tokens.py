@@ -1,8 +1,8 @@
-import os
 import json
-import nltk
 from nltk import stem
+
 import sys
+
 sys.path.append('.')
 
 import random
@@ -11,10 +11,9 @@ from collections import Counter
 
 import pymysql
 
-
-from wiktionaryparser.graph import GraphBuilder
-from wiktionaryparser.core import WiktionaryParser
-from wiktionaryparser.preprocessing import Normalizer, Preprocessor
+from src.graph import GraphBuilder
+from src.core import WiktionaryParser
+from src.preprocessing import Normalizer, Preprocessor
 
 parser = WiktionaryParser()
 prep = Preprocessor(stemmer=stem.ARLSTem2(), normalizer=Normalizer('أ', alef_norm='ا'))

@@ -6,12 +6,12 @@ import tqdm
 sys.path.append('.')
 
 import pymysql
-from wiktionaryparser.collector import Collector
+from src.collector import Collector
 
-from wiktionaryparser.utils import convert_language
-from wiktionaryparser.preprocessing import Preprocessor
-from wiktionaryparser.graph import GraphBuilder
-from wiktionaryparser.core import WiktionaryParser
+from src.utils import convert_language
+from src.preprocessing import Preprocessor
+from src.graph import GraphBuilder
+from src.core import WiktionaryParser
 
 
 def main():
