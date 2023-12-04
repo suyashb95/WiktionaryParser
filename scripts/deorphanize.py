@@ -1,10 +1,11 @@
 import re
+import time
 import tqdm
 from src.utils import convert_language
 from .utils import *
 
 
-def main():
+def main(wait_time=0):
     results = []
 
     orphan_lex = builder.get_orphan_nodes()
@@ -32,6 +33,8 @@ def main():
             for i in range(len(element)):
                 element[i].update({'id': id})
             results += collector.save_word(element, save_to_db=True, save_orphan=False)
+        if wait_time > 0:
+            time.sleep(wait_time)
 
 
     # with open('orphOut.json', 'w', encoding="utf8") as f:

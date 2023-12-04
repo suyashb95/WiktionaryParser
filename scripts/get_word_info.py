@@ -1,10 +1,11 @@
 import re
+import time
 import tqdm
 from .utils import *
 import json
 
 
-def main(text_words):
+def main(text_words, wait_time=0):
     results = []
     text_words = tqdm.tqdm(text_words)
     for word, lang in text_words:
@@ -19,7 +20,8 @@ def main(text_words):
         for k in fetched_data:
             element = fetched_data[k]
             results += collector.save_word(element, save_to_db=True)
-
+        if wait_time > 0:
+            time.sleep(wait_time)
     return results
 
 

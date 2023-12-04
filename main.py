@@ -13,12 +13,12 @@ tokenized_texts = convert_to_tokens(datasets)
 global_tokens = get_global_token_counts(tokenized_texts)
 
 if EXPERIMENTAL:
-    global_tokens = global_tokens[:2]
+    global_tokens = global_tokens[:10]
 
 
 vocab = [(tok['token'], tok.get('lang', 'arabic')) for tok in global_tokens]
-vocab = collect_info(vocab)
-deorphanize()
+vocab = collect_info(vocab, wait_time=.1)
+deorphanize(wait_time=.1)
 
 with open('tokens.json', 'w', encoding="utf8") as f:
     f.write(json.dumps(vocab, indent=4, ensure_ascii=False))
