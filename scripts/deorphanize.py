@@ -31,7 +31,6 @@ def main():
         else:
             w['language'] = convert_language(w['language'], format="long")
 
-    print(orphan_lex[0].keys())
     text_words = sorted({(w['word'], w['id'], w.get('language')) for w in orphan_lex})
     # print(text_words)
     text_words = tqdm.tqdm(text_words)
