@@ -1,40 +1,23 @@
-import sys
 import re
 import tqdm
-sys.path.append('.')
+from .utils import *
 import json
-
-import pymysql
-from src.collector import Collector
-import nltk
-
-from src.preprocessing import Preprocessor
-from src.core import WiktionaryParser
 
 
 def main(text_words):
     results = []
-
-    prep = Preprocessor(stemmer=nltk.stem.ARLSTem())
-    parser = WiktionaryParser()
-    parser.set_default_language("arabic")
-
-    conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
-    coll = Collector(conn)
-    coll.erase_db()
-
     text_words = tqdm.tqdm(text_words)
     for word, lang in text_words:
         no_spaces_word = re.sub('\s', '_', word)
         if word != no_spaces_word: #If word has space, e.q to saying word is an entity
             fetched_data = {word: parser.fetch(no_spaces_word, language=lang)}
         else:
-            prepped_word = ' '.join(prep(word)) #[0]
+            prepped_word = ' '.join(get_word_info_prep(word)) #[0]
             # print(f"Fetching all potentials for {prepped_word} ({lang})")
             fetched_data = parser.fetch_all_potential(prepped_word, language=lang)
         for k in fetched_data:
             element = fetched_data[k]
-            results += coll.save_word(element, save_to_db=True)
+            results += collector.save_word(element, save_to_db=True)
 
     return results
 

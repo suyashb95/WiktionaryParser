@@ -173,10 +173,17 @@ class GraphBuilder:
             "task": task
         }
         params = {k: v for k, v in params.items() if v is not None}
+        Q = []
+        for k, v in params.items():
+            if hasattr(v, '__iter__') and type(v) != str:
+                params[k] = ", ".join([f"'{e}'" for e in v])
+                Q.append(f"{k} in ({params[k]})")
+            else:
+                Q.append(f"{k}={v}")
         params = [f"{k}={v}" for k, v in params.items()]
         if len(params) > 0:
-            params = " AND ".join(params)
-            query = query + " WHERE " + params
+            Q = " AND ".join(Q)
+            query = query + " WHERE " + Q
         
         cur = self.conn.cursor()
         cur.execute(query)
