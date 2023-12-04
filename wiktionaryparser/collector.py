@@ -34,7 +34,7 @@ class Collector:
 
         self.base_url = "https://en.wiktionary.org/"
         self.__create_tables()
-        if not True:
+        if True:
             with open('appendix.json', 'w', encoding='utf8') as f:
                 f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
 
@@ -112,6 +112,45 @@ class Collector:
         return res
     
     
+
+    def __get_category_data(self, lang="ar"):
+        urls = {
+            "set_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_set_categories',
+            "name_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_name_categories',
+            "type_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_type_categories',
+        }
+        data = []
+        for k in urls:
+            url = urls[k]
+            while True:
+                response = requests.get(url)
+                soup = BeautifulSoup(response.content, "lxml")
+                #Get all links
+                links = soup.select(".CategoryTreeItem>a")
+                for a in links:
+                    # tree_bullet = a.find_previous_sibling('span')
+                    # hasSubcat = "CategoryTreeBullet" in tree_bullet.get('class')
+                    a_data = {
+                        "sourceList": k,
+                        "id": self.__apply_hash(a.get_text()),
+                        "title": a.get("title"),
+                        "text": a.get_text(),
+                        "wikiUrl": a.get("href"),
+                        # "hasSubcat": hasSubcat
+                    }
+                    data.append(a_data)
+
+                url = soup.find("a", text="next page")
+                if url is None:
+                    break
+
+                url = self.base_url + url.get('href')
+        cur = self.conn.cursor()
+        cur.executemany("INSERT IGNORE INTO `categories` (`id`, `title`, `text`, `sourceList`, `wikiUrl`) VALUES (%(id)s, %(title)s, %(text)s, %(sourceList)s, %(wikiUrl)s)", data)
+        self.conn.commit()
+        return data
+
+    
     @staticmethod
     def adapt_csv_dataset(dataset_file: os.PathLike, delimiter=',', header=0, dataset_name=None, text_col=0, label_col=-1, task=None):
         data = []
@@ -129,7 +168,8 @@ class Collector:
         cur.execute("SET FOREIGN_KEY_CHECKS = 0")
         for table in [
             self.definitions_table+"_apx", self.edge_table, 'word_categories', "examples",
-            'categories', self.definitions_table, self.dataset_table, self.word_table
+            # 'categories', 'appendix',
+            self.definitions_table, self.dataset_table, self.word_table
             ]:
             cur.execute(f"TRUNCATE TABLE {table}")
             cur.execute(f"ALTER TABLE {table} AUTO_INCREMENT = 1")
@@ -319,7 +359,7 @@ class Collector:
         if save_to_db:
             self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories, examples)
 
-        return examples #fetched_data #related_words
+        return fetched_data #fetched_data #related_words
     
 
     def save_word_data(self, words=[], definition=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
@@ -333,54 +373,14 @@ class Collector:
             cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl, isDerived) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s, 0)", words)
             cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl, isDerived) VALUES (%(id)s, NULL, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s, 1)", orph_nodes)
             cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition)
-            cur.executemany(f"INSERT INTO `examples` (definitionId, quotation, transliteration, translation, source, example_text) VALUES (%(definitionId)s, %(quotation)s, %(transliteration)s, %(translation)s, %(source)s, %(example_text)s);", examples)
             if len(appendices) > 0:
                 apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
                 cur.executemany(apx_q, appendices)
             
             cur.executemany(f"INSERT IGNORE INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(wordId)s, %(relationshipType)s)", related_words)
             cur.executemany(f"INSERT IGNORE INTO `word_categories` (wordId, categoryId) VALUES (%(wordId)s, %(categoryId)s)", categories)
+            cur.executemany(f"INSERT IGNORE INTO `examples` (definitionId, quotation, transliteration, translation, source, example_text) VALUES (%(definitionId)s, %(quotation)s, %(transliteration)s, %(translation)s, %(source)s, %(example_text)s);", examples)
             self.conn.commit()
-
-
-    def __get_category_data(self, lang="ar"):
-        urls = {
-            "set_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_set_categories',
-            "name_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_name_categories',
-            "type_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_type_categories',
-        }
-        data = []
-        for k in urls:
-            url = urls[k]
-            while True:
-                response = requests.get(url)
-                soup = BeautifulSoup(response.content, "lxml")
-                #Get all links
-                links = soup.select(".CategoryTreeItem>a")
-                for a in links:
-                    # tree_bullet = a.find_previous_sibling('span')
-                    # hasSubcat = "CategoryTreeBullet" in tree_bullet.get('class')
-                    a_data = {
-                        "sourceList": k,
-                        "id": self.__apply_hash(a.get_text()),
-                        "title": a.get("title"),
-                        "text": a.get_text(),
-                        "wikiUrl": a.get("href"),
-                        # "hasSubcat": hasSubcat
-                    }
-                    data.append(a_data)
-
-                url = soup.find("a", text="next page")
-                if url is None:
-                    break
-
-                url = self.base_url + url.get('href')
-        cur = self.conn.cursor()
-        cur.executemany("INSERT IGNORE INTO `categories` (`id`, `title`, `text`, `sourceList`, `wikiUrl`) VALUES (%(id)s, %(title)s, %(text)s, %(sourceList)s, %(wikiUrl)s)", data)
-        self.conn.commit()
-        return data
-
-    
 
 
 # preprocessor = Preprocessor(stemmer=ARLSTem(), normalizer=Normalizer(waw_norm="و"))

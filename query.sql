@@ -151,8 +151,8 @@ CREATE TABLE IF NOT EXISTS `examples` (
     id INT PRIMARY KEY AUTO_INCREMENT,
     definitionId varchar(64) NOT NULL , 
     quotation TEXT NOT NULL,
-    transliteration TEXT NOT NULL,
-    translation TEXT NOT NULL,
+    transliteration TEXT NULL,
+    translation TEXT NULL,
     source TEXT NULL,
     example_text TEXT NOT NULL,
     

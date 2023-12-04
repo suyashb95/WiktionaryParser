@@ -41,11 +41,11 @@ def main(text_words):
 
 
 text_words = [
-    # ('خيط', 'moroccan arabic'),
-    # ('example', 'english'),
+    ('خيط', 'moroccan arabic'),
+    ('example', 'english'),
     ('سماء', 'arabic'),
-    # ('الدار البيضاء', 'arabic'),
-    # ('البيت الأبيض', 'arabic'),
+    ('الدار البيضاء', 'arabic'),
+    ('البيت الأبيض', 'arabic'),
 ]
 
 results = main(text_words)
