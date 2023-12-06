@@ -1,0 +1,1014 @@
+[
+    {
+        "token": " ",
+        "frequency": 20
+    },
+    {
+        "token": "ال",
+        "frequency": 5
+    },
+    {
+        "token": "علي",
+        "frequency": 5
+    },
+    {
+        "token": "عائد",
+        "frequency": 5
+    },
+    {
+        "token": "و",
+        "frequency": 4
+    },
+    {
+        "token": "دول",
+        "frequency": 4
+    },
+    {
+        "token": "من",
+        "frequency": 4
+    },
+    {
+        "token": "  ",
+        "frequency": 4
+    },
+    {
+        "token": "سعود",
+        "frequency": 3
+    },
+    {
+        "token": "في",
+        "frequency": 3
+    },
+    {
+        "token": "غير",
+        "frequency": 3
+    },
+    {
+        "token": "الل",
+        "frequency": 3
+    },
+    {
+        "token": "للي",
+        "frequency": 3
+    },
+    {
+        "token": "ي",
+        "frequency": 3
+    },
+    {
+        "token": "داب",
+        "frequency": 3
+    },
+    {
+        "token": "مسابق",
+        "frequency": 3
+    },
+    {
+        "token": "لما",
+        "frequency": 2
+    },
+    {
+        "token": "د",
+        "frequency": 2
+    },
+    {
+        "token": "لـ",
+        "frequency": 2
+    },
+    {
+        "token": "مصر",
+        "frequency": 2
+    },
+    {
+        "token": "قطر",
+        "frequency": 2
+    },
+    {
+        "token": "حصار",
+        "frequency": 2
+    },
+    {
+        "token": "غاشم",
+        "frequency": 2
+    },
+    {
+        "token": "قطر،",
+        "frequency": 2
+    },
+    {
+        "token": "ل",
+        "frequency": 2
+    },
+    {
+        "token": "عمل",
+        "frequency": 2
+    },
+    {
+        "token": "سعر",
+        "frequency": 2
+    },
+    {
+        "token": "ان",
+        "frequency": 2
+    },
+    {
+        "token": "شفت",
+        "frequency": 2
+    },
+    {
+        "token": "ثلاث",
+        "frequency": 2
+    },
+    {
+        "token": "خبر",
+        "frequency": 2
+    },
+    {
+        "token": "ط",
+        "frequency": 2
+    },
+    {
+        "token": "ف",
+        "frequency": 2
+    },
+    {
+        "token": "ع",
+        "frequency": 2
+    },
+    {
+        "token": "نمر",
+        "frequency": 2
+    },
+    {
+        "token": "مغرب",
+        "frequency": 2
+    },
+    {
+        "token": "بغي",
+        "frequency": 2
+    },
+    {
+        "token": "مرة",
+        "frequency": 2
+    },
+    {
+        "token": "اربع",
+        "frequency": 2
+    },
+    {
+        "token": "انا",
+        "frequency": 2
+    },
+    {
+        "token": "دير",
+        "frequency": 2
+    },
+    {
+        "token": "شوفو",
+        "frequency": 2
+    },
+    {
+        "token": "بعد",
+        "frequency": 2
+    },
+    {
+        "token": "لدي",
+        "frequency": 2
+    },
+    {
+        "token": "مشكل",
+        "frequency": 2
+    },
+    {
+        "token": "مش",
+        "frequency": 2
+    },
+    {
+        "token": "كبر",
+        "frequency": 1
+    },
+    {
+        "token": "خرف",
+        "frequency": 1
+    },
+    {
+        "token": "منتدي شباب العالم",
+        "frequency": 1
+    },
+    {
+        "token": "خالد",
+        "frequency": 1
+    },
+    {
+        "token": "باطرف",
+        "frequency": 1
+    },
+    {
+        "token": "تير",
+        "frequency": 1
+    },
+    {
+        "token": "صنافير",
+        "frequency": 1
+    },
+    {
+        "token": "اساس",
+        "frequency": 1
+    },
+    {
+        "token": "شروع نيم",
+        "frequency": 1
+    },
+    {
+        "token": "لم",
+        "frequency": 1
+    },
+    {
+        "token": "تعط",
+        "frequency": 1
+    },
+    {
+        "token": "جزيرت",
+        "frequency": 1
+    },
+    {
+        "token": "انم",
+        "frequency": 1
+    },
+    {
+        "token": "اعدت",
+        "frequency": 1
+    },
+    {
+        "token": "الف",
+        "frequency": 1
+    },
+    {
+        "token": "تحيا",
+        "frequency": 1
+    },
+    {
+        "token": "ﻷمير",
+        "frequency": 1
+    },
+    {
+        "token": "شيخ",
+        "frequency": 1
+    },
+    {
+        "token": "ميم",
+        "frequency": 1
+    },
+    {
+        "token": "بن",
+        "frequency": 1
+    },
+    {
+        "token": "حمد",
+        "frequency": 1
+    },
+    {
+        "token": "ثان",
+        "frequency": 1
+    },
+    {
+        "token": "رفض",
+        "frequency": 1
+    },
+    {
+        "token": "دعو",
+        "frequency": 1
+    },
+    {
+        "token": "اعاد",
+        "frequency": 1
+    },
+    {
+        "token": "نظر",
+        "frequency": 1
+    },
+    {
+        "token": "قرار",
+        "frequency": 1
+    },
+    {
+        "token": "قوة",
+        "frequency": 1
+    },
+    {
+        "token": "نعم",
+        "frequency": 1
+    },
+    {
+        "token": "خبيث",
+        "frequency": 1
+    },
+    {
+        "token": "بدا",
+        "frequency": 1
+    },
+    {
+        "token": "حرب",
+        "frequency": 1
+    },
+    {
+        "token": "ودة",
+        "frequency": 1
+    },
+    {
+        "token": "وحد",
+        "frequency": 1
+    },
+    {
+        "token": "مبشر",
+        "frequency": 1
+    },
+    {
+        "token": "باي",
+        "frequency": 1
+    },
+    {
+        "token": "خير",
+        "frequency": 1
+    },
+    {
+        "token": "فار",
+        "frequency": 1
+    },
+    {
+        "token": "دخل",
+        "frequency": 1
+    },
+    {
+        "token": "مصيد",
+        "frequency": 1
+    },
+    {
+        "token": "خنزير",
+        "frequency": 1
+    },
+    {
+        "token": "ناريو",
+        "frequency": 1
+    },
+    {
+        "token": "ربيع",
+        "frequency": 1
+    },
+    {
+        "token": "عرب",
+        "frequency": 1
+    },
+    {
+        "token": "هيتكرر",
+        "frequency": 1
+    },
+    {
+        "token": "شكل",
+        "frequency": 1
+    },
+    {
+        "token": "مشي",
+        "frequency": 1
+    },
+    {
+        "token": "مقاطعة قطر",
+        "frequency": 1
+    },
+    {
+        "token": "بعض",
+        "frequency": 1
+    },
+    {
+        "token": "بتهل",
+        "frequency": 1
+    },
+    {
+        "token": "بكو",
+        "frequency": 1
+    },
+    {
+        "token": "رسوم الاراضي البيضا",
+        "frequency": 1
+    },
+    {
+        "token": "خفض",
+        "frequency": 1
+    },
+    {
+        "token": "واقع",
+        "frequency": 1
+    },
+    {
+        "token": "رصاص",
+        "frequency": 1
+    },
+    {
+        "token": "رحم",
+        "frequency": 1
+    },
+    {
+        "token": "اصبت",
+        "frequency": 1
+    },
+    {
+        "token": "قطاع",
+        "frequency": 1
+    },
+    {
+        "token": "عقار",
+        "frequency": 1
+    },
+    {
+        "token": "منذ",
+        "frequency": 1
+    },
+    {
+        "token": "دهور",
+        "frequency": 1
+    },
+    {
+        "token": "نفط",
+        "frequency": 1
+    },
+    {
+        "token": "نصر الاتحاد",
+        "frequency": 1
+    },
+    {
+        "token": "نصر",
+        "frequency": 1
+    },
+    {
+        "token": "شلو",
+        "frequency": 1
+    },
+    {
+        "token": "سعد",
+        "frequency": 1
+    },
+    {
+        "token": "ملاا",
+        "frequency": 1
+    },
+    {
+        "token": "حيا",
+        "frequency": 1
+    },
+    {
+        "token": "برجع",
+        "frequency": 1
+    },
+    {
+        "token": "كيف",
+        "frequency": 1
+    },
+    {
+        "token": "صار",
+        "frequency": 1
+    },
+    {
+        "token": "يعي",
+        "frequency": 1
+    },
+    {
+        "token": "يضد",
+        "frequency": 1
+    },
+    {
+        "token": "براك",
+        "frequency": 1
+    },
+    {
+        "token": "بذا",
+        "frequency": 1
+    },
+    {
+        "token": "لام",
+        "frequency": 1
+    },
+    {
+        "token": "الب",
+        "frequency": 1
+    },
+    {
+        "token": "اومر ملكي",
+        "frequency": 1
+    },
+    {
+        "token": "ملف",
+        "frequency": 1
+    },
+    {
+        "token": "قلب",
+        "frequency": 1
+    },
+    {
+        "token": "سني",
+        "frequency": 1
+    },
+    {
+        "token": "فارشيف",
+        "frequency": 1
+    },
+    {
+        "token": "حبك",
+        "frequency": 1
+    },
+    {
+        "token": "مكفين",
+        "frequency": 1
+    },
+    {
+        "token": "اما",
+        "frequency": 1
+    },
+    {
+        "token": "بوصل",
+        "frequency": 1
+    },
+    {
+        "token": "تسر",
+        "frequency": 1
+    },
+    {
+        "token": "عين",
+        "frequency": 1
+    },
+    {
+        "token": "الا",
+        "frequency": 1
+    },
+    {
+        "token": "لحب",
+        "frequency": 1
+    },
+    {
+        "token": "عفين",
+        "frequency": 1
+    },
+    {
+        "token": "محمد",
+        "frequency": 1
+    },
+    {
+        "token": "عايش",
+        "frequency": 1
+    },
+    {
+        "token": "فيصل",
+        "frequency": 1
+    },
+    {
+        "token": "درويش",
+        "frequency": 1
+    },
+    {
+        "token": "فضل",
+        "frequency": 1
+    },
+    {
+        "token": "اعب",
+        "frequency": 1
+    },
+    {
+        "token": "شوط",
+        "frequency": 1
+    },
+    {
+        "token": "اول",
+        "frequency": 1
+    },
+    {
+        "token": "هذا",
+        "frequency": 1
+    },
+    {
+        "token": "مايمنع",
+        "frequency": 1
+    },
+    {
+        "token": "انه",
+        "frequency": 1
+    },
+    {
+        "token": "بيك",
+        "frequency": 1
+    },
+    {
+        "token": "حتيط",
+        "frequency": 1
+    },
+    {
+        "token": "مبار",
+        "frequency": 1
+    },
+    {
+        "token": "جاي",
+        "frequency": 1
+    },
+    {
+        "token": "يشارك",
+        "frequency": 1
+    },
+    {
+        "token": "مكا",
+        "frequency": 1
+    },
+    {
+        "token": "عاه",
+        "frequency": 1
+    },
+    {
+        "token": "الي",
+        "frequency": 1
+    },
+    {
+        "token": "دوب",
+        "frequency": 1
+    },
+    {
+        "token": "اب",
+        "frequency": 1
+    },
+    {
+        "token": "ك",
+        "frequency": 1
+    },
+    {
+        "token": "اص",
+        "frequency": 1
+    },
+    {
+        "token": "ق",
+        "frequency": 1
+    },
+    {
+        "token": "ر",
+        "frequency": 1
+    },
+    {
+        "token": "وط",
+        "frequency": 1
+    },
+    {
+        "token": "ن",
+        "frequency": 1
+    },
+    {
+        "token": "دام",
+        "frequency": 1
+    },
+    {
+        "token": "زك",
+        "frequency": 1
+    },
+    {
+        "token": "اع",
+        "frequency": 1
+    },
+    {
+        "token": "س",
+        "frequency": 1
+    },
+    {
+        "token": "ا",
+        "frequency": 1
+    },
+    {
+        "token": "م",
+        "frequency": 1
+    },
+    {
+        "token": "رك",
+        "frequency": 1
+    },
+    {
+        "token": "وي",
+        "frequency": 1
+    },
+    {
+        "token": "قتل",
+        "frequency": 1
+    },
+    {
+        "token": "عرف",
+        "frequency": 1
+    },
+    {
+        "token": "علاش",
+        "frequency": 1
+    },
+    {
+        "token": "حنا",
+        "frequency": 1
+    },
+    {
+        "token": "مغارب",
+        "frequency": 1
+    },
+    {
+        "token": "كنطلعش",
+        "frequency": 1
+    },
+    {
+        "token": "تاق",
+        "frequency": 1
+    },
+    {
+        "token": "كل",
+        "frequency": 1
+    },
+    {
+        "token": "كنطلعو",
+        "frequency": 1
+    },
+    {
+        "token": "طاق",
+        "frequency": 1
+    },
+    {
+        "token": "عام",
+        "frequency": 1
+    },
+    {
+        "token": "amou naty",
+        "frequency": 1
+    },
+    {
+        "token": "قريب",
+        "frequency": 1
+    },
+    {
+        "token": "خلي",
+        "frequency": 1
+    },
+    {
+        "token": "مازال",
+        "frequency": 1
+    },
+    {
+        "token": "ماكملاتش",
+        "frequency": 1
+    },
+    {
+        "token": "يوم",
+        "frequency": 1
+    },
+    {
+        "token": "احصائي",
+        "frequency": 1
+    },
+    {
+        "token": "قدر",
+        "frequency": 1
+    },
+    {
+        "token": "وصل",
+        "frequency": 1
+    },
+    {
+        "token": "او",
+        "frequency": 1
+    },
+    {
+        "token": "نص",
+        "frequency": 1
+    },
+    {
+        "token": "ثمن",
+        "frequency": 1
+    },
+    {
+        "token": "ربع",
+        "frequency": 1
+    },
+    {
+        "token": "ساع",
+        "frequency": 1
+    },
+    {
+        "token": "بما",
+        "frequency": 1
+    },
+    {
+        "token": "كترو",
+        "frequency": 1
+    },
+    {
+        "token": "غي",
+        "frequency": 1
+    },
+    {
+        "token": "لي",
+        "frequency": 1
+    },
+    {
+        "token": "جا",
+        "frequency": 1
+    },
+    {
+        "token": "كيدير",
+        "frequency": 1
+    },
+    {
+        "token": "قرر",
+        "frequency": 1
+    },
+    {
+        "token": "لكم",
+        "frequency": 1
+    },
+    {
+        "token": "فانستغرام",
+        "frequency": 1
+    },
+    {
+        "token": "IhabAmir",
+        "frequency": 1
+    },
+    {
+        "token": "souhilabenlachhab",
+        "frequency": 1
+    },
+    {
+        "token": "AmjadPf",
+        "frequency": 1
+    },
+    {
+        "token": "حرير",
+        "frequency": 1
+    },
+    {
+        "token": "سير",
+        "frequency": 1
+    },
+    {
+        "token": "برع",
+        "frequency": 1
+    },
+    {
+        "token": "يلا",
+        "frequency": 1
+    },
+    {
+        "token": "مقدرتيش",
+        "frequency": 1
+    },
+    {
+        "token": "روتويت",
+        "frequency": 1
+    },
+    {
+        "token": "ناس",
+        "frequency": 1
+    },
+    {
+        "token": "خري",
+        "frequency": 1
+    },
+    {
+        "token": "نفس",
+        "frequency": 1
+    },
+    {
+        "token": "قلت",
+        "frequency": 1
+    },
+    {
+        "token": "يكو",
+        "frequency": 1
+    },
+    {
+        "token": "يمن",
+        "frequency": 1
+    },
+    {
+        "token": "لذي",
+        "frequency": 1
+    },
+    {
+        "token": "عان",
+        "frequency": 1
+    },
+    {
+        "token": "حترم",
+        "frequency": 1
+    },
+    {
+        "token": "جميع",
+        "frequency": 1
+    },
+    {
+        "token": "لكن",
+        "frequency": 1
+    },
+    {
+        "token": "مع",
+        "frequency": 1
+    },
+    {
+        "token": "صوت",
+        "frequency": 1
+    },
+    {
+        "token": "عاقل",
+        "frequency": 1
+    },
+    {
+        "token": "متز",
+        "frequency": 1
+    },
+    {
+        "token": "كصو",
+        "frequency": 1
+    },
+    {
+        "token": "حقيق",
+        "frequency": 1
+    },
+    {
+        "token": "حتقول",
+        "frequency": 1
+    },
+    {
+        "token": "زاي",
+        "frequency": 1
+    },
+    {
+        "token": "شجع",
+        "frequency": 1
+    },
+    {
+        "token": "كورة للجماهير",
+        "frequency": 1
+    },
+    {
+        "token": "بحب",
+        "frequency": 1
+    },
+    {
+        "token": "خوي",
+        "frequency": 1
+    },
+    {
+        "token": "لحق",
+        "frequency": 1
+    },
+    {
+        "token": "شرع",
+        "frequency": 1
+    },
+    {
+        "token": "عئد",
+        "frequency": 1
+    },
+    {
+        "token": "رئيس",
+        "frequency": 1
+    },
+    {
+        "token": "مرس",
+        "frequency": 1
+    },
+    {
+        "token": "بلد",
+        "frequency": 1
+    },
+    {
+        "token": "حبيب",
+        "frequency": 1
+    },
+    {
+        "token": "شاأ",
+        "frequency": 1
+    },
+    {
+        "token": "برنامج",
+        "frequency": 1
+    },
+    {
+        "token": "صعب",
+        "frequency": 1
+    },
+    {
+        "token": "حمزاو",
+        "frequency": 1
+    },
+    {
+        "token": "شرح",
+        "frequency": 1
+    },
+    {
+        "token": "مصطلح",
+        "frequency": 1
+    },
+    {
+        "token": "امن",
+        "frequency": 1
+    },
+    {
+        "token": "قوم",
+        "frequency": 1
+    }
+]

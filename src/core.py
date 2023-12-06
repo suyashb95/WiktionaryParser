@@ -233,7 +233,9 @@ class WiktionaryParser(object):
 
 
         for k in appendix_removal:
-            src_regex = re.compile(f'(\({k}\)|{k})')
+            src_regex = f'(\({k}\)|{k})'
+            src_regex = src_regex.replace('+', '\\+')
+            src_regex = re.compile(src_regex)
             text = re.sub(src_regex, '', text).strip()
         D = {
             "raw_text": raw_text,

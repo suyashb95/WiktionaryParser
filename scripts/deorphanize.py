@@ -5,17 +5,17 @@ from src.utils import convert_language
 from .utils import *
 
 
-def main(wait_time=0):
+def main(text_words=None, wait_time=0):
     results = []
+    if text_words is None:
+        orphan_lex = builder.get_orphan_nodes()
+        for w in orphan_lex:
+            if w.get('language') is None:
+                w['language'] = "english"
+            else:
+                w['language'] = convert_language(w['language'], format="long")
 
-    orphan_lex = builder.get_orphan_nodes()
-    for w in orphan_lex:
-        if w.get('language') is None:
-            w['language'] = "english"
-        else:
-            w['language'] = convert_language(w['language'], format="long")
-
-    text_words = sorted({(w['word'], w['id'], w.get('language')) for w in orphan_lex})
+        text_words = sorted({(w['word'], w['id'], w.get('language')) for w in orphan_lex})
     # print(text_words)
     text_words = tqdm.tqdm(text_words)
     for word, id, lang in text_words:

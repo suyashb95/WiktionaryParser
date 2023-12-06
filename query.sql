@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `{word_table}` (
   `isDerived` BOOLEAN,
   PRIMARY KEY (`id`(64))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+ALTER TABLE `{word_table}` ADD INDEX(`word`);
 -- --------------------------------------------------------
 
 --

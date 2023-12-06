@@ -12,7 +12,7 @@ def export_graph_to_html(output_file='graph.html'):
     graph = builder.build_graph("d2w", category_info=True, appendix_info=True, 
         preprocessing_callback=Preprocessor(return_type="str"),
     )
-    g = Network(directed=True)
+    g = Network(directed=True, select_menu=True, filter_menu=True)
     n_color_palette = get_colormap(graph.ntypes, palette="tab10_r")
     for n_i, ntype in enumerate(graph.ntypes):
         node_ids = builder.node_ids[ntype]
@@ -51,5 +51,4 @@ def export_graph_to_html(output_file='graph.html'):
         g.add_edge(source=s, to=d, label=r, value=np.log(c + 1), color=e_color_palette[r])
 
     g.barnes_hut()
-    g.select_menu = True
     g.save_graph(output_file)

@@ -39,7 +39,7 @@ def get_global_token_counts(tokenized_texts):
         "token": tok,
         "frequency": n
     } for tok, n in global_tokens.items()]
-    global_tokens = sorted(global_tokens, key=lambda x: x.get("frequency", 0))
+    global_tokens = sorted(global_tokens, key=lambda x: x.get("frequency", 0), reverse=True)
     return global_tokens
 
 # stratified_samples = main()

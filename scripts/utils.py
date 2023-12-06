@@ -20,7 +20,7 @@ builder = GraphBuilder(conn)
 deorphanize_prep = Preprocessor(unshakl=True)
 get_word_info_prep = Preprocessor(stemmer=stem.ARLSTem())
 dataset_2_tokens_prep = Preprocessor(stemmer=stem.ARLSTem2(), normalizer=Normalizer('أ', alef_norm='ا'))
-
+#Prep above is too aggressive, please fix
 
 reset_db = lambda : collector.erase_db()
 fix_ar_display = lambda text: get_display(arabic_reshaper.reshape(text))
