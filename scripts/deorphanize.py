@@ -5,8 +5,8 @@ from src.utils import convert_language
 from .utils import *
 
 
-def main(text_words=None, wait_time=0):
-    results = []
+def main(text_words=None, limit=-1, wait_time=0):
+    results = {}
     if text_words is None:
         orphan_lex = builder.get_orphan_nodes()
         for w in orphan_lex:
@@ -17,6 +17,8 @@ def main(text_words=None, wait_time=0):
 
         text_words = sorted({(w['word'], w['id'], w.get('language')) for w in orphan_lex})
     # print(text_words)
+    if limit > 1:
+        text_words = text_words[:limit]
     text_words = tqdm.tqdm(text_words)
     for word, id, lang in text_words:
         text_words.set_description_str(f'Deorphanizing "{fix_ar_display(word)}" ({lang})')
@@ -32,7 +34,9 @@ def main(text_words=None, wait_time=0):
             #Add original id so that it matches during the update
             for i in range(len(element)):
                 element[i].update({'id': id})
-            results += collector.save_word(element, save_to_db=True, save_orphan=False)
+            e = collector.save_word(element, save_to_db=True, save_orphan=False)
+            for k in e:
+                results[k] = results.get(k, []) + e.get(k, [])
         if wait_time > 0:
             time.sleep(wait_time)
 

@@ -4,20 +4,21 @@ random.seed(222)
 from collections import Counter
 from .utils import *
 
-def convert_to_tokens(dataset_name=None):
+def convert_to_tokens(dataset_name=None, sample_size = 0):
     results = builder.get_dataset(dataset_name=dataset_name)
 
     k = "dataset_name"  # The key for stratification
 
     k_counts = set(entry[k] for entry in results)
-    sample_size = 5
+    
 
     stratified_samples = []
     for unique_k in k_counts:
         entries_with_k = [entry for entry in results if entry.get(k) == unique_k]
-        if len(entries_with_k) >= sample_size:
-            entries_with_k = random.sample(entries_with_k, sample_size)
-            # entries_with_k = entries_with_k[:2]
+        if sample_size > 1:
+            if len(entries_with_k) >= sample_size:
+                entries_with_k = random.sample(entries_with_k, sample_size)
+                # entries_with_k = entries_with_k[:2]
 
 
         for entry in entries_with_k:

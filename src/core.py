@@ -195,7 +195,14 @@ class WiktionaryParser(object):
         examples = []
 
         for e in example_tags:
-            parent_el = e.find_parent('ul').parent
+            parent_el = e.find_parent('ul')
+            for t in ['ul', 'ol']:
+                parent_el = e.find_parent(t)
+                if parent_el is not None:
+                    break
+            if parent_el is None:
+                continue
+            parent_el = parent_el.parent
             if parent_el == element:
                 example_text = re.sub(r'\([^)]*\)', '', e.text.strip())
                 if example_text:
@@ -291,7 +298,7 @@ class WiktionaryParser(object):
         for def_index, def_id, def_type in definition_id_list:
             span_tag = self.soup.find_all('span', {'id': def_id})[0]
             table = span_tag.parent
-            while table.name != 'ol':
+            while table and table.name == 'ol':
                 table = table.find_next_sibling()
             examples = []
             while table and table.name == 'ol':

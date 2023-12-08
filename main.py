@@ -1,18 +1,18 @@
 import json
-from scripts.utils import reset_db
+from scripts.utils import reset_db, collector, builder
 from scripts.dataset_uploading import main as upload_data
 from scripts.datasets_to_tokens import convert_to_tokens, get_global_token_counts
 from scripts.get_word_info import main as collect_info
 from scripts.deorphanize import main as deorphanize
 from scripts.visualize_interactive_graph import export_graph_to_html
 
-EXPERIMENTAL = 0
+EXPERIMENTAL = False
 deorphanization_level = 2
 
-# reset_db()
+reset_db()
 limit = 5 if EXPERIMENTAL else -1
-# datasets = upload_data('D:\Datasets', limit=limit)
-datasets = None
+datasets = upload_data('D:\Datasets', limit=limit)
+# datasets = None
 tokenized_texts = convert_to_tokens(datasets)
 global_tokens = get_global_token_counts(tokenized_texts)
 
@@ -27,10 +27,16 @@ vocab = [(tok['token'], tok.get('lang', 'arabic')) for tok in global_tokens]
 with open('json/vocab.json', 'w', encoding="utf8") as f:
     f.write(json.dumps(vocab, indent=4, ensure_ascii=False))
 
+with open('json/vocab.json', 'r', encoding="utf8") as f:
+    vocab = json.load(f)
+
+existing_vocab_words = [v['word'] for v in builder.get_vocab()]
+vocab = [(w, l) for w, l in vocab if w not in existing_vocab_words]
+
 vocab = collect_info(vocab, wait_time=.1)
 for lv in range(deorphanization_level):
     print(f"Deorphanization (Level {lv+1:2d})")
-    deorphanize(wait_time=.1)
+    result = deorphanize(wait_time=.01)
+    # collector.save_word_data(**result)
 
-
-export_graph_to_html('graph.html')
+# export_graph_to_html('graph.html')

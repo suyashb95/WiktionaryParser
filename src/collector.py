@@ -358,10 +358,18 @@ class Collector:
         if save_to_db:
             self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories, examples)
 
-        return fetched_data #fetched_data #related_words
+        return {
+            "words": words, 
+            "definitions": definitions,
+            "related_words": related_words,
+            "appendices": appendices,
+            "orph_nodes": orph_nodes,
+            "categories": categories,
+            "examples": examples
+        } #fetched_data #related_words
     
 
-    def save_word_data(self, words=[], definition=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
+    def save_word_data(self, words=[], definitions=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
         #Inserting to database
         cur = self.conn.cursor()
         if update:
@@ -371,7 +379,7 @@ class Collector:
         if insert:
             cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl, isDerived) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s, 0)", words)
             cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl, isDerived) VALUES (%(id)s, NULL, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s, 1)", orph_nodes)
-            cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definition)
+            cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definitions)
             if len(appendices) > 0:
                 apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
                 cur.executemany(apx_q, appendices)

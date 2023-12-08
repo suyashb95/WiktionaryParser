@@ -6,7 +6,7 @@ import json
 
 
 def main(text_words, wait_time=0):
-    results = []
+    results = {}
     text_words = tqdm.tqdm(text_words)
     for word, lang in text_words:
         text_words.set_description_str(f'Collecting info for "{fix_ar_display(word)}" ({lang})')
@@ -19,7 +19,9 @@ def main(text_words, wait_time=0):
             fetched_data = parser.fetch_all_potential(prepped_word, language=lang)
         for k in fetched_data:
             element = fetched_data[k]
-            results += collector.save_word(element, save_to_db=True)
+            e = collector.save_word(element, save_to_db=True, save_orphan=False)
+            for k in e:
+                results[k] = results.get(k, []) + e.get(k, [])
         if wait_time > 0:
             time.sleep(wait_time)
     return results
