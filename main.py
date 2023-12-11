@@ -26,39 +26,39 @@ tokenized_texts = convert_to_tokens(datasets)
 with open('json/tokenized_texts.json', 'w', encoding="utf8") as f:
     f.write(json.dumps(tokenized_texts, indent=4, ensure_ascii=False))
 
-# global_tokens = get_global_token_counts(tokenized_texts)
+global_tokens = get_global_token_counts(tokenized_texts)
 
-# with open('json/global_tokens.json', 'w', encoding="utf8") as f:
-#     f.write(json.dumps(global_tokens, indent=4, ensure_ascii=False))
+with open('json/global_tokens.json', 'w', encoding="utf8") as f:
+    f.write(json.dumps(global_tokens, indent=4, ensure_ascii=False))
 
-# if EXPERIMENTAL:
-#     vocab = [(tok['token'], tok.get('lang', 'arabic')) for tok in global_tokens]
+if EXPERIMENTAL:
+    vocab = [(tok['token'], tok.get('lang', 'arabic')) for tok in global_tokens]
 
-#     with open('json/vocab.json', 'w', encoding="utf8") as f:
-#         f.write(json.dumps(vocab, indent=4, ensure_ascii=False))
-# else:
-#     with open('json/vocab.json', 'r', encoding="utf8") as f:
-#         vocab = json.load(f)
+    with open('json/vocab.json', 'w', encoding="utf8") as f:
+        f.write(json.dumps(vocab, indent=4, ensure_ascii=False))
+else:
+    with open('json/vocab.json', 'r', encoding="utf8") as f:
+        vocab = json.load(f)
 
-#     existing_vocab_words = [v[k] for v in builder.get_vocab() for k in ['word', 'query']]
-#     vocab = [(w, l) for w, l in vocab if w not in existing_vocab_words]
+    existing_vocab_words = [v[k] for v in builder.get_vocab() for k in ['word', 'query']]
+    vocab = [(w, l) for w, l in vocab if w not in existing_vocab_words]
 
-# result = {}
-# vocab = tqdm.tqdm(vocab)
-# for word, lang in vocab:
-#     word = word.strip()
-#     vocab.set_description_str(f'Collecting info for "{fix_ar_display(word)}" ({lang})')
-#     if len(word) < 1:
-#         continue
-#     result = collect_info(word, lang, wait_time=.1)
-#     with open('json/collected.txt', 'a+', encoding="utf8") as f:
-#         f.write(word+'\n')
-#     # if EXPERIMENTAL:
-#     #     if (vocab.n) % 500 == 0:
-#     #         collector.save_word_data(**result)
+result = {}
+vocab = tqdm.tqdm(vocab)
+for word, lang in vocab:
+    word = word.strip()
+    vocab.set_description_str(f'Collecting info for "{fix_ar_display(word)}" ({lang})')
+    if len(word) < 1:
+        continue
+    result = collect_info(word, lang, wait_time=.1)
+    with open('json/collected.txt', 'a+', encoding="utf8") as f:
+        f.write(word+'\n')
+    # if EXPERIMENTAL:
+    #     if (vocab.n) % 500 == 0:
+    #         collector.save_word_data(**result)
 
-#     # # elif (vocab.n) % 1000 == 0:
-#     # #     collector.flush()
+    # # elif (vocab.n) % 1000 == 0:
+    # #     collector.flush()
 
 
 # for lv in range(deorphanization_level):
