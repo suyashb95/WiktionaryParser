@@ -1,5 +1,7 @@
 import json
+from pathlib import Path
 import re
+from uu import encode
 import requests
 from bs4 import BeautifulSoup
 import csv
@@ -395,6 +397,34 @@ class Collector:
             cur.executemany(f"INSERT IGNORE INTO `word_categories` (wordId, categoryId) VALUES (%(wordId)s, %(categoryId)s)", categories)
             cur.executemany(f"INSERT IGNORE INTO `examples` (definitionId, quotation, transliteration, translation, source, example_text) VALUES (%(definitionId)s, %(quotation)s, %(transliteration)s, %(translation)s, %(source)s, %(example_text)s);", examples)
             self.conn.commit()
+
+    def export_to_csv(self, path, encoding="utf8", sep=","):
+        path = Path(path)
+        path.mkdir(parents=True, exist_ok=True)
+        cur = self.conn.cursor()
+        cur.execute("SHOW TABLES;")
+        tables = [e[0] for e in cur.fetchall()]
+
+        for table in tables:
+            cur.execute(f"SELECT * FROM {table};")
+            keys = [desc[0] for desc in cur.description]
+            result = []
+            for row in cur.fetchall():
+                row_processed = []
+                for e in row:
+                    if type(e) == str:
+                        row_processed.append(e.strip())
+                    elif e is None:
+                        row_processed.append('')
+                    else:
+                        row_processed.append(e)
+                result.append(row_processed)
+            result = [dict(zip(keys, row)) for row in result]
+            with open(os.path.join(path, f"{table}.csv"), "w", encoding=encoding, newline='') as f:
+                dict_writer = csv.DictWriter(f, keys)
+                dict_writer.writeheader()
+                dict_writer.writerows(result)
+
 
 
 # preprocessor = Preprocessor(stemmer=ARLSTem(), normalizer=Normalizer(waw_norm="و"))

@@ -19,7 +19,6 @@ class GraphBuilder:
                 ):
 
         self.conn = conn
-        self.DEFINED_TAGS = ['proper noun']
         self.word_table = word_table
         self.dataset_table = dataset_table
         self.definitions_table = definitions_table

@@ -38,7 +38,7 @@ class Normalizer:
         return text_
 
 class Preprocessor:
-    def __init__(self, return_type="list", stemmer=None, normalizer=None, tokenizer=None, stop_words=None, keep_punct=False, unshakl=True):
+    def __init__(self, return_type="list", stemmer=None, normalizer=None, tokenizer=None, stop_words=None, keep_punct=False, unshakl=True, unemoji=True):
         self.stemmer = stemmer
         self.normalizer = normalizer
         self.tokenizer = word_tokenize if not tokenizer else tokenizer
@@ -46,6 +46,7 @@ class Preprocessor:
         self.stop_words = set() if not stop_words else set(stop_words)
         self.return_type = return_type
         self.unshakl = unshakl
+        self.unemoji = unemoji
         
     def is_stopword(self, word):
         return word in self.stop_words
@@ -77,6 +78,15 @@ class Preprocessor:
         word = re.sub(shakl_regex, '', word)
         return word
     
+    def strip_emojis(self, word):
+        emoji_regex = re.compile(r'[\u263a-\U0001f645]')
+        word = re.sub(emoji_regex, '', word)
+        return word
+    
+    def strip_spaces(self, word):
+        word = re.sub('(\s)\1\1+', '\1', word)
+        return word.strip()
+    
     def __call__(self, text):
         processed_text = []
         text = self.stripurl(text)
@@ -85,6 +95,8 @@ class Preprocessor:
         # text = text
         tokenized_text = self.tokenizer(text)
         for w in tokenized_text:
+            if self.unemoji:
+                w = self.strip_emojis(w)
             w = self.remove_punct(w)
             w = self.remove_repeated_letters(w)
             if self.stemmer:
@@ -93,6 +105,7 @@ class Preprocessor:
                 w = self.normalize(w)
             if self.unshakl:
                 w = self.strip_shakl(w)
+            w = self.strip_spaces(w)
 
             processed_text.append(w)
         if self.return_type == "str":

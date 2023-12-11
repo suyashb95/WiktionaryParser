@@ -115,3 +115,5 @@ dmypy.json
 # VSCode
 .vscode/
 dsInfo.json
+
+backup/

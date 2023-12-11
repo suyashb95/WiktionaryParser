@@ -42,10 +42,13 @@ else:
 result = {}
 vocab = tqdm.tqdm(vocab)
 for word, lang in vocab:
+    word = word.strip()
     vocab.set_description_str(f'Collecting info for "{fix_ar_display(word)}" ({lang})')
     if len(word) < 1:
         continue
     result = collect_info(word, lang, wait_time=.1)
+    with open('json/collected.txt', 'a+', encoding="utf8") as f:
+        f.write(word+'\n')
     # if EXPERIMENTAL:
     #     if (vocab.n) % 500 == 0:
     #         collector.save_word_data(**result)
