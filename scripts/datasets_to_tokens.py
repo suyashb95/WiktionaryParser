@@ -1,4 +1,3 @@
-import json
 import random
 random.seed(222)
 from collections import Counter
@@ -22,9 +21,16 @@ def convert_to_tokens(dataset_name=None, sample_size = 0):
 
 
         for entry in entries_with_k:
-            prepped_text = dataset_2_tokens_prep(entry.get('text'))
-            # tokens = nltk.word_tokenize(prepped_text)
+            raw_text = entry.get('text')
+            prepped_text = dataset_2_tokens_prep(raw_text)
+            raw_text = dataset_2_tokens_prep.tokenize(raw_text)
+            prepped_text = [(tok, raw) for tok, raw in zip(prepped_text, raw_text) if len(tok.strip()) > 0]
             entry['tokens'] = Counter(prepped_text)
+            entry['tokens'] = [{
+                "token": tok,
+                "unprocessed_token": raw,
+                "count": count,
+            } for (tok, raw), count in entry['tokens'].items()]
             stratified_samples.append(entry)
 
     return stratified_samples
@@ -33,13 +39,16 @@ def get_global_token_counts(tokenized_texts):
     global_tokens = {}
     for i in range(len(tokenized_texts)):
         tokens = tokenized_texts[i]['tokens']
+        dataset_name = tokenized_texts[i]['dataset_name']
+        tokens = {(tok['token'], dataset_name): tok['count'] for tok in tokens}
         for tok in tokens:
             global_tokens[tok] = global_tokens.get(tok, 0) + tokens[tok]
 
     global_tokens = [{
         "token": tok,
+        "dataset_name": dataset_name,
         "frequency": n
-    } for tok, n in global_tokens.items()]
+    } for (tok, dataset_name), n in global_tokens.items()]
     global_tokens = sorted(global_tokens, key=lambda x: x.get("frequency", 0), reverse=True)
     return global_tokens
 

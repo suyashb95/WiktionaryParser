@@ -127,7 +127,7 @@ class WiktionaryParser(object):
             language_heading = self.soup.find_all(
                 "span",
                 {"class": "mw-headline"},
-                string=lambda s: s.lower() == language
+                string=lambda s: str(s).lower() == language
             )
             if not language_heading:
                 return []

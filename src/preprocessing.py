@@ -2,7 +2,7 @@ import re
 from nltk.tokenize import word_tokenize
 import string
 from bidi.algorithm import get_display
-
+import unicodedata as ud
 
 class Normalizer:
     # Normalize the hamza, the waw, the alef-maqsura, taa-marbuta, indian numbers (configurable attrs)
@@ -13,7 +13,16 @@ class Normalizer:
         self.alef_maqsura_norm = alef_maqsura_norm
         self.taa_marbuta_norm = taa_marbuta_norm
         self.normalize_indian_digits = normalize_indian_digits
-
+        
+    def normalize_punct(self, text):
+        trans = str.maketrans({
+            "؟": "?",
+            "،": ",",
+            "؛": ";",
+        })
+        processed_text = text.translate(trans)
+        return processed_text
+    
     def normalize(self, text):
         norm_dict = {
             'ا': self.alef_norm,
@@ -40,20 +49,21 @@ class Normalizer:
 class Preprocessor:
     def __init__(self, return_type="list", stemmer=None, normalizer=None, tokenizer=None, stop_words=None, keep_punct=False, unshakl=True, unemoji=True):
         self.stemmer = stemmer
-        self.normalizer = normalizer
-        self.tokenizer = word_tokenize if not tokenizer else tokenizer
+        self.normalizer = normalizer if normalizer is not None else Normalizer()
+        self.tokenize = word_tokenize if not tokenizer else tokenizer
         self.punctuation = string.punctuation if not keep_punct else ''
         self.stop_words = set() if not stop_words else set(stop_words)
         self.return_type = return_type
         self.unshakl = unshakl
         self.unemoji = unemoji
-        
+    
     def is_stopword(self, word):
         return word in self.stop_words
-
+    
     def remove_punct(self, word):
         trans = str.maketrans({p: ' ' for p in list(self.punctuation)})
         return word.translate(trans)
+    
     def remove_repeated_letters(self, word):
         return re.sub(r'(\w)\1{2,}', r'\1', word, flags=re.IGNORECASE)
         
@@ -78,6 +88,11 @@ class Preprocessor:
         word = re.sub(shakl_regex, '', word)
         return word
     
+    def strip_tatweel(self, word):
+        shakl_regex = re.compile(r'[ـ]')
+        word = re.sub(shakl_regex, '', word)
+        return word
+    
     def strip_emojis(self, word):
         emoji_regex = re.compile(r'[\u263a-\U0001f645]')
         word = re.sub(emoji_regex, '', word)
@@ -93,16 +108,20 @@ class Preprocessor:
         text = self.striphtml(text)
         # text = text
         # text = text
-        tokenized_text = self.tokenizer(text)
+        tokenized_text = self.tokenize(text)
         for w in tokenized_text:
             if self.unemoji:
                 w = self.strip_emojis(w)
-            w = self.remove_punct(w)
+            
+            
             w = self.remove_repeated_letters(w)
+            w = self.strip_tatweel(w)
             if self.stemmer:
                 w = self.stem(w)
             if self.normalizer:
+                w = self.normalizer.normalize_punct(w)
                 w = self.normalize(w)
+            w = self.remove_punct(w)
             if self.unshakl:
                 w = self.strip_shakl(w)
             w = self.strip_spaces(w)
