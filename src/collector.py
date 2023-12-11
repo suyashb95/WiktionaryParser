@@ -29,6 +29,7 @@ class Collector:
         self.definitions_table = definitions_table
         self.edge_table = edge_table
 
+        self.batch = []
         self.force_edge_tail_constraint = force_edge_tail_constraint
 
         self.base_url = "https://en.wiktionary.org/"
@@ -165,11 +166,14 @@ class Collector:
     def erase_db(self):
         cur = self.conn.cursor()
         cur.execute("SET FOREIGN_KEY_CHECKS = 0")
-        for table in [
+        target_tables = [
             self.definitions_table+"_apx", self.edge_table, 'word_categories', "examples",
             # 'categories', 'appendix',
             self.definitions_table, self.dataset_table, self.word_table
-            ]:
+        ]
+        target_tables = tqdm.tqdm(target_tables, leave=False)
+        for table in target_tables:
+            target_tables.set_description_str(f'Truncating {table}')
             cur.execute(f"TRUNCATE TABLE {table}")
             cur.execute(f"ALTER TABLE {table} AUTO_INCREMENT = 1")
         cur.execute("SET FOREIGN_KEY_CHECKS = 1")
@@ -179,24 +183,19 @@ class Collector:
         dataset_name = dataset_name if dataset_name is not None else 'NULL'
         cur = self.conn.cursor()
         # dataset = dataset[:5]
+        rows = []
         for e in tqdm.tqdm(dataset, desc=f"Inserting database: {dataset_name}", leave=False):
             row = copy.copy(e)
             row.update({"dataset_name": dataset_name, "task": task})
             row = {k: "NULL" if v is None else v for k, v in row.items()}
+            rows.append(row)
 
-            char_trans = str.maketrans({
-                "\\": "/",
-                "'": "\\'"
-            })
-            columns = ', '.join("`" + str(x).replace('/', '_') + "`" for x in row.keys())
-            values = ', '.join("'" + str(x).translate(char_trans) + "'" for x in row.values())
-            query = "INSERT INTO %s ( %s ) VALUES ( %s );" % (self.dataset_table, columns, values)
+        keys = row.keys()
+        columns = ', '.join("`" + str(x).replace('/', '_') + "`" for x in keys)
+        values = ', '.join("%(" + str(x).replace('/', '_') + ")s" for x in keys)
+        query = "INSERT INTO %s ( %s ) VALUES ( %s );" % (self.dataset_table, columns, values)
+        cur.executemany(query, rows)
 
-            try:
-                cur.execute(query)
-            except Exception as err:
-                raise(err)
-                break    
         self.conn.commit()
 
     def insert_dataset(self, path):
@@ -355,10 +354,8 @@ class Collector:
                 related_words += relations
                 categories += word_categories
                 examples += w_examples
-        if save_to_db:
-            self.save_word_data(words, definitions, related_words, appendices, orph_nodes, categories, examples)
 
-        return {
+        res = {
             "words": words, 
             "definitions": definitions,
             "related_words": related_words,
@@ -366,8 +363,18 @@ class Collector:
             "orph_nodes": orph_nodes,
             "categories": categories,
             "examples": examples
-        } #fetched_data #related_words
+        } 
+        if save_to_db:
+            self.save_word_data(**res)
+
+        self.batch.append(res)
+        return res #fetched_data #related_words
     
+    def flush(self):
+        while len(self.batch) > 0:
+            b = self.batch.pop(0)
+            self.save_word_data(**b)
+        print(len(self.batch))
 
     def save_word_data(self, words=[], definitions=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
         #Inserting to database

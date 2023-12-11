@@ -464,7 +464,7 @@ class WiktionaryParser(object):
             res += self.get_word_data(lang.lower())
         for obj in res:
             obj['query'] = obj.get('query', word) if query is None else query
-            obj['word'] = obj.get('query', word)
+            obj['word'] = obj.get('word', word)
 
         return res
 
@@ -482,7 +482,7 @@ class WiktionaryParser(object):
             return list(exrex.generate(word_regex))
         
         possible_altenrnatives = get_possible_altenrnatives(word)
-        res = {word: self.fetch(word)}
+        res = {word: self.fetch(word, query=word)}
         if verbose > 0:
             possible_altenrnatives = tqdm.tqdm(possible_altenrnatives, desc="Fetching potential forms", leave=False)
         for w in possible_altenrnatives:

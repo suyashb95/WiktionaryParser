@@ -17,8 +17,8 @@ def convert_to_tokens(dataset_name=None, sample_size = 0):
         entries_with_k = [entry for entry in results if entry.get(k) == unique_k]
         if sample_size > 1:
             if len(entries_with_k) >= sample_size:
-                entries_with_k = random.sample(entries_with_k, sample_size)
-                # entries_with_k = entries_with_k[:2]
+                # entries_with_k = random.sample(entries_with_k, sample_size)
+                entries_with_k = entries_with_k[:sample_size]
 
 
         for entry in entries_with_k:
