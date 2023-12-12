@@ -1,8 +1,9 @@
 import json
+import os
 
 import tqdm
 
-from scripts.utils import fix_ar_display, reset_db, collector, builder
+from scripts.utils import fix_ar_display, reset_db, collector, builder, get_word_info_prep
 from scripts.dataset_uploading import main as upload_data
 from scripts.datasets_to_tokens import convert_to_tokens, get_global_token_counts
 from scripts.get_word_info import main as collect_info
@@ -13,6 +14,7 @@ from src.utils import convert_language
 EXPERIMENTAL = not False
 deorphanization_level = 2
 limit = 1000 if EXPERIMENTAL else -1
+vocab_file = 'json/collected.txt'
 
 datasets = None
 # if EXPERIMENTAL:
@@ -39,19 +41,26 @@ if EXPERIMENTAL:
 else:
     with open('json/vocab.json', 'r', encoding="utf8") as f:
         vocab = json.load(f)
-
-    existing_vocab_words = [v[k] for v in builder.get_vocab() for k in ['word', 'query']]
+    if os.path.isfile(vocab_file):
+        with open(vocab_file, 'r', encoding="utf8") as f:
+            existing_vocab_words = [w.strip() for w in f.read().split('\n')]
+    else:
+        existing_vocab_words = [v[k] for v in builder.get_vocab() for k in ['word', 'query']]
     vocab = [(w, l) for w, l in vocab if w not in existing_vocab_words]
 
 result = {}
-vocab = tqdm.tqdm(vocab)
+vocab = tqdm.tqdm(sorted(set(vocab)))
+# if os.path.isfile(vocab_file):
+    # os.remove(vocab_file)
+    
+
 for word, lang in vocab:
-    word = word.strip()
+    word = get_word_info_prep(word.strip())
     vocab.set_description_str(f'Collecting info for "{fix_ar_display(word)}" ({lang})')
     if len(word) < 1:
         continue
     result = collect_info(word, lang, wait_time=.1)
-    with open('json/collected.txt', 'a+', encoding="utf8") as f:
+    with open(vocab_file, 'a+', encoding="utf8") as f:
         f.write(word+'\n')
     # if EXPERIMENTAL:
     #     if (vocab.n) % 500 == 0:

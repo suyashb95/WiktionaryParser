@@ -468,7 +468,7 @@ class WiktionaryParser(object):
 
         return res
 
-    def fetch_all_potential(self, word, language=None, old_id=None, verbose=0):
+    def fetch_all_potential(self, word, query=None, language=None, old_id=None, verbose=0):
         def get_possible_altenrnatives(word):
             replacement_dict = {
                 "ا": ["ا", "أ", "إ", "آ"],
@@ -483,13 +483,15 @@ class WiktionaryParser(object):
         
         possible_altenrnatives = get_possible_altenrnatives(word)
         res = {word: self.fetch(word, query=word)}
+        if query is None:
+            query = word
         if verbose > 0:
             possible_altenrnatives = tqdm.tqdm(possible_altenrnatives, desc="Fetching potential forms", leave=False)
         for w in possible_altenrnatives:
             if verbose > 0:
                 possible_altenrnatives.set_postfix(w)
 
-            fetch_res = self.fetch(w, language=language, old_id=old_id, query=word)
+            fetch_res = self.fetch(w, language=language, old_id=old_id, query=query)
             if fetch_res:
                 res[w] = fetch_res
         return res

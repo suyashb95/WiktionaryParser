@@ -18,7 +18,7 @@ collector = Collector(conn)
 builder = GraphBuilder(conn)
 
 deorphanize_prep = Preprocessor(unshakl=True)
-get_word_info_prep = Preprocessor(stemmer=stem.ARLSTem())
+get_word_info_prep = Preprocessor(stemmer=stem.ARLSTem(), return_type="str")
 dataset_2_tokens_prep = Preprocessor(normalizer=Normalizer('أ', alef_norm='ا'))
 #Prep above is too aggressive, please fix
 

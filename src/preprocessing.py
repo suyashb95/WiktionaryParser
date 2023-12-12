@@ -23,7 +23,23 @@ class Normalizer:
         processed_text = text.translate(trans)
         return processed_text
     
-    def normalize(self, text):
+    def normalize_arabic_numbers(self, text):
+        trans = str.maketrans({
+            "١": "1",
+            "٢": "2",
+            "٣": "3",
+            "٤": "4",
+            "٥": "5",
+            "٦": "6",
+            "٧": "7",
+            "٨": "8",
+            "٩": "9",
+            "٠": "0",
+        })
+        processed_text = text.translate(trans)
+        return processed_text
+    
+    def __call__(self, text):
         norm_dict = {
             'ا': self.alef_norm,
             'أ': self.alef_norm,
@@ -39,6 +55,8 @@ class Normalizer:
             'ه\b': self.taa_marbuta_norm,
         }
         text_ = text
+        text_ = self.normalize_punct(text_)
+        text_ = self.normalize_arabic_numbers(text_)
         norm_dict = {k: v for k, v in norm_dict.items() if v is not None}
         for k, v in norm_dict.items():
             k_regex = re.compile(k)
@@ -47,7 +65,10 @@ class Normalizer:
         return text_
 
 class Preprocessor:
-    def __init__(self, return_type="list", stemmer=None, normalizer=None, tokenizer=None, stop_words=None, keep_punct=False, unshakl=True, unemoji=True):
+    def __init__(self, return_type="list", stemmer=None, normalizer=None, tokenizer=None, stop_words=None, 
+                 keep_punct=False, keep_numbers=False,  keep_latin=False, 
+                 unshakl=True, unemoji=True
+                 ):
         self.stemmer = stemmer
         self.normalizer = normalizer if normalizer is not None else Normalizer()
         self.tokenize = word_tokenize if not tokenizer else tokenizer
@@ -56,6 +77,8 @@ class Preprocessor:
         self.return_type = return_type
         self.unshakl = unshakl
         self.unemoji = unemoji
+        self.keep_latin = keep_latin
+        self.keep_numbers = keep_numbers
     
     def is_stopword(self, word):
         return word in self.stop_words
@@ -81,7 +104,7 @@ class Preprocessor:
         return self.stemmer.stem(word)
         
     def normalize(self, word):
-        return self.normalizer.normalize(word)
+        return self.normalizer(word)
 
     def strip_shakl(self, word):
         shakl_regex = re.compile(r'[\u064B-\u0655]')
@@ -119,11 +142,14 @@ class Preprocessor:
             if self.stemmer:
                 w = self.stem(w)
             if self.normalizer:
-                w = self.normalizer.normalize_punct(w)
                 w = self.normalize(w)
             w = self.remove_punct(w)
             if self.unshakl:
                 w = self.strip_shakl(w)
+            if not self.keep_numbers:
+                w = re.sub('[0-9]', ' ', w)
+            if not self.keep_latin:
+                w = re.sub('[A-Za-z]', ' ', w)
             w = self.strip_spaces(w)
 
             processed_text.append(w)
