@@ -380,12 +380,13 @@ class Collector:
     
     def flush(self):
         res = {}
-        while len(self.batch) > 0:
-            b = self.batch.pop(0)
+        for b in tqdm.tqdm(self.batch, position=-1):
             for k in b:
                 res[k] = res.get(k, []) + b[k]
+
         self.save_word_data(**res)
-        print(len(self.batch))
+        self.batch = []
+        self.conn.commit()
 
     def save_word_data(self, words=[], definitions=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
         #Inserting to database

@@ -5,7 +5,7 @@ from src.utils import convert_language
 from .utils import *
 
 results = {}
-def main(word, i, lang, save_to_db=True):
+def main(word, id, lang, save_to_db=True):
     no_spaces_word = re.sub('\s', '_', word)
     if word != no_spaces_word: #If word has space, e.q to saying word is an entity
         fetched_data = {word: parser.fetch(no_spaces_word, language=lang)}
@@ -17,7 +17,7 @@ def main(word, i, lang, save_to_db=True):
 
         #Add original id so that it matches during the update
         for i in range(len(element)):
-            element[i].update({'id': i})
+            element[i].update({'id': id})
         e = collector.save_word(element, save_to_db=save_to_db, save_orphan=False, save_mentions=False)
         for k in e:
             results[k] = results.get(k, []) + e.get(k, [])
