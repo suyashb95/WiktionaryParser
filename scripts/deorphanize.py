@@ -18,7 +18,7 @@ def main(word, i, lang, save_to_db=True):
         #Add original id so that it matches during the update
         for i in range(len(element)):
             element[i].update({'id': i})
-        e = collector.save_word(element, save_to_db=save_to_db, save_orphan=False)
+        e = collector.save_word(element, save_to_db=save_to_db, save_orphan=False, save_mentions=False)
         for k in e:
             results[k] = results.get(k, []) + e.get(k, [])
     return results

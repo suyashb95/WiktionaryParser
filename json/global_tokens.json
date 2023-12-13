@@ -71,24 +71,11 @@
         ]
     },
     {
-        "token": "عالم",
-        "dataset_name": "ArSAS",
+        "token": "و",
+        "dataset_name": "ASTD",
         "frequency": 3,
         "lang": [
             "Egyptian Arabic",
-            "North Levantine Arabic",
-            "South Levantine Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ثور",
-        "dataset_name": "ArSAS",
-        "frequency": 3,
-        "lang": [
-            "Egyptian Arabic",
-            "North Levantine Arabic",
-            "South Levantine Arabic",
             "arabic"
         ]
     },
@@ -113,11 +100,24 @@
         ]
     },
     {
-        "token": "و",
-        "dataset_name": "ASTD",
+        "token": "عالم",
+        "dataset_name": "ArSAS",
         "frequency": 3,
         "lang": [
             "Egyptian Arabic",
+            "North Levantine Arabic",
+            "South Levantine Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ثور",
+        "dataset_name": "ArSAS",
+        "frequency": 3,
+        "lang": [
+            "Egyptian Arabic",
+            "North Levantine Arabic",
+            "South Levantine Arabic",
             "arabic"
         ]
     },
@@ -154,6 +154,92 @@
         "frequency": 3,
         "lang": [
             "Moroccan Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "الي",
+        "dataset_name": "ASTD",
+        "frequency": 2,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "قول",
+        "dataset_name": "ASTD",
+        "frequency": 2,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "علي",
+        "dataset_name": "ASTD",
+        "frequency": 2,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حدث",
+        "dataset_name": "ASTD",
+        "frequency": 2,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حرف",
+        "dataset_name": "MARSA",
+        "frequency": 2,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "نصر",
+        "dataset_name": "MARSA",
+        "frequency": 2,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "كثر",
+        "dataset_name": "MARSA",
+        "frequency": 2,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "من",
+        "dataset_name": "MARSA",
+        "frequency": 2,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "جيش",
+        "dataset_name": "MARSA",
+        "frequency": 2,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
             "arabic"
         ]
     },
@@ -356,92 +442,6 @@
         ]
     },
     {
-        "token": "حرف",
-        "dataset_name": "MARSA",
-        "frequency": 2,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "نصر",
-        "dataset_name": "MARSA",
-        "frequency": 2,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "كثر",
-        "dataset_name": "MARSA",
-        "frequency": 2,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "من",
-        "dataset_name": "MARSA",
-        "frequency": 2,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "جيش",
-        "dataset_name": "MARSA",
-        "frequency": 2,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "الي",
-        "dataset_name": "ASTD",
-        "frequency": 2,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "قول",
-        "dataset_name": "ASTD",
-        "frequency": 2,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "علي",
-        "dataset_name": "ASTD",
-        "frequency": 2,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حدث",
-        "dataset_name": "ASTD",
-        "frequency": 2,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
         "token": "هادشي",
         "dataset_name": "MSTD",
         "frequency": 2,
@@ -528,6 +528,2050 @@
         "frequency": 2,
         "lang": [
             "Moroccan Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بعد",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "استقال",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "رئيس",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "نتظر",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "هنئ",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "دكتور",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حمد",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "جمال",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "دين",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "قيادي",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بحزب",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مصر",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بمناسب",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "صدور",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ولي",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "رواي",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "برادعي",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ستقوي",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بامريك",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مرةاخري",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "رسل",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عصام",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عري",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "شنط",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "شئ",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مقرف",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "شاهد",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "الن",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "اول",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "فيلم",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ستقصائ",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "تناول",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "سرر",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "كواليس",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عرض",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لاول",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مرة",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "والد",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لو",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بخاطري",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حشيش",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "تضح",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بس",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "من",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ملل",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "الل",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "كيل",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عطيني",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "محاضر",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عن",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "فسق",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "فجور",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بجنوب",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "شيش",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "كذا",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "انبع",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مير",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عيد",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "هو",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "للي",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "فعل",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "تقال",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ريكر",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "صريح",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حكي",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لكم",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "قصة",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بين",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "شاب",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "احد",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "فتي",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "كان",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حب",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "كبير",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لكن",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "غلط",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حدة",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "فهل",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ستمر",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "هذه",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "يتم",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "دعو",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لحضور",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ندو",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ثقافي",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ربعأ",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مركز",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عدد",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "قاد",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "تفاصيل",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عود",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "جماع",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "اخو",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حيا",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "سياسي",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بنفس",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ضعه",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "سابق",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مستحيل",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "طرمخ",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "جرائم",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ماضي",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لن",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "جعل",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "تقدم",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "شبر",
+        "dataset_name": "ASTD",
+        "frequency": 1,
+        "lang": [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "غزه",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "كلم",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "تفكك",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "انتشر",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "فضا",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ضيق",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "فان",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لم",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لملم",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "يد",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عون",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "كتب",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حمل",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "موت",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "جميع",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حصار غ",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "زيد",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "صبر",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "زيدو",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "هلال التعا",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بكر",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "تلق",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "متفلت",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "اودي",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "شعيب",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عليق الدراسه في القصيم",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بيا",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لداعش",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "تبني",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "هجم",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "باريس",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ااخي",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "نمر",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مثل",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "رتكب",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "خطا",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "كثير",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "اثرو",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "فتن",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "نال",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "جزا",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "هل تعلم",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "انن",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مشارف",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "م",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لازل",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ناقش",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ستخدم",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "سيل",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "علام",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "تاسس",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عام",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "سماح بالسينما في السعودي",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "هلال هجر",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بصم",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "جحفلي",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "تفق",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "د",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "تحد",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "هجر",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لازال",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "جحفل",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مستمر",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حسم",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حاسم",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "نصر الاتحاد",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "هذا",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "للي",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عرف",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حلي",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ليل",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "نتصار",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ابتد",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حيا",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "هل",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "نسي",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "اهل",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "يمن",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حروب",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مع",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حوثي",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "قتل",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ام",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "انت",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لاتعرف",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ماعمل",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حوث",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "دماج",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "وين",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "كلمه لشركات الاتصال",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حين",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حاسد",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "برامج",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "مجاني",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "الل",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "لا",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "وفق",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "ملاي",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "الي",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عند",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "الا",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حسد",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "فيهم",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "كاني",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "عايش",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "بالبر",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "حتي",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "شبك",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    },
+    {
+        "token": "زفت",
+        "dataset_name": "MARSA",
+        "frequency": 1,
+        "lang": [
+            "Gulf Arabic",
+            "Omani Arabic",
             "arabic"
         ]
     },
@@ -2354,2050 +4398,6 @@
             "Egyptian Arabic",
             "North Levantine Arabic",
             "South Levantine Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "غزه",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "كلم",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "تفكك",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "انتشر",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "فضا",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ضيق",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "فان",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لم",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لملم",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "يد",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عون",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "كتب",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حمل",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "موت",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "جميع",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حصار غ",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "زيد",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "صبر",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "زيدو",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "هلال التعا",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بكر",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "تلق",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "متفلت",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "اودي",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "شعيب",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عليق الدراسه في القصيم",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بيا",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لداعش",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "تبني",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "هجم",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "باريس",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ااخي",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "نمر",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مثل",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "رتكب",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "خطا",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "كثير",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "اثرو",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "فتن",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "نال",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "جزا",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "هل تعلم",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "انن",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مشارف",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "م",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لازل",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ناقش",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ستخدم",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "سيل",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "علام",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "تاسس",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عام",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "سماح بالسينما في السعودي",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "هلال هجر",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بصم",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "جحفلي",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "تفق",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "د",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "تحد",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "هجر",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لازال",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "جحفل",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مستمر",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حسم",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حاسم",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "نصر الاتحاد",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "هذا",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "للي",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عرف",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حلي",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ليل",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "نتصار",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ابتد",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حيا",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "هل",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "نسي",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "اهل",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "يمن",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حروب",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مع",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حوثي",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "قتل",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ام",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "انت",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لاتعرف",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ماعمل",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حوث",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "دماج",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "وين",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "كلمه لشركات الاتصال",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حين",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حاسد",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "برامج",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مجاني",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "الل",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لا",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "وفق",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ملاي",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "الي",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عند",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "الا",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حسد",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "فيهم",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "كاني",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عايش",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بالبر",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حتي",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "شبك",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "زفت",
-        "dataset_name": "MARSA",
-        "frequency": 1,
-        "lang": [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بعد",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "استقال",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "رئيس",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "نتظر",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "هنئ",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "دكتور",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حمد",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "جمال",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "دين",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "قيادي",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بحزب",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مصر",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بمناسب",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "صدور",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ولي",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "رواي",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "برادعي",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ستقوي",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بامريك",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مرةاخري",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "رسل",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عصام",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عري",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "شنط",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "شئ",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مقرف",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "شاهد",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "الن",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "اول",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "فيلم",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ستقصائ",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "تناول",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "سرر",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "كواليس",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عرض",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لاول",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مرة",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "والد",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لو",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بخاطري",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حشيش",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "تضح",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بس",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "من",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ملل",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "الل",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "كيل",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عطيني",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "محاضر",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عن",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "فسق",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "فجور",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بجنوب",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "شيش",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "كذا",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "انبع",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مير",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عيد",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "هو",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "للي",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "فعل",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "تقال",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ريكر",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "صريح",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حكي",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لكم",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "قصة",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بين",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "شاب",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "احد",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "فتي",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "كان",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حب",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "كبير",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لكن",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "غلط",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حدة",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "فهل",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ستمر",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "هذه",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "يتم",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "دعو",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لحضور",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ندو",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ثقافي",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ربعأ",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مركز",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عدد",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "قاد",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "تفاصيل",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "عود",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "جماع",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "اخو",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "حيا",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "سياسي",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "بنفس",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ضعه",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "سابق",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "مستحيل",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "طرمخ",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "جرائم",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "ماضي",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "لن",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "جعل",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "تقدم",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    },
-    {
-        "token": "شبر",
-        "dataset_name": "ASTD",
-        "frequency": 1,
-        "lang": [
-            "Egyptian Arabic",
             "arabic"
         ]
     },

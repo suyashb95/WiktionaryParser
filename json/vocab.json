@@ -57,20 +57,9 @@
         ]
     ],
     [
-        "عالم",
+        "و",
         [
             "Egyptian Arabic",
-            "North Levantine Arabic",
-            "South Levantine Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ثور",
-        [
-            "Egyptian Arabic",
-            "North Levantine Arabic",
-            "South Levantine Arabic",
             "arabic"
         ]
     ],
@@ -91,9 +80,20 @@
         ]
     ],
     [
-        "و",
+        "عالم",
         [
             "Egyptian Arabic",
+            "North Levantine Arabic",
+            "South Levantine Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ثور",
+        [
+            "Egyptian Arabic",
+            "North Levantine Arabic",
+            "South Levantine Arabic",
             "arabic"
         ]
     ],
@@ -122,6 +122,74 @@
         "علي",
         [
             "Moroccan Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "الي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "قول",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "علي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حدث",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حرف",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "نصر",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "كثر",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "من",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "جيش",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
             "arabic"
         ]
     ],
@@ -288,74 +356,6 @@
         ]
     ],
     [
-        "حرف",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "نصر",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "كثر",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "من",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "جيش",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "الي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "قول",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "علي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حدث",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
         "هادشي",
         [
             "Moroccan Arabic",
@@ -422,6 +422,1620 @@
         "ادم",
         [
             "Moroccan Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بعد",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "استقال",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "رئيس",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "نتظر",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "هنئ",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "دكتور",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حمد",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "جمال",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "دين",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "قيادي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بحزب",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مصر",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بمناسب",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "صدور",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ولي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "رواي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "برادعي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ستقوي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بامريك",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مرةاخري",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "رسل",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عصام",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عري",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "شنط",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "شئ",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مقرف",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "شاهد",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "الن",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "اول",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "فيلم",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ستقصائ",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "تناول",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "سرر",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "كواليس",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عرض",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لاول",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مرة",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "والد",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لو",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بخاطري",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حشيش",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "تضح",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بس",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "من",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ملل",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "الل",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "كيل",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عطيني",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "محاضر",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عن",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "فسق",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "فجور",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بجنوب",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "شيش",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "كذا",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "انبع",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مير",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عيد",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "هو",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "للي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "فعل",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "تقال",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ريكر",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "صريح",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حكي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لكم",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "قصة",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بين",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "شاب",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "احد",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "فتي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "كان",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حب",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "كبير",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لكن",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "غلط",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حدة",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "فهل",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ستمر",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "هذه",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "يتم",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "دعو",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لحضور",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ندو",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ثقافي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ربعأ",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مركز",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عدد",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "قاد",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "تفاصيل",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عود",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "جماع",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "اخو",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حيا",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "سياسي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بنفس",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ضعه",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "سابق",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مستحيل",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "طرمخ",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "جرائم",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ماضي",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لن",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "جعل",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "تقدم",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "شبر",
+        [
+            "Egyptian Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "غزه",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "كلم",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "تفكك",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "انتشر",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "فضا",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ضيق",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "فان",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لم",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لملم",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "يد",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عون",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "كتب",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حمل",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "موت",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "جميع",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حصار غ",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "زيد",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "صبر",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "زيدو",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "هلال التعا",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بكر",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "تلق",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "متفلت",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "اودي",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "شعيب",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عليق الدراسه في القصيم",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بيا",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لداعش",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "تبني",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "هجم",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "باريس",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ااخي",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "نمر",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مثل",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "رتكب",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "خطا",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "كثير",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "اثرو",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "فتن",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "نال",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "جزا",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "هل تعلم",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "انن",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مشارف",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "م",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لازل",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ناقش",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ستخدم",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "سيل",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "علام",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "تاسس",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عام",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "سماح بالسينما في السعودي",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "هلال هجر",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بصم",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "جحفلي",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "تفق",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "د",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "تحد",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "هجر",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لازال",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "جحفل",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مستمر",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حسم",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حاسم",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "نصر الاتحاد",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "هذا",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "للي",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عرف",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حلي",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ليل",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "نتصار",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ابتد",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حيا",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "هل",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "نسي",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "اهل",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "يمن",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حروب",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مع",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حوثي",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "قتل",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ام",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "انت",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لاتعرف",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ماعمل",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حوث",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "دماج",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "وين",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "كلمه لشركات الاتصال",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حين",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حاسد",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "برامج",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "مجاني",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "الل",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "لا",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "وفق",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "ملاي",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "الي",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عند",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "الا",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حسد",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "فيهم",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "كاني",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "عايش",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "بالبر",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "حتي",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "شبك",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
+            "arabic"
+        ]
+    ],
+    [
+        "زفت",
+        [
+            "Gulf Arabic",
+            "Omani Arabic",
             "arabic"
         ]
     ],
@@ -1916,1620 +3530,6 @@
             "Egyptian Arabic",
             "North Levantine Arabic",
             "South Levantine Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "غزه",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "كلم",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "تفكك",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "انتشر",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "فضا",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ضيق",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "فان",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لم",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لملم",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "يد",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عون",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "كتب",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حمل",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "موت",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "جميع",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حصار غ",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "زيد",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "صبر",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "زيدو",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "هلال التعا",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بكر",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "تلق",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "متفلت",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "اودي",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "شعيب",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عليق الدراسه في القصيم",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بيا",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لداعش",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "تبني",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "هجم",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "باريس",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ااخي",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "نمر",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مثل",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "رتكب",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "خطا",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "كثير",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "اثرو",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "فتن",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "نال",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "جزا",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "هل تعلم",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "انن",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مشارف",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "م",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لازل",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ناقش",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ستخدم",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "سيل",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "علام",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "تاسس",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عام",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "سماح بالسينما في السعودي",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "هلال هجر",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بصم",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "جحفلي",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "تفق",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "د",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "تحد",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "هجر",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لازال",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "جحفل",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مستمر",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حسم",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حاسم",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "نصر الاتحاد",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "هذا",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "للي",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عرف",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حلي",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ليل",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "نتصار",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ابتد",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حيا",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "هل",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "نسي",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "اهل",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "يمن",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حروب",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مع",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حوثي",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "قتل",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ام",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "انت",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لاتعرف",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ماعمل",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حوث",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "دماج",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "وين",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "كلمه لشركات الاتصال",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حين",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حاسد",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "برامج",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مجاني",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "الل",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لا",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "وفق",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ملاي",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "الي",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عند",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "الا",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حسد",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "فيهم",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "كاني",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عايش",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بالبر",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حتي",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "شبك",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "زفت",
-        [
-            "Gulf Arabic",
-            "Omani Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بعد",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "استقال",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "رئيس",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "نتظر",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "هنئ",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "دكتور",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حمد",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "جمال",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "دين",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "قيادي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بحزب",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مصر",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بمناسب",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "صدور",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ولي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "رواي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "برادعي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ستقوي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بامريك",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مرةاخري",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "رسل",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عصام",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عري",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "شنط",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "شئ",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مقرف",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "شاهد",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "الن",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "اول",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "فيلم",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ستقصائ",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "تناول",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "سرر",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "كواليس",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عرض",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لاول",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مرة",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "والد",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لو",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بخاطري",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حشيش",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "تضح",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بس",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "من",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ملل",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "الل",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "كيل",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عطيني",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "محاضر",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عن",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "فسق",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "فجور",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بجنوب",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "شيش",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "كذا",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "انبع",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مير",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عيد",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "هو",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "للي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "فعل",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "تقال",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ريكر",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "صريح",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حكي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لكم",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "قصة",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بين",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "شاب",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "احد",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "فتي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "كان",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حب",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "كبير",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لكن",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "غلط",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حدة",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "فهل",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ستمر",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "هذه",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "يتم",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "دعو",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لحضور",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ندو",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ثقافي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ربعأ",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مركز",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عدد",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "قاد",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "تفاصيل",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "عود",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "جماع",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "اخو",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "حيا",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "سياسي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "بنفس",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ضعه",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "سابق",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "مستحيل",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "طرمخ",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "جرائم",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "ماضي",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "لن",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "جعل",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "تقدم",
-        [
-            "Egyptian Arabic",
-            "arabic"
-        ]
-    ],
-    [
-        "شبر",
-        [
-            "Egyptian Arabic",
             "arabic"
         ]
     ],

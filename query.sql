@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `{definitions_table}` (
   `partOfSpeech` varchar(16) NOT NULL,
   `text` varchar(1024) NOT NULL,
   `headword` varchar(256) NOT NULL , 
+  -- `dialect` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`(64)),
   CONSTRAINT fk_wordId FOREIGN KEY (wordId)  
   REFERENCES {word_table}(id)  
