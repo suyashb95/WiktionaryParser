@@ -1,6 +1,13 @@
 import os
 import re
 from .utils import *
+dataset_langs = {
+    "ASTD": ['Egyptian Arabic', 'arabic'],
+    "ArSAS": ['Egyptian Arabic', 'North Levantine Arabic', 'South Levantine Arabic', 'arabic'],
+    "MSTD": ['Moroccan Arabic', 'arabic'],
+    "MARSA": ['Gulf Arabic', 'Omani Arabic', 'arabic'],
+}
+
 
 def main(data_dir, limit=-1):
     datasets = []

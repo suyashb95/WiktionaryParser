@@ -13,7 +13,10 @@ def main(word, lang, wait_time=0, save_to_db=True):
     if word != no_spaces_word: #If word has space, e.q to saying word is an entity
         fetched_data = {word: parser.fetch(no_spaces_word, query=word, language=lang)}
     else:
-        prepped_word = ' '.join(word) #[0]
+        if type(word) != str:
+            prepped_word = ' '.join(word) #[0]
+        else:
+            prepped_word = word
         # print(f"Fetching all potentials for {prepped_word} ({lang})")
         fetched_data = parser.fetch_all_potential(prepped_word, query=word, language=lang)
     for k in fetched_data:

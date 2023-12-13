@@ -66,8 +66,9 @@ class Normalizer:
 
 class Preprocessor:
     def __init__(self, return_type="list", stemmer=None, normalizer=None, tokenizer=None, stop_words=None, 
-                 keep_punct=False, keep_numbers=False,  keep_latin=False, 
-                 unshakl=True, unemoji=True
+                 hashtag_replacement='', mention_replacement='',
+                 keep_punct=False, keep_numbers=False, keep_latin=False, 
+                 keep_shakl=False, keep_emojis=False
                  ):
         self.stemmer = stemmer
         self.normalizer = normalizer if normalizer is not None else Normalizer()
@@ -75,10 +76,12 @@ class Preprocessor:
         self.punctuation = string.punctuation if not keep_punct else ''
         self.stop_words = set() if not stop_words else set(stop_words)
         self.return_type = return_type
-        self.unshakl = unshakl
-        self.unemoji = unemoji
+        self.keep_shakl = keep_shakl
+        self.keep_emojis = keep_emojis
         self.keep_latin = keep_latin
         self.keep_numbers = keep_numbers
+        self.mention_replacement = mention_replacement
+        self.hashtag_replacement = hashtag_replacement
     
     def is_stopword(self, word):
         return word in self.stop_words
@@ -129,11 +132,15 @@ class Preprocessor:
         processed_text = []
         text = self.stripurl(text)
         text = self.striphtml(text)
+        if self.hashtag_replacement is not None:
+            text = re.sub(r'#\w+', str(self.hashtag_replacement), text)
+        if self.mention_replacement is not None:
+            text = re.sub(r'@\w+', str(self.mention_replacement), text)
         # text = text
         # text = text
         tokenized_text = self.tokenize(text)
         for w in tokenized_text:
-            if self.unemoji:
+            if not self.keep_emojis:
                 w = self.strip_emojis(w)
             
             
@@ -144,7 +151,7 @@ class Preprocessor:
             if self.normalizer:
                 w = self.normalize(w)
             w = self.remove_punct(w)
-            if self.unshakl:
+            if not self.keep_shakl:
                 w = self.strip_shakl(w)
             if not self.keep_numbers:
                 w = re.sub('[0-9]', ' ', w)

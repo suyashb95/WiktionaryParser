@@ -21,7 +21,8 @@ class Collector:
                  dataset_table="data", 
                  edge_table="relationships",
                  definitions_table="definitions",
-                 force_edge_tail_constraint=True
+                 force_edge_tail_constraint=True,
+                 auto_flush_after = 10
                 ):
 
         self.conn = conn
@@ -32,19 +33,21 @@ class Collector:
         self.edge_table = edge_table
 
         self.batch = []
+        self.auto_flush_after = auto_flush_after
         self.force_edge_tail_constraint = force_edge_tail_constraint
 
         self.base_url = "https://en.wiktionary.org/"
+    def reset_db(self):
         self.__create_tables()
-        if True:
-            with open('appendix.json', 'w', encoding='utf8') as f:
-                f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
+        with open('appendix.json', 'w', encoding='utf8') as f:
+            f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
 
-            with open('category_links.json', 'w', encoding='utf8') as f:
-                f.write(json.dumps(self.__get_category_data(), indent=2, ensure_ascii=False))
+        with open('category_links.json', 'w', encoding='utf8') as f:
+            f.write(json.dumps(self.__get_category_data(), indent=2, ensure_ascii=False))
 
-    def __apply_hash(self, s):
-        return hashlib.sha256(s.encode()).hexdigest()
+    @staticmethod
+    def apply_hash(text):
+        return hashlib.sha256(text.encode()).hexdigest()
     
     def __create_tables(self):
         table_names = {
@@ -105,7 +108,7 @@ class Collector:
                         }
                         # apx_unique_hash = '_'.join([str(apx[k]) for k in sorted(apx)])
                         apx_unique_hash = label
-                        apx['id'] = self.__apply_hash(apx_unique_hash)
+                        apx['id'] = Collector.apply_hash(apx_unique_hash)
                         res.append(apx)
                     
         cur = self.conn.cursor()
@@ -134,7 +137,7 @@ class Collector:
                     # hasSubcat = "CategoryTreeBullet" in tree_bullet.get('class')
                     a_data = {
                         "sourceList": k,
-                        "id": self.__apply_hash(a.get_text()),
+                        "id": Collector.apply_hash(a.get_text()),
                         "title": a.get("title"),
                         "text": a.get_text(),
                         "wikiUrl": a.get("href"),
@@ -214,10 +217,10 @@ class Collector:
             for i in range(len(rw_list)):
                 rw_list[i].update(rw_list[i].get("words", {}))
                 def_hash = f"{rw_list[i].get('wordId')}_{rw_list[i].get('pos')}_{rw_list[i].get('def_text')[:hash_maxlen]}"
-                def_hash = self.__apply_hash(def_hash)
+                def_hash = Collector.apply_hash(def_hash)
                 rw_list[i]['def_hash'] = def_hash
                 rw_list[i]['word'] = rw_list[i].pop('words')
-                rw_list[i]['wordId'] = self.__apply_hash(rw_list[i]['word'])
+                rw_list[i]['wordId'] = Collector.apply_hash(rw_list[i]['word'])
 
                 for k in ['pos', 'def_text']:
                     if k in rw_list[i]:
@@ -245,7 +248,7 @@ class Collector:
                     
             #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
             unique_w_hash = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('raw_text')[:hash_maxlen]}"
-            unique_w_hash = self.__apply_hash(unique_w_hash)
+            unique_w_hash = Collector.apply_hash(unique_w_hash)
             definition[i]['definitionId'] = unique_w_hash #PRIMARY KEY
 
             #Isolate appendix in its own table
@@ -255,7 +258,7 @@ class Collector:
             
             appendix = {
                 "appendixId": [
-                    self.__apply_hash(e) for e in appendix
+                    Collector.apply_hash(e) for e in appendix
                 ] #FOREIGN KEY
             }
             appendix['definitionId'] = unique_w_hash
@@ -277,7 +280,7 @@ class Collector:
 
         return definition, appendices, mentions, categories, examples
         
-    def save_word(self, fetched_data, save_to_db=False, save_orphan=True):
+    def save_word(self, fetched_data, save_to_db=False, save_orphan=True, save_mentions=True):
         hash_maxlen = 48
         related_words = []
         orph_nodes = []
@@ -292,7 +295,7 @@ class Collector:
                 k: row.get(k) for k in ['id', 'etymology', 'language', "query", 'word', 'wikiUrl', 'isDerived']
             }
             word_str = word['word']
-            word_id = self.__apply_hash(word_str)
+            word_id = Collector.apply_hash(word_str)
             word['wikiUrl'] = word['wikiUrl'] if word['wikiUrl'] is not None else f"/wiki/{word_str}"
             #Row may appear with its actual id if the 
             if word['id'] is None:
@@ -304,7 +307,7 @@ class Collector:
             categories_ = row.pop('categories', [])
             categories_ = {
                 "categoryId": [
-                    self.__apply_hash(e) for e in categories_
+                    Collector.apply_hash(e) for e in categories_
                 ] #FOREIGN KEY,
             }
             categories_['wordId'] = word_id
@@ -324,7 +327,7 @@ class Collector:
                         onode = {}
                         onode['word'] = r.get('word')
                         onode['wikiUrl'] = r.get('wikiUrl')
-                        onode['id'] = self.__apply_hash(onode['word'])
+                        onode['id'] = Collector.apply_hash(onode['word'])
                         onode['query'] = word_str
                         onode['etymology'] = None
                         onode['language'] = word.get("language")
@@ -332,11 +335,11 @@ class Collector:
                         orph_nodes.append(onode)
 
                 #Newly discovered words (From mentions)
-                if save_orphan:
+                if save_mentions:
                     for m in mentions:
                         mnode = copy.deepcopy(m)
                         mnode.update({
-                            "id": self.__apply_hash(m.get('word')),
+                            "id": Collector.apply_hash(m.get('word')),
                             "query": word.get("word"),
                             "etymology": None
                         })
@@ -366,16 +369,22 @@ class Collector:
             "categories": categories,
             "examples": examples
         } 
+        self.batch.append(res)
         if save_to_db:
             self.save_word_data(**res)
+        elif self.auto_flush_after > 0:
+            if self.auto_flush_after <= len(self.batch):
+                self.flush()
 
-        self.batch.append(res)
         return res #fetched_data #related_words
     
     def flush(self):
+        res = {}
         while len(self.batch) > 0:
             b = self.batch.pop(0)
-            self.save_word_data(**b)
+            for k in b:
+                res[k] = res.get(k, []) + b[k]
+        self.save_word_data(**res)
         print(len(self.batch))
 
     def save_word_data(self, words=[], definitions=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
