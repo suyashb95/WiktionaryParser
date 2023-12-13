@@ -380,7 +380,7 @@ class Collector:
     
     def flush(self):
         res = {}
-        for b in tqdm.tqdm(self.batch, position=-1):
+        for b in self.batch:
             for k in b:
                 res[k] = res.get(k, []) + b[k]
 
