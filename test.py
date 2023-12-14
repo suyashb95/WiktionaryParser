@@ -10,4 +10,4 @@ coll = Collector(conn)
 # with open('category_links.json', 'w', encoding="utf8") as f:
 #     f.write(json.dumps(category_links, indent=4, ensure_ascii=False))
 
-(coll.export_to_csv('./backup/csv_export/'))
+# (coll.export_to_csv('./backup/csv_export/'))
