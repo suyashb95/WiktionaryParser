@@ -14,7 +14,7 @@ from scripts.deorphanize import main as deorphanize
 from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language
 
-EXPERIMENTAL = not False
+EXPERIMENTAL = False
 deorphanization_level = 2
 limit = 100 if EXPERIMENTAL else -1
 vocab_file = 'json/collected.txt'
@@ -44,18 +44,14 @@ if EXPERIMENTAL:
 else:
     with open('json/vocab.json', 'r', encoding="utf8") as f:
         vocab = json.load(f)
-    if os.path.isfile(vocab_file) and False:
-        with open(vocab_file, 'r', encoding="utf8") as f:
-            existing_vocab_ = [w.strip() for w in f.read().split('\n')]
-    else:
-        existing_vocab_ = builder.get_vocab(category_info=False)
-        print(json.dumps(existing_vocab_[:2], indent=4))
-        existing_vocab_ = sorted({v[vocab_id_key] for v in existing_vocab_})        
+
+    existing_vocab_ = builder.get_vocab(category_info=False)
+    print(json.dumps(existing_vocab_[:2], indent=4))
+    existing_vocab_ = sorted({v[vocab_id_key] for v in existing_vocab_})        
 
 result = {}
 # vocab = sorted(dict(vocab).items())
 # collector.auto_flush_after = len(vocab) // 10 #Flush 10 times throughout the processing loop
-collector.auto_flush_after = 5
 # print(vocab[:1])
 # print(existing_vocab_[:1])
 # 1/0
