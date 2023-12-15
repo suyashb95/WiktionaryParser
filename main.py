@@ -14,15 +14,15 @@ from scripts.deorphanize import main as deorphanize
 from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language
 
-EXPERIMENTAL = False
+EXPERIMENTAL = not False
 deorphanization_level = 2
 limit = 100 if EXPERIMENTAL else -1
 vocab_file = 'json/collected.txt'
 
 datasets = None
-# if EXPERIMENTAL:
-#     reset_db()
-#     datasets = upload_data('D:\Datasets', limit=limit)
+if EXPERIMENTAL:
+    reset_db()
+    datasets = upload_data('D:\Datasets', limit=limit)
 
 
 
@@ -55,7 +55,7 @@ else:
 result = {}
 # vocab = sorted(dict(vocab).items())
 # collector.auto_flush_after = len(vocab) // 10 #Flush 10 times throughout the processing loop
-collector.auto_flush_after = 500
+collector.auto_flush_after = 5
 # print(vocab[:1])
 # print(existing_vocab_[:1])
 # 1/0

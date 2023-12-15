@@ -1,6 +1,8 @@
 import sys
 from nltk import stem
 import pymysql
+
+from src.database import MySQLClient
 sys.path.append('.')
 from bidi.algorithm import get_display
 import arabic_reshaper
@@ -14,8 +16,9 @@ parser = WiktionaryParser()
 prep = Preprocessor()
 
 conn = pymysql.connect(host="localhost", user="root", password="", db="knowledge_graph")
-collector = Collector(conn, auto_flush_after=1000)
 builder = GraphBuilder(conn)
+conn = MySQLClient(host="localhost", user="root", password="", db="knowledge_graph")
+collector = Collector(conn, auto_flush_after=1000)
 
 deorphanize_prep = Preprocessor(keep_shakl=False)
 get_word_info_prep = Preprocessor(stemmer=stem.ARLSTem(), return_type="str")

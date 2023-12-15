@@ -50,21 +50,19 @@ class Collector:
         return hashlib.sha256(text.encode()).hexdigest()
     
     def __create_tables(self):
+        # Define the table names
         table_names = {
             "word_table": self.word_table,
             "dataset_table": self.dataset_table,
             "definitions_table": self.definitions_table,
             "edge_table": self.edge_table,
         }
-        cur = self.conn.cursor()
-        with open('query.sql', 'r') as f:
-            query = f.read()
-        query = query.format(**table_names).split(';')
-        for q in query:
-            q = q.strip()
-            if len(q) > 0:
-                cur.execute(q+";")
-        self.conn.commit()
+
+        # Load and format the SQL script from the file
+        self.conn.load_sql_from_file('query.sql', **table_names)
+
+        # Execute the formatted script (which might contain multiple queries)
+        self.conn.execute()
 
     def __get_appendix_data(self):
         res = []
@@ -111,9 +109,7 @@ class Collector:
                         apx['id'] = Collector.apply_hash(apx_unique_hash)
                         res.append(apx)
                     
-        cur = self.conn.cursor()
-        cur.executemany("INSERT IGNORE INTO appendix (id, label, description, category, wikiUrl) VALUES (%(id)s, %(label)s, %(description)s, %(category)s, %(wikiUrl)s) ", res)
-        self.conn.commit()
+        self.conn.create("appendix", res)
         return res
     
     
@@ -150,9 +146,7 @@ class Collector:
                     break
 
                 url = self.base_url + url.get('href')
-        cur = self.conn.cursor()
-        cur.executemany("INSERT IGNORE INTO `categories` (`id`, `title`, `text`, `sourceList`, `wikiUrl`) VALUES (%(id)s, %(title)s, %(text)s, %(sourceList)s, %(wikiUrl)s)", data)
-        self.conn.commit()
+        self.conn.create("categories", data)
         return data
 
     
@@ -169,8 +163,7 @@ class Collector:
         return data
     
     def erase_db(self):
-        cur = self.conn.cursor()
-        cur.execute("SET FOREIGN_KEY_CHECKS = 0")
+        self.conn.execute("SET FOREIGN_KEY_CHECKS = 0")
         target_tables = [
             self.definitions_table+"_apx", self.edge_table, 'word_categories', "examples",
             # 'categories', 'appendix',
@@ -179,14 +172,13 @@ class Collector:
         target_tables = tqdm.tqdm(target_tables, leave=False)
         for table in target_tables:
             target_tables.set_description_str(f'Truncating {table}')
-            cur.execute(f"TRUNCATE TABLE {table}")
-            cur.execute(f"ALTER TABLE {table} AUTO_INCREMENT = 1")
-        cur.execute("SET FOREIGN_KEY_CHECKS = 1")
+            self.conn.execute(f"TRUNCATE TABLE {table}")
+            self.conn.execute(f"ALTER TABLE {table} AUTO_INCREMENT = 1")
+        self.conn.execute("SET FOREIGN_KEY_CHECKS = 1")
 
     def insert_data(self, dataset, dataset_name=None, task=None):
         task = task if task is not None else 'NULL'
         dataset_name = dataset_name if dataset_name is not None else 'NULL'
-        cur = self.conn.cursor()
         # dataset = dataset[:5]
         rows = []
         for e in tqdm.tqdm(dataset, desc=f"Inserting database: {dataset_name}", leave=False):
@@ -195,19 +187,10 @@ class Collector:
             row = {k: "NULL" if v is None else v for k, v in row.items()}
             rows.append(row)
 
-        keys = row.keys()
-        columns = ', '.join("`" + str(x).replace('/', '_') + "`" for x in keys)
-        values = ', '.join("%(" + str(x).replace('/', '_') + ")s" for x in keys)
-        query = "INSERT INTO %s ( %s ) VALUES ( %s );" % (self.dataset_table, columns, values)
-        cur.executemany(query, rows)
+        self.conn.insert(self.dataset_table, rows)
 
-        self.conn.commit()
-
-    def insert_dataset(self, path):
-        dataset_name = path.split('/')[-1].replace('.csv', '')
-        file_rows = self.coll.adapt_csv_dataset(path, dataset_name=dataset_name)
-        self.coll.insert_data(file_rows, dataset_name=dataset_name, task="Sentiment Analysis")
-
+    # Following code made with ChatGPT Free (Needs to be checked)
+ 
     def process_fetched_relationships(self, element, word_id, hash_maxlen=-1):
         related_words = []
         for rw in element.get("relatedWords", []):
@@ -216,16 +199,16 @@ class Collector:
             rw_list = flatten_dict(rw)
             for i in range(len(rw_list)):
                 rw_list[i].update(rw_list[i].get("words", {}))
-                def_hash = f"{rw_list[i].get('wordId')}_{rw_list[i].get('pos')}_{rw_list[i].get('def_text')[:hash_maxlen]}"
-                def_hash = Collector.apply_hash(def_hash)
-                rw_list[i]['def_hash'] = def_hash
+                headDefinitionId = f"{rw_list[i].get('wordId')}_{rw_list[i].get('pos')}_{rw_list[i].get('def_text')[:hash_maxlen]}"
+                headDefinitionId = Collector.apply_hash(headDefinitionId)
+                rw_list[i]['headDefinitionId'] = headDefinitionId
                 rw_list[i]['word'] = rw_list[i].pop('words')
                 rw_list[i]['wordId'] = Collector.apply_hash(rw_list[i]['word'])
 
-                for k in ['pos', 'def_text']:
-                    if k in rw_list[i]:
-                        del rw_list[i][k]
+                for k in ['pos', 'def_text', 'isDerived']:
+                    rw_list[i].pop(k, None)
             related_words += rw_list
+
         return related_words
 
     def process_fetched_definition(self, element, word_id, hash_maxlen=-1):
@@ -242,14 +225,15 @@ class Collector:
         definition = flatten_dict(definition)
         for i in range(len(definition)):
             definition[i].update(definition[i].get("text", {}))
-            # for k_ in ["examples"]:
-            #     if k_ in definition[i]:
-            #         definition[i].pop(k_)
+            
                     
             #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
             unique_w_hash = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('raw_text')[:hash_maxlen]}"
             unique_w_hash = Collector.apply_hash(unique_w_hash)
-            definition[i]['definitionId'] = unique_w_hash #PRIMARY KEY
+            definition[i]['id'] = unique_w_hash #PRIMARY KEY
+
+            for k_ in ["raw_text"]:
+                definition[i].pop(k_, None)
 
             #Isolate appendix in its own table
             appendix = definition[i].pop('appendix_tags', [])
@@ -301,6 +285,7 @@ class Collector:
             if word['id'] is None:
                 word['id'] = word_id
             word['word'] = re.sub('\W|_', ' ', word_str)
+            word['isDerived'] = 0
             words.append(word)
                         
             #Isolate categories in their own table
@@ -325,13 +310,13 @@ class Collector:
                 if save_orphan:
                     for r in relations:
                         onode = {}
-                        onode['word'] = r.get('word')
+                        onode['word'] = r.pop('word')
                         onode['wikiUrl'] = r.get('wikiUrl')
                         onode['id'] = Collector.apply_hash(onode['word'])
                         onode['query'] = word_str
                         onode['etymology'] = None
                         onode['language'] = word.get("language")
-                        
+                        onode['isDerived'] = 1
                         orph_nodes.append(onode)
 
                 #Newly discovered words (From mentions)
@@ -341,14 +326,14 @@ class Collector:
                         mnode.update({
                             "id": Collector.apply_hash(m.get('word')),
                             "query": word.get("word"),
-                            "etymology": None
+                            "etymology": None,
                         })
                         mnode_def_id = mnode.pop('definitionId')
                         new_rel = {
                             "relationshipType": "mention",
                             "wordId": mnode['id'],
-                            "def_hash": mnode_def_id,
-                            "word": mnode['word']
+                            "headDefinitionId": mnode_def_id,
+                            # "word": mnode['word'],
                         }
                         orph_nodes.append(mnode)
                         relations.append(new_rel)
@@ -380,57 +365,40 @@ class Collector:
     
     def flush(self):
         res = {}
-        self.conn.commit()
         for b in tqdm.tqdm(self.batch, position=0, leave=False):
             for k in b:
                 res[k] = res.get(k, []) + b[k]
 
         self.save_word_data(**res)
         self.batch = []
-        self.conn.commit()
 
     def save_word_data(self, words=[], definitions=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
-        #Inserting to database
-        cur = self.conn.cursor()
+        # Inserting and updating to database
         if update:
-            cur.executemany(f"UPDATE `{self.word_table}` SET query=%(query)s, word=%(word)s, etymology=%(etymology)s, language=%(language)s, wikiUrl=%(wikiUrl)s, isDerived=0 WHERE id=%(id)s", words)
-            cur.executemany(f"UPDATE `{self.word_table}` SET query=%(query)s, word=%(word)s, etymology=%(etymology)s, language=%(language)s, wikiUrl=%(wikiUrl)s, isDerived=1 WHERE id=%(id)s", orph_nodes)
-            self.conn.commit()
-        if insert:
-            cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl, isDerived) VALUES (%(id)s, %(query)s, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s, 0)", words)
-            cur.executemany(f"INSERT IGNORE INTO `{self.word_table}` (id, query, word, etymology, language, wikiUrl, isDerived) VALUES (%(id)s, NULL, %(word)s, %(etymology)s, %(language)s, %(wikiUrl)s, 1)", orph_nodes)
-            cur.executemany(f"INSERT IGNORE INTO {self.definitions_table} (id, wordId, partOfSpeech, text, headword) VALUES (%(definitionId)s, %(wordId)s, %(partOfSpeech)s, %(text)s, %(headword)s);", definitions)
-            if len(appendices) > 0:
-                apx_q = f"INSERT IGNORE INTO {self.definitions_table}_apx (definitionId, appendixId) VALUES (%(definitionId)s, %(appendixId)s);"
-                cur.executemany(apx_q, appendices)
-            
-            cur.executemany(f"INSERT IGNORE INTO {self.edge_table} (headDefinitionId, wordId, relationshipType) VALUES (%(def_hash)s, %(wordId)s, %(relationshipType)s)", related_words)
-            cur.executemany(f"INSERT IGNORE INTO `word_categories` (wordId, categoryId) VALUES (%(wordId)s, %(categoryId)s)", categories)
-            cur.executemany(f"INSERT IGNORE INTO `examples` (definitionId, quotation, transliteration, translation, source, example_text) VALUES (%(definitionId)s, %(quotation)s, %(transliteration)s, %(translation)s, %(source)s, %(example_text)s);", examples)
-            self.conn.commit()
+            self.conn.update(self.word_table, data=words, conditions={"id": "%(id)s"}, ignore=True, isDerived=0)
+            self.conn.update(self.word_table, data=orph_nodes, conditions={"id": "%(id)s"}, ignore=True, isDerived=1)
 
+        if insert:
+            self.conn.insert(self.word_table, words, ignore=True)
+            self.conn.insert(self.word_table, orph_nodes, ignore=True)
+            self.conn.insert(self.definitions_table, definitions, ignore=True)
+            if len(appendices) > 0:
+                self.conn.insert(f"{self.definitions_table}_apx", appendices, ignore=True)
+
+            self.conn.insert(self.edge_table, related_words, ignore=True)
+            self.conn.insert("word_categories", categories, ignore=True)
+            self.conn.insert("examples", examples, ignore=True)
+
+    
     def export_to_csv(self, path, encoding="utf8", sep=","):
         path = Path(path)
         path.mkdir(parents=True, exist_ok=True)
-        cur = self.conn.cursor()
-        cur.execute("SHOW TABLES;")
-        tables = [e[0] for e in cur.fetchall()]
-
+        
+        tables = self.conn.get_table_names()
         for table in tables:
-            cur.execute(f"SELECT * FROM {table};")
-            keys = [desc[0] for desc in cur.description]
-            result = []
-            for row in cur.fetchall():
-                row_processed = []
-                for e in row:
-                    if type(e) == str:
-                        row_processed.append(e.strip())
-                    elif e is None:
-                        row_processed.append('')
-                    else:
-                        row_processed.append(e)
-                result.append(row_processed)
-            result = [dict(zip(keys, row)) for row in result]
+            result = self.conn.read(table)
+            keys = result[0].keys()
+            
             with open(os.path.join(path, f"{table}.csv"), "w", encoding=encoding, newline='') as f:
                 dict_writer = csv.DictWriter(f, keys)
                 dict_writer.writeheader()
