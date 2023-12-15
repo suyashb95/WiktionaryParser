@@ -280,7 +280,7 @@ class Collector:
                 k: row.get(k) for k in ['id', 'etymology', 'language', "query", 'word', 'wikiUrl', 'isDerived']
             }
             word_str = word['word']
-            word_id = Collector.apply_hash(word_str)
+            word_id = Collector.apply_hash("{word} ({language})".format(**word))
             word['wikiUrl'] = word['wikiUrl'] if word['wikiUrl'] is not None else f"/wiki/{word_str}"
             #Row may appear with its actual id if the 
             if word['id'] is None:
