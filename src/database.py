@@ -47,14 +47,20 @@ class MySQLClient(DatabaseClient):
             C.append(f"{key}={value}")
         return " WHERE " + " AND ".join(C)
 
+    def _build_columns(self, data):
+        keys = [entry.keys() for entry in data]
+        keys = set().union(*keys)
+        return keys
+    
     def insert(self, collection_name, data, ignore=False, **kwargs):
         if not data:
             return None
         if isinstance(data, dict):
             data = [data]
         # Assuming 'data' is a dictionary representing columns and their values
-        columns = ', '.join(data[0].keys())
-        placeholders = ', '.join([f"%({k})s" for k in data[0].keys()])
+        keys = self._build_columns(data)
+        columns = ', '.join(keys)
+        placeholders = ', '.join([f"%({k})s" for k in keys])
         instruction = "INSERT IGNORE" if ignore else "INSERT"
         self.query = f"{instruction} INTO {collection_name} ({columns}) VALUES ({placeholders})"
         return self.execute(data=data, **kwargs)
@@ -70,7 +76,8 @@ class MySQLClient(DatabaseClient):
             return None
         if isinstance(data, dict):
             data = [data]
-        update_string = ', '.join([f"{key}=%({key})s" for key in data[0].keys()])
+        keys = self._build_columns(data)
+        update_string = ', '.join([f"{key}=%({key})s" for key in keys])
         condition_string = self._build_conditions(conditions)
         instruction = "UPDATE IGNORE" if ignore else "UPDATE"
         self.query = f"{instruction} {collection_name} SET {update_string}{condition_string}"

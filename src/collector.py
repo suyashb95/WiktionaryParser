@@ -204,9 +204,10 @@ class Collector:
                 rw_list[i]['headDefinitionId'] = headDefinitionId
                 rw_list[i]['word'] = rw_list[i].pop('words')
                 rw_list[i]['wordId'] = Collector.apply_hash(rw_list[i]['word'])
-
-                for k in ['pos', 'def_text', 'isDerived']:
-                    rw_list[i].pop(k, None)
+                rw_list_keys = list(rw_list[i].keys())
+                for k in rw_list_keys:
+                    if k not in ['headDefinitionId', 'wordId', 'relationshipType', 'word']:
+                        del rw_list[i][k]
             related_words += rw_list
 
         return related_words
