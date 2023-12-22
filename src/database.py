@@ -9,15 +9,15 @@ class DatabaseClient:
         self.password = password
         self.db = db
 
-    def insert(self, collection_name, data):
+    def insert(self, collection_name, data, ignore=False, **kwargs):
         # Implementation for the CREATE operation
         pass
 
-    def read(self, collection_name, conditions={}):
+    def read(self, collection_name, conditions={}, joins=[], fields='*', order_by=None, limit=None):
         # Implementation for the READ operation
         pass
 
-    def update(self, collection_name, data, conditions={}):
+    def update(self, collection_name, data, conditions={}, ignore=False, **kwargs):
         # Implementation for the UPDATE operation
         pass
 
@@ -42,9 +42,13 @@ class MySQLClient(DatabaseClient):
             return ""
         C = []
         for key, value in conditions.items():
-            if not re.fullmatch(r'%\(\w+\)s', value):
-                value = f"'{value}'"
-            C.append(f"{key}={value}")
+            if isinstance(value, (list, tuple, set)):
+                value = ", ".join([f"'{e}'" for e in value])
+                C.append(f"{key} IN ({value})")
+            else:
+                if not re.fullmatch(r'%\(\w+\)s', value):
+                    value = f"'{value}'"
+                C.append(f"{key}={value}")
         return " WHERE " + " AND ".join(C)
 
     def _build_columns(self, data):
@@ -65,10 +69,26 @@ class MySQLClient(DatabaseClient):
         self.query = f"{instruction} INTO {collection_name} ({columns}) VALUES ({placeholders})"
         return self.execute(data=data, **kwargs)
         # Execute the query or return it
-
-    def read(self, collection_name, conditions={}):
+    
+    def read(self, collection_name, conditions={}, joins=[], fields='*', order_by=None, limit=None):
+        """
+        Read method that can handle complex queries including joins.
+        
+        :param collection_name: Main table name.
+        :param conditions: Dictionary of conditions for WHERE clause.
+        :param joins: List of tuples for joins, each tuple contains (table, condition).
+        :param fields: Fields to select, defaults to '*'.
+        :param order_by: Order by clause.
+        :param limit: Limit clause.
+        :return: Result of the query.
+        """
+        select_clause = f"SELECT {fields} FROM {collection_name}"
+        join_clause = ' '.join([f"JOIN {table} ON {condition}" for table, condition in joins])
         condition_string = self._build_conditions(conditions)
-        self.query = f"SELECT * FROM {collection_name}{condition_string}"
+        order_by_clause = f" ORDER BY {order_by}" if order_by else ""
+        limit_clause = f" LIMIT {limit}" if limit else ""
+
+        self.query = f"{select_clause} {join_clause} {condition_string} {order_by_clause} {limit_clause}".strip()
         return self.execute()
 
     def update(self, collection_name, data, conditions={}, ignore=False, **kwargs):

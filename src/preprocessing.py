@@ -19,6 +19,7 @@ class Normalizer:
             "؟": "?",
             "،": ",",
             "؛": ";",
+            "…": "..."
         })
         processed_text = text.translate(trans)
         return processed_text

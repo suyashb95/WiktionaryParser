@@ -15,7 +15,6 @@ class GraphBuilder:
                  dataset_table="data", 
                  edge_table="relationships",
                  definitions_table="definitions",
-                 force_edge_tail_constraint=False
                 ):
 
         self.conn = conn
@@ -28,202 +27,190 @@ class GraphBuilder:
         self.vocab = None
         self.language_map = None
         self.node_ids = {}
-        # with open('appendix.json', 'w', encoding='utf8') as f:
-        #     f.write(json.dumps(self.__get_appendix_data(), indent=2, ensure_ascii=False))
 
     @staticmethod
     def get_bidir_rels():
         return ['hyponyms', 'synonyms', 'antonyms']
     
     def word2word(self, query_filter=None):
-        query = [
-            f"SELECT hdef.wordId headId, hdef.partOfSpeech headPOS, hdef.headWord head, tdef.wordId tailId, tdef.partOfSpeech tailPOS, tdef.headWord tail, {self.edge_table}.relationshipType FROM {self.edge_table}",
-            f"JOIN {self.definitions_table} hdef ON hdef.id = {self.edge_table}.headDefinitionId",
-            f"LEFT JOIN {self.definitions_table} tdef ON tdef.wordId = {self.edge_table}.wordId",
+        joins = [
+            (self.definitions_table, f"{self.definitions_table}.id = {self.edge_table}.headDefinitionId"),
+            (self.definitions_table, f"{self.definitions_table}.wordId = {self.edge_table}.wordId", 'LEFT')
         ]
-        where_clause = []
+        fields = f"hdef.wordId as headId, hdef.partOfSpeech as headPOS, hdef.headWord as head, " \
+                 f"tdef.wordId as tailId, tdef.partOfSpeech as tailPOS, tdef.headWord as tail, " \
+                 f"{self.edge_table}.relationshipType"
+
+        # Format where clause based on query_filter
+        where_clause = {}
         if query_filter is not None:
             for k, v in query_filter.items():
-                if hasattr(v, "__iter__") and type(v) != str:
-                        if len(v) > 0:
-                            v = ', '.join([f"'{e}'" for e in v])
-                            filter_ = f"{k} IN ({v})"
-                        else:
-                            continue
+                if isinstance(v, (list, tuple)):
+                    where_clause[k] = "(" + ", ".join([f"'{e}'" for e in v]) + ")"
                 else:
-                    filter_ = f"{k} = {v}"
-                where_clause.append(filter_)
-        if len(where_clause) > 0:
-            where_clause = " AND ".join(where_clause)
-            where_clause = "WHERE " + where_clause
-            query.append(where_clause)
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        result = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+                    where_clause[k] = v
+
+        result = self.conn.read(
+            collection_name=self.edge_table,
+            fields=fields,
+            joins=joins,
+            conditions=where_clause
+        )
+
         return result
     
     def def2word(self, query_filter=None):
-        query = [
-            f"SELECT hdef.headword head, hdef.partOfSpeech headPOS, hdef.wordId headId, {self.edge_table}.relationshipType, tdef.headWord tail, tdef.partOfSpeech tailPOS, tdef.wordId tailId FROM {self.edge_table}",
-            f"JOIN {self.definitions_table} hdef ON hdef.id = {self.edge_table}.headDefinitionId",
-            f"LEFT JOIN {self.definitions_table} tdef ON tdef.wordId = {self.edge_table}.wordId"
+        joins = [
+            (self.definitions_table, f"{self.definitions_table}.id = {self.edge_table}.headDefinitionId"),
+            (self.definitions_table, f"{self.definitions_table}.wordId = {self.edge_table}.wordId", 'LEFT')
         ]
-        where_clause = []
+        fields = f"hdef.headword as head, hdef.partOfSpeech as headPOS, hdef.wordId as headId, " \
+                 f"{self.edge_table}.relationshipType, tdef.headWord as tail, tdef.partOfSpeech as tailPOS, tdef.wordId as tailId"
+
+        # Format where clause based on query_filter
+        where_clause = {}
         if query_filter is not None:
             for k, v in query_filter.items():
-                if hasattr(v, "__iter__") and type(v) != str:
-                        if len(v) > 0:
-                            v = ', '.join([f"'{e}'" for e in v])
-                            filter_ = f"{k} IN ({v})"
-                        else:
-                            continue
+                if isinstance(v, (list, tuple)):
+                    where_clause[k] = "(" + ", ".join([f"'{e}'" for e in v]) + ")"
                 else:
-                    filter_ = f"{k} = {v}"
-                where_clause.append(filter_)
-        if len(where_clause) > 0:
-            where_clause = " AND ".join(where_clause)
-            where_clause = "WHERE " + where_clause
-            query.append(where_clause)
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        result = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+                    where_clause[k] = v
+
+        result = self.conn.read(
+            collection_name=self.edge_table,
+            fields=fields,
+            joins=joins,
+            conditions=where_clause
+        )
+
         return result
     
     def get_vocab(self, category_info=True, partOfSpeech=False):
-        from_table = f"{self.word_table}.*"
+        fields = f"{self.word_table}.*"
+        joins = []
+
         if category_info:
-            from_table = from_table + ", C.title categoryTitle, C.id categoryId"
-        if partOfSpeech:
-            from_table = "def.partOfSpeech, " + from_table
-        query = [
-            f"SELECT {from_table} FROM {'word_categories' if category_info else self.word_table}",
-        ]
-        if category_info:
-            query.append(f"JOIN {self.word_table} ON {self.word_table}.id = word_categories.wordId")
-            query.append(f"JOIN categories C ON C.id = word_categories.categoryId")
+            fields += ", C.title as categoryTitle, C.id as categoryId"
+            joins.append(("word_categories", f"{self.word_table}.id = word_categories.wordId"))
+            joins.append(("categories C", "C.id = word_categories.categoryId"))
 
         if partOfSpeech:
-            query.append(f"JOIN {self.definitions_table} def ON {self.word_table}.id = def.wordId")
+            if not category_info:
+                # If category_info is False, we need to ensure the correct FROM table
+                joins.append((self.definitions_table, f"{self.word_table}.id = {self.definitions_table}.wordId"))
+            fields = "def.partOfSpeech, " + fields
 
-            
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        result = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        collection_name = 'word_categories' if category_info else self.word_table
+        result = self.conn.read(
+            collection_name=collection_name,
+            fields=fields,
+            joins=joins
+        )
+
         return result
     
     def get_category_relations(self):
-        query = [
-            f"SELECT w.id headId, d.partOfSpeech headPOS, w.word head, c.id tailId, c.text tail, 'categoryOf' relationshipType", 
-            f"FROM word_categories wc",
-            f"JOIN {self.definitions_table} d ON d.wordId = wc.wordId",
-            f"JOIN {self.word_table} w ON w.id = wc.wordId",
-            f"JOIN categories c ON c.id = wc.categoryId",
+        fields = "w.id as headId, d.partOfSpeech as headPOS, w.word as head, " \
+                 "c.id as tailId, c.text as tail, 'categoryOf' as relationshipType"
+        joins = [
+            (self.definitions_table, "d.wordId = word_categories.wordId"),
+            (self.word_table, "w.id = word_categories.wordId"),
+            ("categories c", "c.id = word_categories.categoryId")
         ]
 
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        relations = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        relations = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        result = self.conn.read(
+            collection_name="word_categories",
+            fields=fields,
+            joins=joins
+        )
 
-        return relations
+        return result
     
     def get_appendix_relations(self):
-        query = [
-            f"SELECT w.id headId, d.partOfSpeech headPOS, w.word head, apx.id tailId, apx.label tail, 'tagOf' relationshipType", 
-            f"FROM {self.definitions_table}_apx defapx",
-            f"JOIN {self.definitions_table} d ON defapx.definitionId = d.id",
-            f"JOIN {self.word_table} w ON w.id = d.wordId",
-            f"JOIN appendix apx ON apx.id = defapx.appendixId",
+        fields = "w.id as headId, d.partOfSpeech as headPOS, w.word as head, " \
+                 "apx.id as tailId, apx.label as tail, 'tagOf' as relationshipType"
+        joins = [
+            (f"{self.definitions_table} d", "defapx.definitionId = d.id"),
+            (self.word_table, "w.id = d.wordId"),
+            ("appendix apx", "apx.id = defapx.appendixId")
         ]
 
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        relations = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        relations = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        result = self.conn.read(
+            collection_name=f"{self.definitions_table}_apx defapx",
+            fields=fields,
+            joins=joins
+        )
 
-        return relations
+        return result
 
     def get_orphan_nodes(self):
-        query = [
-            f"SELECT * FROM {self.word_table}",
-            "WHERE isDerived=1",
-            "AND wikiUrl IS NOT NULL",
-            # "LIMIT 25"
-        ]
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        result = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        conditions = {
+            "isDerived": 1,
+            "wikiUrl": "IS NOT NULL"
+        }
+
+        result = self.conn.read(
+            collection_name=self.word_table,
+            conditions=conditions
+        )
+
         return result
     
     def get_dataset(self, dataset_name=None, task=None):
-        query = f"SELECT * from {self.dataset_table}"
-        params = {
-            "dataset_name": dataset_name,
-            "task": task
-        }
-        params = {k: v for k, v in params.items() if v is not None}
-        Q = []
-        for k, v in params.items():
-            if hasattr(v, '__iter__') and type(v) != str:
-                params[k] = ", ".join([f"'{e}'" for e in v])
-                Q.append(f"{k} in ({params[k]})")
-            else:
-                Q.append(f"{k}={v}")
-        params = [f"{k}={v}" for k, v in params.items()]
-        if len(params) > 0:
-            Q = " AND ".join(Q)
-            query = query + " WHERE " + Q
-        
-        cur = self.conn.cursor()
-        cur.execute(query)
+        conditions = {}
+        if dataset_name is not None:
+            conditions["dataset_name"] = dataset_name
+        if task is not None:
+            conditions["task"] = task
 
-        result_set = []
-        cur_keys = [desc[0] for desc in cur.description]
-        for c in cur.fetchall():
-            result_set.append(dict(zip(cur_keys, c)))
+        # Adjust the conditions dictionary to handle cases where values are lists
+        for key, value in list(conditions.items()):
+            if isinstance(value, (list, tuple)):
+                conditions[key + " IN"] = "(" + ", ".join([f"'{e}'" for e in value]) + ")"
+                del conditions[key]
 
-        return result_set
+        result = self.conn.read(
+            collection_name=self.dataset_table,
+            conditions=conditions
+        )
+
+        return result
     
     def get_categories(self, category_ids=None):
-        query = [
-            f"SELECT * FROM categories",
-        ]
-        if hasattr(category_ids, '__iter__') and type(category_ids) != str:
-            category_ids = [f"'{c}'" for c in category_ids]
-            if len(category_ids) > 0:
-                category_ids = ", ".join(category_ids)
-                query.append(f"WHERE id IN ({category_ids})")
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        result = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        conditions = {}
+        if category_ids is not None:
+            if isinstance(category_ids, (list, tuple)):
+                # Convert list to a format suitable for SQL IN clause
+                conditions["id IN"] = "(" + ", ".join([f"'{c}'" for c in category_ids]) + ")"
+            else:
+                # Single category ID
+                conditions["id"] = category_ids
+
+        result = self.conn.read(
+            collection_name="categories",
+            conditions=conditions
+        )
+
         return result
     
     def get_appendices(self, appendix_ids=None):
-        query = [
-            f"SELECT * FROM appendix",
-        ]
-        if hasattr(appendix_ids, '__iter__') and type(appendix_ids) != str:
-            appendix_ids = [f"'{c}'" for c in appendix_ids]
-            appendix_ids = ", ".join(appendix_ids)
-            query.append(f"WHERE id IN ({appendix_ids})")
-        query = "\n".join(query)
-        cur = self.conn.cursor()
-        result = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        conditions = {}
+        if appendix_ids is not None:
+            if isinstance(appendix_ids, (list, tuple)):
+                # Convert list to a format suitable for SQL IN clause
+                conditions["id IN"] = "(" + ", ".join([f"'{id}'" for id in appendix_ids]) + ")"
+            else:
+                # Single appendix ID
+                conditions["id"] = appendix_ids
+
+        result = self.conn.read(
+            collection_name="appendix",
+            conditions=conditions
+        )
+
         return result
+    
+    #### FOLLOWING METHODS DO NOT MAKE DIRECT REQUESTS TO DATABASE
     
     def build_graph_vocab(self, category_info=False, appendix_info=False):
         category_rels = []
@@ -256,17 +243,7 @@ class GraphBuilder:
         self.vocab = {w['id']: w for w in vocab}
         return category_rels, appendix_rels
 
-    def build_graph(self, instance="w2w", query_filter=None, preprocessing_callback=None, category_info=True, appendix_info=False, use_pos=True, **kwargs):
-        instance = instance.lower()
-        if instance == "w2w":
-            graph_data = self.word2word(query_filter=query_filter)
-            g_key = ('word', 'word')
-        elif instance == "d2w":
-            graph_data = self.def2word(query_filter=query_filter)
-            g_key = ('definition', 'word')
-        else:
-            return self.graph
-
+    def __process_graph_edges(self, graph_data, category_info=True, appendix_info=False, use_pos=True, g_key=('token', 'token')):
         category_rels, appendix_rels = self.build_graph_vocab(category_info=category_info, appendix_info=appendix_info)
         for e in graph_data:
             if use_pos:
@@ -292,13 +269,29 @@ class GraphBuilder:
         graph_data += category_rels
         graph_data += appendix_rels
 
+        return graph_data
+    
+
+    def build_graph(self, instance="w2w", query_filter=None, preprocessing_callback=None, category_info=True, appendix_info=False, use_pos=True, **kwargs):
+        instance = instance.lower()
+        if instance == "w2w":
+            graph_data = self.word2word(query_filter=query_filter)
+            g_key = ('word', 'word')
+        elif instance == "d2w":
+            graph_data = self.def2word(query_filter=query_filter)
+            g_key = ('definition', 'word')
+        else:
+            return self.graph
+
+        graph_edges = self.__process_graph_edges(graph_data, category_info=category_info, appendix_info=appendix_info, use_pos=use_pos, g_key=g_key)
+
         if preprocessing_callback is None:
             preprocessing_callback = lambda x: x
 
         data_dict = {}
         self.node_ids = {}
         
-        for e in graph_data:        
+        for e in graph_edges:        
             reltype = e['relationshipType']
             k = (e["headType"], reltype, e["tailType"])
             #If this node type doesn't exist, create an empty list
