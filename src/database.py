@@ -9,7 +9,21 @@ class DatabaseClient:
         self.password = password
         self.db = db
 
+        self.schema_info = {}  # Initialize an empty schema dictionary
+
+    def validate_data(self, collection_name, data):
+        if collection_name not in self.schema_info:
+            self.lookup_collection_info(collection_name)
+
+        allowed_keys = self.schema_info[collection_name]
+        return [{k: v for k, v in item.items() if k in allowed_keys} for item in data]
+
+    def lookup_collection_info(self, collection_name):
+        raise ValueError(f"No schema defined for {collection_name}")
+    
+
     def insert(self, collection_name, data, ignore=False, **kwargs):
+        data = self.validate_data(collection_name, data)
         # Implementation for the CREATE operation
         pass
 
@@ -19,6 +33,7 @@ class DatabaseClient:
 
     def update(self, collection_name, data, conditions={}, ignore=False, **kwargs):
         # Implementation for the UPDATE operation
+        data = self.validate_data(collection_name, data)
         pass
 
     def delete(self, collection_name, conditions={}):
@@ -26,7 +41,6 @@ class DatabaseClient:
         pass
 
     def execute(self, data=None):
-        # Implementation for the DELETE operation
         pass
 
 
@@ -45,8 +59,10 @@ class MySQLClient(DatabaseClient):
             if isinstance(value, (list, tuple, set)):
                 value = ", ".join([f"'{e}'" for e in value])
                 C.append(f"{key} IN ({value})")
+            elif str(value).upper() in ['IS NULL', 'IS NOT NULL']:
+                C.append(f"{key} {value}")
             else:
-                if not re.fullmatch(r'%\(\w+\)s', value):
+                if not re.fullmatch(r'%\(\w+\)s', str(value)):
                     value = f"'{value}'"
                 C.append(f"{key}={value}")
         return " WHERE " + " AND ".join(C)
@@ -56,9 +72,16 @@ class MySQLClient(DatabaseClient):
         keys = set().union(*keys)
         return keys
     
+    def lookup_collection_info(self, collection_name):
+        query = f"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{collection_name}'"
+        self.schema[collection_name] = self.execute(query)
+
+    
     def insert(self, collection_name, data, ignore=False, **kwargs):
         if not data:
             return None
+
+        # data = self.validate_data(collection_name, data)
         if isinstance(data, dict):
             data = [data]
         # Assuming 'data' is a dictionary representing columns and their values
@@ -94,6 +117,8 @@ class MySQLClient(DatabaseClient):
     def update(self, collection_name, data, conditions={}, ignore=False, **kwargs):
         if not data:
             return None
+
+        # data = self.validate_data(collection_name, data)
         if isinstance(data, dict):
             data = [data]
         keys = self._build_columns(data)
