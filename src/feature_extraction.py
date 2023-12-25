@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 class FeatureExtractor:
     def __init__(self, conn, 
                  embedding_type="category_embedding",
@@ -15,34 +18,24 @@ class FeatureExtractor:
         self.edge_table = edge_table
 
     def __get_category_embedding(self, token_id):
-        query = f"""SELECT c.text,
-            CASE 
-            WHEN EXISTS (
-                SELECT * FROM word_categories wc
-                WHERE wc.wordId = '{token_id}'
-                AND wc.categoryId = c.id
-            )
-            THEN 1
-            ELSE 0
-            END enc
-            FROM categories c
-            ORDER BY c.id;
-        """
-        cur = self.conn.cursor()
-        result = cur.execute(query)
-        column_names = [desc[0] for desc in cur.description]
-        result = [dict(zip(column_names, row)) for row in cur.fetchall()]
+        # Define the fields and join conditions for the query
+        fields = "c.text"
+        # fields = "*"
+        joins = [("word_categories wc", f"wc.categoryId = c.id")]
+        conditions = {"wc.wordId": token_id}
 
-        categories = {}
-        for r in result:
-            categories[r.get('text')] = r.get('enc')
+        # Execute the query using the read method of DatabaseClient
+        result = self.conn.read(collection_name="categories c", fields=fields, joins=joins, conditions=conditions)
+        print(self.conn.query)
+        # Processing the result into a dictionary
+        categories = dict(Counter([row['text'] for row in result]))
 
         return categories
     
     def __call__(self, token_id):
         if self.embedding_type == 'category_embedding':
             embeds = self.__get_category_embedding(token_id)
-            return [embeds[k] for k in sorted(embeds)]
+            return embeds
         else:
             return []
         
