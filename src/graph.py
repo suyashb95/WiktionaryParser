@@ -61,8 +61,8 @@ class GraphBuilder:
     
     def def2word(self, query_filter=None):
         joins = [
-            (self.definitions_table, f"{self.definitions_table}.id = {self.edge_table}.headDefinitionId"),
-            (self.definitions_table, f"{self.definitions_table}.wordId = {self.edge_table}.wordId", 'LEFT')
+            (f"{self.definitions_table} hdef", f"hdef.id = {self.edge_table}.headDefinitionId"),
+            (f"{self.definitions_table} tdef", f"tdef.wordId = {self.edge_table}.wordId", 'LEFT')
         ]
         fields = f"hdef.headword as head, hdef.partOfSpeech as headPOS, hdef.wordId as headId, " \
                  f"{self.edge_table}.relationshipType, tdef.headWord as tail, tdef.partOfSpeech as tailPOS, tdef.wordId as tailId"
@@ -71,10 +71,7 @@ class GraphBuilder:
         where_clause = {}
         if query_filter is not None:
             for k, v in query_filter.items():
-                if isinstance(v, (list, tuple)):
-                    where_clause[k] = "(" + ", ".join([f"'{e}'" for e in v]) + ")"
-                else:
-                    where_clause[k] = v
+                where_clause[k] = v
 
         result = self.conn.read(
             collection_name=self.edge_table,
@@ -85,24 +82,24 @@ class GraphBuilder:
 
         return result
     
+    def def2def(self, query_filter=None):
+        pass
+    
     def get_vocab(self, category_info=True, partOfSpeech=False):
-        fields = f"{self.word_table}.*"
+        fields = f"w.*"
         joins = []
 
         if category_info:
             fields += ", C.title as categoryTitle, C.id as categoryId"
-            joins.append(("word_categories", f"{self.word_table}.id = word_categories.wordId"))
-            joins.append(("categories C", "C.id = word_categories.categoryId"))
+            joins.append(("word_categories wc", f"w.id = wc.wordId"))
+            joins.append(("categories C", "C.id = wc.categoryId"))
 
         if partOfSpeech:
-            if not category_info:
-                # If category_info is False, we need to ensure the correct FROM table
-                joins.append((self.definitions_table, f"{self.word_table}.id = {self.definitions_table}.wordId"))
+            joins.append((f"{self.definitions_table} def", f"w.id = def.wordId"))
             fields = "def.partOfSpeech, " + fields
 
-        collection_name = 'word_categories' if category_info else self.word_table
         result = self.conn.read(
-            collection_name=collection_name,
+            collection_name=f"{self.word_table} w",
             fields=fields,
             joins=joins
         )
@@ -113,8 +110,8 @@ class GraphBuilder:
         fields = "w.id as headId, d.partOfSpeech as headPOS, w.word as head, " \
                  "c.id as tailId, c.text as tail, 'categoryOf' as relationshipType"
         joins = [
-            (self.definitions_table, "d.wordId = word_categories.wordId"),
-            (self.word_table, "w.id = word_categories.wordId"),
+            (f"{self.definitions_table} d", "d.wordId = word_categories.wordId"),
+            (f"{self.word_table} w", "w.id = word_categories.wordId"),
             ("categories c", "c.id = word_categories.categoryId")
         ]
 
@@ -163,12 +160,6 @@ class GraphBuilder:
         if task is not None:
             conditions["task"] = task
 
-        # Adjust the conditions dictionary to handle cases where values are lists
-        for key, value in list(conditions.items()):
-            if isinstance(value, (list, tuple)):
-                conditions[key + " IN"] = "(" + ", ".join([f"'{e}'" for e in value]) + ")"
-                del conditions[key]
-
         result = self.conn.read(
             collection_name=self.dataset_table,
             conditions=conditions
@@ -181,7 +172,7 @@ class GraphBuilder:
         if category_ids is not None:
             if isinstance(category_ids, (list, tuple)):
                 # Convert list to a format suitable for SQL IN clause
-                conditions["id IN"] = "(" + ", ".join([f"'{c}'" for c in category_ids]) + ")"
+                conditions["id"] = sorted(set(category_ids))
             else:
                 # Single category ID
                 conditions["id"] = category_ids
@@ -198,9 +189,9 @@ class GraphBuilder:
         if appendix_ids is not None:
             if isinstance(appendix_ids, (list, tuple)):
                 # Convert list to a format suitable for SQL IN clause
-                conditions["id IN"] = "(" + ", ".join([f"'{id}'" for id in appendix_ids]) + ")"
+                conditions["id"] = sorted(set(appendix_ids))
             else:
-                # Single appendix ID
+                # Single category ID
                 conditions["id"] = appendix_ids
 
         result = self.conn.read(
@@ -280,6 +271,9 @@ class GraphBuilder:
         elif instance == "d2w":
             graph_data = self.def2word(query_filter=query_filter)
             g_key = ('definition', 'word')
+        elif instance == "d2d":
+            graph_data = self.def2def(query_filter=query_filter)
+            g_key = ('definition', 'definition')
         else:
             return self.graph
 

@@ -106,7 +106,15 @@ class MySQLClient(DatabaseClient):
         :return: Result of the query.
         """
         select_clause = f"SELECT {fields} FROM {collection_name}"
-        join_clause = ' '.join([f"JOIN {table} ON {condition}" for table, condition in joins])
+        join_clause = []
+        for table, condition, *how in joins:
+            if not how:
+                how = ''
+            else:
+                how = how[0]
+            jc = f"{how} JOIN {table} ON {condition}" 
+            join_clause.append(jc.strip())
+        join_clause = ' '.join(join_clause)
         condition_string = self._build_conditions(conditions)
         order_by_clause = f" ORDER BY {order_by}" if order_by else ""
         limit_clause = f" LIMIT {limit}" if limit else ""
