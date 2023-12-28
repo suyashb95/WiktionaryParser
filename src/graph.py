@@ -141,8 +141,11 @@ class GraphBuilder:
         return result
 
     def get_orphan_nodes(self):
+        wordIds = {w['id'] for w in  self.conn.read(collection_name=self.word_table)}
+        definedIds = {w['wordId'] for w in  self.conn.read(collection_name=self.definitions_table)}
+        wordIds.difference_update(definedIds)
         conditions = {
-            "isDerived": 1,
+            "id": sorted(wordIds),
             "wikiUrl": "IS NOT NULL"
         }
 

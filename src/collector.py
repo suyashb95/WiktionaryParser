@@ -186,7 +186,7 @@ class Collector:
             row.update({"dataset_name": dataset_name, "task": task})
             row = {k: "NULL" if v is None else v for k, v in row.items()}
             rows.append(row)
-
+        
         self.conn.insert(self.dataset_table, rows)
 
     # Following code made with ChatGPT Free (Needs to be checked)
@@ -346,6 +346,9 @@ class Collector:
                 categories += word_categories
                 examples += w_examples
 
+        definitions = dict((d['id'], d) for d in definitions)
+        definitions = list(definitions.values())
+
         res = {
             "words": words, 
             "definitions": definitions,
@@ -355,11 +358,10 @@ class Collector:
             "categories": categories,
             "examples": examples
         } 
-        self.batch.append(res)
         if save_to_db:
-            self.save_word_data(**res)
-        elif self.auto_flush_after > 0:
-            if self.auto_flush_after <= len(self.batch):
+            self.batch.append(res)
+            # self.save_word_data(**res)
+            if self.auto_flush_after > 0 and self.auto_flush_after <= len(self.batch):
                 self.flush()
 
         return res #fetched_data #related_words
@@ -370,25 +372,36 @@ class Collector:
             for k in b:
                 res[k] = res.get(k, []) + b[k]
 
+        # definitions = res.get('definitions', [])
+        # unique_defids = len({d['id'] for d in definitions})
+        # print(f"Definiton ID unicity: {unique_defids:>3}/{len(definitions)}")
+
         self.save_word_data(**res)
         self.batch = []
 
     def save_word_data(self, words=[], definitions=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
         # Inserting and updating to database
+        inserted_rows = {self.word_table: []}
+        updated_rows = {}
         if update:
-            self.conn.update(self.word_table, data=words, conditions={"id": "%(id)s"}, ignore=True, isDerived=0)
-            self.conn.update(self.word_table, data=orph_nodes, conditions={"id": "%(id)s"}, ignore=True, isDerived=1)
-
+            derivedUpd = self.conn.update(self.word_table, data=words, conditions={"id": "%(id)s"}, ignore=True, isDerived=0)
+            underivedUpd = self.conn.update(self.word_table, data=orph_nodes, conditions={"id": "%(id)s"}, ignore=True, isDerived=1)
+            updated_rows[self.word_table] = derivedUpd + underivedUpd
         if insert:
-            self.conn.insert(self.word_table, words, ignore=True)
-            self.conn.insert(self.word_table, orph_nodes, ignore=True)
-            self.conn.insert(self.definitions_table, definitions, ignore=True)
+            inserted_rows[self.word_table] += self.conn.insert(self.word_table, words, ignore=True)
+            inserted_rows[self.word_table] += self.conn.insert(self.word_table, orph_nodes, ignore=True)
+            inserted_rows[self.definitions_table] = self.conn.insert(self.definitions_table, definitions, ignore=True)
             if len(appendices) > 0:
-                self.conn.insert(f"{self.definitions_table}_apx", appendices, ignore=True)
+                inserted_rows[f"{self.definitions_table}_apx"] = self.conn.insert(f"{self.definitions_table}_apx", appendices, ignore=True)
 
-            self.conn.insert(self.edge_table, related_words, ignore=True)
-            self.conn.insert("word_categories", categories, ignore=True)
-            self.conn.insert("examples", examples, ignore=True)
+            inserted_rows[self.edge_table] = self.conn.insert(self.edge_table, related_words, ignore=True)
+            inserted_rows["word_categories"] = self.conn.insert("word_categories", categories, ignore=True)
+            inserted_rows["examples"] = self.conn.insert("examples", examples, ignore=True)
+
+        updated_rows = {k: sum(v) for k, v in updated_rows.items()}
+        inserted_rows = {k: sum(v) for k, v in inserted_rows.items()}
+        affected_rows = {"insert": inserted_rows, "update": updated_rows}
+        print(affected_rows)
 
     
     def export_to_csv(self, path, encoding="utf8", sep=","):

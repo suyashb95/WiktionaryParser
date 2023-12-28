@@ -49,7 +49,9 @@ class MySQLClient(DatabaseClient):
         super().__init__(host, user, password, db)
         self.query = ""
         self.conn = pymysql.connect(host=self.host, user=self.user, password=self.password, database=self.db)
+        self.conn.autocommit(True)
 
+        
     def _build_conditions(self, conditions={}):
         """ Helper method to build the WHERE clause from a dictionary of conditions. """
         if not conditions:
@@ -74,14 +76,14 @@ class MySQLClient(DatabaseClient):
     
     def lookup_collection_info(self, collection_name):
         query = f"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{collection_name}'"
-        self.schema[collection_name] = self.execute(query)
+        self.schema_info[collection_name] = [e['COLUMN_NAME'] for e in self.execute(query)]
 
     
     def insert(self, collection_name, data, ignore=False, **kwargs):
         if not data:
-            return None
+            return []
 
-        # data = self.validate_data(collection_name, data)
+        data = self.validate_data(collection_name, data)
         if isinstance(data, dict):
             data = [data]
         # Assuming 'data' is a dictionary representing columns and their values
@@ -124,7 +126,7 @@ class MySQLClient(DatabaseClient):
 
     def update(self, collection_name, data, conditions={}, ignore=False, **kwargs):
         if not data:
-            return None
+            return []
 
         # data = self.validate_data(collection_name, data)
         if isinstance(data, dict):
@@ -185,6 +187,7 @@ class MySQLClient(DatabaseClient):
 
                     # Commit after each non-SELECT query
                     else:
+                        results.append(self.conn.affected_rows())
                         self.conn.commit()
 
         return results
