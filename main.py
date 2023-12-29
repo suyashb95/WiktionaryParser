@@ -15,7 +15,7 @@ from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language
 
 EXPERIMENTAL = not False
-PHASE = 4
+PHASE = 3
 deorphanization_level = 2
 limit = 3 if EXPERIMENTAL else -1
 vocab_file = 'json/collected.txt'
@@ -59,7 +59,7 @@ if PHASE <= 3:
     # print(existing_vocab_[:1])
     # 1/0
     vocab = [w for w in vocab if w['token'] not in existing_vocab_]
-    vocab = vocab[:10]
+    # vocab = vocab[:3]
     vocab = tqdm.tqdm(vocab, position=0)
     # if os.path.isfile(vocab_file):
         # os.remove(vocab_file)
@@ -68,8 +68,8 @@ if PHASE <= 3:
         word = e['token']
         if len(word) <= 1:
             continue
-        # if word in existing_vocab_:
-        #     continue
+
+
         lang = e.get('lang')
         vocab.set_description(f"[Started at {datetime.now().strftime('%H:%M:%S')}] - ({len(collector.batch):02d} in stack)")
         word = get_word_info_prep(word.strip())
@@ -77,6 +77,9 @@ if PHASE <= 3:
         vocab.set_postfix_str(f'Word: {fix_ar_display(word)} - Fetched languages: {lang},')
         
         result = collect_info(word, lang, wait_time=.1, save_to_db=True)
+        with open("resres.json", 'w', encoding="utf8") as f:
+            json.dump(result, f, indent=2, sort_keys=True, ensure_ascii=False)
+        
 
 
         with open(vocab_file, 'a+', encoding="utf8") as f:
@@ -84,7 +87,7 @@ if PHASE <= 3:
 
     collector.flush()
 
-if PHASE <= 4:
+if PHASE <= 4 and not EXPERIMENTAL:
     collector.auto_flush_after = 10
     for lv in range(deorphanization_level):
         orphan_lex = builder.get_orphan_nodes()
@@ -106,6 +109,6 @@ if PHASE <= 4:
 
     collector.flush()
 
-if PHASE <= 5:
+if PHASE <= 5 and not EXPERIMENTAL:
     collector.export_to_csv('./backup/csv_export/')
 # # export_graph_to_html('graph.html')

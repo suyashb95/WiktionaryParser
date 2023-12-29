@@ -21,11 +21,33 @@ def main(word, lang, wait_time=0, save_to_db=True):
         fetched_data = parser.fetch_all_potential(prepped_word, query=word, language=lang)
     for k in fetched_data:
         element = fetched_data[k]
-        e = collector.save_word(element, save_to_db=save_to_db, save_orphan=True)
+        e = collector.save_word(element, save_to_db=save_to_db)
         for k in e:
             results[k] = results.get(k, []) + e.get(k, [])
     if wait_time > 0:
         time.sleep(wait_time)
+
+    #In-place deorphanization
+    deorph_pbar = tqdm.tqdm(total=len(results['orph_nodes']), leave=False, position=1)
+    while len(results['orph_nodes']) > 0:
+        orph  = results['orph_nodes'].pop(0)
+        if orph.get('wikiUrl') is None:
+            continue
+
+        sibling_word_data = parser.deorphanize(**orph)
+        deorph_pbar.set_description_str(f"Deorphanizing '{fix_ar_display(orph.get('word'))}' ({len(collector.batch):2>d} in stack)")
+        deorph_pbar.set_postfix(orph)
+        deorph_pbar.refresh()
+
+        e = collector.save_word(sibling_word_data, save_to_db=save_to_db, save_orphan=False, save_mentions=False)
+        for k in e:
+            results[k] = results.get(k, []) + e.get(k, [])
+
+        deorph_pbar.update(1)
+        # if len(deorph1) > 0:
+        #     with open("resrdeorph.json", 'w', encoding="utf8") as f:
+        #         json.dump(deorph1, f, indent=2, sort_keys=True, ensure_ascii=False)
+        #     1 / 0
     return results
 
 

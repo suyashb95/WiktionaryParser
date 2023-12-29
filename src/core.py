@@ -36,7 +36,8 @@ def is_subheading(child, parent):
 
 class WiktionaryParser(object):
     def __init__(self):
-        self.url = "https://en.wiktionary.org/wiki/{}?printable={}"
+        self.__base_url = "https://en.wiktionary.org"
+        self.url = self.__base_url + "/wiki/{}?printable={}"
         self.soup = None
         self.session = requests.Session()
         self.session.mount("http://", requests.adapters.HTTPAdapter(max_retries = 2))
@@ -448,26 +449,39 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
-    def grab_from_url(self, url, old_id=None):
+    def grab_from_url(self, url, old_id=None, lang=None):
+        if lang is None:
+            lang = self.language
         response = self.session.get(url, params={'oldid': old_id})
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.clean_html()
+
+        return self.get_word_data(lang.lower())
+    
+    def deorphanize(self, wikiUrl, language, **kwargs):
+        url = self.__base_url + wikiUrl
+        res = self.grab_from_url(url, lang=language)
+        for i in range(len(res)):
+            res[i]['word'] = kwargs.get('word')
+            res[i]['query'] = kwargs.get('query')
+        return res
 
     def fetch(self, word, language=None, old_id=None, query=None):
         language = self.language if not language else language
         languages = language if hasattr(language, '__iter__') and type(language) != str else [language]
         self.current_url = self.url.format(word, self.use_printable)
-        self.grab_from_url(self.current_url, old_id=old_id)
         self.current_word = word
         res = []
 
         for lang in languages:
-            res += self.get_word_data(lang.lower())
-        for obj in res:
-            obj['query'] = obj.get('query', word) if query is None else query
-            obj['word'] = obj.get('word', word)
+            res += self.grab_from_url(self.current_url, old_id=old_id, lang=lang)
+
+        for i in range(len(res)):
+            res[i]['query'] = res[i].get('query', word) if query is None else query
+            res[i]['word'] = res[i].get('word', word)
 
         return res
+        
 
     def fetch_all_potential(self, word, query=None, language=None, old_id=None, verbose=0):
         def get_possible_altenrnatives(word):
