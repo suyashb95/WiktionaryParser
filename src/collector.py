@@ -260,6 +260,8 @@ class Collector:
             for e in range(len(def_examples)):
                 def_examples[e]['definitionId'] = unique_w_hash
 
+            definition[i] = {k: definition[i][k] for k in sorted(definition[i].keys(), key=lambda x: x!="id")}
+
             examples += def_examples
 
 
@@ -372,36 +374,36 @@ class Collector:
             for k in b:
                 res[k] = res.get(k, []) + b[k]
 
-        # definitions = res.get('definitions', [])
-        # unique_defids = len({d['id'] for d in definitions})
-        # print(f"Definiton ID unicity: {unique_defids:>3}/{len(definitions)}")
-
-        self.save_word_data(**res)
-        self.batch = []
-
-    def save_word_data(self, words=[], definitions=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
-        # Inserting and updating to database
-        inserted_rows = {self.word_table: []}
-        updated_rows = {}
-        if update:
-            derivedUpd = self.conn.update(self.word_table, data=words, conditions={"id": "%(id)s"}, ignore=True, isDerived=0)
-            underivedUpd = self.conn.update(self.word_table, data=orph_nodes, conditions={"id": "%(id)s"}, ignore=True, isDerived=1)
-            updated_rows[self.word_table] = derivedUpd + underivedUpd
-        if insert:
-            inserted_rows[self.word_table] += self.conn.insert(self.word_table, words, ignore=True)
-            inserted_rows[self.word_table] += self.conn.insert(self.word_table, orph_nodes, ignore=True)
-            inserted_rows[self.definitions_table] = self.conn.insert(self.definitions_table, definitions, ignore=True)
-            if len(appendices) > 0:
-                inserted_rows[f"{self.definitions_table}_apx"] = self.conn.insert(f"{self.definitions_table}_apx", appendices, ignore=True)
-
-            inserted_rows[self.edge_table] = self.conn.insert(self.edge_table, related_words, ignore=True)
-            inserted_rows["word_categories"] = self.conn.insert("word_categories", categories, ignore=True)
-            inserted_rows["examples"] = self.conn.insert("examples", examples, ignore=True)
-
-        updated_rows = {k: sum(v) for k, v in updated_rows.items()}
-        inserted_rows = {k: sum(v) for k, v in inserted_rows.items()}
+        updated_rows = self.update_word_data(**res)
+        inserted_rows = self.insert_word_data(**res)
         affected_rows = {"insert": inserted_rows, "update": updated_rows}
         print(affected_rows)
+        self.batch = []
+
+    def update_word_data(self, words=[], definitions=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
+        # Updating to database
+        updated_rows = {}
+        derivedUpd = self.conn.update(self.word_table, data=words, conditions={"id": "%(id)s"}, ignore=True, isDerived=0)
+        underivedUpd = self.conn.update(self.word_table, data=orph_nodes, conditions={"id": "%(id)s"}, ignore=True, isDerived=1)
+        updated_rows[self.word_table] = derivedUpd + underivedUpd
+        updated_rows = {k: sum(v) for k, v in updated_rows.items()}
+        return updated_rows
+
+    def insert_word_data(self, words=[], definitions=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
+        # Inserting into database
+        inserted_rows = {self.word_table: []}
+        inserted_rows[self.word_table] += self.conn.insert(self.word_table, words, ignore=True)
+        inserted_rows[self.word_table] += self.conn.insert(self.word_table, orph_nodes, ignore=True)
+        inserted_rows[self.definitions_table] = self.conn.insert(self.definitions_table, definitions, ignore=True)
+        inserted_rows[f"{self.definitions_table}_apx"] = self.conn.insert(f"{self.definitions_table}_apx", appendices, ignore=True)
+
+        inserted_rows[self.edge_table] = self.conn.insert(self.edge_table, related_words, ignore=True)
+        inserted_rows["word_categories"] = self.conn.insert("word_categories", categories, ignore=True)
+        inserted_rows["examples"] = self.conn.insert("examples", examples, ignore=True)
+
+        inserted_rows = {k: sum(v) for k, v in inserted_rows.items()}
+        return inserted_rows
+        
 
     
     def export_to_csv(self, path, encoding="utf8", sep=","):
