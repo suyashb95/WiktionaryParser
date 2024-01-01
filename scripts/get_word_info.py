@@ -1,6 +1,8 @@
 import re
 import time
 import tqdm
+
+from src.utils import convert_language
 from .utils import *
 import json
 
@@ -29,10 +31,17 @@ def main(word, lang, wait_time=0, save_to_db=True):
 
     #In-place deorphanization
     deorph_pbar = tqdm.tqdm(total=len(results['orph_nodes']), leave=False, position=1)
+    orph_nodes = []
     while len(results['orph_nodes']) > 0:
         orph  = results['orph_nodes'].pop(0)
         if orph.get('wikiUrl') is None:
+            orph_nodes.append(orph)
             continue
+
+        if orph.get('language') is None:
+            orph['language'] = "english"
+        else:
+            orph['language'] = convert_language(orph['language'])
 
         sibling_word_data = parser.deorphanize(**orph)
         deorph_pbar.set_description_str(f"Deorphanizing '{fix_ar_display(orph.get('word'))}' ({len(collector.batch):2>d} in stack)")
@@ -44,10 +53,13 @@ def main(word, lang, wait_time=0, save_to_db=True):
             results[k] = results.get(k, []) + e.get(k, [])
 
         deorph_pbar.update(1)
-        # if len(deorph1) > 0:
-        #     with open("resrdeorph.json", 'w', encoding="utf8") as f:
-        #         json.dump(deorph1, f, indent=2, sort_keys=True, ensure_ascii=False)
-        #     1 / 0
+        if len(sibling_word_data) > 0:
+            with open("resrdeorph.json", 'w', encoding="utf8") as f:
+                json.dump(e, f, indent=2, sort_keys=True, ensure_ascii=False)
+
+    results['orph_nodes'] = orph_nodes
+    # if len(collector.batch) > 100:
+    #     collector.flush()
     return results
 
 

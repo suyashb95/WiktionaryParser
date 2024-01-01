@@ -176,6 +176,11 @@ class Collector:
             self.conn.execute(f"ALTER TABLE {table} AUTO_INCREMENT = 1")
         self.conn.execute("SET FOREIGN_KEY_CHECKS = 1")
 
+
+    def existing_wikiUrls(self):
+        res = self.conn.read(fields="wikiUrl", collection_name=self.word_table)
+        return {e.get('wikiUrl') for e in res}
+    
     def insert_data(self, dataset, dataset_name=None, task=None):
         task = task if task is not None else 'NULL'
         dataset_name = dataset_name if dataset_name is not None else 'NULL'
@@ -226,12 +231,11 @@ class Collector:
         definition = flatten_dict(definition)
         for i in range(len(definition)):
             definition[i].update(definition[i].get("text", {}))
-            
-                    
             #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
-            unique_w_hash = f"{definition[i].get('wordId')}_{definition[i].get('partOfSpeech')}_{definition[i].get('raw_text')[:hash_maxlen]}"
+            unique_w_hash = json.dumps(definition[i])
             unique_w_hash = Collector.apply_hash(unique_w_hash)
-            definition[i]['id'] = unique_w_hash #PRIMARY KEY
+                    
+
 
             for k_ in ["raw_text"]:
                 definition[i].pop(k_, None)
@@ -246,23 +250,26 @@ class Collector:
                     Collector.apply_hash(e) for e in appendix
                 ] #FOREIGN KEY
             }
-            appendix['definitionId'] = unique_w_hash
             appendix = flatten_dict(appendix)
-            appendices += appendix
-
-            #Isolate mentions their its own table
             mentions_ = definition[i].pop("mentions", [])
+            def_examples = definition[i].pop('examples', [])
+
+            definition[i]['id'] = unique_w_hash #PRIMARY KEY
+
             for m in range(len(mentions_)):
                 mentions_[m]['definitionId'] = unique_w_hash
+
+            for a in range(len(appendix)):
+                appendix[a]['definitionId'] = unique_w_hash
             
-            mentions += mentions_
-            def_examples = definition[i].pop('examples', [])
             for e in range(len(def_examples)):
                 def_examples[e]['definitionId'] = unique_w_hash
 
-            definition[i] = {k: definition[i][k] for k in sorted(definition[i].keys(), key=lambda x: x!="id")}
-
+            appendices += appendix
+            mentions += mentions_
             examples += def_examples
+
+            # definition[i] = {k: definition[i][k] for k in sorted(definition[i].keys(), key=lambda x: x!="id")}
 
 
         return definition, appendices, mentions, categories, examples
