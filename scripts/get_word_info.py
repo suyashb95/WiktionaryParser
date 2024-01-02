@@ -9,7 +9,7 @@ import json
 
 results = {}
 
-def main(word, lang, wait_time=0, save_to_db=True):
+def main(word, lang, wait_time=0, save_to_db=True, existing_vocab=[]):
     
     no_spaces_word = re.sub('\s', '_', word)
     if word != no_spaces_word: #If word has space, e.q to saying word is an entity
@@ -34,7 +34,7 @@ def main(word, lang, wait_time=0, save_to_db=True):
     orph_nodes = []
     while len(results['orph_nodes']) > 0:
         orph  = results['orph_nodes'].pop(0)
-        if orph.get('wikiUrl') is None:
+        if orph.get('wikiUrl') is None or orph.get('word') in existing_vocab:
             orph_nodes.append(orph)
             continue
 
