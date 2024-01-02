@@ -2689,6 +2689,13 @@
   },
   {
     "sourceList": "set_categories",
+    "id": "08551d87330810fdc0247eb25b0c6026b330c1fbeb755e33b384a05a00784078",
+    "title": "Category:ar:Transition metals",
+    "text": "ar:Transition metals",
+    "wikiUrl": "/wiki/Category:ar:Transition_metals"
+  },
+  {
+    "sourceList": "set_categories",
     "id": "8db822df7080fd178597dc3dfff41ac065897f9a6df9376a63b0ecb9184a4238",
     "title": "Category:ar:Trees",
     "text": "ar:Trees",
@@ -2784,6 +2791,13 @@
     "title": "Category:ar:Water plants",
     "text": "ar:Water plants",
     "wikiUrl": "/wiki/Category:ar:Water_plants"
+  },
+  {
+    "sourceList": "set_categories",
+    "id": "b4587f12fcca6e720ff7b75c138277cec021070e2f9b672b48d86e246e8a558b",
+    "title": "Category:ar:Whites",
+    "text": "ar:Whites",
+    "wikiUrl": "/wiki/Category:ar:Whites"
   },
   {
     "sourceList": "set_categories",
@@ -3879,10 +3893,10 @@
   },
   {
     "sourceList": "name_categories",
-    "id": "d885b365c893ede5984464fbf5e8bcec78f6922fa35125bb6b1fb7d40b1b72b1",
-    "title": "Category:ar:Cities in Tanger-Tetouan-Al Hoceima",
-    "text": "ar:Cities in Tanger-Tetouan-Al Hoceima",
-    "wikiUrl": "/wiki/Category:ar:Cities_in_Tanger-Tetouan-Al_Hoceima"
+    "id": "6a4ccdf4ac5c4b05814faa6aa3e2d6b1f00960af61938d12d926141bce345304",
+    "title": "Category:ar:Cities in Tangier-Tetouan-Al Hoceima",
+    "text": "ar:Cities in Tangier-Tetouan-Al Hoceima",
+    "wikiUrl": "/wiki/Category:ar:Cities_in_Tangier-Tetouan-Al_Hoceima"
   },
   {
     "sourceList": "name_categories",
@@ -4208,6 +4222,13 @@
   },
   {
     "sourceList": "name_categories",
+    "id": "6eba49e279ebe0bd4b21af236686745702ddd178bbbe737b28d830f87a34e2e4",
+    "title": "Category:ar:Date varieties",
+    "text": "ar:Date varieties",
+    "wikiUrl": "/wiki/Category:ar:Date_varieties"
+  },
+  {
+    "sourceList": "name_categories",
     "id": "cace25ba76ebcf527c8cfe824733a8ec529e80daa575730f8e8107c14c85685c",
     "title": "Category:ar:Days of the week",
     "text": "ar:Days of the week",
@@ -4450,6 +4471,13 @@
     "title": "Category:ar:Governorates of Tunisia",
     "text": "ar:Governorates of Tunisia",
     "wikiUrl": "/wiki/Category:ar:Governorates_of_Tunisia"
+  },
+  {
+    "sourceList": "name_categories",
+    "id": "10f76296a1e04aafcd3e88a21d5ee3c896506e6ab5c046379e0cdabb8934bac8",
+    "title": "Category:ar:Greek deities",
+    "text": "ar:Greek deities",
+    "wikiUrl": "/wiki/Category:ar:Greek_deities"
   },
   {
     "sourceList": "name_categories",
@@ -5727,10 +5755,10 @@
   },
   {
     "sourceList": "name_categories",
-    "id": "7a21d5fe1ac1e3a5614f7c06d7d2fa0ea60387036b04a9f5c630eaf7e51cc0f2",
-    "title": "Category:ar:Places in Tanger-Tetouan-Al Hoceima",
-    "text": "ar:Places in Tanger-Tetouan-Al Hoceima",
-    "wikiUrl": "/wiki/Category:ar:Places_in_Tanger-Tetouan-Al_Hoceima"
+    "id": "b6bfe238af3313601dfce2e33cf6d21fddd43e5dcd0d505c627b4ba3480d3d6f",
+    "title": "Category:ar:Places in Tangier-Tetouan-Al Hoceima",
+    "text": "ar:Places in Tangier-Tetouan-Al Hoceima",
+    "wikiUrl": "/wiki/Category:ar:Places_in_Tangier-Tetouan-Al_Hoceima"
   },
   {
     "sourceList": "name_categories",
@@ -6424,20 +6452,6 @@
     "title": "Category:ar:Regions of Djibouti",
     "text": "ar:Regions of Djibouti",
     "wikiUrl": "/wiki/Category:ar:Regions_of_Djibouti"
-  },
-  {
-    "sourceList": "name_categories",
-    "id": "8af19b7d6ee457a115e2b3c9a4f88790708841d64ac98c21baa4ae53e67dedf9",
-    "title": "Category:ar:Regions of Europe",
-    "text": "ar:Regions of Europe",
-    "wikiUrl": "/wiki/Category:ar:Regions_of_Europe"
-  },
-  {
-    "sourceList": "name_categories",
-    "id": "dd288a5a83051d3a878276eafc0b0dd75ef21589f9281a24898c1171ca0bc6c0",
-    "title": "Category:ar:Regions of France",
-    "text": "ar:Regions of France",
-    "wikiUrl": "/wiki/Category:ar:Regions_of_France"
   },
   {
     "sourceList": "name_categories",
