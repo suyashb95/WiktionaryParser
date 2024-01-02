@@ -1,406 +1,131 @@
 {
   "appendices": [
     {
-      "appendixId": "8acef8bd58224db71b472068642e6fa7a6f221109708359df6eff6c7d58683eb",
-      "definitionId": "12422d9e4a88c3c08488ce31129a7ccb64c553b292affce954416799ef0f686b"
+      "appendixId": "f77c3f11846566e23cf86afe4e674ee0c4149f43f16b42c24371d7a284ba5c0d",
+      "definitionId": "c4881b9f3f21c46713d26544a7ec11378ba3ab1ccbf20a6de316d01021f84a2a"
     },
     {
-      "appendixId": "8acef8bd58224db71b472068642e6fa7a6f221109708359df6eff6c7d58683eb",
-      "definitionId": "062598fcf7601a71feefe5d52067c27945320e61aa24d5fc471782b3feb68c7f"
+      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "definitionId": "c4881b9f3f21c46713d26544a7ec11378ba3ab1ccbf20a6de316d01021f84a2a"
+    },
+    {
+      "appendixId": "f77c3f11846566e23cf86afe4e674ee0c4149f43f16b42c24371d7a284ba5c0d",
+      "definitionId": "2a69ac88e1e54bd742e0110d13c5df329947fe9dd89fd291bfcab853c4495d18"
+    },
+    {
+      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "definitionId": "2a69ac88e1e54bd742e0110d13c5df329947fe9dd89fd291bfcab853c4495d18"
+    },
+    {
+      "appendixId": "f77c3f11846566e23cf86afe4e674ee0c4149f43f16b42c24371d7a284ba5c0d",
+      "definitionId": "4e06df1cf2b908e7f583c20af4a50008f3bba683e8c82a43b48efd0a85cc1b26"
+    },
+    {
+      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "definitionId": "4e06df1cf2b908e7f583c20af4a50008f3bba683e8c82a43b48efd0a85cc1b26"
+    },
+    {
+      "appendixId": "f77c3f11846566e23cf86afe4e674ee0c4149f43f16b42c24371d7a284ba5c0d",
+      "definitionId": "abd1a1990726576d9dde6af52dbbad55841e08f0fafa0b15fca48ed1985e6eb2"
+    },
+    {
+      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "definitionId": "abd1a1990726576d9dde6af52dbbad55841e08f0fafa0b15fca48ed1985e6eb2"
     }
   ],
   "categories": [
     {
-      "categoryId": "0f62e47c52419dbf1affc4f5eb23321a1f81c516b44df43ee96daf53ab128808",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "categoryId": "25e9eeccbcab01209f9c455a9a84766746abba45db7abeca01adfb1028d8139f",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     },
     {
-      "categoryId": "6a7130ac1815cca48337d9466e0bd6cd24c5f147512e963f9a63230f21edd995",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "categoryId": "abfc9dd60dbd4213cfdaff50b325bdc408e63b1384d7d287b4a91deffaf35e2d",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     },
     {
-      "categoryId": "1420b68f1523db102b3c3a4afe7b44791cbf5e09d793e9c6466c200ca30b98bc",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "categoryId": "ed23833c09a131bb4b63468a3d4ccdcffa6b655106a737104c8ce33d90569169",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     },
     {
-      "categoryId": "15e987cb26ea2936305e3e0837299e4035df47fb8fb0cb4e96a58fbbbbb75566",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "categoryId": "7737822fde2e3a4fd8218c6b05d3102b430e8f7c28bbb83ea27d0a7b9a8305e7",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     },
     {
-      "categoryId": "4a963a1d29b701e340b19f287cc53a1b72ad9018195559fabb8ecccec6d9b8f0",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "categoryId": "a3251c465c1b90958a3e690d4b44bd0a4aaf6ae331998cbe17d24cb7f02db3da",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     },
     {
-      "categoryId": "a5044634bd8f7245b8afac8bcb23ee54598a74e889393b7d0d24d2dab8358b03",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "categoryId": "aa11af986afa73c58f0bf4cccf3633d54bb858b74cc98001bfbcec03beaa2fc8",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     },
     {
-      "categoryId": "7b8795cc35827971516a37ff41419bf757a8227b5aa3cd2f33f658c90db5a1d6",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "3cb81abf1f761a54a229b716753ce7f9624be1489d9332723295cbd6558b597f",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "a36f40c3866ff9f255586168b7d1f99cf7ba958e7df1b228281303a913a310c5",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "4894bae8a343f3049b231e989226d94a8b29350ee43264671872c10a9fceca2e",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "793215f4d199a62a7b1f7edaf32f090a52f33c3a109afdd61436c7ac91389b7b",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "69b6d7c1abeca867015d9f357d08b50198bf1338a54920c5417d6e726df1896a",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "a4a7ccc020229c5e207b74f1a6fb69503214f1fa28fb1376888ae835b3a87415",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "c6747bf4bbad3d06d2e740cc40fdeb5471e2f8bcbe2ed0ed22246cb58073fe89",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "7420c50f033748215b15ca704859d8dc03b0b0b404fbb079b50e5eef36130957",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "7514df95433b05afc11a8f780be6d8601e166c2d2f7a56242200aa0fe595d884",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "ad576a86f3f917de16fca6fc7a37f85c7213f4a9c5277642c2148ca25760cff6",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "fa1b46578b190856feb2ab5a49f3a5a66078968c429b46279138243779b6f22d",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "291b8436c60eca1464a24692da90a98f4bd428f4db1c87e3cf18d99daf76bda4",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "b00a67d8c922f32460136f70c9bfd9a97a68167825394f31f80d152173efd5f5",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "323bac38a0172c6eb95dd28e97202e663814aa668030fc31d052ff5b534499dd",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "d771bc453a6d813fcb9fd26c8ceaf0979c6aea9160f0bfb5e076f4e835394e39",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "8595332c2fb3f994a16807d0d42a68ccd2fc9b872d5a01d17914739651c84c1f",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "2a9c52456517e4e6fe1538361317ccd3b7d953eba3f64a9ab8bc4e93bb31231a",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "0f62e47c52419dbf1affc4f5eb23321a1f81c516b44df43ee96daf53ab128808",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "6a7130ac1815cca48337d9466e0bd6cd24c5f147512e963f9a63230f21edd995",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "1420b68f1523db102b3c3a4afe7b44791cbf5e09d793e9c6466c200ca30b98bc",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "15e987cb26ea2936305e3e0837299e4035df47fb8fb0cb4e96a58fbbbbb75566",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "4a963a1d29b701e340b19f287cc53a1b72ad9018195559fabb8ecccec6d9b8f0",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "a5044634bd8f7245b8afac8bcb23ee54598a74e889393b7d0d24d2dab8358b03",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "7b8795cc35827971516a37ff41419bf757a8227b5aa3cd2f33f658c90db5a1d6",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "3cb81abf1f761a54a229b716753ce7f9624be1489d9332723295cbd6558b597f",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "a36f40c3866ff9f255586168b7d1f99cf7ba958e7df1b228281303a913a310c5",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "4894bae8a343f3049b231e989226d94a8b29350ee43264671872c10a9fceca2e",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "793215f4d199a62a7b1f7edaf32f090a52f33c3a109afdd61436c7ac91389b7b",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "69b6d7c1abeca867015d9f357d08b50198bf1338a54920c5417d6e726df1896a",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "a4a7ccc020229c5e207b74f1a6fb69503214f1fa28fb1376888ae835b3a87415",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "c6747bf4bbad3d06d2e740cc40fdeb5471e2f8bcbe2ed0ed22246cb58073fe89",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "7420c50f033748215b15ca704859d8dc03b0b0b404fbb079b50e5eef36130957",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "7514df95433b05afc11a8f780be6d8601e166c2d2f7a56242200aa0fe595d884",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "ad576a86f3f917de16fca6fc7a37f85c7213f4a9c5277642c2148ca25760cff6",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "fa1b46578b190856feb2ab5a49f3a5a66078968c429b46279138243779b6f22d",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "291b8436c60eca1464a24692da90a98f4bd428f4db1c87e3cf18d99daf76bda4",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "b00a67d8c922f32460136f70c9bfd9a97a68167825394f31f80d152173efd5f5",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "323bac38a0172c6eb95dd28e97202e663814aa668030fc31d052ff5b534499dd",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "d771bc453a6d813fcb9fd26c8ceaf0979c6aea9160f0bfb5e076f4e835394e39",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "8595332c2fb3f994a16807d0d42a68ccd2fc9b872d5a01d17914739651c84c1f",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "2a9c52456517e4e6fe1538361317ccd3b7d953eba3f64a9ab8bc4e93bb31231a",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "0f62e47c52419dbf1affc4f5eb23321a1f81c516b44df43ee96daf53ab128808",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "6a7130ac1815cca48337d9466e0bd6cd24c5f147512e963f9a63230f21edd995",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "1420b68f1523db102b3c3a4afe7b44791cbf5e09d793e9c6466c200ca30b98bc",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "15e987cb26ea2936305e3e0837299e4035df47fb8fb0cb4e96a58fbbbbb75566",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "4a963a1d29b701e340b19f287cc53a1b72ad9018195559fabb8ecccec6d9b8f0",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "a5044634bd8f7245b8afac8bcb23ee54598a74e889393b7d0d24d2dab8358b03",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "7b8795cc35827971516a37ff41419bf757a8227b5aa3cd2f33f658c90db5a1d6",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "3cb81abf1f761a54a229b716753ce7f9624be1489d9332723295cbd6558b597f",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "a36f40c3866ff9f255586168b7d1f99cf7ba958e7df1b228281303a913a310c5",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "4894bae8a343f3049b231e989226d94a8b29350ee43264671872c10a9fceca2e",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "793215f4d199a62a7b1f7edaf32f090a52f33c3a109afdd61436c7ac91389b7b",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "69b6d7c1abeca867015d9f357d08b50198bf1338a54920c5417d6e726df1896a",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "a4a7ccc020229c5e207b74f1a6fb69503214f1fa28fb1376888ae835b3a87415",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "c6747bf4bbad3d06d2e740cc40fdeb5471e2f8bcbe2ed0ed22246cb58073fe89",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "7420c50f033748215b15ca704859d8dc03b0b0b404fbb079b50e5eef36130957",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "7514df95433b05afc11a8f780be6d8601e166c2d2f7a56242200aa0fe595d884",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "ad576a86f3f917de16fca6fc7a37f85c7213f4a9c5277642c2148ca25760cff6",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "fa1b46578b190856feb2ab5a49f3a5a66078968c429b46279138243779b6f22d",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "291b8436c60eca1464a24692da90a98f4bd428f4db1c87e3cf18d99daf76bda4",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "b00a67d8c922f32460136f70c9bfd9a97a68167825394f31f80d152173efd5f5",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "323bac38a0172c6eb95dd28e97202e663814aa668030fc31d052ff5b534499dd",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "d771bc453a6d813fcb9fd26c8ceaf0979c6aea9160f0bfb5e076f4e835394e39",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "8595332c2fb3f994a16807d0d42a68ccd2fc9b872d5a01d17914739651c84c1f",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "categoryId": "2a9c52456517e4e6fe1538361317ccd3b7d953eba3f64a9ab8bc4e93bb31231a",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "categoryId": "74d3d6c6a8e2a70ba1352ce9e2454cb167d0e03d1204c9c3c2ef86627bb751e2",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     }
   ],
   "definitions": [
     {
-      "headword": "أَلَّا",
-      "id": "8c88e3684366b134207ac06511d86b417034b0386abd4bbfcaed78d4c50714c7",
+      "headword": "if only",
+      "id": "bcfc2c9c12edd04405a4874cd6cdf6ecfb79bddb89fa7d8ec45dccff391dc19c",
       "partOfSpeech": "conjunction",
-      "text": "أَلَّا • (ʔallā)",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "text": "if only",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     },
     {
-      "headword": "أَلَّا",
-      "id": "4350ef7881ea58477cb9cc2157539bd6ed1e574051a15786427b4077174caeba",
+      "headword": "if only",
+      "id": "93074fd9d387978044ace7c9eac43a9be6ac532f16ad73cc92c6d943d3f32231",
       "partOfSpeech": "conjunction",
-      "text": "negate a verb if the following verb is in subjunctive‏قَرَّرْتُ أَلَّا أَعْمَلَ فِيهِ‎qarrartu ʔallā ʔaʕmala fīhiI decided not to work in it.",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "text": "Used other than figuratively or idiomatically: see if,‎ only.It made me feel better, if only for a moment.It won't be much fun if only guys turn up to the party.",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     },
     {
-      "headword": "أَلَّا",
-      "id": "95a5b748859534417ee34b2562717356d8a65f36e719f6e8511e8e5b421417fa",
+      "headword": "if only",
+      "id": "c4881b9f3f21c46713d26544a7ec11378ba3ab1ccbf20a6de316d01021f84a2a",
       "partOfSpeech": "conjunction",
-      "text": "lest, that [...] not, in order that [...] not, so as not to",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "text": "I wish that; signifies a wish or desire for the present or the future.If only I could win the lottery.My gambling ex could come to his senses, if only.",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     },
     {
-      "headword": "أَلَا",
-      "id": "ea85aa710b540f4aeb001307f9f6a6f643bf28731bbcc3f585b621f8f8b0b389",
-      "partOfSpeech": "particle",
-      "text": "أَلَا • (ʔalā)",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "headword": "if only",
+      "id": "2a69ac88e1e54bd742e0110d13c5df329947fe9dd89fd291bfcab853c4495d18",
+      "partOfSpeech": "conjunction",
+      "text": "I wish that; signifies a regret about an action in the past.If only I had ​listened to my parents.We didn't have that luxury. If only!",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     },
     {
-      "headword": "أَلَا",
-      "id": "5d9a23becfbdd7eed73a64a688e4094f0a10fe7388ffe760dd956d4132fb4724",
-      "partOfSpeech": "particle",
-      "text": "do/does ... not, don't/doesn't (negative interrogative particle)\n‏أَلَا تَعْرِفُ مَنْ هُوَ؟‎‎ʔalā taʕrifu man huwa?Do you not know who he is?",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "headword": "if only",
+      "id": "4e06df1cf2b908e7f583c20af4a50008f3bba683e8c82a43b48efd0a85cc1b26",
+      "partOfSpeech": "conjunction",
+      "text": "Even if for no other reason than; only just.\nI was pretty sure what I wanted, but I still tried on another if only to make sure.",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     },
     {
-      "headword": "أَلَا",
-      "id": "8fc9c7f0920f4d53c58e9eb963c42a96668668feb63ce43b112ccb990bd01cc3",
-      "partOfSpeech": "particle",
-      "text": "verily, truly, indeed, oh yes!\n أَمَا‎ (ʔamā)",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "headword": "أَلَا",
-      "id": "c73a7596c50e8447f29cb9a716e6dab564bef157f15b327ad487e4918e8b7185",
-      "partOfSpeech": "verb",
-      "text": "أَلَا • (ʔalā) I, non-past يَأْلُو‎‎ (yaʔlū)",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "headword": "أَلَا",
-      "id": "12422d9e4a88c3c08488ce31129a7ccb64c553b292affce954416799ef0f686b",
-      "partOfSpeech": "verb",
-      "text": "to neglect to do, to fail to do, not to do (with فِي‎ (fī))",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
-    },
-    {
-      "headword": "أَلَا",
-      "id": "062598fcf7601a71feefe5d52067c27945320e61aa24d5fc471782b3feb68c7f",
-      "partOfSpeech": "verb",
-      "text": "to desist, to refrain (with فِي‎ (fī))‏فإذا أَرَدتَ فتح عرق أو وداج فخذ المبضع بين إصبعك الإبهام والسبّابة كأخذك القلم للكتابة به وليكن نصابه في راحتك وتخرج من رأسه خارج طرفي إصبعك المذكورين قدر طول ظفر إبهامك وأقلّ من ذلك إلى قدر نصف ظفر إبهامك ثم أفتح العرق إلى فوق شقّا بليغا برفق وخفّة. وأمّا التوديج يالقضيب وهو معلوم فتركب فيه المبضع وتخرج من طرفه خارج من القضيب قدر طول ظفر إبهامك، ولا تعجل بالضرب بالمبضع حتّى تقف على العرق بعينه وخاصة الوداجين، ولا تودّج حتّى تستوثق من الدابّة بالشكل والزيار ليألُ يضطرب وتختنق الدابّة بالخناق خنقا شديدا ليدرّ العرق. فإنّ ذلك موضوع خبيث وإن جاوزت يدك ربّما أصاب المبضع عرق الماء وهو المريء الدابّة فقتله.‎‎If you want to open a vein or jugular, take the scalpel between your thumb and index finger, take it like you take the quill for writing with it, so that its grip is in your palm, and you turn away from its head outwith the two tips of your said fingers by a length of the nail of your thumb and less than that by a half of the nail of your thumb, then you open the vein upwards making a sufficient cut with gentleness and levity. And what concerns the cutting the jugular with the known rod, you mount the scalpel in it and you move away from the rod’s tip by the length of the nail of your thumb, but don’t hasten with hitting with the scalpel until you have discerned the vein by its eye, particularly the two jugulars, and don’t do a jugular cut until you have provided for the security of the beast by hopples and a twitch, so you do not agitate or suffocate the beast at its throat by excessive choking, so the vein flows with abundance. This part being particularly perilous, if your hand go to far then the scalpel could hit the water vein [or windpipe], that is the oesophaghus of the beast, and it would kill it.",
-      "wordId": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601"
+      "headword": "if only",
+      "id": "abd1a1990726576d9dde6af52dbbad55841e08f0fafa0b15fca48ed1985e6eb2",
+      "partOfSpeech": "conjunction",
+      "text": "Signifies a hypothetical or wishful precondition, or one which would be simple but is nonetheless unlikely, for a hypothetical, counterfactual, or future outcome.He could be a great student if only he got [or: if he only got] a little non-judgmental encouragement.If you'd only quit interrupting me, I'll tell you!",
+      "wordId": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148"
     }
   ],
   "examples": [],
   "orph_nodes": [],
   "related_words": [
     {
-      "headDefinitionId": "59f44c5627304fdfe3f6e6aa1c0e50def3981b4688c6b0bc6b8a13e50c479925",
-      "relationshipType": "synonyms",
-      "word": "أَمَا",
-      "wordId": "8dd52ae8cf4ce744f799b0a0b5795ee91932ed213969513996845cb15dabff64"
+      "headDefinitionId": "85e7ead989775aa591194bb48139cd87329bb69c3fdf5c1b11c4fec3afc4dc3f",
+      "relationshipType": "antonyms",
+      "word": "God forbid",
+      "wordId": "0f9eba358bf6fd627efc7c9d9896d7f8bbde7f6245a16aefddd74920c7937ac8"
     }
   ],
   "words": [
     {
-      "etymology": "From أَنْ‎ (ʔan) +‎ لَا‎ (lā).\n",
-      "id": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601",
+      "etymology": "",
+      "id": "980c1acbabbb89de4e56e3eeb75748501f5de03d8ca9d091a0313508dc12b148",
       "isDerived": 0,
-      "language": "arabic",
-      "query": "آل",
-      "wikiUrl": "/wiki/أَلَا",
-      "word": "أ ل ا"
-    },
-    {
-      "etymology": "From أَ‎ (ʔa) +‎ لَا‎ (lā).\n",
-      "id": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601",
-      "isDerived": 0,
-      "language": "arabic",
-      "query": "آل",
-      "wikiUrl": "/wiki/أَلَا",
-      "word": "أ ل ا"
-    },
-    {
-      "etymology": "From the root ء ل و‎ (ʔ-l-w).\n",
-      "id": "cc30a727840fa27fd3e56b0355905bed71b7ff44fd0d0658f37c3161f46c8601",
-      "isDerived": 0,
-      "language": "arabic",
-      "query": "آل",
-      "wikiUrl": "/wiki/أَلَا",
-      "word": "أ ل ا"
+      "language": "english",
+      "query": "لو",
+      "wikiUrl": "/wiki/if only",
+      "word": "if only"
     }
   ]
 }

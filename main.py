@@ -14,16 +14,22 @@ from scripts.deorphanize import main as deorphanize
 from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language
 
-EXPERIMENTAL = not False
+EXPERIMENTAL = False
 PHASE = 1
 deorphanization_level = 2
 limit = 3 if EXPERIMENTAL else -1
 vocab_file = 'json/collected.txt'
 
+if not os.path.isdir('./json'):
+    os.mkdir('json')
+
 datasets = None
 if PHASE <= 1:
     reset_db()
-    datasets = upload_data('D:\Datasets', limit=limit)
+    try:
+        datasets = upload_data('D:\Datasets', limit=limit)
+    except StopIteration:
+        datasets = upload_data('E:\Banouz\Datasets', limit=limit)
 
 if PHASE <= 2:
     tokenized_texts = convert_to_tokens(datasets)

@@ -2,7 +2,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
+CREATE DATABASE IF NOT EXISTS `knowledge_graph`;
 -- --------------------------------------------------------
 
 --
@@ -11,7 +11,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `{dataset_table}` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `text` varchar(1023) NOT NULL,
+  `text` text NOT NULL,
   `label` varchar(255) NOT NULL,
   `dataset_name` varchar(255) DEFAULT NULL,
   `task` varchar(255) DEFAULT NULL

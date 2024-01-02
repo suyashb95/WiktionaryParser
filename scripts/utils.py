@@ -30,5 +30,5 @@ dataset_2_tokens_prep = Preprocessor(
 )
 #Prep above is too aggressive, please fix
 
-reset_db = lambda : collector.erase_db()
+reset_db = lambda : collector.erase_db(True)
 fix_ar_display = lambda text: get_display(arabic_reshaper.reshape(text))
