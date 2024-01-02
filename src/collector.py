@@ -109,7 +109,7 @@ class Collector:
                         apx['id'] = Collector.apply_hash(apx_unique_hash)
                         res.append(apx)
                     
-        self.conn.create("appendix", res)
+        self.conn.insert("appendix", res, ignore=True)
         return res
     
     
@@ -146,7 +146,7 @@ class Collector:
                     break
 
                 url = self.base_url + url.get('href')
-        self.conn.create("categories", data)
+        self.conn.insert("categories", data, ignore=True)
         return data
 
     
@@ -162,7 +162,9 @@ class Collector:
                 data.append(dict(text=text, label=label, dataset_name=dataset_name, task=task))
         return data
     
-    def erase_db(self):
+    def erase_db(self, recreate_database=False):
+        if recreate_database:
+            self.reset_db()
         self.conn.execute("SET FOREIGN_KEY_CHECKS = 0")
         target_tables = [
             self.definitions_table+"_apx", self.edge_table, 'word_categories', "examples",

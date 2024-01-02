@@ -37,7 +37,7 @@ if PHASE <= 2:
 
 if PHASE <= 3:
     vocab_id_key = 'word'
-    if EXPERIMENTAL:
+    if True:
         with open('json/global_tokens.json', 'r', encoding="utf8") as f:
             global_tokens = json.load(f)
         existing_vocab_ = [v[vocab_id_key] for v in builder.get_vocab()]
@@ -90,7 +90,7 @@ if PHASE <= 3:
 
     collector.flush()
 
-if PHASE <= 4 and not EXPERIMENTAL:
+if PHASE <= 4 and EXPERIMENTAL:
     collector.auto_flush_after = 10
     for lv in range(deorphanization_level):
         orphan_lex = builder.get_orphan_nodes()
@@ -99,7 +99,7 @@ if PHASE <= 4 and not EXPERIMENTAL:
                 w['language'] = "english"
             else:
                 w['language'] = convert_language(w['language'], format="long")
-        if EXPERIMENTAL or True:
+        if True:
             text_words = dict((w['id'], w) for w in orphan_lex).items()
             text_words = sorted(text_words, key=lambda x: x[0])
         print(f"Deorphanization (Level {lv+1:2d})")

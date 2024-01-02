@@ -2037,6 +2037,13 @@
     "id": "4e817358bc16260f47d0366bd76f8856788ccaaa347d9b81c65ad5e3654b26c1"
   },
   {
+    "label": "logophoricity",
+    "description": "Logophorical pronouns (logophors) are personal pronouns in some languages (such as Ainu, Ewe and Japanese) that marks the speaker when being quoted (or the entity whose thoughs or feelings are being reported). See also: Wikipedia's article on logophoricity.",
+    "wikiUrl": "/wiki/logophoricity",
+    "category": "glossary",
+    "id": "2d78df5a4cba03d3ea99d36baf2457e877dfa2b2832efaf42e5d40789af954b0"
+  },
+  {
     "label": "loosely",
     "description": "Indicates an imprecise use of words (wider, broader); short for loosely speaking. Contrast strict or narrow sense; strictly.",
     "wikiUrl": "/wiki/loosely",
@@ -2087,7 +2094,7 @@
   },
   {
     "label": "mediopassive",
-    "description": "The grammatical voice that subsumes the meanings of both the middle voice and passive voice. Several languages (e.g. Sanskrit, Greek, Icelandic and Albanian) make a morphological distinction between active and mediopassive voices, and in such languages, the mediopassive can have either middle, passive or (often) reflexive semantics. Often used interchangeably with the middle voice. (see  Mediopassive voice (grammar)#Middle voice on  Wikipedia.Wikipedia )",
+    "description": "The grammatical voice that subsumes the meanings of both the middle voice and passive voice. Several languages (e.g. Sanskrit, Greek, Icelandic and Albanian) make a morphological distinction between active and mediopassive voices, and in such languages, the mediopassive can have either middle, passive or (often) reflexive semantics. Often used interchangeably with the middle voice. (see  Mediopassive voice (grammar) on  Wikipedia.Wikipedia )",
     "wikiUrl": "/wiki/mediopassive",
     "category": "glossary",
     "id": "c6030844ea5c5fd10c1214291a33c80e3985e7f418bf3c74897bbbda3321f90e"
@@ -2143,7 +2150,7 @@
   },
   {
     "label": "middle voice",
-    "description": "The voice verb form in which the subject of a verb performs some action upon itself, as in the English sentence The plane landed (contrast active voice The pilot landed the plane and passive voice The plane was landed (by the pilot)). Often used interchangeably with the mediopassive voice. In some languages, such as Sanskrit, Ancient Greek, Icelandic and Albanian, the middle voice is distinguished morphologically from the active voice. Ancient Greek, in particular, has a three-way morphological distinction between active, middle and passive voices in the aorist and future tenses. (see  Voice (grammar)#Middle voice on  Wikipedia.Wikipedia )",
+    "description": "The voice verb form in which the subject of a verb performs some action upon itself, as in the English sentence The plane landed (contrast active voice The pilot landed the plane and passive voice The plane was landed (by the pilot)). Often used interchangeably with the mediopassive voice. In some languages, such as Sanskrit, Ancient Greek, Icelandic and Albanian, the middle voice is distinguished morphologically from the active voice. Ancient Greek, in particular, has a three-way morphological distinction between active, middle and passive voices in the aorist and future tenses. (see  Voice (grammar) on  Wikipedia.Wikipedia )",
     "wikiUrl": "/wiki/middle_voice",
     "category": "glossary",
     "id": "e960258546918472b33cb2f98f7eb1407264ca17710016ab36ea19562adc50b2"
@@ -2437,7 +2444,7 @@
   },
   {
     "label": "orthographic borrowing",
-    "description": "A loanword that has been borrowed in its written form and re-pronounced according to the conventions of the target language, particularly in East Asian languages written with Chinese characters. For example, the Chinese name 毛泽东 (Máo Zédōng) is rendered in Japanese as 毛沢東 (Mō Takutō): the spelling is the same, but the characters have been pronounced as if they were Japanese words, leading to a significantly different pronunciation. Sometimes, the pronunciations in the source and donor language have no etymological relationship. For example, the Japanese noun 葉(は)書(がき) (hagaki, “postcard”) was orthographically borrowed into Korean as 엽서 (葉書, yeopseo, “postcard”).",
+    "description": "A loanword that has been borrowed in its written form and re-pronounced according to the conventions of the target language, particularly in East Asian languages written with Chinese characters. For example, the Chinese name 毛泽东 (Máo Zédōng) is rendered in Japanese as 毛沢東 (Mō Takutō): the spelling is the same, but the characters have been pronounced as if they were Japanese words, leading to a significantly different pronunciation. Sometimes, the pronunciations in the source and donor language have no etymological relationship. For example, the Japanese noun 葉書 (hagaki, “postcard”) was orthographically borrowed into Korean as 엽서 (葉書, yeopseo, “postcard”).",
     "wikiUrl": "/wiki/orthographic",
     "category": "glossary",
     "id": "a4b53c4e9438e6fed7dc914d4c1964a1fd7b062e70f16e4342e1ce7f1666af20"
@@ -2686,6 +2693,13 @@
     "wikiUrl": "/wiki/plural",
     "category": "glossary",
     "id": "488e641880a7b912b08d227c3e79d8d66cad6137a9895c338e92a9a133120ff8"
+  },
+  {
+    "label": "poetic",
+    "description": "Language that is typically restricted to works of poetry.",
+    "wikiUrl": "/wiki/poetic",
+    "category": "glossary",
+    "id": "b314f58f5f506fd28379b849e2aa94db436dd2ccd90d4b0606350da6eb434414"
   },
   {
     "label": "polylectic",
