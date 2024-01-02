@@ -54,15 +54,16 @@ if PHASE <= 3:
 
     result = {}
     vocab = [w for w in vocab if w['token'] not in existing_vocab_]
-    # vocab = vocab[:3]
     vocab = tqdm.tqdm(vocab, position=0)
-    if os.path.isfile(vocab_file):
-        os.remove(vocab_file)
+    with open(vocab_file, 'r', encoding="utf8") as f:
+        existing_vocab_ = [w.strip() for w in f.readlines()]
+    # if os.path.isfile(vocab_file):
+    #     os.remove(vocab_file)
 
     collector.auto_flush_after = -1
     for e in vocab:
         word = e['token']
-        if len(word) <= 1:
+        if len(word) <= 1 or word in existing_vocab_:
             continue
 
 
@@ -71,7 +72,7 @@ if PHASE <= 3:
         word = get_word_info_prep(word.strip())
         word_id = collector.apply_hash(word)
         
-        result_ = collect_info(word, lang, wait_time=.1, save_to_db=True)
+        result_ = collect_info(word, lang, wait_time=.1, save_to_db=True, existing_vocab=existing_vocab_)
         for k in result_:
             result[k] = result.get(k, []) + result_[k]
         with open("resres.json", 'w', encoding="utf8") as f:
@@ -81,7 +82,7 @@ if PHASE <= 3:
         with open(vocab_file, 'a+', encoding="utf8") as f:
             f.write(word+'\n')
         
-        if len(result.get('definitions', [])) >= 10000:
+        if len(result.get('definitions', [])) >= 1000:
             collector.update_word_data(**result)
             collector.insert_word_data(**result)
             result = {}
