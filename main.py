@@ -66,7 +66,7 @@ if PHASE <= 3:
     vocab = tqdm.tqdm(vocab, position=0)
 
 
-    collector.auto_flush_after = -10000
+    collector.auto_flush_after = 1000
     for e in vocab:
         word = e['token']
         if len(word) <= 1 or word in existing_vocab_:
@@ -87,7 +87,7 @@ if PHASE <= 3:
         vocab.set_postfix({k: len(result[k]) for k in result})
         existing_vocab_.append(e['token'])
         
-        if len(result.get('definitions', [])) >= 5:
+        if len(result.get('definitions', [])) >= 500:
             collector.update_word_data(**result)
             collector.insert_word_data(**result)
             collector.batch = []
