@@ -370,10 +370,11 @@ class Collector:
             "examples": examples
         } 
         if save_to_db:
-            self.batch.append(res)
             # self.save_word_data(**res)
-            if self.auto_flush_after > 0 and self.auto_flush_after <= len(self.batch):
-                self.flush()
+            if self.auto_flush_after > 0 :
+                self.batch.append(res)
+                if self.auto_flush_after <= len(self.batch):
+                    self.flush()
 
         return res #fetched_data #related_words
     

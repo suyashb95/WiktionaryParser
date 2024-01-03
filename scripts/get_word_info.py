@@ -7,10 +7,10 @@ from .utils import *
 import json
 
 
-results = {}
 
 def main(word, lang, wait_time=0, save_to_db=True, existing_vocab=[]):
-    
+    results = {}
+
     no_spaces_word = re.sub('\s', '_', word)
     if word != no_spaces_word: #If word has space, e.q to saying word is an entity
         fetched_data = {word: parser.fetch(no_spaces_word, query=word, language=lang)}
@@ -30,6 +30,7 @@ def main(word, lang, wait_time=0, save_to_db=True, existing_vocab=[]):
         time.sleep(wait_time)
 
     #In-place deorphanization
+    
     deorph_pbar = tqdm.tqdm(total=len(results['orph_nodes']), leave=False, position=1)
     orph_nodes = []
     while len(results['orph_nodes']) > 0:

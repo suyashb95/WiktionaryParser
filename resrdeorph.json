@@ -1,651 +1,68 @@
 {
   "appendices": [
     {
-      "appendixId": "7f284f994514d4f6c0a56e5af00f5ab6b98793c960cc44789d289b3bdd91fc63",
-      "definitionId": "f3a905463cebfe75013e6bca785bd4bedae23435b0e792d811e4a053baf69916"
+      "appendixId": "96af76fb1a092d93f640b3fd324bdae953cc0d5d764666f0fe0dd0d57402eb85",
+      "definitionId": "6f81b18b14540e17284fc4e02afd0ea7c7bdb1df3f331dd9d7496c44256c854d"
     },
     {
-      "appendixId": "f0151e85b4af94faca89a44550b7d33aa46d27678f21a90aa99ad77397643592",
-      "definitionId": "74ed7b01d5451cdddcbd7916b30917bab74a8af5cd8a1d4ecc0f93e3c0fb29c0"
+      "appendixId": "61d58cbe5bad3042630f503dbea9fa15177233a930129b826c6b33b808b81323",
+      "definitionId": "6f81b18b14540e17284fc4e02afd0ea7c7bdb1df3f331dd9d7496c44256c854d"
     },
     {
-      "appendixId": "f0151e85b4af94faca89a44550b7d33aa46d27678f21a90aa99ad77397643592",
-      "definitionId": "74ed7b01d5451cdddcbd7916b30917bab74a8af5cd8a1d4ecc0f93e3c0fb29c0"
+      "appendixId": "4d4c7eee2e28d03cb2dbf3df639c3290ade66e18755e83caade2d8f37bd8c044",
+      "definitionId": "6f81b18b14540e17284fc4e02afd0ea7c7bdb1df3f331dd9d7496c44256c854d"
     },
     {
-      "appendixId": "f91c201d1322688cbf4699e22ae6aaff6bada1f708b13cbe982bf12506b24f22",
-      "definitionId": "74ed7b01d5451cdddcbd7916b30917bab74a8af5cd8a1d4ecc0f93e3c0fb29c0"
-    },
-    {
-      "appendixId": "3a2a3e1129ee00e69b6bec431993b11ec05b1e9c53612e62e175b4f7fea52d11",
-      "definitionId": "74ed7b01d5451cdddcbd7916b30917bab74a8af5cd8a1d4ecc0f93e3c0fb29c0"
-    },
-    {
-      "appendixId": "7f284f994514d4f6c0a56e5af00f5ab6b98793c960cc44789d289b3bdd91fc63",
-      "definitionId": "74ed7b01d5451cdddcbd7916b30917bab74a8af5cd8a1d4ecc0f93e3c0fb29c0"
-    },
-    {
-      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "definitionId": "74ed7b01d5451cdddcbd7916b30917bab74a8af5cd8a1d4ecc0f93e3c0fb29c0"
-    },
-    {
-      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "definitionId": "74ed7b01d5451cdddcbd7916b30917bab74a8af5cd8a1d4ecc0f93e3c0fb29c0"
-    },
-    {
-      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "definitionId": "74ed7b01d5451cdddcbd7916b30917bab74a8af5cd8a1d4ecc0f93e3c0fb29c0"
-    },
-    {
-      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "definitionId": "74ed7b01d5451cdddcbd7916b30917bab74a8af5cd8a1d4ecc0f93e3c0fb29c0"
-    },
-    {
-      "appendixId": "35b70a06a33ea6586caae145f1be9320a4f775a810646772009e1acb22b3de90",
-      "definitionId": "74ed7b01d5451cdddcbd7916b30917bab74a8af5cd8a1d4ecc0f93e3c0fb29c0"
-    },
-    {
-      "appendixId": "f91c201d1322688cbf4699e22ae6aaff6bada1f708b13cbe982bf12506b24f22",
-      "definitionId": "0354894ca0b1bb31a33879473610ece965fab648a506043eb1c2165d824ca02a"
-    },
-    {
-      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "definitionId": "0354894ca0b1bb31a33879473610ece965fab648a506043eb1c2165d824ca02a"
-    },
-    {
-      "appendixId": "f0151e85b4af94faca89a44550b7d33aa46d27678f21a90aa99ad77397643592",
-      "definitionId": "ca8382f5d055b2c563a94b03bfceabcdbb323e2dde6af94b024212729c0fb6db"
-    },
-    {
-      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "definitionId": "ca8382f5d055b2c563a94b03bfceabcdbb323e2dde6af94b024212729c0fb6db"
-    },
-    {
-      "appendixId": "f91c201d1322688cbf4699e22ae6aaff6bada1f708b13cbe982bf12506b24f22",
-      "definitionId": "9b008afdfd901614d91a4fcc8074b977bde382ef2f14447d063e04c3436611bd"
-    },
-    {
-      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "definitionId": "9b008afdfd901614d91a4fcc8074b977bde382ef2f14447d063e04c3436611bd"
-    },
-    {
-      "appendixId": "5d71021338af54164a721dbf96470277b6553fd0f4354bd884c1855e02399af4",
-      "definitionId": "6f0e6e0c2954204b01501ae6596e1885198d18db63a0cb797f53f895b2249f22"
-    },
-    {
-      "appendixId": "ff67070ca54b498c7a051f8721b05575ad56d60a271eff29b78cf1a29eb02646",
-      "definitionId": "6f0e6e0c2954204b01501ae6596e1885198d18db63a0cb797f53f895b2249f22"
-    },
-    {
-      "appendixId": "7f284f994514d4f6c0a56e5af00f5ab6b98793c960cc44789d289b3bdd91fc63",
-      "definitionId": "f5b9e85a2d56e4f5ce5a8f01a89f6d026e8e51aa73164f00e0e65fb7200a2c7c"
-    },
-    {
-      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "definitionId": "f5b9e85a2d56e4f5ce5a8f01a89f6d026e8e51aa73164f00e0e65fb7200a2c7c"
-    },
-    {
-      "appendixId": "1cb542228c76558789d114d3cb273a75850cca54ec3ee9a41100f2dc56ee561e",
-      "definitionId": "7488b678a1f8dc16cd1dd1d5234eb8e1fc8eeaa30cdfceeb31c73eb0948e71b8"
-    },
-    {
-      "appendixId": "ff67070ca54b498c7a051f8721b05575ad56d60a271eff29b78cf1a29eb02646",
-      "definitionId": "a226c02dabb920c2c0ea5db713466a5385ec3d15aafaffdff26934e0ac7625a7"
-    },
-    {
-      "appendixId": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "definitionId": "a226c02dabb920c2c0ea5db713466a5385ec3d15aafaffdff26934e0ac7625a7"
+      "appendixId": "b20ad0b74eb57154da6b325f0f501d7e4c7aa79eb7da73531122a4c7ee55e61b",
+      "definitionId": "6f81b18b14540e17284fc4e02afd0ea7c7bdb1df3f331dd9d7496c44256c854d"
     }
   ],
   "categories": [
     {
-      "categoryId": "1d6e87ce7ac74f66647c3599965cfba057ea9f13b2fdc80f74bcd370e5ff41d1",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "47ab814a4245e1e4230cf2a37a9745d96f9c4b0ee81c0eb920d537b2b8165933",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "48d89a0f016b1bf29f4de722f748dda68d70d034f6ccb4b7c40aaf808fd90611",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "a4d699e0661476d8298daa3b22984c10cf59e4ad1e203c9ce5590c2249c607e3",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "249a664dfc01c4b0bc28ffd004229177afa77ae1fcefa868586ac599cd8e846c",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "b3e91858f9198d14c9c1e19e309a2fe5f94152421d14dcfdba7508c3664f88be",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
       "categoryId": "7737822fde2e3a4fd8218c6b05d3102b430e8f7c28bbb83ea27d0a7b9a8305e7",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
+      "wordId": "7eb3c933b1153e11a98a76073d5b7d51f1941760a502c7b3813113645868d4de"
     },
     {
-      "categoryId": "cfc436f89bb826f8ad192a6daf3a1542c8bcfc895fa638ce2cc5be2f1c7127ad",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
+      "categoryId": "a3251c465c1b90958a3e690d4b44bd0a4aaf6ae331998cbe17d24cb7f02db3da",
+      "wordId": "7eb3c933b1153e11a98a76073d5b7d51f1941760a502c7b3813113645868d4de"
     },
     {
-      "categoryId": "9c5ee1f52388878cf1f070ea23128424d2e3178475f860a5f2f7ae34f4f27cf1",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
+      "categoryId": "30165161001d6597d2f440149083f15d351c5bbef8a2993afc9d3f5d1fa584c8",
+      "wordId": "7eb3c933b1153e11a98a76073d5b7d51f1941760a502c7b3813113645868d4de"
     },
     {
-      "categoryId": "3647a39f2b66fcf30f449677ef84fa84b382643017dc0aa8a45ff4247772dbad",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "3ba1f8c34a9e5137b129ea493d883952fec85445e671e6fd615f40b33ada07da",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "44ce92bf595c776cd4fd10598da0cff88e5050c66fcb43765614b8be166dba18",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "fd370be1a6ced1efd983fd7f8a2125880f32feb82cdd092c35af6b5406a9fcb1",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "c2e3b05cddac9dce66a4ac5498890a1eef0e965804008b9fda9081a2812b3bf0",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "38a1f56a4a460d3bf238589afbfc6e0dac29d7a4c8bf9405479d3d77acb2e59c",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "f676abac8e8c3919d1a9878d577d1ca323236063472cf9690fb9468bf08c9f94",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "df6cb16e6c0996a951b2775ba03e86108f9a1231685f7a45517a7b8e835d07bd",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "b32360aa833f9f17cde5dce994af3221e6edaeda4fab285dd337d744b26e3f60",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "75635b2c3cef10f69173e9c8b28b58a9584dbedada4b6919cb3e4aae92846d39",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "8f69ccaf94eb8ec6f522f5223188033e1f8e25f94095ec728880025284b54939",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "378a9245f056273ef43423d8f29c1c820a857e0ba99c9816d4bf956383594acd",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "aa11af986afa73c58f0bf4cccf3633d54bb858b74cc98001bfbcec03beaa2fc8",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "5c16a36823263d7d87e9bfdc5dc6d089fb3d5ae01f4eecbc46fc7f7a2b25f3bb",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "464060dbb284873112c3077e05770e00bb35fce198773dc4205bc04d8080bdff",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "74d3d6c6a8e2a70ba1352ce9e2454cb167d0e03d1204c9c3c2ef86627bb751e2",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "264154cb07b75efdc4e72b1cf2239b8aa0d280cb0586ce24e1d9c705630d51e3",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "e057376b7b56458d8f82faf86302e36ca36b86ecfea4c81e73e7abd8c771d025",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "abd6bbf5fbfc4a960755c265a5e24e5a04f3d4fb0e040fb005be81a01b36d21d",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "e5929d0fd8ee39f3ead8eef9b37813dac71eecf569065096dd8787d725b98a02",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "57ae97a2c088e2beda50bb4f1540461f6498b00a6a46693b41ffe94dd8c10c8a",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "a8d4fe5745a506c7f53128dfe0096f836e023cca80e2f06c66e9cbf577d3e918",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "a5f9ac7338826c2bd147b2f9115f1202b6ff9b02abcdb101dd25e2816f3bcaaf",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "85f40ce9a88b88c03ae1f62927b6dedb434056f3f92041e0094a17d9aeae5305",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "a8a1efd30b376205dfd8fe3f71a9101cbd3e6c189558d997dc5d220e6a5c7ee6",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "aee44f9fa20c4340d26c9ff892b96856e3cbd1418329c1a4fc4f4ac89554193d",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "6aa11d38eee627771613cd39cb13100051b331621de29f341cd49c6284025b51",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "24b8fd59f4635490c30bc9077eb2dcb6aec8294a643ddb3df1ed676d5982d4bf",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "f5842d4e807c63c0b5cc10b94105a5f92336daac519ce7fcbde3c7e443e3a7e1",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "1d6e87ce7ac74f66647c3599965cfba057ea9f13b2fdc80f74bcd370e5ff41d1",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "47ab814a4245e1e4230cf2a37a9745d96f9c4b0ee81c0eb920d537b2b8165933",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "48d89a0f016b1bf29f4de722f748dda68d70d034f6ccb4b7c40aaf808fd90611",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "a4d699e0661476d8298daa3b22984c10cf59e4ad1e203c9ce5590c2249c607e3",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "249a664dfc01c4b0bc28ffd004229177afa77ae1fcefa868586ac599cd8e846c",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "b3e91858f9198d14c9c1e19e309a2fe5f94152421d14dcfdba7508c3664f88be",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "7737822fde2e3a4fd8218c6b05d3102b430e8f7c28bbb83ea27d0a7b9a8305e7",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "cfc436f89bb826f8ad192a6daf3a1542c8bcfc895fa638ce2cc5be2f1c7127ad",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "9c5ee1f52388878cf1f070ea23128424d2e3178475f860a5f2f7ae34f4f27cf1",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "3647a39f2b66fcf30f449677ef84fa84b382643017dc0aa8a45ff4247772dbad",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "3ba1f8c34a9e5137b129ea493d883952fec85445e671e6fd615f40b33ada07da",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "44ce92bf595c776cd4fd10598da0cff88e5050c66fcb43765614b8be166dba18",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "fd370be1a6ced1efd983fd7f8a2125880f32feb82cdd092c35af6b5406a9fcb1",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "c2e3b05cddac9dce66a4ac5498890a1eef0e965804008b9fda9081a2812b3bf0",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "38a1f56a4a460d3bf238589afbfc6e0dac29d7a4c8bf9405479d3d77acb2e59c",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "f676abac8e8c3919d1a9878d577d1ca323236063472cf9690fb9468bf08c9f94",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "df6cb16e6c0996a951b2775ba03e86108f9a1231685f7a45517a7b8e835d07bd",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "b32360aa833f9f17cde5dce994af3221e6edaeda4fab285dd337d744b26e3f60",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "75635b2c3cef10f69173e9c8b28b58a9584dbedada4b6919cb3e4aae92846d39",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "8f69ccaf94eb8ec6f522f5223188033e1f8e25f94095ec728880025284b54939",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "378a9245f056273ef43423d8f29c1c820a857e0ba99c9816d4bf956383594acd",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "aa11af986afa73c58f0bf4cccf3633d54bb858b74cc98001bfbcec03beaa2fc8",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "5c16a36823263d7d87e9bfdc5dc6d089fb3d5ae01f4eecbc46fc7f7a2b25f3bb",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "464060dbb284873112c3077e05770e00bb35fce198773dc4205bc04d8080bdff",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "74d3d6c6a8e2a70ba1352ce9e2454cb167d0e03d1204c9c3c2ef86627bb751e2",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "264154cb07b75efdc4e72b1cf2239b8aa0d280cb0586ce24e1d9c705630d51e3",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "e057376b7b56458d8f82faf86302e36ca36b86ecfea4c81e73e7abd8c771d025",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "abd6bbf5fbfc4a960755c265a5e24e5a04f3d4fb0e040fb005be81a01b36d21d",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "e5929d0fd8ee39f3ead8eef9b37813dac71eecf569065096dd8787d725b98a02",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "57ae97a2c088e2beda50bb4f1540461f6498b00a6a46693b41ffe94dd8c10c8a",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "a8d4fe5745a506c7f53128dfe0096f836e023cca80e2f06c66e9cbf577d3e918",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "a5f9ac7338826c2bd147b2f9115f1202b6ff9b02abcdb101dd25e2816f3bcaaf",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "85f40ce9a88b88c03ae1f62927b6dedb434056f3f92041e0094a17d9aeae5305",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "a8a1efd30b376205dfd8fe3f71a9101cbd3e6c189558d997dc5d220e6a5c7ee6",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "aee44f9fa20c4340d26c9ff892b96856e3cbd1418329c1a4fc4f4ac89554193d",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "6aa11d38eee627771613cd39cb13100051b331621de29f341cd49c6284025b51",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "24b8fd59f4635490c30bc9077eb2dcb6aec8294a643ddb3df1ed676d5982d4bf",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "categoryId": "f5842d4e807c63c0b5cc10b94105a5f92336daac519ce7fcbde3c7e443e3a7e1",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
+      "categoryId": "a96c9105df83c9410a8997544dfb46028ce6093085afefcc711a5c0651826675",
+      "wordId": "7eb3c933b1153e11a98a76073d5b7d51f1941760a502c7b3813113645868d4de"
     }
   ],
   "definitions": [
     {
-      "headword": "fight",
-      "id": "f3a905463cebfe75013e6bca785bd4bedae23435b0e792d811e4a053baf69916",
-      "partOfSpeech": "verb",
-      "text": "fight (third-person singular simple present fights, present participle fighting, simple past fought, past participle fought or  foughten)",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
+      "headword": "there are",
+      "id": "e00c77d5c9cd5874c13f7cf7a6f78654c772db55ccffc71f76aa9c3636694a1e",
+      "partOfSpeech": "phrase",
+      "text": "there are",
+      "wordId": "7eb3c933b1153e11a98a76073d5b7d51f1941760a502c7b3813113645868d4de"
     },
     {
-      "headword": "fight",
-      "id": "74ed7b01d5451cdddcbd7916b30917bab74a8af5cd8a1d4ecc0f93e3c0fb29c0",
-      "partOfSpeech": "verb",
-      "text": "Senses relating to physical conflict: To engage in combat with; to oppose physically, to contest with.\nMy grandfather fought the Nazis in World War II. To conduct or engage in (battle, warfare etc.).\nOur soldiers fought the battle just over that hill.was left to fight his way through the world.I have fought a good fight.(in) To contend in physical conflict, either singly or in war, battle etc.\nA wounded animal will fight tooth and nail; relentless, savage and murderous. To contend in physical conflict with each other, either singly or in war, battle etc.\nThe two boxers have been fighting for more than half an hour. To cause to fight; to manage or manoeuvre in a fight.\nto fight cocks; to fight one's ship",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "7e0dce8d61cead60d5351b6cb9afb822017d1aff94ed4abcf420c655451e867f",
-      "partOfSpeech": "verb",
-      "text": "() To engage in combat with; to oppose physically, to contest with.\nMy grandfather fought the Nazis in World War II.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "531691a11e02840c4e28c6af0c20306b4abf8578247cfdd7b6438af0f6089223",
-      "partOfSpeech": "verb",
-      "text": "() To conduct or engage in (battle, warfare etc.).\nOur soldiers fought the battle just over that hill.was left to fight his way through the world.I have fought a good fight.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "776e320611c01fcd1ee59a98fdb74919e6cbcc2dd1c9154cfdc080f1da2db618",
-      "partOfSpeech": "verb",
-      "text": "() To contend in physical conflict, either singly or in war, battle etc.\nA wounded animal will fight tooth and nail; relentless, savage and murderous.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "02bb6bfdb21ce9fbb9e0ab1b568f83a33d660ee9071d918925f24dca1da7b954",
-      "partOfSpeech": "verb",
-      "text": "() To contend in physical conflict with each other, either singly or in war, battle etc.\nThe two boxers have been fighting for more than half an hour.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "967f79ea28d3d842ee218a6f4a3ce29dde30aa6f0081344f43ba32d9e8e934b4",
-      "partOfSpeech": "verb",
-      "text": "() To cause to fight; to manage or manoeuvre in a fight.\nto fight cocks; to fight one's ship",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "0354894ca0b1bb31a33879473610ece965fab648a506043eb1c2165d824ca02a",
-      "partOfSpeech": "verb",
-      "text": "To strive for something; to campaign or contend for success.\nHe fought for the Democrats in the last election.Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.Old Applegate, in the stern, just set and looked at me, and Lord James, amidship, waved both arms and kept hollering for help. I took a couple of everlasting big strokes and managed to grab hold of the skiff's rail, close to the stern. Then, for a jiffy, I hung on and fought for breath.[Edmund] Burke continued to fight for liberty later on in life. He backed Americans in their campaign for freedom from British taxation. He supported Catholic freedoms and freer trade with Ireland, in spite of his constituents’ ire. He wanted more liberal laws on the punishment of debtors.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "ca8382f5d055b2c563a94b03bfceabcdbb323e2dde6af94b024212729c0fb6db",
-      "partOfSpeech": "verb",
-      "text": "To try to overpower; to fiercely counteract.\nThe government pledged to fight corruption.I fought a sneeze as Max took my hand and led me into the chapel.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "9b008afdfd901614d91a4fcc8074b977bde382ef2f14447d063e04c3436611bd",
-      "partOfSpeech": "verb",
-      "text": "Of colours or other design elements: to clash; to fail to harmonize.\nThe higher the saturation, the more the colors fight, and the more users will be looking at your design instead of your content.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "6f0e6e0c2954204b01501ae6596e1885198d18db63a0cb797f53f895b2249f22",
-      "partOfSpeech": "noun",
-      "text": "fight ( and un, plural fights)",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "33e77ac451a70861b4aa9f3e44dc7d2eb5b0fc15f203957d5d5741f75ec1ee1b",
-      "partOfSpeech": "noun",
-      "text": "An occasion of fighting.\nOne of them got stuck in a chokehold and got stabbed to death during the fight.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "f5b9e85a2d56e4f5ce5a8f01a89f6d026e8e51aa73164f00e0e65fb7200a2c7c",
-      "partOfSpeech": "noun",
-      "text": "A battle between opposing armies.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "66ee38965d3e131df8dd680fee8c1ead23434f36c611dd8f3b8a7b73dc3af84b",
-      "partOfSpeech": "noun",
-      "text": "A physical confrontation or combat between two or more people or groups.\nWatch your language! Are you looking for a fight?",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "7488b678a1f8dc16cd1dd1d5234eb8e1fc8eeaa30cdfceeb31c73eb0948e71b8",
-      "partOfSpeech": "noun",
-      "text": "A boxing or martial arts match.\nI'm going to Nick’s to watch the big fight tomorrow night.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "e2c54f409cdf131d47cd3848fb6f9dc1552b74705d7543badcf7fb63f54d335d",
-      "partOfSpeech": "noun",
-      "text": "A conflict, possibly nonphysical, with opposing ideas or forces; strife.\nI'll put up a fight to save this company.‘Then the father has a great fight with his terrible conscience,’ said Munday with granite seriousness. ‘Should he make a row with the police […]? Or should he say nothing about it and condone brutality for fear of appearing in the newspapers?As the world's drug habit shows, governments are failing in their quest to monitor every London window-box and Andean hillside for banned plants. But even that Sisyphean task looks easy next to the fight against synthetic drugs.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "a226c02dabb920c2c0ea5db713466a5385ec3d15aafaffdff26934e0ac7625a7",
-      "partOfSpeech": "noun",
-      "text": "The will or ability to fight.\nThat little guy has a bit of fight in him after all.   As soon as he saw the size of his opponent, all the fight went out of him.",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
-    },
-    {
-      "headword": "fight",
-      "id": "a017914476d594bcfdf18bc530209de8ca41c5597c3e62c4e24156b27ed55a88",
-      "partOfSpeech": "noun",
-      "text": "(obsolete) A screen for the combatants in ships; an arming.\nWho ever ſaw a noble ſight, / That never view'd a brave Sea Fight: / Hang up your bloody Colours in the Aire, / Up with your Fights, and your Nettings prepare, / Your Merry Mates chear, with a luſty bold ſpright, / Now each Man his brindice, and then to the Fight,  […]",
-      "wordId": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9"
+      "headword": "there are",
+      "id": "6f81b18b14540e17284fc4e02afd0ea7c7bdb1df3f331dd9d7496c44256c854d",
+      "partOfSpeech": "phrase",
+      "text": "of there be. see also there is.\nThere are three zeros in “1000”.",
+      "wordId": "7eb3c933b1153e11a98a76073d5b7d51f1941760a502c7b3813113645868d4de"
     }
   ],
-  "examples": [
-    {
-      "definitionId": "531691a11e02840c4e28c6af0c20306b4abf8578247cfdd7b6438af0f6089223",
-      "example_text": "was left to fight his way through the world.",
-      "quotation": "was left to fight his way through the world.",
-      "source": null,
-      "translation": null,
-      "transliteration": null
-    },
-    {
-      "definitionId": "531691a11e02840c4e28c6af0c20306b4abf8578247cfdd7b6438af0f6089223",
-      "example_text": "I have fought a good fight.",
-      "quotation": "I have fought a good fight.",
-      "source": null,
-      "translation": null,
-      "transliteration": null
-    },
-    {
-      "definitionId": "0354894ca0b1bb31a33879473610ece965fab648a506043eb1c2165d824ca02a",
-      "example_text": "Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.",
-      "quotation": "Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called, and hast professed a good profession before many witnesses.",
-      "source": null,
-      "translation": null,
-      "transliteration": null
-    },
-    {
-      "definitionId": "0354894ca0b1bb31a33879473610ece965fab648a506043eb1c2165d824ca02a",
-      "example_text": "Old Applegate, in the stern, just set and looked at me, and Lord James, amidship, waved both arms and kept hollering for help. I took a couple of everlasting big strokes and managed to grab hold of the skiff's rail, close to the stern. Then, for a jiffy, I hung on and fought for breath.",
-      "quotation": "Old Applegate, in the stern, just set and looked at me, and Lord James, amidship, waved both arms and kept hollering for help. I took a couple of everlasting big strokes and managed to grab hold of the skiff's rail, close to the stern. Then, for a jiffy, I hung on and fought for breath.",
-      "source": null,
-      "translation": null,
-      "transliteration": null
-    },
-    {
-      "definitionId": "0354894ca0b1bb31a33879473610ece965fab648a506043eb1c2165d824ca02a",
-      "example_text": "[Edmund] Burke continued to fight for liberty later on in life. He backed Americans in their campaign for freedom from British taxation. He supported Catholic freedoms and freer trade with Ireland, in spite of his constituents’ ire. He wanted more liberal laws on the punishment of debtors.",
-      "quotation": "[Edmund] Burke continued to fight for liberty later on in life. He backed Americans in their campaign for freedom from British taxation. He supported Catholic freedoms and freer trade with Ireland, in spite of his constituents’ ire. He wanted more liberal laws on the punishment of debtors.",
-      "source": null,
-      "translation": null,
-      "transliteration": null
-    },
-    {
-      "definitionId": "ca8382f5d055b2c563a94b03bfceabcdbb323e2dde6af94b024212729c0fb6db",
-      "example_text": "I fought a sneeze as Max took my hand and led me into the chapel.",
-      "quotation": "I fought a sneeze as Max took my hand and led me into the chapel.",
-      "source": null,
-      "translation": null,
-      "transliteration": null
-    },
-    {
-      "definitionId": "9b008afdfd901614d91a4fcc8074b977bde382ef2f14447d063e04c3436611bd",
-      "example_text": "The higher the saturation, the more the colors fight, and the more users will be looking at your design instead of your content.",
-      "quotation": "The higher the saturation, the more the colors fight, and the more users will be looking at your design instead of your content.",
-      "source": null,
-      "translation": null,
-      "transliteration": null
-    },
-    {
-      "definitionId": "e2c54f409cdf131d47cd3848fb6f9dc1552b74705d7543badcf7fb63f54d335d",
-      "example_text": "‘Then the father has a great fight with his terrible conscience,’ said Munday with granite seriousness. ‘Should he make a row with the police […]? Or should he say nothing about it and condone brutality for fear of appearing in the newspapers?",
-      "quotation": "‘Then the father has a great fight with his terrible conscience,’ said Munday with granite seriousness. ‘Should he make a row with the police […]? Or should he say nothing about it and condone brutality for fear of appearing in the newspapers?",
-      "source": null,
-      "translation": null,
-      "transliteration": null
-    },
-    {
-      "definitionId": "e2c54f409cdf131d47cd3848fb6f9dc1552b74705d7543badcf7fb63f54d335d",
-      "example_text": "As the world's drug habit shows, governments are failing in their quest to monitor every London window-box and Andean hillside for banned plants. But even that Sisyphean task looks easy next to the fight against synthetic drugs.",
-      "quotation": "As the world's drug habit shows, governments are failing in their quest to monitor every London window-box and Andean hillside for banned plants. But even that Sisyphean task looks easy next to the fight against synthetic drugs.",
-      "source": null,
-      "translation": null,
-      "transliteration": null
-    },
-    {
-      "definitionId": "a017914476d594bcfdf18bc530209de8ca41c5597c3e62c4e24156b27ed55a88",
-      "example_text": "Who ever ſaw a noble ſight, / That never view'd a brave Sea Fight: / Hang up your bloody Colours in the Aire, / Up with your Fights, and your Nettings prepare, / Your Merry Mates chear, with a luſty bold ſpright, / Now each Man his brindice, and then to the Fight,  […]",
-      "quotation": "Who ever ſaw a noble ſight, / That never view'd a brave Sea Fight: / Hang up your bloody Colours in the Aire, / Up with your Fights, and your Nettings prepare, / Your Merry Mates chear, with a luſty bold ſpright, / Now each Man his brindice, and then to the Fight,  […]",
-      "source": null,
-      "translation": null,
-      "transliteration": null
-    }
-  ],
+  "examples": [],
   "orph_nodes": [],
-  "related_words": [
-    {
-      "headDefinitionId": "400f7858171238fbc70fa45996d308b29011bfe4206781e9f1258c3f189be9a5",
-      "relationshipType": "synonyms",
-      "word": "See also Thesaurus:fight",
-      "wordId": "c7c2028acbfee117c2d4d2951c515d956d262c1d0fe953ca0fea72fd577b6ab8"
-    },
-    {
-      "headDefinitionId": "649df7ea86bcc2218b27983515834ec4d8ea2b22198f2b8700c8a3a7ad88d271",
-      "relationshipType": "synonyms",
-      "word": "See also Thesaurus:fight",
-      "wordId": "c7c2028acbfee117c2d4d2951c515d956d262c1d0fe953ca0fea72fd577b6ab8"
-    }
-  ],
+  "related_words": [],
   "words": [
     {
-      "etymology": "From Middle English fighten, from Old English feohtan (“to fight, combat, strive”), from Proto-West Germanic *fehtan, from Proto-Germanic *fehtaną (“to comb, tease, shear, struggle with”), from Proto-Indo-European *peḱ- (“to comb, shear”).\nCognate with Scots fecht (“to fight”), West Frisian fjochtsje, fjuchte (“to fight”), Dutch vechten (“to fight”), Low German fechten (“to fight”), German fechten (“to fight, fence”), Swedish fäkta (“to fence, to fight (using blade weapons), to wave vigorously (and carelessly) with one's arms”), Latin pectō (“comb, thrash”, verb), Albanian pjek (“to hit, strive, fight”), Ancient Greek πέκω (pékō, “comb or card wool”, verb). Related also to Old English feht (“wool, shaggy pelt, fleece”).\n",
-      "id": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9",
+      "etymology": "",
+      "id": "7eb3c933b1153e11a98a76073d5b7d51f1941760a502c7b3813113645868d4de",
       "isDerived": 0,
       "language": "english",
-      "query": "وقع",
-      "wikiUrl": "/wiki/fight",
-      "word": "fight"
-    },
-    {
-      "etymology": "From Middle English fight, feyght, fiȝt, fecht, from Old English feoht, ġefeoht, from Proto-West Germanic *fehtan, from Proto-Germanic *fehtą, *gafehtą (“fight, struggle”), from Proto-Germanic *fehtaną (“to struggle with”). Cognate with Dutch gevecht, German Gefecht.\n",
-      "id": "3c338874ffff5df5aff039ad54e17ecf85f479039a50aa52af52ef4c316446e9",
-      "isDerived": 0,
-      "language": "english",
-      "query": "وقع",
-      "wikiUrl": "/wiki/fight",
-      "word": "fight"
+      "query": "في",
+      "wikiUrl": "/wiki/there are",
+      "word": "there are"
     }
   ]
 }

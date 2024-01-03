@@ -24,6 +24,8 @@ datasets = None
 if PHASE <= 1:
     reset_db()
     datasets = upload_data('D:\Datasets', limit=limit)
+    if os.path.isfile(vocab_file):
+        os.remove(vocab_file)
 
 if PHASE <= 2:
     tokenized_texts = convert_to_tokens(datasets)
@@ -37,30 +39,34 @@ if PHASE <= 2:
 
 if PHASE <= 3:
     vocab_id_key = 'word'
-    if True:
-        with open('json/global_tokens.json', 'r', encoding="utf8") as f:
-            global_tokens = json.load(f)
-        existing_vocab_ = [v[vocab_id_key] for v in builder.get_vocab()]
-        vocab = [tok for tok in global_tokens if tok.get('token') not in existing_vocab_]
-        with open('json/vocab.json', 'w', encoding="utf8") as f:
-            f.write(json.dumps(vocab, indent=4, ensure_ascii=False))
-    else:
+    #Setting existing vocab
+    if os.path.isfile('json/vocab.json'):
         with open('json/vocab.json', 'r', encoding="utf8") as f:
             vocab = json.load(f)
 
         existing_vocab_ = builder.get_vocab(category_info=False)
         print(json.dumps(existing_vocab_[:2], indent=4))
         existing_vocab_ = sorted({v[vocab_id_key] for v in existing_vocab_})        
+    else:
+        with open('json/global_tokens.json', 'r', encoding="utf8") as f:
+            global_tokens = json.load(f)
+        existing_vocab_ = [v[vocab_id_key] for v in builder.get_vocab()]
+        vocab = [tok for tok in global_tokens if tok.get('token') not in existing_vocab_]
+        with open('json/vocab.json', 'w', encoding="utf8") as f:
+            f.write(json.dumps(vocab, indent=4, ensure_ascii=False))
+    #Adding tokens from collected vocab file
+    if os.path.isfile(vocab_file):
+        with open(vocab_file, 'r', encoding="utf8") as f:
+            existing_vocab_ += [w.strip() for w in f.readlines()]
+
 
     result = {}
     vocab = [w for w in vocab if w['token'] not in existing_vocab_]
+    vocab = vocab[:15]
     vocab = tqdm.tqdm(vocab, position=0)
-    with open(vocab_file, 'r', encoding="utf8") as f:
-        existing_vocab_ = [w.strip() for w in f.readlines()]
-    # if os.path.isfile(vocab_file):
-    #     os.remove(vocab_file)
 
-    collector.auto_flush_after = -1
+
+    collector.auto_flush_after = -10000
     for e in vocab:
         word = e['token']
         if len(word) <= 1 or word in existing_vocab_:
@@ -79,18 +85,25 @@ if PHASE <= 3:
             json.dump(result, f, indent=2, sort_keys=True, ensure_ascii=False)
         
         vocab.set_postfix({k: len(result[k]) for k in result})
-        with open(vocab_file, 'a+', encoding="utf8") as f:
-            f.write(word+'\n')
+        existing_vocab_.append(e['token'])
         
-        if len(result.get('definitions', [])) >= 1000:
+        if len(result.get('definitions', [])) >= 5:
             collector.update_word_data(**result)
             collector.insert_word_data(**result)
+            collector.batch = []
+            assert len(collector.batch) < 1
             result = {}
             # 1/0
+        else:
+            print('\n\nLEN DEFS: ', len(result.get('definitions', [])), '\n\n')
+
+        with open(vocab_file, 'a+', encoding="utf8") as f:
+            f.write(word+'\n')
+
 
     collector.flush()
 
-if PHASE <= 4 and EXPERIMENTAL:
+if PHASE <= 4 and not EXPERIMENTAL:
     collector.auto_flush_after = 10
     for lv in range(deorphanization_level):
         orphan_lex = builder.get_orphan_nodes()
