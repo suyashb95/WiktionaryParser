@@ -45,7 +45,6 @@ if PHASE <= 3:
             vocab = json.load(f)
 
         existing_vocab_ = builder.get_vocab(category_info=False)
-        print(json.dumps(existing_vocab_[:2], indent=4))
         existing_vocab_ = sorted({v[vocab_id_key] for v in existing_vocab_})        
     else:
         with open('json/global_tokens.json', 'r', encoding="utf8") as f:
@@ -81,24 +80,25 @@ if PHASE <= 3:
         result_ = collect_info(word, lang, wait_time=.1, save_to_db=True, existing_vocab=existing_vocab_)
         for k in result_:
             result[k] = result.get(k, []) + result_[k]
-        with open("resres.json", 'w', encoding="utf8") as f:
+        with open("json/resres.json", 'w', encoding="utf8") as f:
             json.dump(result, f, indent=2, sort_keys=True, ensure_ascii=False)
         
         vocab.set_postfix({k: len(result[k]) for k in result})
         existing_vocab_.append(e['token'])
         
+        derived_words = sorted({w['word'] for w in result.get('words', [])})
+        existing_vocab_.extend(existing_vocab_)
+        derived_words.insert(0, word)
+
+
         if len(result.get('definitions', [])) >= 500:
             collector.update_word_data(**result)
             collector.insert_word_data(**result)
             collector.batch = []
             assert len(collector.batch) < 1
             result = {}
-            # 1/0
-        else:
-            print('\n\nLEN DEFS: ', len(result.get('definitions', [])), '\n\n')
-
         with open(vocab_file, 'a+', encoding="utf8") as f:
-            f.write(word+'\n')
+            f.writelines([w+'\n' for w in derived_words])
 
 
     collector.flush()

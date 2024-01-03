@@ -12,6 +12,8 @@ from nltk.stem import *
 import itertools
 import hashlib
 
+from src.database import MySQLClient
+
 from .utils import flatten_dict
 
 
@@ -25,7 +27,7 @@ class Collector:
                  auto_flush_after = 10
                 ):
 
-        self.conn = conn
+        self.conn: MySQLClient = conn
 
         self.word_table = word_table
         self.dataset_table = dataset_table
@@ -112,8 +114,6 @@ class Collector:
         self.conn.insert("appendix", res, ignore=True)
         return res
     
-    
-
     def __get_category_data(self, lang="ar"):
         urls = {
             "set_categories": f'https://en.wiktionary.org/wiki/Category:{lang}:List_of_set_categories',
@@ -149,19 +149,6 @@ class Collector:
         self.conn.insert("categories", data, ignore=True)
         return data
 
-    
-    @staticmethod
-    def adapt_csv_dataset(dataset_file: os.PathLike, delimiter=',', header=0, dataset_name=None, text_col=0, label_col=-1, task=None):
-        data = []
-        with open(dataset_file, "r", encoding="utf8") as csv_file:
-            rows = csv.reader(csv_file, delimiter=delimiter)
-            for i, row in enumerate(rows):
-                if i == header:
-                    continue
-                text, label = row[text_col], row[label_col]
-                data.append(dict(text=text, label=label, dataset_name=dataset_name, task=task))
-        return data
-    
     def erase_db(self, recreate_database=False):
         if recreate_database:
             self.reset_db()
@@ -177,8 +164,19 @@ class Collector:
             self.conn.execute(f"TRUNCATE TABLE {table}")
             self.conn.execute(f"ALTER TABLE {table} AUTO_INCREMENT = 1")
         self.conn.execute("SET FOREIGN_KEY_CHECKS = 1")
-
-
+    
+    @staticmethod
+    def adapt_csv_dataset(dataset_file: os.PathLike, delimiter=',', header=0, dataset_name=None, text_col=0, label_col=-1, task=None):
+        data = []
+        with open(dataset_file, "r", encoding="utf8") as csv_file:
+            rows = csv.reader(csv_file, delimiter=delimiter)
+            for i, row in enumerate(rows):
+                if i == header:
+                    continue
+                text, label = row[text_col], row[label_col]
+                data.append(dict(text=text, label=label, dataset_name=dataset_name, task=task))
+        return data
+    
     def existing_wikiUrls(self):
         res = self.conn.read(fields="wikiUrl", collection_name=self.word_table)
         return {e.get('wikiUrl') for e in res}
@@ -196,6 +194,13 @@ class Collector:
         
         self.conn.insert(self.dataset_table, rows)
 
+    def get_datasets(self, dataset_name=None, task=None):
+        conditions = {
+            "dataset_name": dataset_name,
+            "task": task
+        }
+        conditions = {k: v for k, v in conditions.items() if v is not None}
+        return self.conn.read(self.dataset_table, conditions)
     # Following code made with ChatGPT Free (Needs to be checked)
  
     def process_fetched_relationships(self, element, word_id, hash_maxlen=-1):

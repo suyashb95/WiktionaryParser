@@ -55,7 +55,7 @@ def main(word, lang, wait_time=0, save_to_db=True, existing_vocab=[]):
 
         deorph_pbar.update(1)
         if len(sibling_word_data) > 0:
-            with open("resrdeorph.json", 'w', encoding="utf8") as f:
+            with open("json/resrdeorph.json", 'w', encoding="utf8") as f:
                 json.dump(e, f, indent=2, sort_keys=True, ensure_ascii=False)
 
     results['orph_nodes'] = orph_nodes
