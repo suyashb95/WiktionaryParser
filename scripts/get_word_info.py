@@ -44,10 +44,11 @@ def main(word, lang, wait_time=0, save_to_db=True, existing_vocab=[]):
         else:
             orph['language'] = convert_language(orph['language'])
 
-        sibling_word_data = parser.deorphanize(**orph)
         deorph_pbar.set_description_str(f"Deorphanizing '{fix_ar_display(orph.get('word'))}' ({len(collector.batch):2>d} in stack)")
         deorph_pbar.set_postfix(orph)
         deorph_pbar.refresh()
+
+        sibling_word_data = parser.deorphanize(**orph)
 
         e = collector.save_word(sibling_word_data, save_to_db=save_to_db, save_orphan=False, save_mentions=False)
         for k in e:

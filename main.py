@@ -15,7 +15,7 @@ from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language
 
 EXPERIMENTAL = not False
-PHASE = 1
+PHASE = 3
 deorphanization_level = 2
 limit = 3 if EXPERIMENTAL else -1
 vocab_file = 'json/collected.txt'
@@ -61,7 +61,7 @@ if PHASE <= 3:
 
     result = {}
     vocab = [w for w in vocab if w['token'] not in existing_vocab_]
-    vocab = vocab[:15]
+    # vocab = vocab[:15]
     vocab = tqdm.tqdm(vocab, position=0)
 
 
@@ -75,7 +75,7 @@ if PHASE <= 3:
         lang = e.get('lang')
         vocab.set_description(f"[Started at {datetime.now().strftime('%H:%M:%S')}] - ({fix_ar_display(word)})")
         word = get_word_info_prep(word.strip())
-        word_id = collector.apply_hash(word)
+
         
         result_ = collect_info(word, lang, wait_time=.1, save_to_db=True, existing_vocab=existing_vocab_)
         for k in result_:
