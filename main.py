@@ -1,6 +1,7 @@
 from datetime import datetime
 import json
 import os
+import re
 
 import tqdm
 
@@ -14,7 +15,7 @@ from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language
 
 EXPERIMENTAL = not False
-PHASE = 3
+PHASE = 4
 deorphanization_level = 2
 limit = 3 if EXPERIMENTAL else -1
 vocab_file = 'json/collected.txt'
@@ -93,6 +94,35 @@ if PHASE <= 3:
 
 
     collector.flush()
+
+if PHASE <= 4:
+    orphan_urls = sorted({(w.get('wikiUrl'), w.get('word'), w.get('query')) for w in builder.get_orphan_nodes()})
+    orphan_lex = []
+    for url, w, q in orphan_urls:
+        lang = re.search('#(\w+)$', url)
+        if lang is not None:
+            lang = lang.group(1)
+
+        orphan_lex.append({
+            'wikiUrl': url, 
+            'language': lang,
+            'word': w,
+            'query': q
+        })
+    
+    # orphan_lex = orphan_lex[:10]
+    orphan_lex = tqdm.tqdm(orphan_lex)
+
+    #Ready to deorphanize
+    deorphed_words = []
+    collector.auto_flush_after = 2
+    for orph in orphan_lex:
+        orphan_lex.set_postfix(orph)
+        result = parser.deorphanize(**orph)
+        collector.save_word(result, save_to_db=True, save_orphan=False, save_mentions=False)
+
+    collector.flush()
+
 
 # if PHASE <= 4 and not EXPERIMENTAL:
 #     collector.auto_flush_after = 10
