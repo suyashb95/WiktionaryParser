@@ -10,7 +10,6 @@ from scripts.dataset_uploading import main as upload_data
 from scripts.dataset_uploading import dataset_langs
 from scripts.datasets_to_tokens import convert_to_tokens, get_global_token_counts
 from scripts.get_word_info import main as collect_info
-from scripts.deorphanize import main as deorphanize
 from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language
 
@@ -91,11 +90,11 @@ if PHASE <= 3:
         derived_words.insert(0, word)
 
 
-        if len(result.get('definitions', [])) >= 500:
+        if len(result.get('definitions', [])) >= 50:
             collector.update_word_data(**result)
             collector.insert_word_data(**result)
             collector.batch = []
-            assert len(collector.batch) < 1
+            assert len(collector.batch) < 1 #DEBUG ONLY
             result = {}
         with open(vocab_file, 'a+', encoding="utf8") as f:
             f.writelines([w+'\n' for w in derived_words])
@@ -103,27 +102,27 @@ if PHASE <= 3:
 
     collector.flush()
 
-if PHASE <= 4 and not EXPERIMENTAL:
-    collector.auto_flush_after = 10
-    for lv in range(deorphanization_level):
-        orphan_lex = builder.get_orphan_nodes()
-        for w in orphan_lex:
-            if w.get('language') is None:
-                w['language'] = "english"
-            else:
-                w['language'] = convert_language(w['language'], format="long")
-        if True:
-            text_words = dict((w['id'], w) for w in orphan_lex).items()
-            text_words = sorted(text_words, key=lambda x: x[0])
-        print(f"Deorphanization (Level {lv+1:2d})")
-        text_words = tqdm.tqdm(text_words)
-        for id, e in text_words:
-            lang = e.get('language')
-            word = e['word']
-            text_words.set_description_str(f'Deorphanizing "{fix_ar_display(word)}" ({lang}) - ({len(collector.batch):02d} in stack)')
-            result = deorphanize(word, id, lang, save_to_db=True)
+# if PHASE <= 4 and not EXPERIMENTAL:
+#     collector.auto_flush_after = 10
+#     for lv in range(deorphanization_level):
+#         orphan_lex = builder.get_orphan_nodes()
+#         for w in orphan_lex:
+#             if w.get('language') is None:
+#                 w['language'] = "english"
+#             else:
+#                 w['language'] = convert_language(w['language'], format="long")
+#         if True:
+#             text_words = dict((w['id'], w) for w in orphan_lex).items()
+#             text_words = sorted(text_words, key=lambda x: x[0])
+#         print(f"Deorphanization (Level {lv+1:2d})")
+#         text_words = tqdm.tqdm(text_words)
+#         for id, e in text_words:
+#             lang = e.get('language')
+#             word = e['word']
+#             text_words.set_description_str(f'Deorphanizing "{fix_ar_display(word)}" ({lang}) - ({len(collector.batch):02d} in stack)')
+#             result = deorphanize(word, id, lang, save_to_db=True)
 
-    collector.flush()
+#     collector.flush()
 
 if PHASE <= 5 and not EXPERIMENTAL:
     collector.export_to_csv('./backup/csv_export/')
