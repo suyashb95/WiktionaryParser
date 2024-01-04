@@ -115,7 +115,7 @@ if PHASE <= 4:
 
     #Ready to deorphanize
     deorphed_words = []
-    collector.auto_flush_after = 2
+    collector.auto_flush_after = 25
     for orph in orphan_lex:
         orphan_lex.set_postfix(orph)
         result = parser.deorphanize(**orph)
