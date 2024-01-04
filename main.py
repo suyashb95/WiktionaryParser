@@ -64,39 +64,30 @@ if PHASE <= 3:
     vocab = tqdm.tqdm(vocab, position=0)
 
 
-    collector.auto_flush_after = 50
-    print(f"=========== Phase 3 begins at {datetime.now().strftime('%H:%M:%S')} ===========")
+    collector.auto_flush_after = 100
+    print(f"\n=========== Phase 3 begins at {datetime.now().strftime('%H:%M:%S')} ===========")
     for e in vocab:
         word = e['token']
         if len(word) <= 1 or word in existing_vocab_:
             continue
-
 
         lang = e.get('lang')
         vocab.set_description(f"[Started at {datetime.now().strftime('%H:%M:%S')}] - ({fix_ar_display(word)})")
         word = get_word_info_prep(word.strip())
 
         
-        result_ = collect_info(word, lang, wait_time=.1, save_to_db=True, existing_vocab=existing_vocab_)
-        for k in result_:
-            result[k] = result.get(k, []) + result_[k]
-        with open("json/resres.json", 'w', encoding="utf8") as f:
-            json.dump(result, f, indent=2, sort_keys=True, ensure_ascii=False)
-        
-        vocab.set_postfix({k: len(result[k]) for k in result})
-        existing_vocab_.append(e['token'])
+        result = collect_info(word, lang, wait_time=.1, save_to_db=True, existing_vocab=existing_vocab_)
+
+        # with open("json/resres.json", 'w', encoding="utf8") as f:
+        #     json.dump(result, f, indent=2, sort_keys=True, ensure_ascii=False)
         
         derived_words = sorted({w['word'] for w in result.get('words', [])})
-        existing_vocab_.extend(existing_vocab_)
         derived_words.insert(0, word)
 
+        result = {k: len(result[k]) for k in result}
+        vocab.set_postfix(result)
+        existing_vocab_.append(e['token'])
 
-        if len(result.get('definitions', [])) >= 50:
-            assert len(collector.batch) < 100 #DEBUG ONLY
-            collector.update_word_data(**result)
-            collector.insert_word_data(**result)
-            collector.batch = []
-            result = {}
         with open(vocab_file, 'a+', encoding="utf8") as f:
             f.writelines([w+'\n' for w in derived_words])
 

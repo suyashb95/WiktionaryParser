@@ -388,7 +388,7 @@ class Collector:
         for b in tqdm.tqdm(self.batch, position=0, leave=False):
             for k in b:
                 res[k] = res.get(k, []) + b[k]
-
+        print('Flushing...', end='')
         updated_rows = self.update_word_data(**res)
         inserted_rows = self.insert_word_data(**res)
         affected_rows = {"insert": inserted_rows, "update": updated_rows}

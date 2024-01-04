@@ -33,8 +33,7 @@ def main(word, lang, wait_time=0, save_to_db=True, existing_vocab=[]):
     
     deorph_pbar = tqdm.tqdm(total=len(results['orph_nodes']), leave=False, position=1)
     orph_nodes = []
-    while len(results['orph_nodes']) > 0:
-        orph  = results['orph_nodes'].pop(0)
+    for orph in results['orph_nodes']:
         if orph.get('wikiUrl') is None or orph.get('word') in existing_vocab:
             orph_nodes.append(orph)
             continue
@@ -51,8 +50,8 @@ def main(word, lang, wait_time=0, save_to_db=True, existing_vocab=[]):
         sibling_word_data = parser.deorphanize(**orph)
 
         e = collector.save_word(sibling_word_data, save_to_db=save_to_db, save_orphan=False, save_mentions=False)
-        for k in e:
-            results[k] = results.get(k, []) + e.get(k, [])
+        # for k in e:
+        #     results[k] = results.get(k, []) + e.get(k, [])
 
         deorph_pbar.update(1)
         if len(sibling_word_data) > 0:
