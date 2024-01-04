@@ -92,7 +92,7 @@ if PHASE <= 3:
 
 
         if len(result.get('definitions', [])) >= 50:
-            assert len(collector.batch) < 200 #DEBUG ONLY
+            assert len(collector.batch) < 100 #DEBUG ONLY
             collector.update_word_data(**result)
             collector.insert_word_data(**result)
             collector.batch = []
