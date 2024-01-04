@@ -91,7 +91,7 @@ if PHASE <= 3:
         derived_words.insert(0, word)
 
 
-        if len(result.get('definitions', [])) >= 500:
+        if len(result.get('definitions', [])) >= 100:
             collector.update_word_data(**result)
             collector.insert_word_data(**result)
             collector.batch = []
