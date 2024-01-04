@@ -64,7 +64,8 @@ if PHASE <= 3:
     vocab = tqdm.tqdm(vocab, position=0)
 
 
-    collector.auto_flush_after = 1000
+    collector.auto_flush_after = 50
+    print(f"=========== Phase 3 begins at {datetime.now().strftime('%H:%M:%S')} ===========")
     for e in vocab:
         word = e['token']
         if len(word) <= 1 or word in existing_vocab_:
@@ -91,10 +92,10 @@ if PHASE <= 3:
 
 
         if len(result.get('definitions', [])) >= 50:
+            assert len(collector.batch) < 200 #DEBUG ONLY
             collector.update_word_data(**result)
             collector.insert_word_data(**result)
             collector.batch = []
-            assert len(collector.batch) < 1 #DEBUG ONLY
             result = {}
         with open(vocab_file, 'a+', encoding="utf8") as f:
             f.writelines([w+'\n' for w in derived_words])
