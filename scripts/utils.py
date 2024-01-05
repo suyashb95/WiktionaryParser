@@ -7,6 +7,7 @@ sys.path.append('.')
 from bidi.algorithm import get_display
 import arabic_reshaper
 from src.graph import GraphBuilder
+from src.report import SchemaInspector
 
 from src.collector import Collector
 from src.core import WiktionaryParser
@@ -18,6 +19,7 @@ parser = WiktionaryParser()
 conn = MySQLClient(host="localhost", user="root", password="", db="knowledge_graph")
 builder = GraphBuilder(conn)
 collector = Collector(conn, auto_flush_after=200)
+inspector = SchemaInspector(conn)
 
 get_word_info_prep = Preprocessor(stemmer=stem.ARLSTem(), return_type="str")
 dataset_2_tokens_prep = Preprocessor(

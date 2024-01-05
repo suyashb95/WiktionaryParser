@@ -6,7 +6,7 @@ import re
 import tqdm
 
 from scripts.utils import fix_ar_display, reset_db, parser, builder, get_word_info_prep
-from scripts.utils import collector
+from scripts.utils import collector, inspector
 from scripts.dataset_uploading import main as upload_data
 from scripts.dataset_uploading import dataset_langs
 from scripts.datasets_to_tokens import convert_to_tokens, get_global_token_counts
@@ -15,10 +15,11 @@ from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language
 
 EXPERIMENTAL = not False
-PHASE = 4
+PHASE = 6
 deorphanization_level = 2
 limit = 3 if EXPERIMENTAL else -1
 vocab_file = 'json/collected.txt'
+
 
 if not os.path.isdir('./json'):
     os.mkdir('json')
@@ -30,6 +31,8 @@ if PHASE <= 1:
         datasets = upload_data('D:\Datasets', limit=limit)
     except StopIteration:
         datasets = upload_data('E:\Banouz\Datasets', limit=limit)
+if EXPERIMENTAL:
+    print(inspector.get_collection_info(collector.dataset_table))
 
 if PHASE <= 2:
     tokenized_texts = convert_to_tokens(datasets)
@@ -99,7 +102,7 @@ if PHASE <= 3:
 
     collector.flush()
 
-if PHASE <= 4:
+if PHASE <= 4: #Wa maurice khallina ncodiw rah tab3na papers nqaddohom
     orphan_urls = sorted({(w.get('wikiUrl'), w.get('word'), w.get('query')) for w in builder.get_orphan_nodes()})
     orphan_lex = []
     for url, w, q in orphan_urls:
@@ -128,28 +131,10 @@ if PHASE <= 4:
     collector.flush()
 
 
-# if PHASE <= 4 and not EXPERIMENTAL:
-#     collector.auto_flush_after = 10
-#     for lv in range(deorphanization_level):
-#         orphan_lex = builder.get_orphan_nodes()
-#         for w in orphan_lex:
-#             if w.get('language') is None:
-#                 w['language'] = "english"
-#             else:
-#                 w['language'] = convert_language(w['language'], format="long")
-#         if True:
-#             text_words = dict((w['id'], w) for w in orphan_lex).items()
-#             text_words = sorted(text_words, key=lambda x: x[0])
-#         print(f"Deorphanization (Level {lv+1:2d})")
-#         text_words = tqdm.tqdm(text_words)
-#         for id, e in text_words:
-#             lang = e.get('language')
-#             word = e['word']
-#             text_words.set_description_str(f'Deorphanizing "{fix_ar_display(word)}" ({lang}) - ({len(collector.batch):02d} in stack)')
-#             result = deorphanize(word, id, lang, save_to_db=True)
-
-#     collector.flush()
 
 if PHASE <= 5 and not EXPERIMENTAL:
     collector.export_to_csv('./backup/csv_export/')
-# # export_graph_to_html('graph.html')
+
+
+if PHASE <= 6:
+    export_graph_to_html('graph.html')
