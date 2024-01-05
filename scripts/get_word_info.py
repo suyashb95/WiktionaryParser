@@ -7,10 +7,10 @@ from .utils import *
 import json
 
 
-results = {}
 
-def main(word, lang, wait_time=0, save_to_db=True):
-    
+def main(word, lang, wait_time=0, save_to_db=True, existing_vocab=[]):
+    results = {}
+
     no_spaces_word = re.sub('\s', '_', word)
     if word != no_spaces_word: #If word has space, e.q to saying word is an entity
         fetched_data = {word: parser.fetch(no_spaces_word, query=word, language=lang)}
@@ -30,11 +30,11 @@ def main(word, lang, wait_time=0, save_to_db=True):
         time.sleep(wait_time)
 
     #In-place deorphanization
+    
     deorph_pbar = tqdm.tqdm(total=len(results['orph_nodes']), leave=False, position=1)
     orph_nodes = []
-    while len(results['orph_nodes']) > 0:
-        orph  = results['orph_nodes'].pop(0)
-        if orph.get('wikiUrl') is None:
+    for orph in results['orph_nodes']:
+        if orph.get('wikiUrl') is None or orph.get('word') in existing_vocab:
             orph_nodes.append(orph)
             continue
 
@@ -43,18 +43,19 @@ def main(word, lang, wait_time=0, save_to_db=True):
         else:
             orph['language'] = convert_language(orph['language'])
 
-        sibling_word_data = parser.deorphanize(**orph)
         deorph_pbar.set_description_str(f"Deorphanizing '{fix_ar_display(orph.get('word'))}' ({len(collector.batch):2>d} in stack)")
         deorph_pbar.set_postfix(orph)
         deorph_pbar.refresh()
 
+        sibling_word_data = parser.deorphanize(**orph)
+
         e = collector.save_word(sibling_word_data, save_to_db=save_to_db, save_orphan=False, save_mentions=False)
-        for k in e:
-            results[k] = results.get(k, []) + e.get(k, [])
+        # for k in e:
+        #     results[k] = results.get(k, []) + e.get(k, [])
 
         deorph_pbar.update(1)
         if len(sibling_word_data) > 0:
-            with open("resrdeorph.json", 'w', encoding="utf8") as f:
+            with open("json/resrdeorph.json", 'w', encoding="utf8") as f:
                 json.dump(e, f, indent=2, sort_keys=True, ensure_ascii=False)
 
     results['orph_nodes'] = orph_nodes

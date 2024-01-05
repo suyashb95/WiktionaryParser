@@ -161,6 +161,6 @@ class Preprocessor:
             w = self.strip_spaces(w)
 
             processed_text.append(w)
-        if self.return_type == "str":
+        if self.return_type == "str" and not isinstance(processed_text, str):
             processed_text = " ".join(processed_text)
         return processed_text
