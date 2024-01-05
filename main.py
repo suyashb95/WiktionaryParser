@@ -14,13 +14,8 @@ from scripts.get_word_info import main as collect_info
 from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language
 
-<<<<<<< HEAD
-EXPERIMENTAL = False
-PHASE = 1
-=======
 EXPERIMENTAL = not False
 PHASE = 4
->>>>>>> b8b12f96f59c4523f9bacb1d22245cfe4f3d0f78
 deorphanization_level = 2
 limit = 3 if EXPERIMENTAL else -1
 vocab_file = 'json/collected.txt'
@@ -31,16 +26,10 @@ if not os.path.isdir('./json'):
 datasets = None
 if PHASE <= 1:
     reset_db()
-<<<<<<< HEAD
     try:
         datasets = upload_data('D:\Datasets', limit=limit)
     except StopIteration:
         datasets = upload_data('E:\Banouz\Datasets', limit=limit)
-=======
-    datasets = upload_data('D:\Datasets', limit=limit)
-    if os.path.isfile(vocab_file):
-        os.remove(vocab_file)
->>>>>>> b8b12f96f59c4523f9bacb1d22245cfe4f3d0f78
 
 if PHASE <= 2:
     tokenized_texts = convert_to_tokens(datasets)
