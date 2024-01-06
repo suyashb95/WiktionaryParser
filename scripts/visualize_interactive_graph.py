@@ -27,7 +27,8 @@ def export_graph_to_html(output_file='graph.html'):
             if node is not None:
                 node['i'] = i
                 # print('\t {}'.format(node['word']))
-                g.add_node(n_id=node['id'], label=node['word'], color=n_color_palette[ntype])
+                title = "[{language}]\n{word}\n\n{wikiUrl}".format_map(node)
+                g.add_node(n_id=node['id'], label=node['word'], color=n_color_palette[ntype], title=title)
 
     # graph = dgl.to_homogeneous(builder.graph)
     # print(graph.ndata)

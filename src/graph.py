@@ -128,7 +128,7 @@ class GraphBuilder:
                  "apx.id as tailId, apx.label as tail, 'tagOf' as relationshipType"
         joins = [
             (f"{self.definitions_table} d", "defapx.definitionId = d.id"),
-            (self.word_table, "w.id = d.wordId"),
+            (f"{self.word_table} w", "w.id = d.wordId"),
             ("appendix apx", "apx.id = defapx.appendixId")
         ]
 

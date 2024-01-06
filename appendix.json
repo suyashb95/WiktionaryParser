@@ -2444,7 +2444,7 @@
   },
   {
     "label": "orthographic borrowing",
-    "description": "A loanword that has been borrowed in its written form and re-pronounced according to the conventions of the target language, particularly in East Asian languages written with Chinese characters. For example, the Chinese name 毛泽东 (Máo Zédōng) is rendered in Japanese as 毛沢東 (Mō Takutō): the spelling is the same, but the characters have been pronounced as if they were Japanese words, leading to a significantly different pronunciation. Sometimes, the pronunciations in the source and donor language have no etymological relationship. For example, the Japanese noun 葉書 (hagaki, “postcard”) was orthographically borrowed into Korean as 엽서 (葉書, yeopseo, “postcard”).",
+    "description": "A loanword that has been borrowed in its written form and re-pronounced according to the conventions of the target language, particularly in East Asian languages written with Chinese characters. For example, the Chinese name 毛泽东 (Máo Zédōng) is rendered in Japanese as 毛沢東 (Mō Takutō): the spelling is the same, but the characters have been pronounced as if they were Japanese words, leading to a significantly different pronunciation. Sometimes, the pronunciations in the source and donor language have no etymological relationship. For example, the Japanese noun 葉(は)書(がき) (hagaki, “postcard”) was orthographically borrowed into Korean as 엽서 (葉書, yeopseo, “postcard”).",
     "wikiUrl": "/wiki/orthographic",
     "category": "glossary",
     "id": "a4b53c4e9438e6fed7dc914d4c1964a1fd7b062e70f16e4342e1ce7f1666af20"

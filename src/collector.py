@@ -395,7 +395,7 @@ class Collector:
         print(affected_rows)
         self.batch = []
 
-    def update_word_data(self, words=[], definitions=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
+    def update_word_data(self, words=[],  orph_nodes=[], **kwargs):
         # Updating to database
         updated_rows = {}
         derivedUpd = self.conn.update(self.word_table, data=words, conditions={"id": "%(id)s"}, ignore=True, isDerived=0)

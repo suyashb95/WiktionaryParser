@@ -69,6 +69,10 @@ if PHASE <= 3:
     result = {}
     vocab = [w for w in vocab if w['token'] not in existing_vocab_]
     # vocab = vocab[:15]
+    if EXPERIMENTAL:
+        if os.path.isfile(vocab_file):
+            os.remove(vocab_file)
+        vocab = [{"token": "كبير", "lang": ['Egyptian Arabic', 'North Levantine Arabic', 'South Levantine Arabic', 'arabic', "Moroccan Arabic"]}]
     vocab = tqdm.tqdm(vocab, position=0)
 
 
@@ -83,11 +87,7 @@ if PHASE <= 3:
         vocab.set_description(f"[Started at {datetime.now().strftime('%H:%M:%S')}] - ({fix_ar_display(word)})")
         word = get_word_info_prep(word.strip())
 
-        
         result = collect_info(word, lang, wait_time=.1, save_to_db=True, existing_vocab=existing_vocab_)
-
-        # with open("json/resres.json", 'w', encoding="utf8") as f:
-        #     json.dump(result, f, indent=2, sort_keys=True, ensure_ascii=False)
         
         derived_words = sorted({w['word'] for w in result.get('words', [])})
         derived_words.insert(0, word)
@@ -102,7 +102,7 @@ if PHASE <= 3:
 
     collector.flush()
 
-if PHASE <= 4: #Wa maurice khallina ncodiw rah tab3na papers nqaddohom
+if PHASE <= 4:
     orphan_urls = sorted({(w.get('wikiUrl'), w.get('word'), w.get('query')) for w in builder.get_orphan_nodes()})
     orphan_lex = []
     for url, w, q in orphan_urls:
@@ -132,8 +132,8 @@ if PHASE <= 4: #Wa maurice khallina ncodiw rah tab3na papers nqaddohom
 
 
 
-if PHASE <= 5 and not EXPERIMENTAL:
-    collector.export_to_csv('./backup/csv_export/')
+# if PHASE <= 5 and not EXPERIMENTAL:
+#     collector.export_to_csv('./backup/csv_export/')
 
 
 if PHASE <= 6:

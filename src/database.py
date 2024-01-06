@@ -16,7 +16,16 @@ class DatabaseClient:
             self.lookup_collection_info(collection_name)
 
         allowed_keys = self.schema_info[collection_name]
-        return [{k: v for k, v in item.items() if k in allowed_keys} for item in data]
+        # return [{k: v for k, v in item.items() if k in allowed_keys} for item in data]
+
+        validated_results = []
+        for item in data:
+            e = {}
+            for k in allowed_keys:
+                e[k] = item.get(k)
+            validated_results.append(e)
+        return validated_results
+    
 
     def lookup_collection_info(self, collection_name):
         raise ValueError(f"No schema defined for {collection_name}")
@@ -58,7 +67,7 @@ class MySQLClient(DatabaseClient):
             return ""
         C = []
         for key, value in conditions.items():
-            if isinstance(value, (list, tuple, set)):
+            if isinstance(value, (list, tuple, set)) and len(value) > 0:
                 value = ", ".join([f"'{e}'" for e in value])
                 C.append(f"{key} IN ({value})")
             elif str(value).upper() in ['IS NULL', 'IS NOT NULL']:
