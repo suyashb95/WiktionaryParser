@@ -1,4 +1,6 @@
 import itertools
+import json
+from pathlib import Path
 import langcodes
 
 from matplotlib import pyplot as plt
@@ -111,3 +113,10 @@ def convert_language(input_str, format="long"):
         else:
             return lang.display_name().lower()
     return lang.language
+
+
+def export_to_json(d, file):
+    fp = "./json/"+file
+    # fp.mkdir(exist_ok=True, parents=False)
+    with open(fp, 'w', encoding="utf8") as f:
+        f.write(json.dumps(d, indent=2, sort_keys=True, ensure_ascii=False))

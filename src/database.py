@@ -198,7 +198,7 @@ class MySQLClient(DatabaseClient):
                     else:
                         results.append(self.conn.affected_rows())
                         self.conn.commit()
-
+        self.conn.commit()
         return results
 
 
