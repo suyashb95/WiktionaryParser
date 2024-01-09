@@ -14,8 +14,9 @@ from scripts.get_word_info import collect_info
 from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language, export_to_json
 
+os.system("cls")
 EXPERIMENTAL = False
-PHASE = 3
+PHASE = 1
 deorphanization_level = 2
 limit = 3 if EXPERIMENTAL else 10
 vocab_file = 'json/collected.txt'
@@ -88,9 +89,6 @@ if PHASE <= 3:
 
         result = collect_info(word, lang, wait_time=.1, save_to_db=True, existing_vocab=existing_vocab_)
         
-        # derived_words = sorted({w['word'] for w in result.get('words', [])})
-        # derived_words.insert(0, word)
-
         result_len = {k: len(result[k]) for k in result}
         vocab.set_postfix(result_len)
         existing_vocab_.append(e['token'])
@@ -101,7 +99,6 @@ if PHASE <= 3:
         export_to_json(result, "results.json")
         collector.insert_word_data(**result)
         # collector.update_word_data(**result)
-        # 1 / 0
 
 if PHASE <= 4:
     orphan_urls = sorted({(w.get('wikiUrl'), w.get('word'), w.get('query')) for w in builder.get_orphan_nodes()})

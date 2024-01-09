@@ -8,19 +8,19 @@ import json
 
 
 
-def collect_info(word, lang, wait_time=0, save_to_db=True, existing_vocab=[]):
+def collect_info(word, lang, wait_time=0, save_to_db=True, existing_vocab=[], include_dialects=True):
     results = {}
 
     no_spaces_word = re.sub('\s', '_', word)
     if word != no_spaces_word: #If word has space, e.q to saying word is an entity
-        fetched_data = {word: parser.fetch(no_spaces_word, query=word, language=lang)}
+        fetched_data = {word: parser.fetch(no_spaces_word, query=word, language=lang, include_dialects=include_dialects)}
     else:
         if type(word) != str:
             prepped_word = '_'.join(word) #[0]
         else:
             prepped_word = word
         # print(f"Fetching all potentials for {prepped_word} ({lang})")
-        fetched_data = parser.fetch_all_potential(prepped_word, query=word, language=lang)
+        fetched_data = parser.fetch_all_potential(prepped_word, query=word, language=lang, include_dialects=include_dialects)
         export_to_json(fetched_data, "fetched_data.json")
 
 

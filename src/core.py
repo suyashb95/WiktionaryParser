@@ -115,12 +115,12 @@ class WiktionaryParser(object):
                 id_list.append((content_index, content_id, text_to_check))
         return id_list
 
-    def get_word_data(self, language):
+    def get_word_data(self, language, include_dialects=True):
         contents = self.soup.find_all('span', {'class': 'toctext'})
         word_contents = []
         start_index = None
         for content in contents:
-            if language == content.text.lower():
+            if language == content.text.lower() or (include_dialects and language.lower() in content.text.lower()):
                 start_index = content.find_previous().text + '.'
                 
         if not start_index:
@@ -461,24 +461,24 @@ class WiktionaryParser(object):
             json_obj_list.append(data_obj.to_json())
         return json_obj_list
 
-    def grab_from_url(self, url, old_id=None, lang=None):
+    def grab_from_url(self, url, old_id=None, lang=None, include_dialects=True):
         if lang is None:
             lang = self.language
         response = self.session.get(url, params={'oldid': old_id})
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.clean_html()
 
-        return self.get_word_data(lang.lower())
+        return self.get_word_data(lang.lower(), include_dialects=include_dialects)
     
     def deorphanize(self, wikiUrl, language, **kwargs):
         url = self.__base_url + wikiUrl
-        res = self.grab_from_url(url, lang=language)
+        res = self.grab_from_url(url, lang=language, include_dialects=False)
         for i in range(len(res)):
             res[i]['word'] = kwargs.get('word')
             res[i]['query'] = kwargs.get('query')
         return res
 
-    def fetch(self, word, language=None, old_id=None, query=None):
+    def fetch(self, word, language=None, old_id=None, query=None, include_dialects=True):
         language = self.language if not language else language
         languages = language if hasattr(language, '__iter__') and type(language) != str else [language]
         self.current_url = self.url.format(word, self.use_printable)
@@ -486,7 +486,7 @@ class WiktionaryParser(object):
         res = []
 
         for lang in languages:
-            res += self.grab_from_url(self.current_url, old_id=old_id, lang=lang)
+            res += self.grab_from_url(self.current_url, old_id=old_id, lang=lang, include_dialects=include_dialects)
 
         for i in range(len(res)):
             res[i]['query'] = res[i].get('query', word) if query is None else query
@@ -495,7 +495,7 @@ class WiktionaryParser(object):
         return res
         
 
-    def fetch_all_potential(self, word, query=None, language=None, old_id=None, verbose=0):
+    def fetch_all_potential(self, word, query=None, language=None, old_id=None, verbose=0, include_dialects=True):
         def get_possible_altenrnatives(word):
             replacement_dict = {
                 "ا": ["ا", "أ", "إ", "آ"],
@@ -509,7 +509,7 @@ class WiktionaryParser(object):
             return list(exrex.generate(word_regex))
         
         possible_altenrnatives = get_possible_altenrnatives(word)
-        res = {word: self.fetch(word, query=word)}
+        res = {word: self.fetch(word, query=word, include_dialects=include_dialects)}
         if query is None:
             query = word
         if verbose > 0:
