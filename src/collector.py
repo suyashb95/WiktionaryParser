@@ -52,8 +52,8 @@ class Collector:
 
     @staticmethod
     def apply_hash(text):
-        return text
-        return hashlib.sha256(text.encode()).hexdigest()
+        # return text
+        return hashlib.sha224(text.encode()).hexdigest()
     
     def __create_tables(self):
         # Define the table names
@@ -207,7 +207,7 @@ class Collector:
         return self.conn.read(self.dataset_table, conditions)
     # Following code made with ChatGPT Free (Needs to be checked)
  
-    def process_fetched_relationships(self, element, word_id, def_rk, hash_maxlen=-1):
+    def process_fetched_relationships(self, element, word_id, hash_maxlen=-1):
         related_words = []
         for rw in element.get("relatedWords", []):
             rw['wordId'] = word_id
@@ -218,19 +218,16 @@ class Collector:
 
                 rw_list[i].update(rw_list[i].get("words", {}))
                 rw_list[i]['raw_text'] = rw_list[i].pop('def_text', None)
-                headDefinitionId = Collector.apply_hash(self.hash_def_by.format(**rw_list[i]))
-                rw_list[i]['headDefinitionId'] = headDefinitionId
+                # headDefinitionId = Collector.apply_hash(self.hash_def_by.format(**rw_list[i]))
+                # rw_list[i]['headDefinitionId'] = headDefinitionId
                 rw_list[i]['word'] = rw_list[i].pop('words')
                 rw_list[i]['wordId'] = Collector.apply_hash(self.hash_word_by.format(**rw_list[i]))
-                rw_list_keys = list(rw_list[i].keys())
-                for k in rw_list_keys:
-                    if k not in ['headDefinitionId', 'wordId', 'relationshipType', 'word']:
-                        del rw_list[i][k]
+                
             related_words += rw_list
-
+     
         return related_words
 
-    def process_fetched_definition(self, element, word_id, def_rk, hash_maxlen=-1):
+    def process_fetched_definition(self, element, word_id, hash_maxlen=-1):
         definition = {
             "wordId": word_id, #FOREIGN KEY
             "partOfSpeech": element.get("partOfSpeech"),
@@ -240,6 +237,7 @@ class Collector:
         mentions = []
         categories = []
         examples = []
+        hashes = {}
         #Add definitions
         definition = flatten_dict(definition)
         for i in range(len(definition)):
@@ -278,6 +276,8 @@ class Collector:
             for e in range(len(def_examples)):
                 def_examples[e]['definitionId'] = unique_w_hash
 
+            def_id = definition[i].get('def_k')
+            hashes[def_id] = hashes.get(def_id, []) + [unique_w_hash]
             appendices += appendix
             mentions += mentions_
             examples += def_examples
@@ -285,7 +285,7 @@ class Collector:
             # definition[i] = {k: definition[i][k] for k in sorted(definition[i].keys(), key=lambda x: x!="id")}
 
 
-        return definition, appendices, mentions, categories, examples
+        return definition, appendices, mentions, categories, examples, hashes
         
     def save_word(self, fetched_data, save_to_db=False, save_orphan=True, save_mentions=True):
         hash_maxlen = 48
@@ -296,7 +296,6 @@ class Collector:
         words = []
         examples = []
         categories = []
-        def_rks = {}
 
         for row in fetched_data:
             word = {
@@ -325,15 +324,22 @@ class Collector:
             categories_ = flatten_dict(categories_)
             categories += categories_
 
-            for def_rk, element in enumerate(row.get("definitions", [])):
+            for element in row.get("definitions", []):
                 element['language'] = word['language']
 
                 # Related words
-                relations = self.process_fetched_relationships(element, word_id, def_rk, hash_maxlen=hash_maxlen)
+                relations = self.process_fetched_relationships(element, word_id, hash_maxlen=hash_maxlen)
                 
                 #Definitions
                 definition, appendix, mentions, word_categories, w_examples \
-                      = self.process_fetched_definition(element, word_id, def_rk, hash_maxlen=hash_maxlen)
+                    , hashes  = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
+
+                for i in range(len(relations)):
+                    def_k = relations[i].get('def_k')
+                    if def_k is None:
+                        continue
+                    headDefinitionId = hashes.get(def_k, [None])[-1]
+                    relations[i]['headDefinitionId'] = headDefinitionId
 
                 #Newly discovered words (From relationships)
                 if save_orphan:

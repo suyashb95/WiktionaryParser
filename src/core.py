@@ -156,6 +156,57 @@ class WiktionaryParser(object):
         catlinks = self.soup.select('#mw-normal-catlinks>ul>li')
         return sorted({link.text for link in catlinks})
 
+
+    def parse_examples(self, word_contents):
+        definition_id_list = self.get_id_list(word_contents, 'definitions')
+        example_list = []
+        for def_index, def_id, def_type in definition_id_list:
+            span_tag = self.soup.find_all('span', {'id': def_id})[0]
+            table = span_tag.parent
+            while table and table.name == 'ol':
+                table = table.find_next_sibling()
+            examples = []
+            while table and table.name == 'ol':
+                for element in table.find_all('dd'):
+                    example_text = re.sub(r'\([^)]*\)', '', element.text.strip())
+                    if example_text:
+                        example = {
+                            "quotation": element.select_one("*.e-quotation"),
+                            "transliteration": element.select_one("*.e-transliteration"),
+                            "translation": element.select_one("*.e-translation"),
+                        }
+                        example = {k: v.text if v is not None else v for k, v in example.items()}
+                        example.update({
+                            "example_text": example_text,
+                        })
+                        if example.get('quotation') is not None:
+                            examples.append(example)
+                    # element.clear()
+                example_list.append((def_index, examples, def_type))
+                # for quot_list in table.find_all(['ul', 'ol']):
+                #     quot_list.clear()
+                table = table.find_next_sibling()
+        return example_list
+
+    def parse_etymologies(self, word_contents):
+        etymology_id_list = self.get_id_list(word_contents, 'etymologies')
+        etymology_list = []
+        etymology_tag = None
+        for etymology_index, etymology_id, _ in etymology_id_list:
+            etymology_text = ''
+            span_tag = self.soup.find_all('span', {'id': etymology_id})[0]
+            next_tag = span_tag.parent.find_next_sibling()
+            while next_tag and next_tag.name not in ['h3', 'h4', 'div', 'h5']:
+                etymology_tag = next_tag
+                next_tag = next_tag.find_next_sibling()
+                if etymology_tag.name == 'p':
+                    etymology_text += etymology_tag.text
+                else:
+                    for list_tag in etymology_tag.find_all('li'):
+                        etymology_text += list_tag.text + '\n'
+            etymology_list.append((etymology_index, etymology_text))
+        return etymology_list
+    
     def parse_pronunciations(self, word_contents):
         pronunciation_id_list = self.get_id_list(word_contents, 'pronunciation')
         pronunciation_list = []
@@ -281,12 +332,12 @@ class WiktionaryParser(object):
                                 if subelement.text:
                                     scrappable.append(subelement)
 
-                for e in scrappable:
+                for i_scrp, e in enumerate(scrappable):
                     def_dt, hw = self.mine_element(e)
                     if hw:
                         definition_headword = hw
                     def_dt['headword'] = definition_headword
-                    def_dt['def_id'] = def_id
+                    def_dt['def_k'] = (def_index, def_id, i_scrp)
                     definition_text.append(def_dt)
       
                     
@@ -294,56 +345,6 @@ class WiktionaryParser(object):
                 def_type = ''
             definition_list.append((def_index, definition_text, def_type))
         return definition_list
-
-    def parse_examples(self, word_contents):
-        definition_id_list = self.get_id_list(word_contents, 'definitions')
-        example_list = []
-        for def_index, def_id, def_type in definition_id_list:
-            span_tag = self.soup.find_all('span', {'id': def_id})[0]
-            table = span_tag.parent
-            while table and table.name == 'ol':
-                table = table.find_next_sibling()
-            examples = []
-            while table and table.name == 'ol':
-                for element in table.find_all('dd'):
-                    example_text = re.sub(r'\([^)]*\)', '', element.text.strip())
-                    if example_text:
-                        example = {
-                            "quotation": element.select_one("*.e-quotation"),
-                            "transliteration": element.select_one("*.e-transliteration"),
-                            "translation": element.select_one("*.e-translation"),
-                        }
-                        example = {k: v.text if v is not None else v for k, v in example.items()}
-                        example.update({
-                            "example_text": example_text,
-                        })
-                        if example.get('quotation') is not None:
-                            examples.append(example)
-                    # element.clear()
-                example_list.append((def_index, examples, def_type))
-                # for quot_list in table.find_all(['ul', 'ol']):
-                #     quot_list.clear()
-                table = table.find_next_sibling()
-        return example_list
-
-    def parse_etymologies(self, word_contents):
-        etymology_id_list = self.get_id_list(word_contents, 'etymologies')
-        etymology_list = []
-        etymology_tag = None
-        for etymology_index, etymology_id, _ in etymology_id_list:
-            etymology_text = ''
-            span_tag = self.soup.find_all('span', {'id': etymology_id})[0]
-            next_tag = span_tag.parent.find_next_sibling()
-            while next_tag and next_tag.name not in ['h3', 'h4', 'div', 'h5']:
-                etymology_tag = next_tag
-                next_tag = next_tag.find_next_sibling()
-                if etymology_tag.name == 'p':
-                    etymology_text += etymology_tag.text
-                else:
-                    for list_tag in etymology_tag.find_all('li'):
-                        etymology_text += list_tag.text + '\n'
-            etymology_list.append((etymology_index, etymology_text))
-        return etymology_list
 
     def parse_related_words(self, word_contents):
         relation_id_list = self.get_id_list(word_contents, 'related')
@@ -358,7 +359,7 @@ class WiktionaryParser(object):
             while parent_tag and not parent_tag.find_all('li'):
                 parent_tag = parent_tag.find_next_sibling()
             if parent_tag:
-                for list_tag in parent_tag.find_all('li'):
+                for i_li, list_tag in enumerate(parent_tag.find_all('li')):
                     prev_def = parent_tag
                     while True:
                         prev_def = prev_def.find_previous_sibling()
@@ -372,7 +373,8 @@ class WiktionaryParser(object):
                     def_text = def_text.get_text()
                     words.append({
                         "words": list_tag.text,
-                        "def_text": def_text
+                        "def_text": def_text,
+                        'def_k': (related_index, related_id, i_li)
                     })
             related_words_list.append((related_index, words, relation_type))
 
@@ -392,14 +394,13 @@ class WiktionaryParser(object):
 
                 elif content.name in ['ol', 'ul']:
                     lis = content.find_all('li', recursive=False)
-                    for li in lis:
-                        related_words_list += self.parse_related_words_from_nyms(li, k, def_text=li.text, def_id=def_id)
+                    for i_li, li in enumerate(lis):
+                        related_words_list += self.parse_related_words_from_nyms(li, k, def_text=li.text, def_k=(k, def_id, i_li))
                 elif content.name in ['p']:
-                    related_words_list += self.parse_related_words_from_nyms(content, k, def_text=content.text, def_id=def_id)
+                    related_words_list += self.parse_related_words_from_nyms(content, k, def_text=content.text, def_k=(k, def_id, 0))
                              
         return related_words_list
     
-
     def parse_related_words_from_nyms(self, content, related_index, **kwargs):
         nyms_list = []
         nyms = content.select('.nyms')
@@ -414,6 +415,7 @@ class WiktionaryParser(object):
                     a_dict = {
                         "words": a.get_text(),
                         "wikiUrl": a.get("href"),
+
                     }
                     a_dict.update(kwargs)
                     words.append(a_dict)
