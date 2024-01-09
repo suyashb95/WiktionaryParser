@@ -38,6 +38,9 @@ class Collector:
         self.auto_flush_after = auto_flush_after
         self.force_edge_tail_constraint = force_edge_tail_constraint
 
+        self.hash_word_by = "{word} ({language})"
+        self.hash_def_by = "{wordId} {pos}_{raw_text}"
+
         self.base_url = "https://en.wiktionary.org/"
     def reset_db(self):
         self.__create_tables()
@@ -49,6 +52,7 @@ class Collector:
 
     @staticmethod
     def apply_hash(text):
+        return text
         return hashlib.sha256(text.encode()).hexdigest()
     
     def __create_tables(self):
@@ -203,19 +207,21 @@ class Collector:
         return self.conn.read(self.dataset_table, conditions)
     # Following code made with ChatGPT Free (Needs to be checked)
  
-    def process_fetched_relationships(self, element, word_id, hash_maxlen=-1):
+    def process_fetched_relationships(self, element, word_id, def_rk, hash_maxlen=-1):
         related_words = []
         for rw in element.get("relatedWords", []):
             rw['wordId'] = word_id
             rw['pos'] = element.get("partOfSpeech")
             rw_list = flatten_dict(rw)
             for i in range(len(rw_list)):
+                rw_list[i]['language'] = rw_list[i].get('language')
+
                 rw_list[i].update(rw_list[i].get("words", {}))
-                headDefinitionId = f"{rw_list[i].get('wordId')}_{rw_list[i].get('pos')}_{rw_list[i].get('def_text')[:hash_maxlen]}"
-                headDefinitionId = Collector.apply_hash(headDefinitionId)
+                rw_list[i]['raw_text'] = rw_list[i].pop('def_text', None)
+                headDefinitionId = Collector.apply_hash(self.hash_def_by.format(**rw_list[i]))
                 rw_list[i]['headDefinitionId'] = headDefinitionId
                 rw_list[i]['word'] = rw_list[i].pop('words')
-                rw_list[i]['wordId'] = Collector.apply_hash(rw_list[i]['word'])
+                rw_list[i]['wordId'] = Collector.apply_hash(self.hash_word_by.format(**rw_list[i]))
                 rw_list_keys = list(rw_list[i].keys())
                 for k in rw_list_keys:
                     if k not in ['headDefinitionId', 'wordId', 'relationshipType', 'word']:
@@ -224,7 +230,7 @@ class Collector:
 
         return related_words
 
-    def process_fetched_definition(self, element, word_id, hash_maxlen=-1):
+    def process_fetched_definition(self, element, word_id, def_rk, hash_maxlen=-1):
         definition = {
             "wordId": word_id, #FOREIGN KEY
             "partOfSpeech": element.get("partOfSpeech"),
@@ -238,12 +244,11 @@ class Collector:
         definition = flatten_dict(definition)
         for i in range(len(definition)):
             definition[i].update(definition[i].get("text", {}))
+            definition[i]['pos'] = definition[i].get('pos', element.get('partOfSpeech'))
             #Get a unique hash that encodes word, its POS and its explanation (to disambiguate verbal form from nominal form)
-            unique_w_hash = json.dumps(definition[i])
+            unique_w_hash = self.hash_def_by.format(**definition[i])
             unique_w_hash = Collector.apply_hash(unique_w_hash)
-                    
-
-
+            
             for k_ in ["raw_text"]:
                 definition[i].pop(k_, None)
 
@@ -255,7 +260,8 @@ class Collector:
             appendix = {
                 "appendixId": [
                     Collector.apply_hash(e) for e in appendix
-                ] #FOREIGN KEY
+                ], #FOREIGN KEY
+                "appendixLabel": appendix
             }
             appendix = flatten_dict(appendix)
             mentions_ = definition[i].pop("mentions", [])
@@ -290,13 +296,15 @@ class Collector:
         words = []
         examples = []
         categories = []
+        def_rks = {}
 
         for row in fetched_data:
             word = {
                 k: row.get(k) for k in ['id', 'etymology', 'language', "query", 'word', 'wikiUrl', 'isDerived']
             }
+            
             word_str = word['word']
-            word_id = Collector.apply_hash("{word} ({language})".format(**word))
+            word_id = Collector.apply_hash(self.hash_word_by.format(**word))
             word['wikiUrl'] = word['wikiUrl'] if word['wikiUrl'] is not None else f"/wiki/{word_str}"
             #Row may appear with its actual id if the 
             if word['id'] is None:
@@ -310,18 +318,22 @@ class Collector:
             categories_ = {
                 "categoryId": [
                     Collector.apply_hash(e) for e in categories_
-                ] #FOREIGN KEY,
+                ], #FOREIGN KEY,
+                "categoryLabel": categories_
             }
             categories_['wordId'] = word_id
             categories_ = flatten_dict(categories_)
             categories += categories_
 
-            for element in row.get("definitions", []):
+            for def_rk, element in enumerate(row.get("definitions", [])):
+                element['language'] = word['language']
+
                 # Related words
-                relations = self.process_fetched_relationships(element, word_id, hash_maxlen=hash_maxlen)
+                relations = self.process_fetched_relationships(element, word_id, def_rk, hash_maxlen=hash_maxlen)
                 
                 #Definitions
-                definition, appendix, mentions, word_categories, w_examples = self.process_fetched_definition(element, word_id, hash_maxlen=hash_maxlen)
+                definition, appendix, mentions, word_categories, w_examples \
+                      = self.process_fetched_definition(element, word_id, def_rk, hash_maxlen=hash_maxlen)
 
                 #Newly discovered words (From relationships)
                 if save_orphan:
@@ -329,10 +341,10 @@ class Collector:
                         onode = {}
                         onode['word'] = r.pop('word')
                         onode['wikiUrl'] = r.get('wikiUrl')
-                        onode['id'] = Collector.apply_hash(onode['word'])
                         onode['query'] = word_str
                         onode['etymology'] = None
                         onode['language'] = word.get("language")
+                        onode['id'] = Collector.apply_hash(self.hash_word_by.format(**onode))
                         onode['isDerived'] = 1
                         orph_nodes.append(onode)
 
@@ -341,7 +353,7 @@ class Collector:
                     for m in mentions:
                         mnode = copy.deepcopy(m)
                         mnode.update({
-                            "id": Collector.apply_hash(m.get('word')),
+                            "id": Collector.apply_hash(self.hash_word_by.format(**m)),
                             "query": word.get("word"),
                             "etymology": None,
                         })
@@ -364,6 +376,9 @@ class Collector:
 
         definitions = dict((d['id'], d) for d in definitions)
         definitions = list(definitions.values())
+        
+        categories = {(e['categoryId'], e['wordId']): e for e in categories}
+        categories = list(categories.values())
 
         res = {
             "words": words, 
@@ -406,15 +421,16 @@ class Collector:
 
     def insert_word_data(self, words=[], definitions=[], related_words=[], appendices=[], orph_nodes=[], categories=[], examples=[], insert=True, update=True):
         # Inserting into database
-        inserted_rows = {self.word_table: []}
-        inserted_rows[self.word_table] += self.conn.insert(self.word_table, words, ignore=True)
+        inserted_rows = {}
+        inserted_rows[self.word_table] = self.conn.insert(self.word_table, words, ignore=True)
         inserted_rows[self.word_table] += self.conn.insert(self.word_table, orph_nodes, ignore=True)
+        
         inserted_rows[self.definitions_table] = self.conn.insert(self.definitions_table, definitions, ignore=True)
-        inserted_rows[f"{self.definitions_table}_apx"] = self.conn.insert(f"{self.definitions_table}_apx", appendices, ignore=True)
-
-        inserted_rows[self.edge_table] = self.conn.insert(self.edge_table, related_words, ignore=True)
-        inserted_rows["word_categories"] = self.conn.insert("word_categories", categories, ignore=True)
         inserted_rows["examples"] = self.conn.insert("examples", examples, ignore=True)
+        
+        inserted_rows[f"{self.definitions_table}_apx"] = self.conn.insert(f"{self.definitions_table}_apx", appendices, ignore=True)
+        inserted_rows["word_categories"] = self.conn.insert("word_categories", categories, ignore=True)
+        inserted_rows[self.edge_table] = self.conn.insert(self.edge_table, related_words, ignore=not True)
 
         inserted_rows = {k: sum(v) for k, v in inserted_rows.items()}
         return inserted_rows

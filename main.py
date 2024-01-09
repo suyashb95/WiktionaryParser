@@ -10,12 +10,12 @@ from scripts.utils import collector, inspector
 from scripts.dataset_uploading import main as upload_data
 from scripts.dataset_uploading import dataset_langs
 from scripts.datasets_to_tokens import convert_to_tokens, get_global_token_counts
-from scripts.get_word_info import main as collect_info
+from scripts.get_word_info import collect_info
 from scripts.visualize_interactive_graph import export_graph_to_html
-from src.utils import convert_language
+from src.utils import convert_language, export_to_json
 
 EXPERIMENTAL = not False
-PHASE = 6
+PHASE = 3
 deorphanization_level = 2
 limit = 3 if EXPERIMENTAL else -1
 vocab_file = 'json/collected.txt'
@@ -89,18 +89,20 @@ if PHASE <= 3:
 
         result = collect_info(word, lang, wait_time=.1, save_to_db=True, existing_vocab=existing_vocab_)
         
-        derived_words = sorted({w['word'] for w in result.get('words', [])})
-        derived_words.insert(0, word)
+        # derived_words = sorted({w['word'] for w in result.get('words', [])})
+        # derived_words.insert(0, word)
 
-        result = {k: len(result[k]) for k in result}
-        vocab.set_postfix(result)
+        result_len = {k: len(result[k]) for k in result}
+        vocab.set_postfix(result_len)
         existing_vocab_.append(e['token'])
 
-        with open(vocab_file, 'a+', encoding="utf8") as f:
-            f.writelines([w+'\n' for w in derived_words])
+        # with open(vocab_file, 'a+', encoding="utf8") as f:
+        #     f.writelines([w+'\n' for w in derived_words])
 
-
-    collector.flush()
+        export_to_json(result, "results.json")
+        collector.insert_word_data(**result)
+        # collector.update_word_data(**result)
+        1 / 0
 
 if PHASE <= 4:
     orphan_urls = sorted({(w.get('wikiUrl'), w.get('word'), w.get('query')) for w in builder.get_orphan_nodes()})
@@ -128,7 +130,7 @@ if PHASE <= 4:
         result = parser.deorphanize(**orph)
         collector.save_word(result, save_to_db=True, save_orphan=False, save_mentions=False)
 
-    collector.flush()
+    # collector.flush()
 
 
 
@@ -136,5 +138,5 @@ if PHASE <= 4:
 #     collector.export_to_csv('./backup/csv_export/')
 
 
-if PHASE <= 6:
-    export_graph_to_html('graph.html')
+# if PHASE <= 6:
+#     export_graph_to_html('graph.html')
