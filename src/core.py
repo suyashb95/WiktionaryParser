@@ -361,21 +361,29 @@ class WiktionaryParser(object):
             if parent_tag:
                 for i_li, list_tag in enumerate(parent_tag.find_all('li')):
                     prev_def = parent_tag
+                    def_text = None
                     while True:
-                        prev_def = prev_def.find_previous_sibling()
+                        prev_def_ = prev_def.find_previous_sibling()
+                        if prev_def_ is None:
+                            break
+                        prev_def = prev_def_
                         if prev_def.name in ['p', 'ol', 'ul']:
                             break
                     if prev_def.name == "p":
                         def_text = prev_def
                     elif prev_def.name in ['ul', 'ol']:
                         def_text = prev_def.find_all('li')[-1]
-
-                    def_text = def_text.get_text()
-                    words.append({
+                    if def_text is not None:
+                        def_text = def_text.get_text()
+                    else:
+                        def_text = ''
+                    rel = {
                         "words": list_tag.text,
                         "def_text": def_text,
                         'def_k': (related_index, related_id, i_li)
-                    })
+                    }
+
+                    words.append(rel)
             related_words_list.append((related_index, words, relation_type))
 
         #Pass 2

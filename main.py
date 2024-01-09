@@ -15,7 +15,7 @@ from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language, export_to_json
 
 EXPERIMENTAL = False
-PHASE = 1
+PHASE = 3
 deorphanization_level = 2
 limit = 3 if EXPERIMENTAL else 10
 vocab_file = 'json/collected.txt'
@@ -73,11 +73,10 @@ if PHASE <= 3:
         if os.path.isfile(vocab_file):
             os.remove(vocab_file)
         vocab = [{"token": "كبير", "lang": ['Egyptian Arabic', 'North Levantine Arabic', 'South Levantine Arabic', 'arabic', "Moroccan Arabic"]}]
-    vocab = tqdm.tqdm(vocab, position=0)
 
-
-    collector.auto_flush_after = 100
     print(f"\n=========== Phase 3 begins at {datetime.now().strftime('%H:%M:%S')} ===========")
+    vocab = tqdm.tqdm(vocab, position=0)
+    collector.auto_flush_after = 100
     for e in vocab:
         word = e['token']
         if len(word) <= 1 or word in existing_vocab_:
