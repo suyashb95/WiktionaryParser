@@ -15,7 +15,7 @@ from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language, export_to_json
 
 EXPERIMENTAL = not False
-PHASE = 3
+PHASE = 1
 deorphanization_level = 2
 limit = 3 if EXPERIMENTAL else -1
 vocab_file = 'json/collected.txt'

@@ -286,6 +286,7 @@ class WiktionaryParser(object):
                     if hw:
                         definition_headword = hw
                     def_dt['headword'] = definition_headword
+                    def_dt['def_id'] = def_id
                     definition_text.append(def_dt)
       
                     
@@ -346,6 +347,9 @@ class WiktionaryParser(object):
 
     def parse_related_words(self, word_contents):
         relation_id_list = self.get_id_list(word_contents, 'related')
+        id_list = {e.find_previous().text: {
+            "related_section" :e.parent.get('href').replace('#', '')
+        } for e in word_contents}
         related_words_list = []
         for related_index, related_id, relation_type in relation_id_list:
             words = []
@@ -373,9 +377,7 @@ class WiktionaryParser(object):
             related_words_list.append((related_index, words, relation_type))
 
         #Pass 2
-        id_list = {e.find_previous().text: {
-            "related_section" :e.parent.get('href').replace('#', '')
-        } for e in word_contents}
+        
         # id_list = list(id_list.items())
         for k in id_list:
             def_id = id_list[k].get('related_section')
@@ -391,9 +393,9 @@ class WiktionaryParser(object):
                 elif content.name in ['ol', 'ul']:
                     lis = content.find_all('li', recursive=False)
                     for li in lis:
-                        related_words_list += self.parse_related_words_from_nyms(li, k, def_text=li.text)
+                        related_words_list += self.parse_related_words_from_nyms(li, k, def_text=li.text, def_id=def_id)
                 elif content.name in ['p']:
-                    related_words_list += self.parse_related_words_from_nyms(content, k, def_text=content.text)
+                    related_words_list += self.parse_related_words_from_nyms(content, k, def_text=content.text, def_id=def_id)
                              
         return related_words_list
     

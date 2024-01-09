@@ -21,6 +21,9 @@ def collect_info(word, lang, wait_time=0, save_to_db=True, existing_vocab=[]):
             prepped_word = word
         # print(f"Fetching all potentials for {prepped_word} ({lang})")
         fetched_data = parser.fetch_all_potential(prepped_word, query=word, language=lang)
+        export_to_json(fetched_data, "fetched_data.json")
+
+
     for k in fetched_data:
         element = fetched_data[k]
         e = collector.save_word(element, save_to_db=save_to_db, save_mentions=False)
