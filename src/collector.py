@@ -315,7 +315,8 @@ class Collector:
             #Row may appear with its actual id if the 
             if word['id'] is None:
                 word['id'] = word_id
-            word['word'] = re.sub('\W|_', ' ', word_str)
+            unshakled_word_str = re.sub(r'[\u064B-\u0655]', '', word_str)
+            word['word'] = re.sub('\W|_', ' ', unshakled_word_str)
             word['isDerived'] = 0
             words.append(word)
                         
