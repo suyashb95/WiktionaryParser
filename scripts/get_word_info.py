@@ -30,7 +30,6 @@ def collect_info(word, lang, wait_time=0, save_to_db=True, existing_vocab=[]):
         for k in e:
             results[k] = results.get(k, []) + e.get(k, [])
         export_to_json(e, "e.json")
-        print("\n{} relations collected for {}\n".format(len(results['related_words']), prepped_word))
         # collector.insert_word_data(**results)
 
     if wait_time > 0:

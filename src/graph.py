@@ -78,7 +78,6 @@ class GraphBuilder:
             joins=joins,
             conditions=where_clause
         )
-        print(self.conn.query)
 
         return result
     

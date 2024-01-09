@@ -218,8 +218,10 @@ class Collector:
                 lang = rw_list[i].get('language')
                 wikiUrl = rw_list[i].get('wikiUrl')
                 if lang is None and wikiUrl is not None:
-                    lang = re.search('#\w+$', wikiUrl).group(0)
-                    lang = re.sub('#|_', ' ', lang.lower()).strip()
+                    lang = re.search('#\w+$', wikiUrl)
+                    if lang is not None:
+                        lang = lang.group(0)
+                        lang = re.sub('#|_', ' ', lang.lower()).strip()
 
                 rw_list[i]['language'] = lang
 

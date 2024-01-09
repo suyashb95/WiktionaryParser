@@ -14,10 +14,10 @@ from scripts.get_word_info import collect_info
 from scripts.visualize_interactive_graph import export_graph_to_html
 from src.utils import convert_language, export_to_json
 
-EXPERIMENTAL = not False
+EXPERIMENTAL = False
 PHASE = 1
 deorphanization_level = 2
-limit = 3 if EXPERIMENTAL else -1
+limit = 3 if EXPERIMENTAL else 10
 vocab_file = 'json/collected.txt'
 
 
