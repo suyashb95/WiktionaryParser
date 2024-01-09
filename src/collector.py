@@ -52,8 +52,8 @@ class Collector:
 
     @staticmethod
     def apply_hash(text):
-        return text
-        return hashlib.sha224(text.encode()).hexdigest()
+        # return text
+        return hashlib.sha256(text.encode()).hexdigest()
     
     def __create_tables(self):
         # Define the table names
