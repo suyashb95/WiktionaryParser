@@ -52,7 +52,7 @@ class Collector:
 
     @staticmethod
     def apply_hash(text):
-        # return text
+        return text
         return hashlib.sha224(text.encode()).hexdigest()
     
     def __create_tables(self):
@@ -214,10 +214,17 @@ class Collector:
             rw['pos'] = element.get("partOfSpeech")
             rw_list = flatten_dict(rw)
             for i in range(len(rw_list)):
-                rw_list[i]['language'] = rw_list[i].get('language')
-
                 rw_list[i].update(rw_list[i].get("words", {}))
+                lang = rw_list[i].get('language')
+                wikiUrl = rw_list[i].get('wikiUrl')
+                if lang is None and wikiUrl is not None:
+                    lang = re.search('#\w+$', wikiUrl).group(0)
+                    lang = re.sub('#|_', ' ', lang.lower()).strip()
+
+                rw_list[i]['language'] = lang
+
                 rw_list[i]['raw_text'] = rw_list[i].pop('def_text', None)
+                #gugus
                 # headDefinitionId = Collector.apply_hash(self.hash_def_by.format(**rw_list[i]))
                 # rw_list[i]['headDefinitionId'] = headDefinitionId
                 rw_list[i]['word'] = rw_list[i].pop('words')
@@ -385,7 +392,7 @@ class Collector:
         
         categories = {(e['categoryId'], e['wordId']): e for e in categories}
         categories = list(categories.values())
-
+        related_words = sorted(related_words, key=lambda x:x.get('wordId'))
         res = {
             "words": words, 
             "definitions": definitions,
@@ -436,7 +443,7 @@ class Collector:
         
         inserted_rows[f"{self.definitions_table}_apx"] = self.conn.insert(f"{self.definitions_table}_apx", appendices, ignore=True)
         inserted_rows["word_categories"] = self.conn.insert("word_categories", categories, ignore=True)
-        inserted_rows[self.edge_table] = self.conn.insert(self.edge_table, related_words, ignore=not True)
+        inserted_rows[self.edge_table] = self.conn.insert(self.edge_table, related_words, ignore=True)
 
         inserted_rows = {k: sum(v) for k, v in inserted_rows.items()}
         return inserted_rows

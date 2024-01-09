@@ -102,7 +102,7 @@ if PHASE <= 3:
         export_to_json(result, "results.json")
         collector.insert_word_data(**result)
         # collector.update_word_data(**result)
-        1 / 0
+        # 1 / 0
 
 if PHASE <= 4:
     orphan_urls = sorted({(w.get('wikiUrl'), w.get('word'), w.get('query')) for w in builder.get_orphan_nodes()})
@@ -138,5 +138,5 @@ if PHASE <= 4:
 #     collector.export_to_csv('./backup/csv_export/')
 
 
-# if PHASE <= 6:
-#     export_graph_to_html('graph.html')
+if PHASE <= 6:
+    export_graph_to_html('graph.html')
