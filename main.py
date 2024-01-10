@@ -74,11 +74,10 @@ if PHASE <= 3:
         if os.path.isfile(vocab_file):
             os.remove(vocab_file)
         
-    # vocab = [{"token": "كبير", "lang": ['Egyptian Arabic', 'North Levantine Arabic', 'South Levantine Arabic', 'arabic', "Moroccan Arabic"]}]
-    vocab = [
-        {"token": "كبير", "lang": ['arabic']},
-        {"token": "مصر", "lang": ['arabic']},
-    ]
+        vocab = [
+            {"token": "كبير", "lang": ['arabic']},
+            {"token": "مصر", "lang": ['arabic']},
+        ]
 
     print(f"\n=========== Phase 3 begins at {datetime.now().strftime('%H:%M:%S')} ===========")
     vocab = tqdm.tqdm(vocab, position=0)
