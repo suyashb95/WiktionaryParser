@@ -118,39 +118,41 @@ class WiktionaryParser(object):
     def get_word_data(self, language, include_dialects=True):
         contents = self.soup.find_all('span', {'class': 'toctext'})
         word_contents = []
-        start_index = None
+        start_indices = []
+        json_obj_list = []
         for content in contents:
             ctl = content.text.lower()
-            if language == ctl: # or (include_dialects and language in ctl):
-                start_index = content.find_previous().text + '.'
-                language = ctl
+            if language == ctl or (include_dialects and language in ctl):
+                start_indices.append((content.find_previous().text + '.', ctl))
                 
-        if not start_index:
+        if not start_indices:
             if contents:
                 return []
             language_heading = self.soup.find_all(
                 "span",
                 {"class": "mw-headline"},
-                string=lambda s: str(s).lower() == language
+                string=lambda s: language in str(s).lower()
             )
             if not language_heading:
                 return []
-        for content in contents:
-            index = content.find_previous().text
-            content_text = self.remove_digits(content.text.lower())
-            if index.startswith(start_index) and content_text in self.INCLUDED_ITEMS:
-                word_contents.append(content)
-        word_data = {
-            'related': self.parse_related_words(word_contents),
-            'examples': self.parse_examples(word_contents),
-            'definitions': self.parse_definitions(word_contents),
-            'etymologies': self.parse_etymologies(word_contents),
-            'pronunciations': self.parse_pronunciations(word_contents),
-        }
-        json_obj_list = self.map_to_object(word_data)
-        for obj in json_obj_list:
-            obj['categories'] = self.parse_categories()
-            obj['language'] = language
+        for start_index, dialect in start_indices:
+            for content in contents:
+                index = content.find_previous().text
+                content_text = self.remove_digits(content.text.lower())
+                if index.startswith(start_index) and content_text in self.INCLUDED_ITEMS:
+                    word_contents.append(content)
+            word_data = {
+                'related': self.parse_related_words(word_contents),
+                'examples': self.parse_examples(word_contents),
+                'definitions': self.parse_definitions(word_contents),
+                'etymologies': self.parse_etymologies(word_contents),
+                'pronunciations': self.parse_pronunciations(word_contents),
+            }
+            json_obj_list_ = self.map_to_object(word_data)
+            for obj in json_obj_list_:
+                obj['categories'] = self.parse_categories()
+                obj['language'] = dialect
+            json_obj_list += json_obj_list_
             
         return json_obj_list
 
