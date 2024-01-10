@@ -73,7 +73,12 @@ if PHASE <= 3:
     if EXPERIMENTAL:
         if os.path.isfile(vocab_file):
             os.remove(vocab_file)
-        vocab = [{"token": "كبير", "lang": ['Egyptian Arabic', 'North Levantine Arabic', 'South Levantine Arabic', 'arabic', "Moroccan Arabic"]}]
+        
+    # vocab = [{"token": "كبير", "lang": ['Egyptian Arabic', 'North Levantine Arabic', 'South Levantine Arabic', 'arabic', "Moroccan Arabic"]}]
+    vocab = [
+        {"token": "كبير", "lang": ['arabic']},
+        {"token": "مصر", "lang": ['arabic']},
+    ]
 
     print(f"\n=========== Phase 3 begins at {datetime.now().strftime('%H:%M:%S')} ===========")
     vocab = tqdm.tqdm(vocab, position=0)
@@ -84,6 +89,7 @@ if PHASE <= 3:
             continue
 
         lang = e.get('lang')
+        # lang = ['arabic']
         vocab.set_description(f"[Started at {datetime.now().strftime('%H:%M:%S')}] - ({fix_ar_display(word)})")
         word = get_word_info_prep(word.strip())
 
@@ -101,30 +107,36 @@ if PHASE <= 3:
         # collector.update_word_data(**result)
 
 if PHASE <= 4:
-    orphan_urls = sorted({(w.get('wikiUrl'), w.get('word'), w.get('query')) for w in builder.get_orphan_nodes()})
-    orphan_lex = []
-    for url, w, q in orphan_urls:
-        lang = re.search('#(\w+)$', url)
-        if lang is not None:
-            lang = lang.group(1)
+    for rd in range(1, deorphanization_level+1):
+        orphan_urls = sorted({(w.get('wikiUrl'), w.get('word'), w.get('query')) for w in builder.get_orphan_nodes()})
+        orphan_lex = []
+        for url, w, q in orphan_urls:
+            lang = re.search('#(\w+)$', url)
+            if lang is not None:
+                lang = lang.group(1)
+            else:
+                lang = ['english', None]
 
-        orphan_lex.append({
-            'wikiUrl': url, 
-            'language': lang,
-            'word': w,
-            'query': q
-        })
-    
-    # orphan_lex = orphan_lex[:10]
-    orphan_lex = tqdm.tqdm(orphan_lex)
+            orphan_lex.append({
+                'wikiUrl': url, 
+                'language': lang,
+                'word': w,
+                'query': q
+            })
+        
+        # orphan_lex = orphan_lex[:10]
+        orphan_lex = tqdm.tqdm(orphan_lex)
 
-    #Ready to deorphanize
-    deorphed_words = []
-    collector.auto_flush_after = 25
-    for orph in orphan_lex:
-        orphan_lex.set_postfix(orph)
-        result = parser.deorphanize(**orph)
-        collector.save_word(result, save_to_db=True, save_orphan=False, save_mentions=False)
+        #Ready to deorphanize
+        deorphed_words = []
+        collector.auto_flush_after = 25
+        for orph in orphan_lex:
+            orphan_lex.set_postfix(orph)
+            result = parser.deorphanize(**orph)
+            collector.save_word(result, save_to_db=True, 
+                                save_orphan=(rd == deorphanization_level), 
+                                save_mentions=False
+                            )
 
     # collector.flush()
 

@@ -120,8 +120,10 @@ class WiktionaryParser(object):
         word_contents = []
         start_index = None
         for content in contents:
-            if language == content.text.lower() or (include_dialects and language.lower() in content.text.lower()):
+            ctl = content.text.lower()
+            if language == ctl: # or (include_dialects and language in ctl):
                 start_index = content.find_previous().text + '.'
+                language = ctl
                 
         if not start_index:
             if contents:

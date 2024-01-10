@@ -26,7 +26,7 @@ def collect_info(word, lang, wait_time=0, save_to_db=True, existing_vocab=[], in
 
     for k in fetched_data:
         element = fetched_data[k]
-        e = collector.save_word(element, save_to_db=save_to_db, save_mentions=False)
+        e = collector.save_word(element, save_to_db=save_to_db, save_mentions=True)
         for k in e:
             results[k] = results.get(k, []) + e.get(k, [])
         export_to_json(e, "e.json")
