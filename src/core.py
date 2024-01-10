@@ -242,9 +242,12 @@ class WiktionaryParser(object):
     
     def mine_element(self, element):
         raw_text = element.text.strip()
-        text = element.text.strip()
         headword = element.find('strong', {"class": "headword"})
         headword = headword.text if headword else None
+        if len(element.contents) == 1 and element.find('span', {"class": "headword-line"}, recursive=False):
+            return None, headword
+
+        text = element.text.strip()
         appendix = element.find_all("a", {"title": "Appendix:Glossary"})
         appendix += element.find_all("span", {"class": "ib-content"})
         appendix_removal = []
@@ -326,7 +329,6 @@ class WiktionaryParser(object):
                 if definition_tag.name == 'p':
                     if definition_tag.text.strip():
                         scrappable.append(definition_tag)
-                        # def_dt, hw = self.mine_element(definition_tag)
                         
                 if definition_tag.name in ['ol', 'ul']:
                     for element in definition_tag.find_all('li', recursive=False):
@@ -340,6 +342,8 @@ class WiktionaryParser(object):
                     def_dt, hw = self.mine_element(e)
                     if hw:
                         definition_headword = hw
+                    if def_dt is None:
+                        continue
                     def_dt['headword'] = definition_headword
                     def_dt['def_k'] = (def_index, def_id, i_scrp)
                     definition_text.append(def_dt)
