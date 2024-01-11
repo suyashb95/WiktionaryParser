@@ -12,13 +12,18 @@ from scripts.datasets_to_tokens import convert_to_tokens, get_global_token_count
 from scripts.get_word_info import main as collect_info
 from scripts.deorphanize import main as deorphanize
 from scripts.visualize_interactive_graph import export_graph_to_html
-from src.utils import convert_language
+from scripts.word_magnitude import influential_words
+from src.utils import convert_language, export_to_json, flatten_dict
 
 EXPERIMENTAL = not False
 PHASE = 1
 deorphanization_level = 2
 limit = 3 if EXPERIMENTAL else -1
 vocab_file = 'json/collected.txt'
+top_k = 3 if EXPERIMENTAL else 0
+
+if not os.path.isdir('./json'):
+    os.mkdir('json')
 
 datasets = None
 if PHASE <= 1:
@@ -28,7 +33,14 @@ if PHASE <= 1:
 if PHASE <= 2:
     tokenized_texts = convert_to_tokens(datasets)
 
-    global_tokens = get_global_token_counts(tokenized_texts)
+    tokenized_texts = convert_to_tokens(None)
+    starting_vocab_ = influential_words(tokenized_texts, top_k=top_k)
+    starting_vocab_ = [{"dataset_name": dn, "token": sorted(tok.keys())} for (dn, _), tok in starting_vocab_.items()]
+    global_tokens = []
+    
+    for e in starting_vocab_:
+        global_tokens += flatten_dict(e)
+
     for i in range(len(global_tokens)):
         global_tokens[i]['lang'] = dataset_langs.get(global_tokens[i]['dataset_name'])
 
