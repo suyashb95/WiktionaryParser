@@ -13,7 +13,7 @@ from scripts.get_word_info import main as collect_info
 from scripts.deorphanize import main as deorphanize
 from scripts.visualize_interactive_graph import export_graph_to_html
 from scripts.word_magnitude import influential_words
-from src.utils import convert_language, export_to_json, flatten_dict
+from src.utils import convert_language, flatten_dict
 
 EXPERIMENTAL = not False
 PHASE = 1
