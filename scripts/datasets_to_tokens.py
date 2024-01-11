@@ -16,16 +16,21 @@ def convert_to_tokens(dataset_name=None, sample_size = 0):
         entries_with_k = [entry for entry in results if entry.get(k) == unique_k]
         if sample_size > 1:
             if len(entries_with_k) >= sample_size:
-                # entries_with_k = random.sample(entries_with_k, sample_size)
-                entries_with_k = entries_with_k[:sample_size]
+                entries_with_k = random.sample(entries_with_k, sample_size)
+                # entries_with_k = entries_with_k[:sample_size]
 
 
         for entry in entries_with_k:
             raw_text = entry.get('text')
             prepped_text = dataset_2_tokens_prep(raw_text)
             raw_text = dataset_2_tokens_prep.tokenize(raw_text)
-            prepped_text = [(tok, raw) for tok, raw in zip(prepped_text, raw_text) if len(tok.strip()) > 0]
-            entry['tokens'] = Counter(prepped_text)
+            prepped_text_tokens = [(tok, raw) for tok, raw in zip(prepped_text, raw_text) if len(tok.strip()) > 0]
+            
+            prepped_text = ' '.join(prepped_text)
+            prepped_text = dataset_2_tokens_prep.strip_spaces(prepped_text)            
+            entry['prepped_text'] = prepped_text
+
+            entry['tokens'] = Counter(prepped_text_tokens)
             entry['tokens'] = [{
                 "token": tok,
                 "unprocessed_token": raw,
