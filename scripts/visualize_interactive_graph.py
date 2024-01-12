@@ -8,11 +8,11 @@ from src.utils import get_colormap
 from pyvis.network import Network
 
 
-def export_graph_to_html(output_file='graph.html'):
-    graph = builder.build_graph("d2w", category_info=True, appendix_info=True, 
+def export_graph_to_html(output_file='graph.html', category_info=True, appendix_info=True, select_menu=True, filter_menu=True):
+    graph = builder.build_graph("d2w", category_info=category_info, appendix_info=appendix_info, 
         preprocessing_callback=Preprocessor(return_type="str"),
     )
-    g = Network(directed=True, select_menu=True, filter_menu=True)
+    g = Network(directed=True, select_menu=select_menu, filter_menu=filter_menu)
     n_color_palette = get_colormap(graph.ntypes, palette="tab10_r")
     for n_i, ntype in enumerate(graph.ntypes):
         node_ids = builder.node_ids[ntype]

@@ -1,6 +1,7 @@
 from collections import Counter
 from scripts.utils import conn 
 from scripts.utils import fix_ar_display
+from scripts.visualize_interactive_graph import export_graph_to_html
 
 
 isDerivedReportQ = f"""
@@ -28,4 +29,7 @@ print(conn.execute(query=hasDefReportQ))
 print('='*50)
 print(conn.execute(query=hasCategReportQ))
 print('='*50)
-print(Counter(undefWords))
+# print(Counter(undefWords))
+
+
+export_graph_to_html('graph.html', appendix_info=False)
