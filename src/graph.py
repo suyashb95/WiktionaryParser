@@ -82,7 +82,26 @@ class GraphBuilder:
         return result
     
     def def2def(self, query_filter=None):
-        pass
+        joins = [
+            (f"{self.edge_table}", f"tdef.wordId = {self.edge_table}.wordId"),
+            (f"{self.definitions_table} hdef", f"hdef.id = {self.edge_table}.headDefinitionId"),
+        ]
+        fields = f"hdef.wordId AS headId, hdef.headword AS head, hdef.partOfSpeech AS headPOS, " \
+                 f"{self.edge_table}.relationshipType, tdef.headWord as tail, tdef.partOfSpeech as tailPOS, tdef.wordId as tailId" \
+                 ", tdef.text as tailDef"
+
+        # Format where clause based on query_filter
+        where_clause = {}
+        if query_filter is not None:
+            for k, v in query_filter.items():
+                where_clause[k] = v
+        result = self.conn.read(
+            collection_name=f"{self.definitions_table} tdef",
+            fields=fields,
+            joins=joins,
+            conditions=where_clause,
+        )
+        return result
     
     def get_vocab(self, category_info=True, partOfSpeech=False):
         fields = f"w.*"

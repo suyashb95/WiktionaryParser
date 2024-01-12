@@ -104,7 +104,7 @@ class MySQLClient(DatabaseClient):
         return self.execute(data=data, **kwargs)
         # Execute the query or return it
     
-    def read(self, collection_name, conditions={}, joins=[], fields='*', order_by=None, limit=None):
+    def read(self, collection_name, conditions={}, joins=[], fields='*', order_by=None, limit=None, distinct=False):
         """
         Read method that can handle complex queries including joins.
         
@@ -114,9 +114,13 @@ class MySQLClient(DatabaseClient):
         :param fields: Fields to select, defaults to '*'.
         :param order_by: Order by clause.
         :param limit: Limit clause.
+        :param distinct: apply select distinct.
         :return: Result of the query.
         """
-        select_clause = f"SELECT {fields} FROM {collection_name}"
+        if distinct:
+            select_clause = f"SELECT DISTINCT {fields} FROM {collection_name}"
+        else:
+            select_clause = f"SELECT {fields} FROM {collection_name}"
         join_clause = []
         for table, condition, *how in joins:
             if not how:

@@ -1,11 +1,10 @@
 import json
 import pymysql
-from src.collector import Collector
-from src.database import MySQLClient
+import dgl
+from scripts.utils import builder
 
-conn = MySQLClient(host="localhost", user="root", password="", db="knowledge_graph")
-coll = Collector(conn)
-
+g = builder.build_graph("d2d")
+print(g.num_edges())
 
 # def make_graph_from_data(dataset, text_attr="norm"):
 #     nodes = {}
@@ -53,9 +52,4 @@ coll = Collector(conn)
 #     }
 
 #     return data_as_graph #, G, pd.DataFrame(nodes).T, pd.DataFrame(edges)
-
-
-
-print(coll.get_datasets())
-
 
