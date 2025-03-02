@@ -2,7 +2,7 @@
 
 A python project which downloads words from English Wiktionary ([en.wiktionary.org](https://en.wiktionary.org)) and parses articles' content in an easy to use JSON format. Right now, it parses etymologies, definitions, pronunciations, examples, audio links and related words.
 
-There are many free dictionary APIs nowadays, check out https://dictionaryapi.dev, for example
+There are many free dictionary APIs nowadays which may or may not make this project redundant for you, do check out https://dictionaryapi.dev, for example.
 
 [![Downloads](http://pepy.tech/badge/wiktionaryparser)](http://pepy.tech/project/wiktionaryparser)
 
