@@ -29,7 +29,7 @@ Note: This project will not be maintained since there are many free dictionary A
 
 #### Installation
 
-##### Using pip 
+##### Using pip
 * run `pip install wiktionaryparser`
 
 ##### From Source
@@ -55,6 +55,13 @@ Note: This project will not be maintained since there are many free dictionary A
 >>> parser.set_default_language('french')
 >>> parser.exclude_part_of_speech('noun')
 >>> parser.include_relation('alternative forms')
+```
+
+```python
+>>> word, categories = parser.fetch('test', return_categories=True)
+>>> words = parser.fetch_category('English phrasebook')
+>>> words, subcategories = parser.fetch_category('English phrasebook', 
+                                                  return_subcategories=True)
 ```
 
 #### Requirements
