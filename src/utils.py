@@ -1,3 +1,10 @@
+import itertools
+import json
+from pathlib import Path
+import langcodes
+
+from matplotlib import pyplot as plt
+import numpy as np
 class WordData(object):
     def __init__(self, etymology=None, definitions=None, pronunciations=None,
                  audio_links=None):
@@ -77,3 +84,39 @@ class RelatedWord(object):
             'relationshipType': self.relationship_type,
             'words': self.words
         }
+    
+
+def flatten_dict(dictionary):
+    dictionary = {k: v if hasattr(v, '__iter__') and type(v) != str else [v] for k, v in dictionary.items()}
+    keys, values = zip(*dictionary.items())
+    dictionary = [dict(zip(keys, v)) for v in itertools.product(*values)]
+    return dictionary
+
+
+def get_colormap(labels, palette=None):
+    labels = sorted(set(labels), key=str)
+    if None in labels:
+        labels.remove(None)
+    colormap = plt.get_cmap(palette)
+    colormap = colormap(np.linspace(0.1, 1, len(labels)))
+    colormap = (colormap * 255).astype(int)
+    colormap = [f"rgb({r}, {g}, {b})" for r, g, b, _ in colormap]
+    colormap = dict(zip(labels, colormap))
+    colormap[None] = "gray"
+    return colormap
+
+def convert_language(input_str, format="long"):
+    lang = langcodes.Language.make(language=input_str)
+    if format == "long":
+        if lang.display_name().startswith("Unknown"):
+            return input_str
+        else:
+            return lang.display_name().lower()
+    return lang.language
+
+
+def export_to_json(d, file):
+    fp = "./json/"+file
+    # fp.mkdir(exist_ok=True, parents=False)
+    with open(fp, 'w', encoding="utf8") as f:
+        f.write(json.dumps(d, indent=2, sort_keys=True, ensure_ascii=False))
