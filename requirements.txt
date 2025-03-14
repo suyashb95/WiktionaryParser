@@ -1,4 +1,4 @@
-requests==2.20.0
+requests==2.31.0
 beautifulsoup4==4.9.1
 deepdiff==5.0.2
 parameterized==0.7.4
