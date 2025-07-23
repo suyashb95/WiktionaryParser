@@ -1,4 +1,4 @@
-from setuptools import setup,find_packages
+from setuptools import setup
 
 with open('readme.md', 'r') as readme:
   long_desc = readme.read()
@@ -13,12 +13,12 @@ setup(
   data_files=[('testOutput', ['tests/testOutput.json']), ('readme', ['readme.md']), ('requirements', ['requirements.txt'])],
   author = 'Suyash Behera',
   author_email = 'sne9x@outlook.com',
-  url = 'https://github.com/Suyash458/WiktionaryParser', 
-  download_url = 'https://github.com/Suyash458/WiktionaryParser/archive/master.zip', 
+  url = 'https://github.com/Suyash458/WiktionaryParser',
+  download_url = 'https://github.com/Suyash458/WiktionaryParser/archive/master.zip',
   keywords = ['Parser', 'Wiktionary'],
-  install_requires = ['beautifulsoup4','requests'],
+  install_requires = ['beautifulsoup4', 'requests'],
   classifiers=[
-   'Development Status :: 5 - Production/Stable',
-   'License :: OSI Approved :: MIT License',
+    'Development Status :: 5 - Production/Stable',
+    'License :: OSI Approved :: MIT License',
   ],
 )
