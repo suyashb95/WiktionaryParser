@@ -118,14 +118,14 @@ class WiktionaryParser:
                 start_index = content.find_previous().text + '.'
         if not start_index:
             if contents:
-                return []
+                return [{"additional_info": f"no {language} entry for {self.current_word}"}]
             language_heading = self.soup.find_all(
                 "span",
                 {"class": "mw-headline"},
                 string=lambda s: s.lower() == language
             )
             if not language_heading:
-                return []
+                return [{"additional_info": f"no {language} entry for {self.current_word}"}]
         for content in contents:
             index = content.find_previous().text
             content_text = self.remove_digits(content.text.lower())
@@ -284,4 +284,8 @@ class WiktionaryParser:
         self.soup = BeautifulSoup(response.text.replace('>\n<', '><'), 'html.parser')
         self.current_word = word
         self.clean_html()
+        search_string = "Wiktionary does not yet have an entry for " + word
+        result = self.soup.find_all(string=re.compile(search_string))
+        if result:
+            return [{"additional_info": search_string}]
         return self.get_word_data(language.lower())
